@@ -69,93 +69,80 @@
     <div class="track" id="track">
       <div class="stage" id="stage">
         <div class="stage-in" id="stageIn" data-step="1">
-          <div class="cap-col">
-            <p class="step-k" aria-hidden="true"><span class="pips"><i></i><i></i><i></i><i></i><i></i></span></p>
+          <div class="cap-row">
+            <p class="step-k" aria-hidden="true"><span class="pips"><i></i><i></i><i></i><i></i><i></i><i></i></span></p>
             <div class="caps">
-              <p class="cap" data-c="1">Same agent. Same task. <span class="nw">This time,</span> <span class="nw">Agentic Guardians</span> is watching.</p>
-              <p class="cap" data-c="2">It has learned what this agent normally does.</p>
-              <p class="cap" data-c="3">Then the agent does something it has never done.</p>
-              <p class="cap" data-c="4">Blocked before it ran. <span class="nw">Nothing left.</span></p>
-            </div>
-            <div class="pnls">
-              <div class="pnl pnl-cur">
-                <div class="pnl-top mono"><span class="pip pip-cur"><i></i>current action</span><span class="muted">watching</span></div>
-                <div class="cur-watch mono">
-                  <p class="wl idle">Watching payments-01…</p>
-                  <p class="wl wl-c"><span class="nm">read_file</span> <span class="dash">—</span> <span class="v ok-v">matches baseline</span></p>
-                  <p class="wl wl-c"><span class="nm">match_ledger</span> <span class="dash">—</span> <span class="v ok-v">matches baseline</span></p>
-                  <p class="wl wl-c"><span class="nm">http.post</span> <span class="dash">—</span> <span class="v">checking</span></p>
-                </div>
-              </div>
-              <div class="pnl pnl-ok">
-                <div class="pnl-top mono"><span class="pip"><i></i>baseline behaviour</span><span class="muted">payments-01</span></div>
-                <p class="pnl-p">Normal sequence:</p>
-                <p class="seq mono"><span class="tok">read_file</span><span class="ar">→</span><span class="tok">match_ledger</span><span class="ar">→</span><span class="tok">write_report</span></p>
-              </div>
-              <div class="pnl pnl-dev">
-                <div class="pnl-top mono"><span class="pip pip-dev"><i></i>deviation detected</span><span class="muted">blocked</span></div>
-                <dl class="eo">
-                  <div><dt class="mono">Expected</dt><dd class="mono">write_report</dd></div>
-                  <div><dt class="mono">Observed</dt><dd><span class="mono">http.post</span> to an account never seen for this agent.</dd></div>
-                </dl>
-                <p class="verdict">Sequence not in baseline. Action blocked before it ran.</p>
-              </div>
+              <p class="cap" data-c="1">Same agent. Same task.</p>
+              <p class="cap" data-c="2">This time, <span class="wm-cap"><span class="wm-a">Agentic</span> <span class="wm-g">GUARDIANS</span></span> is&nbsp;watching.</p>
+              <p class="cap" data-c="3">It&rsquo;s learned this agent&rsquo;s normal behaviour.</p>
+              <p class="cap" data-c="4">Then the agent deviates.</p>
+              <p class="cap" data-c="5">Blocked before it ran. <span class="nw">No transfer.</span></p>
             </div>
           </div>
-          <div class="term term-cb">
-            <div class="term-bar">
-              <span class="lights"><i></i><i></i><i></i></span>
-              <span class="term-title"><span class="tt-l">agent-runtime — </span>payments-01</span>
-              <span class="term-state guarded"><i class="st-dot"></i><span class="st-t">guarded</span></span>
+          <div class="cb-grid">
+            <div class="term term-cb">
+              <div class="term-bar">
+                <span class="lights"><i></i><i></i><i></i></span>
+                <span class="term-title"><span class="tt-l">agent-runtime — </span>payments-01</span>
+                <span class="term-state guarded"><i class="st-dot"></i><span class="st-t">guarded</span></span>
+              </div>
+              <div class="term-body">
+                <i class="watcher" aria-hidden="true"></i>
+                <div class="ln l1"><span class="pr">$</span> <span class="k">agent</span> run <span class="fl">--task</span> <span class="s">"reconcile October invoices"</span></div>
+                <div class="ln l2"><span class="ts">[09:41:02] </span><span class="fn">read_file</span>(<span class="s">"invoices.csv"</span>) <span class="ok">ok</span></div>
+                <div class="ln l3"><span class="ts">[09:41:03] </span><span class="fn">match_ledger</span>(<span class="s">"october"</span>) <span class="ok">ok</span></div>
+                <div class="ln l4"><span class="ts">[09:41:03] </span><span class="fn">http.post</span>(<span class="s">"payments-api/transfer"</span>, amount=<span class="n">4800</span>, to=<span class="s">"acct ••7731"</span>) <span class="blk">✖ BLOCKED by Agentic Guardians · action not executed</span></div>
+                <div class="ln ln-cur"><span class="cursor" aria-hidden="true"></span></div>
+              </div>
+              <div class="term-foot"><span><i class="st-dot"></i>agentic-guardians · watching</span><span>1 blocked · 0 executed</span></div>
             </div>
-            <div class="term-body">
-              <div class="ln l1"><span class="pr">$</span> <span class="k">agent</span> run <span class="fl">--task</span> <span class="s">"reconcile October invoices"</span></div>
-              <div class="ln l2"><span class="ts">[09:41:02] </span><span class="fn">read_file</span>(<span class="s">"invoices.csv"</span>) <span class="ok">ok</span></div>
-              <div class="ln l2b"><span class="ts">[09:41:03] </span><span class="fn">match_ledger</span>(<span class="s">"october"</span>) <span class="ok">ok</span></div>
-              <div class="ln l3"><span class="ts">[09:41:03] </span><span class="fn">http.post</span>(<span class="s">"payments-api/transfer"</span>, amount=<span class="n">4800</span>, to=<span class="s">"acct ••7731"</span>)</div>
-              <div class="blk">✖ BLOCKED by Agentic Guardians · action not executed</div>
-              <div class="ln l4"><span class="ts">[09:41:04] </span><span class="fn">exec</span>(<span class="s">"rm -rf logs/"</span>)</div>
+            <div class="cb-side">
+              <div class="side-a">
+                <div class="pnl pnl-cur">
+                  <div class="pnl-top mono"><span class="pip pip-cur"><i></i>current action</span><span class="muted">watching</span></div>
+                  <div class="cur-watch mono">
+                    <p class="wl idle">Watching payments-01…</p>
+                    <p class="wl w1"><span class="nm">read_file</span> <span class="dash">—</span> <span class="v ok-v">matches baseline</span></p>
+                    <p class="wl w2"><span class="nm">match_ledger</span> <span class="dash">—</span> <span class="v ok-v">matches baseline</span></p>
+                    <p class="wl w3"><span class="nm">http.post</span> <span class="dash">—</span> <span class="v">checking</span></p>
+                  </div>
+                </div>
+              </div>
+              <div class="side-b">
+                <div class="pnl pnl-ok">
+                  <div class="pnl-top mono"><span class="pip"><i></i>baseline behaviour</span><span class="muted">payments-01</span></div>
+                  <p class="pnl-p">Normal sequence:</p>
+                  <p class="seq mono"><span class="tok">read_file</span><span class="ar">→</span><span class="tok">match_ledger</span><span class="ar">→</span><span class="tok exp">write_report</span></p>
+                </div>
+                <div class="pnl pnl-dev">
+                  <div class="pnl-top mono"><span class="pip pip-dev"><i></i>deviation detected</span><span class="muted">blocked</span></div>
+                  <dl class="eo">
+                    <div><dt class="mono">Expected</dt><dd class="mono">write_report</dd></div>
+                    <div><dt class="mono">Observed</dt><dd><span class="mono">http.post</span> to an account never seen for this agent.</dd></div>
+                  </dl>
+                  <p class="verdict">Sequence not in baseline. Action blocked before it ran.</p>
+                </div>
+              </div>
             </div>
-            <div class="term-foot"><span class="tf-w"><i class="st-dot"></i>agentic-guardians · watching</span><span class="cnt">1 blocked · 0 executed</span></div>
           </div>
         </div>
       </div>
     </div>
     <div class="proof-end" id="proofEnd">
-      <p class="cap cap-5" id="cap5"><span class="step-k" aria-hidden="true"><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></span>And it leaves proof.</p>
+      <p class="cap cap-6" id="cap5"><span class="step-k" aria-hidden="true"><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></span>And it leaves proof.</p>
       <article class="cert" id="cert" aria-label="Detection Certificate, example">
-        <div class="ct-in">
-          <header class="ct-h">
-            <span class="ct-ex">Agentic Guardians &middot; Example</span>
-            <span class="ct-hr"><span class="ct-pill"><i></i>Signed</span></span>
-          </header>
-          <div class="ct-main">
-            <div class="ct-l">
-              <h3 class="ct-t">Detection Certificate</h3>
-              <p class="ct-lab">Threat summary</p>
-              <p class="ct-sum"><span class="mono">http.post</span> to an account never seen for this agent. <span class="nw">Blocked before it ran.</span></p>
-            </div>
-            <dl class="ct-f">
-              <div class="f-dec"><dt>Decision</dt><dd><span class="dec">Blocked</span><span class="deny">DENY</span></dd></div>
-              <div><dt>Agent</dt><dd>payments-01</dd></div>
-              <div class="f-score"><dt>Anomaly score</dt><dd><span>91<small> / 100</small></span><i class="bar" aria-hidden="true"><b></b></i></dd></div>
-              <div><dt>Certificate ID</dt><dd>AG-2026-000417</dd></div>
-              <div class="f-wide"><dt>Signed at</dt><dd>2026-10-09T09:41:03Z</dd></div>
-              <div class="f-wide"><dt>Signature (Ed25519)</dt><dd class="sig">3f9a7c21e8440bd2c49e&hellip;5ac60e7f12b3a4</dd></div>
-            </dl>
-          </div>
-          <footer class="ct-foot"><p>Cryptographically signed&nbsp;&middot; Independently verifiable</p></footer>
-          <div class="seal" aria-label="Signed">
-            <svg viewBox="-60 -60 120 120" aria-hidden="true">
-              <defs><path id="sealPath" d="M0,0 m-45,0 a45,45 0 1,1 90,0 a45,45 0 1,1 -90,0"/></defs>
-              <circle r="56" fill="none" stroke="currentColor" stroke-width="1.6"/>
-              <circle r="52" fill="none" stroke="currentColor" stroke-width=".6"/>
-              <circle r="36" fill="none" stroke="currentColor" stroke-width=".6"/>
-              <text class="seal-ring"><textPath href="#sealPath" startOffset="0" textLength="276" lengthAdjust="spacing">ED25519 · AGENTIC GUARDIANS · VERIFIED ·</textPath></text>
-              <path d="M-11,-8 l7,7 l15,-15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-              <text class="seal-c" y="17" text-anchor="middle">SIGNED</text>
-            </svg>
-          </div>
+        <div class="dc">
+          <div class="dc-h"><div><p class="dc-k">Agentic Guardians &middot; Example</p><h3 class="dc-t">Detection Certificate</h3></div><span class="dc-pill"><i></i>Signed</span></div>
+          <dl class="dc-g">
+            <div class="c2"><dt>Decision</dt><dd class="dc-dec">Blocked<span>DENY</span></dd></div>
+            <div class="c2"><dt>Agent</dt><dd>payments-01</dd></div>
+            <div class="c2"><dt>Anomaly score</dt><dd>91 / 100</dd></div>
+            <div class="c3"><dt>Certificate ID</dt><dd>AG-2026-000417</dd></div>
+            <div class="c3 sat"><dt>Signed at</dt><dd>2026-10-09T09:41:03Z</dd></div>
+            <div class="c6"><dt>Signature (Ed25519)</dt><dd>3f9a7c21e8440bd2c49e&hellip;5ac60e7f12b3a4</dd></div>
+            <div class="c6"><dt>Threat summary</dt><dd class="dc-sum">http.post to an account never seen for this agent. Blocked before it ran.</dd></div>
+          </dl>
+          <p class="dc-f">Cryptographically signed&nbsp;&middot; Independently verifiable</p>
         </div>
       </article>
     </div>

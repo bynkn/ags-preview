@@ -58,19 +58,29 @@
   }
 
   /* ---------- 3 · the proof ----------
-     Steps 1-4 live on a pinned stage, each owning a quarter of the pinned scroll (30vh).
-     The stage only appears once the reality screen has fully left (under the nav).
-     Step 4 (BLOCKED) flips the page to the light world; step 5 + the certificate follow in flow.
+     Steps 1-5 live on a pinned stage over developer-v7's callback components, each step
+     owning a fifth of the pinned scroll. The stage only appears once the reality screen has
+     fully left (under the nav). Step 5 (BLOCKED) flips the page to the light world.
+     Step 6 ("And it leaves proof." + v7's compact Detection Certificate) follows in flow.
      ?static=1 / reduced motion: stacked steps with captions, each band in its own world.
-     ?t=<ms>: frozen frame, step = 1 + floor(t / 2200); t >= 8800 shows step 5 + certificate. */
+     ?t=<ms>: frozen frame, step = 1 + floor(t / 2200); t >= 11000 shows step 6. */
   var track=$('#track'), stage=$('#stage'), si=$('#stageIn'), cert=$('#cert'), proofEnd=$('#proofEnd'), proof=$('#proof'), realityEnd=$('#realityEnd'), why=$('#why');
-  var STEP_MS=2200;
+  var STEP_MS=2200, N=5;
+  function placeWatcher(el){
+    var w=$('.watcher',el); if(!w)return;
+    var on=$$('.term-body .ln',el).filter(function(l){return l.offsetParent!==null&&!l.classList.contains('ln-cur')});
+    var l=on[on.length-1]; if(!l)return;
+    var lh=parseFloat(getComputedStyle(l).lineHeight)||24;
+    w.style.top=(l.offsetTop+lh/2-4)+'px';
+  }
   function setStep(el,n){
     var s=String(n);
     if(el.getAttribute('data-step')!==s)el.setAttribute('data-step',s);
     $$('.caps .cap',el).forEach(function(c){c.classList.toggle('on',+c.getAttribute('data-c')===n)});
     $$('.step-k .pips i',el).forEach(function(p,i){p.classList.toggle('on',i<n)});
-    var stt=$('.st-t',el);if(stt)stt.textContent=n<4?'guarded':'deviation';
+    var st=$('.term-state',el); if(st){st.classList.toggle('guarded',n<5);st.classList.toggle('dev',n>=5)}
+    var stt=$('.st-t',el);if(stt)stt.textContent=n<5?'guarded':'deviation';
+    placeWatcher(el);
   }
   var meta=$('meta[name="theme-color"]');
   function world(light){
@@ -81,32 +91,40 @@
 
   if(track&&si){
     if(INSTANT){
-      var box=document.createElement('div');box.className='static-steps';
-      for(var n=1;n<=4;n++){
-        if(n===4&&FLIP==='blocked'){var dz=document.createElement('div');dz.className='sdawn';dz.setAttribute('aria-hidden','true');box.appendChild(dz)}
+      var box=document.createElement('div'), clones=[];box.className='static-steps';
+      for(var n=1;n<=N;n++){
+        if(n===N&&FLIP==='blocked'){var dz=document.createElement('div');dz.className='sdawn';dz.setAttribute('aria-hidden','true');box.appendChild(dz)}
         var b=document.createElement('div');b.className='sband';
-        band(b,n===4&&FLIP==='blocked');
+        band(b,n===N&&FLIP==='blocked');
         var c=si.cloneNode(true);c.removeAttribute('id');c.classList.add('live');
-        if(n===2)c.classList.add('only-strip');
-        setStep(c,n);b.appendChild(c);box.appendChild(b);
+        b.appendChild(c);box.appendChild(b);clones.push([c,n]);
       }
       track.parentNode.replaceChild(box,track);
+      var redo=function(){clones.forEach(function(x){setStep(x[0],x[1])})};
+      redo();window.addEventListener('load',redo);window.addEventListener('resize',redo);
+      if(document.fonts&&document.fonts.ready)document.fonts.ready.then(redo);
       band(proofEnd,FLIP==='blocked');
       if(cert)cert.classList.add('in');
     }else if(FIXED){
-      var t=+Q.get('t')||0, k=Math.max(1,Math.min(5,1+Math.floor(t/STEP_MS)));
-      si.classList.add('live');setStep(si,Math.min(k,4));
-      if(cert)cert.classList.toggle('in',k>=5);
-      band(proof,k>=4&&FLIP==='blocked');
+      var t=+Q.get('t')||0, k=Math.max(1,Math.min(N+1,1+Math.floor(t/STEP_MS)));
+      si.classList.add('live');
+      var fx=function(){setStep(si,Math.min(k,N))};fx();
+      window.addEventListener('load',fx);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fx);
+      if(cert)cert.classList.toggle('in',k>N);
+      band(proof,k>=N&&FLIP==='blocked');
       root.setAttribute('data-step',String(k));
     }else{
       setStep(si,1);
       var fit=function(){
         var nh=navH();
         proofEnd.style.marginTop='0px';
+        // measure with the tallest (final) step laid out, then restore
+        var was=si.getAttribute('data-step');si.setAttribute('data-step',String(N));
         var sr=stage.getBoundingClientRect(), ir=si.getBoundingClientRect();
-        // step 5 sits ~64px under the terminal as the stage unpins (no dead scroll)
-        proofEnd.style.marginTop=Math.round((nh<64?44:64)-(sr.bottom-ir.bottom))+'px';
+        si.setAttribute('data-step',was);
+        // step 6 sits ~56px under the stage content as the stage unpins (no dead scroll)
+        proofEnd.style.marginTop=Math.round((nh<64?40:56)-(sr.bottom-ir.bottom))+'px';
+        placeWatcher(si);
       };
       fit();
       window.addEventListener('load',fit);
@@ -115,18 +133,20 @@
       var tick=function(){
         queued=false;
         var nh=navH(), vh=window.innerHeight;
-        var r=track.getBoundingClientRect(), total=track.offsetHeight-stage.offsetHeight;
-        var p=total>0?(nh-r.top)/total:0;
-        var k=p<.25?1:p<.5?2:p<.75?3:4;
+        // very short phones: if the stage is taller than the space under the nav, let it ride up so its bottom stays visible
+        var sh=stage.offsetHeight, stick=Math.min(nh,vh-sh);
+        if(stage.style.top!==stick+'px')stage.style.top=stick+'px';
+        var r=track.getBoundingClientRect(), total=track.offsetHeight-sh;
+        var p=total>0?(stick-r.top)/total:0;
+        var k=Math.max(1,Math.min(N,1+Math.floor(p*N)));
         // the stage appears only once the reality screen is fully gone (above the nav)
         var gone=!realityEnd||realityEnd.getBoundingClientRect().bottom<nh+2;
         si.classList.toggle('live',gone);
         if(!gone)k=1;
-        if(k!==cur){cur=k;setStep(si,k)}
+        if(k!==cur){cur=k;setStep(si,k);req()}
         var er=proofEnd.getBoundingClientRect();
-        root.setAttribute('data-step',String(er.top<vh*.5?5:k));
-        // the flip
-        var light=FLIP==='why'?(why.getBoundingClientRect().top<vh*.6):(gone&&p>=.75);
+        root.setAttribute('data-step',String(er.top<vh*.5?N+1:k));
+        var light=FLIP==='why'?(why.getBoundingClientRect().top<vh*.6):(gone&&k>=N);
         world(light);
       };
       var req=function(){if(!queued){queued=true;requestAnimationFrame(tick)}};
