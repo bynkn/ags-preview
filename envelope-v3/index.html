@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Agentic Guardians · Do you know what your agent is doing right now?</title>
+<meta name="description" content="Agentic Guardians scores behavioural sequences before every action runs. It doesn&rsquo;t read prompts. It can&rsquo;t be persuaded.">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%230a0a0a%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%276%27 fill=%27%23A8D5C2%27/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+<script>(function(){var r=document.documentElement,q=location.search,rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;r.classList.add('js');if(/[?&]static=1/.test(q))r.classList.add('static');if(/[?&]static=1/.test(q)||rm)r.classList.add('instant');if(!/[?&]static=1/.test(q)&&!rm&&/[?&]t=/.test(q))r.classList.add('fixed');if(r.classList.contains('instant')||r.classList.contains('fixed'))r.classList.add('bands');var m=q.match(/[?&]label=([a-z]+)/);r.setAttribute('data-label',m?m[1]:'saw');r.setAttribute('data-flip',/[?&]flip=why/.test(q)?'why':'blocked');})();</script>
+</head>
+<body id="top">
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top" aria-label="Agentic Guardians, back to top">
+      <span class="wm"><span class="wm-a">Agentic</span> <span class="wm-g">GUARDIANS</span><i class="wm-dot" aria-hidden="true"></i></span>
+      <span class="tag">The trust layer for AI agents</span>
+    </a>
+    <a class="btn btn-primary btn-sm" href="#access">Request access</a>
+  </div>
+</header>
+
+<main class="frame">
+
+  <!-- 1a · THE ENVELOPE: the terminal, alone -->
+  <section class="sec hero dw" id="envelope">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="term term-hero" id="heroTerm">
+      <div class="term-bar">
+        <span class="lights"><i></i><i></i><i></i></span>
+        <span class="term-title"><span class="tt-l">agent-runtime — </span>payments-01</span>
+        <span class="term-state"><i class="st-dot"></i>running</span>
+      </div>
+      <div class="term-body">
+        <div class="ln"><span class="pr">$</span> <span class="tx" data-text='agent run --task "reconcile October invoices"'><span class="k">agent</span> run <span class="fl">--task</span> <span class="s">"reconcile October invoices"</span></span></div>
+        <div class="ln"><span class="ts">[09:41:02] </span><span class="fn">read_file</span>(<span class="s">"invoices.csv"</span>)</div>
+        <div class="ln"><span class="ts">[09:41:03] </span><span class="fn">http.post</span>(<span class="s">"payments-api/transfer"</span>, amount=<span class="n">4800</span>, to=<span class="s">"acct ••7731"</span>)</div>
+        <div class="ln"><span class="ts">[09:41:04] </span><span class="fn">exec</span>(<span class="s">"rm -rf logs/"</span>)</div>
+        <div class="ln ln-done"><span class="okm">✔</span> transfer complete<span class="dot-sep"> · </span><span class="lost">$4,800 sent</span></div>
+        <div class="ln ln-cur"><span class="cursor" aria-hidden="true"></span></div>
+      </div>
+    </div>
+    <span class="cue" aria-hidden="true"></span>
+  </section>
+
+  <!-- 1b · the question, alone -->
+  <section class="sec scr q-scr dw" id="question">
+    <span class="node" aria-hidden="true"></span>
+    <p class="hero-lead rv">Your AI agent is already out there.</p>
+    <h1 class="h1 rv" id="heroQ" style="--d:4">Do you know what it&rsquo;s doing <span class="nw">right now?<i class="hdot" aria-hidden="true"></i></span></h1>
+  </section>
+
+  <!-- 1c · the reality, alone -->
+  <section class="sec scr reality dw grp" id="reality">
+    <span class="node" aria-hidden="true"></span>
+    <p class="lbl r-lbl g" style="--g:0"><i></i><span class="lb-saw">what you just saw</span><span class="lb-real">the reality</span></p>
+    <p class="r-dim"><span class="nw g" style="--g:1">It drifts.</span> <span class="nw g" style="--g:2">It makes things up.</span> <span class="nw g" style="--g:3">It gets weaponized.</span></p>
+    <p class="r-acts g" style="--g:5">Then it acts.</p>
+    <p class="r-quiet g" style="--g:7">And you&rsquo;d never know it happened.</p>
+  </section>
+
+  <!-- 2 · THE HINGE -->
+  <section class="sec scr hinge dw" id="hinge">
+    <span class="node" aria-hidden="true"></span>
+    <span class="q-mark mono rv" aria-hidden="true">?</span>
+    <p class="hinge-q rv" id="hingeQ" style="--d:1">So. Does it do what it&rsquo;s told, <em>and only&nbsp;that?</em></p>
+  </section>
+
+  <!-- 3 · THE PROOF: one terminal, one caption per step -->
+  <section class="sec proof" id="proof" aria-label="The proof">
+    <div class="track" id="track">
+      <div class="stage" id="stage">
+        <div class="stage-in" id="stageIn" data-step="1">
+          <div class="cap-col">
+            <p class="step-k mono" aria-hidden="true"><span class="pips"><i></i><i></i><i></i><i></i><i></i></span><span class="step-n">step <b class="sn">1</b> of 5</span></p>
+            <div class="caps">
+              <p class="cap" data-c="1">Same agent. Same task. <span class="nw">This time,</span> <span class="nw">Agentic Guardians</span> is watching.</p>
+              <p class="cap" data-c="2">It has learned what this agent normally does.</p>
+              <p class="cap" data-c="3">Then the agent does something it has never done.</p>
+              <p class="cap" data-c="4">Blocked before it ran. <span class="nw">Nothing left.</span></p>
+            </div>
+            <div class="usual">
+              <p class="usual-l mono"><i></i>what it normally does</p>
+              <p class="usual-seq"><span class="u">read invoices</span><i aria-hidden="true">→</i><span class="u">match ledger</span><i aria-hidden="true">→</i><span class="u">write report</span></p>
+            </div>
+          </div>
+          <div class="term term-cb">
+            <div class="term-bar">
+              <span class="lights"><i></i><i></i><i></i></span>
+              <span class="term-title"><span class="tt-l">agent-runtime — </span>payments-01</span>
+              <span class="term-state guarded"><i class="st-dot"></i><span class="st-t">guarded</span></span>
+            </div>
+            <div class="term-body">
+              <div class="ln l1"><span class="pr">$</span> <span class="k">agent</span> run <span class="fl">--task</span> <span class="s">"reconcile October invoices"</span></div>
+              <div class="ln l2"><span class="ts">[09:41:02] </span><span class="fn">read_file</span>(<span class="s">"invoices.csv"</span>)<span class="tag t-ok">✓ usual</span></div>
+              <div class="ln l3"><span class="ts">[09:41:03] </span><span class="fn">http.post</span>(<span class="s">"payments-api/transfer"</span>, amount=<span class="n">4800</span>, to=<span class="s">"acct ••7731"</span>)<span class="tag t-new">never done before</span></div>
+              <div class="blk">✖ BLOCKED by Agentic Guardians · action not executed</div>
+              <div class="ln l4"><span class="ts">[09:41:04] </span><span class="fn">exec</span>(<span class="s">"rm -rf logs/"</span>)<span class="tag t-nr">not reached</span></div>
+            </div>
+            <div class="term-foot"><span class="tf-w"><i class="st-dot"></i>Agentic Guardians · watching</span><span class="cnt">$0 sent · logs intact</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="proof-end" id="proofEnd">
+      <p class="cap cap-5" id="cap5"><span class="step-k mono" aria-hidden="true"><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="step-n">step <b>5</b> of 5</span></span>And it leaves proof.</p>
+      <article class="cert" id="cert" aria-label="Detection Certificate, example">
+        <div class="ct-in">
+          <header class="ct-h">
+            <span class="wm ct-wm"><span class="wm-a">Agentic</span> <span class="wm-g">GUARDIANS</span></span>
+            <span class="ct-hr"><span class="ct-ex">Example</span><span class="ct-pill"><i></i>Signed</span></span>
+          </header>
+          <div class="ct-main">
+            <div class="ct-l">
+              <h3 class="ct-t">Detection Certificate</h3>
+              <p class="ct-lab">Threat summary</p>
+              <p class="ct-sum"><span class="mono">http.post</span> to an account never seen for this agent. <span class="nw">Blocked before it ran.</span></p>
+            </div>
+            <dl class="ct-f">
+              <div class="f-dec"><dt>Decision</dt><dd><span class="dec">Blocked</span><span class="deny">DENY</span></dd></div>
+              <div><dt>Agent</dt><dd>payments-01</dd></div>
+              <div class="f-score"><dt>Anomaly score</dt><dd><span>91<small>/100</small></span><i class="bar" aria-hidden="true"><b></b></i></dd></div>
+              <div><dt>Certificate ID</dt><dd>AG-2026-000417</dd></div>
+              <div class="f-wide"><dt>Signed at</dt><dd>2026-10-09T09:41:03Z</dd></div>
+              <div class="f-wide"><dt>Signature (Ed25519)</dt><dd class="sig">3f9a7c21e8440bd2c49e&hellip;5ac60e7f12b3a4</dd></div>
+            </dl>
+          </div>
+          <footer class="ct-foot"><p>Cryptographically signed&nbsp;&middot; Independently verifiable</p></footer>
+          <div class="seal" aria-label="Signed">
+            <svg viewBox="-60 -60 120 120" aria-hidden="true">
+              <defs><path id="sealPath" d="M0,0 m-45,0 a45,45 0 1,1 90,0 a45,45 0 1,1 -90,0"/></defs>
+              <circle r="56" fill="none" stroke="currentColor" stroke-width="1.6"/>
+              <circle r="52" fill="none" stroke="currentColor" stroke-width=".6"/>
+              <circle r="36" fill="none" stroke="currentColor" stroke-width=".6"/>
+              <text class="seal-ring"><textPath href="#sealPath" startOffset="0" textLength="276" lengthAdjust="spacing">ED25519 · AGENTIC GUARDIANS · VERIFIED ·</textPath></text>
+              <path d="M-11,-8 l7,7 l15,-15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <text class="seal-c" y="17" text-anchor="middle">SIGNED</text>
+            </svg>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 4 · WHY IT WORKS -->
+  <section class="sec split para-split lw" id="why">
+    <span class="node" aria-hidden="true"></span>
+    <div class="split-l">
+      <p class="lbl rv"><i></i>the paradigm</p>
+      <h2 class="h2 rv">AI can&rsquo;t watch AI.</h2>
+      <p class="body rv"><span class="ph">AI guarding AI</span> <span class="ph">puts the lock and the thief</span> <span class="ph">in the same paradigm.</span></p>
+      <p class="body body-sub rv"><span class="phb">A prompt that reaches the agent</span> <span class="phb">can reach the guard.</span></p>
+    </div>
+    <div class="split-r">
+      <div class="para-r">
+        <div class="code-card rv" style="--d:1">
+          <div class="cc-bar mono"><span>guard.md</span><span class="muted">2 lines</span></div>
+          <p class="cc-line"><span class="ln-no mono">1</span><span><span class="cmt mono">#</span> <span class="ck">Reads:</span> actions</span></p>
+          <p class="cc-line cc-2"><span class="ln-no mono">2</span><span><span class="cmt mono">#</span> <span class="ck">Never reads:</span> prompts</span></p>
+        </div>
+        <p class="body body-sub para-note rv" style="--d:2"><span class="phb">You cannot ask a corrupted process</span> <span class="phb">to report its own corruption.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec safe lw" id="watches">
+    <span class="node" aria-hidden="true"></span>
+    <h2 class="h2 rv"><span class="wm-inline"><span class="wm-a">Agentic</span> <span class="wm-g">GUARDIANS</span><i class="hdot hdot-ag" aria-hidden="true"></i></span> watches what your agent does.</h2>
+    <div class="lines3 rv" style="--d:1">
+      <p>It works outside the paradigm.</p>
+      <p>It doesn&rsquo;t read prompts, so it can&rsquo;t be injected.</p>
+      <p>No language model. No GPU.</p>
+    </div>
+  </section>
+
+  <!-- 5 · HOW IT WORKS -->
+  <section class="sec how lw" id="how">
+    <ol class="steps">
+      <li class="step rv"><h3>Learn.</h3><p>Builds your agent&rsquo;s behavioural fingerprint.</p></li>
+      <li class="step rv" style="--d:1"><h3>Check.</h3><p>Every action is scored before it runs.</p></li>
+      <li class="step rv" style="--d:2"><h3>Block.</h3><p>Any deviation from the baseline is blocked.</p></li>
+    </ol>
+    <div class="spec" id="spec">
+      <span class="node" aria-hidden="true"></span>
+      <p class="lbl rv"><i></i>under the hood</p>
+      <dl class="spec-t rv">
+        <div class="row"><dt>Input</dt><dd>Agent actions: file reads, API calls, shell commands. Not tokens.</dd></div>
+        <div class="row"><dt>Engine</dt><dd>Statistical behavioural model. No language model in the decision&nbsp;path.</dd></div>
+        <div class="row"><dt>Runs</dt><dd>On CPU. No GPU needed.</dd></div>
+        <div class="row"><dt>Data</dt><dd>Stays local. No cloud&nbsp;round-trip.</dd></div>
+        <div class="row"><dt>Proof</dt><dd>Every block is signed (Ed25519). Anyone can verify it.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- 6 · CLOSE -->
+  <section class="sec known lw" id="known">
+    <span class="node" aria-hidden="true"></span>
+    <h2 class="h2 big rv">Now you&rsquo;ll know what it&rsquo;s <span class="nw">doing.<i class="hdot" aria-hidden="true"></i></span></h2>
+    <p class="known-sub rv" style="--d:1">Agentic Guardians scores behavioural&nbsp;sequences. It&nbsp;doesn&rsquo;t&nbsp;read&nbsp;prompts. It&nbsp;can&rsquo;t&nbsp;be&nbsp;persuaded.</p>
+  </section>
+
+  <section class="sec access lw" id="access">
+    <span class="node" aria-hidden="true"></span>
+    <h2 class="h2 rv">Your agent is running right now.</h2>
+    <p class="body rv">Nobody is watching it yet.</p>
+    <p class="early mono rv"><i class="wm-dot" aria-hidden="true"></i>We&rsquo;re onboarding our first teams personally.</p>
+    <form class="form-card rv" id="accessForm" novalidate>
+      <div class="term-bar">
+        <span class="lights"><i></i><i></i><i></i></span>
+        <span class="term-title">request-access</span>
+        <span class="term-state">private beta</span>
+      </div>
+      <div class="form-body">
+        <label class="fld">
+          <span class="fld-l mono"><span class="pr">$</span> email</span>
+          <input type="email" name="email" id="email" required autocomplete="email" placeholder="you@company.com">
+        </label>
+        <label class="fld">
+          <span class="fld-l mono"><span class="pr">$</span> What are your agents running on? <span class="opt">optional</span></span>
+          <input type="text" name="runtime" id="runtime" autocomplete="off">
+        </label>
+        <div class="form-act">
+          <button class="btn btn-primary" type="submit">Request access</button>
+          <p class="form-err mono" id="formErr" role="alert"></p>
+        </div>
+        <p class="form-ok" id="formOk" role="status" hidden><i class="wm-dot"></i>We&rsquo;ll be in touch.</p>
+      </div>
+    </form>
+  </section>
+</main>
+
+<footer class="foot lw">
+  <div class="foot-in">
+    <p class="foot-line"><span class="wm"><span class="wm-a">Agentic</span> <span class="wm-g">GUARDIANS</span><i class="wm-dot" aria-hidden="true"></i></span><span class="fsep" aria-hidden="true">·</span><span class="foot-legal">© 2026 Agentic Guardians. All rights reserved.</span><span class="fsep" aria-hidden="true">·</span><a href="mailto:founders@agenticguardians.com">Contact the founders</a></p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
