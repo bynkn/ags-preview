@@ -3,78 +3,161 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>For investors · Agentic Guardians · The trust layer for AI agents</title>
+<title>For investors · Agentic Guardians · The runtime trust layer for AI agents</title>
 <meta name="description" content="Agentic Guardians scores your agent’s behaviour before every action runs. It doesn’t read prompts. It can’t be persuaded.">
 <link rel="canonical" href="[[DOMAIN]]/investors/">
-<!-- Paste head-meta.html and jsonld.html here (adjust og:url / canonical to /investors/). -->
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Agentic Guardians">
+<meta property="og:title" content="For investors · Agentic Guardians · AI trust you can prove">
+<meta property="og:description" content="Agentic Guardians scores your agent’s behaviour before every action runs. It doesn’t read prompts. It can’t be persuaded.">
+<meta property="og:url" content="[[DOMAIN]]/investors/">
+<meta property="og:image" content="[[DOMAIN]]/[[OG_IMAGE_PATH]]">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" type="text/plain" title="llms.txt" href="[[DOMAIN]]/llms.txt">
+<!-- Optionally paste jsonld.html here as well. -->
 <style>
   /* Minimal, neutral. Restyle per version. */
-  body { margin: 0; font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; color: #111; background: #fff; }
-  header, main, footer { max-width: 720px; margin: 0 auto; padding: 0 24px; }
-  header { padding-top: 48px; }
-  section { padding: 24px 0; border-top: 1px solid #e5e5e5; }
-  h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 8px; }
-  h2 { font-size: 1.25rem; margin: 0 0 12px; }
-  dt { font-weight: 600; } dd { margin: 0 0 12px; }
-  .placeholder { background: #fff6d6; padding: 0 4px; font-family: ui-monospace, monospace; font-size: .9em; }
-  footer { padding: 32px 24px 48px; color: #666; font-size: .875rem; }
+  :root { --ink:#111; --muted:#555; --line:#e5e5e5; --soft:#f6f6f4; }
+  body { margin:0; font:17px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif; color:var(--ink); background:#fff; }
+  header, main, footer { max-width:760px; margin:0 auto; padding:0 24px; }
+  header { padding-top:56px; padding-bottom:16px; }
+  .brand { font-weight:600; letter-spacing:.02em; color:var(--ink); text-decoration:none; }
+  .eyebrow { text-transform:uppercase; letter-spacing:.12em; font-size:.75rem; color:var(--muted); margin:32px 0 8px; }
+  h1 { font-size:2.4rem; line-height:1.15; margin:0 0 16px; letter-spacing:-.01em; }
+  .lede { font-size:1.2rem; color:#222; margin:0 0 12px; }
+  .tagline { font-weight:600; margin:0; }
+  nav ul { list-style:none; padding:0; margin:24px 0 0; display:flex; flex-wrap:wrap; gap:8px 16px; font-size:.9rem; }
+  nav a { color:var(--muted); }
+  section { padding:32px 0; border-top:1px solid var(--line); }
+  h2 { font-size:1.4rem; margin:0 0 12px; }
+  h3 { font-size:1.05rem; margin:20px 0 6px; }
+  ol.steps { padding-left:1.2em; } ol.steps li { margin-bottom:6px; }
+  dl.spec { display:grid; grid-template-columns:max-content 1fr; gap:6px 20px; margin:16px 0; }
+  dl.spec dt { font-weight:600; } dl.spec dd { margin:0; }
+  .callout { background:var(--soft); border-left:3px solid var(--ink); padding:12px 16px; margin:16px 0; }
+  code { font-family:ui-monospace,monospace; font-size:.9em; }
+  .team article { margin-bottom:16px; }
+  .placeholder { background:#fff6d6; padding:0 4px; font-family:ui-monospace,monospace; font-size:.85em; }
+  footer { padding:32px 24px 56px; color:var(--muted); font-size:.875rem; border-top:1px solid var(--line); }
 </style>
 </head>
 <body>
 <header>
-  <p><a href="../">Agentic Guardians</a></p>
-  <h1>For investors</h1>
-  <p><strong>Agentic Guardians is the trust layer for AI agents.</strong> It scores your agent’s behaviour before every action runs. It doesn’t read prompts. It can’t be persuaded.</p>
+  <a class="brand" href="../">Agentic Guardians</a>
+  <p class="eyebrow">For investors</p>
+  <h1>The runtime trust layer for AI agents.</h1>
+  <p class="lede">Agentic Guardians scores your agent’s behaviour before every action runs. It doesn’t read prompts. It can’t be persuaded. Every block is signed (Ed25519). Anyone can verify it.</p>
+  <p class="tagline">AI trust you can prove.</p>
+  <nav aria-label="On this page">
+    <ul>
+      <li><a href="#problem">Problem</a></li>
+      <li><a href="#why-now">Why now</a></li>
+      <li><a href="#product">Product</a></li>
+      <li><a href="#different">How it’s different</a></li>
+      <li><a href="#alignment">Alignment</a></li>
+      <li><a href="#stage">Stage</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#ask">The ask</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 </header>
 
 <main>
   <section id="problem" aria-labelledby="problem-h">
     <h2 id="problem-h">Problem</h2>
-    <p>Your AI agent is already out there. Do you know what it’s doing right now?</p>
-    <p>It drifts. It makes things up. It gets weaponized. Then it acts. And you’ll never know it happened. Until it’s too late.</p>
-    <p>The question that matters: does it do what it’s told, and only that?</p>
+    <p><strong>Will the agent do what it’s told, and only that?</strong> Every agent deployment eventually has to answer it. Today, there is no way to verify it.</p>
+    <p>Your AI agent is already out there. It reads files, calls APIs, queries databases and runs commands. It drifts. It makes things up. It gets weaponized. Then it acts, at machine speed. And you’ll never know it happened. Until it’s too late.</p>
+    <p>No breach is required. An agent that was never attacked can still misread its instructions and act with complete confidence on a wrong conclusion.</p>
+    <p>Today’s security and governance layers check prompts, policies or outputs. None of them control the sequence of actions an agent actually takes, before it takes them.</p>
+    <h3>Who feels it most</h3>
+    <p>SMEs. They are adopting AI fast, but often without a dedicated AI security team or enterprise-grade protection. Many existing options add complexity, cost, or yet another probabilistic AI layer.</p>
+    <h3>What’s at stake</h3>
+    <ul>
+      <li><strong>Operational harm at machine speed</strong> in payments, software development, personnel data handling, legal operations and health administration, before a human can step in.</li>
+      <li><strong>Regulatory exposure.</strong> Agents can trigger unintended breaches of GDPR, the EU AI Act and other regulatory or contractual obligations.</li>
+    </ul>
   </section>
 
   <section id="why-now" aria-labelledby="why-now-h">
     <h2 id="why-now-h">Why now</h2>
-    <p>Your AI agent is already out there, and it acts: file reads, API calls, shell commands. Your agent is running right now. Nobody is watching it yet.</p>
-    <p class="placeholder">[[WHY_NOW: optional market context Armine wants to add, with sources]]</p>
+    <p><strong>Everyone wants agents. Almost nobody trusts them yet.</strong> That gap is where Agentic Guardians lives.</p>
+    <p>The industry answered “how do I build this agent?” Nobody answered “how do I make sure it’s safe?”</p>
+    <p>As companies hand work to agents, they remove the people who would have caught a rogue one. Agentic Guardians is the oversight layer that’s left.</p>
+    <p>Organisations need runtime trust infrastructure that supports auditable AI deployment. It needs to exist before the first serious incident, not after.</p>
   </section>
 
   <section id="product" aria-labelledby="product-h">
     <h2 id="product-h">Product</h2>
-    <p>Agentic Guardians watches what your agent does.</p>
-    <ol>
-      <li><strong>Learn.</strong> Builds your agent’s behavioural fingerprint.</li>
-      <li><strong>Check.</strong> Every action is scored before it runs.</li>
-      <li><strong>Block.</strong> Any deviation from the baseline is blocked.</li>
+    <p>Agentic Guardians watches what your agent does and enforces its normal behaviour before each action runs.</p>
+    <ol class="steps">
+      <li><strong>Learn.</strong> Builds each agent’s behavioural fingerprint from its normal action sequences.</li>
+      <li><strong>Check.</strong> Scores each next action before it runs.</li>
+      <li><strong>Detect.</strong> Spots sequence deviations in real time.</li>
+      <li><strong>Decide.</strong> Allows the action, pauses it for human review, or blocks it.</li>
+      <li><strong>Prove.</strong> Every block is signed (Ed25519). Anyone can verify it.</li>
     </ol>
-    <dl>
-      <dt>Input</dt><dd>Agent actions: file reads, API calls, shell commands. Not prompts, not tokens.</dd>
-      <dt>Engine</dt><dd>Statistical behavioural model. No language model in the decision path.</dd>
+    <dl class="spec">
+      <dt>Input</dt><dd>Agent actions: file reads, API calls, shell commands, database queries. Not prompts, not tokens.</dd>
+      <dt>Engine</dt><dd>Statistical behavioural model. No language model in the decision path. No rules to write.</dd>
       <dt>Runs</dt><dd>On CPU. No GPU needed.</dd>
       <dt>Data</dt><dd>Stays local. No cloud round-trip.</dd>
-      <dt>Output</dt><dd>Allow or block.</dd>
+      <dt>Timing</dt><dd>Before each action runs.</dd>
       <dt>Proof</dt><dd>Every block is signed (Ed25519). Anyone can verify it.</dd>
     </dl>
-    <p><strong>Example.</strong> A payments agent normally runs <code>read_file → match_ledger → write_report</code>. It then attempts an <code>http.post</code> to an account never seen for this agent. The sequence is not in its baseline, so the action is blocked before it runs, and a signed Detection Certificate records the block.</p>
-    <p>Status: private beta. Early access, a few teams at a time.</p>
+    <div class="callout">
+      <p><strong>Example.</strong> A payments agent normally runs <code>read_file → match_ledger → write_report</code>. It then attempts an <code>http.post</code> to an account never seen for this agent. That sequence is not in its baseline, so Agentic Guardians blocks the action before it runs and issues a signed Detection Certificate.</p>
+    </div>
   </section>
 
   <section id="different" aria-labelledby="different-h">
     <h2 id="different-h">How it’s different</h2>
-    <p><strong>AI can’t watch AI.</strong> AI guarding AI puts the lock and the thief in the same paradigm. A prompt that reaches the agent can reach the guard. You cannot ask a corrupted process to report its own corruption.</p>
-    <p>Agentic Guardians works outside the paradigm. It reads actions and never reads prompts, so it can’t be injected. No language model. No GPU.</p>
+    <h3>Not AI watching AI</h3>
+    <p>Who guards the guardians? Not another AI. AI guarding AI puts the lock and the thief in the same paradigm: a prompt that reaches the agent can reach the guard. You cannot ask a corrupted process to report its own corruption.</p>
+    <p>Agentic Guardians works outside the language layer. It reads actions and never reads prompts, so it can’t be injected and it can’t be persuaded.</p>
+    <h3>Before execution, not after</h3>
+    <ul>
+      <li><strong>Prompt filters and guardrails</strong> inspect language, so they share the model’s attack surface.</li>
+      <li><strong>Logs and monitoring</strong> often find problems after the fact.</li>
+      <li><strong>Manual review</strong> is too slow and too costly to keep up with machine speed.</li>
+      <li><strong>AI supervising AI</strong> adds another probabilistic layer that can itself misclassify or hallucinate.</li>
+    </ul>
+    <p>Agentic Guardians enforces each agent’s learned behaviour before the action runs, and leaves signed proof when it blocks.</p>
+    <h3>Built for SMEs</h3>
+    <p>Lightweight enough for SMEs. Robust enough for regulated workflows. No GPU and no cloud round-trip, so it doesn’t need large enterprise security infrastructure.</p>
+    <h3>Built on proven science</h3>
+    <p>The engine comes from peer-reviewed research on behavioural sequence models (IEEE Access, 2020) by co-founder Dr. Ghazaros Barseghyan, applied in production fraud detection before being pointed at AI agents.</p>
   </section>
 
-  <section id="traction" aria-labelledby="traction-h">
-    <h2 id="traction-h">Traction</h2>
-    <p class="placeholder">[[TRACTION: verified metrics, design partners or pilots approved for public use]]</p>
+  <section id="alignment" aria-labelledby="alignment-h">
+    <h2 id="alignment-h">Alignment</h2>
+    <p>Agentic Guardians is designed to align with:</p>
+    <ul>
+      <li>NIST AI Risk Management Framework (AI RMF)</li>
+      <li>ISO/IEC 42001 (AI management systems)</li>
+      <li>ISO/IEC 27001 (information security management)</li>
+      <li>GDPR</li>
+    </ul>
+    <p>Signed block records and pause-for-review support auditability, human oversight and compliance evidence.</p>
   </section>
 
-  <section id="team" aria-labelledby="team-h">
+  <section id="stage" aria-labelledby="stage-h">
+    <h2 id="stage-h">Stage</h2>
+    <p><strong>Private beta.</strong> The engine works end to end: per-agent behavioural baselines, blocks before execution, and signed block certificates. We are onboarding our first teams personally.</p>
+  </section>
+
+  <section id="team" class="team" aria-labelledby="team-h">
     <h2 id="team-h">Team</h2>
-    <p class="placeholder">[[TEAM: founder names + one-line bios]]</p>
+    <article>
+      <h3>Armine <span class="placeholder">[[SURNAME]]</span>, Co-Founder, Go-to-Market</h3>
+      <p>Two decades building technology companies, with a prior exit. Patented inventor. Techstars alum. <a href="https://ca.linkedin.com/in/armine">LinkedIn</a></p>
+    </article>
+    <article>
+      <h3>Dr. Ghazaros Barseghyan, Co-Founder, Engine</h3>
+      <p>Has worked on behavioural sequence detection for over a decade. His model was published in IEEE Access (2020) and ran in production fraud detection. The engine exists because he built it. <a href="https://am.linkedin.com/in/ghazaros-barseghyan-2b585aa3">LinkedIn</a></p>
+    </article>
+    <p>Behind the founders is a team of scientists and engineers with backgrounds in behavioural detection, production systems and AI infrastructure.</p>
   </section>
 
   <section id="ask" aria-labelledby="ask-h">
@@ -84,7 +167,7 @@
 
   <section id="contact" aria-labelledby="contact-h">
     <h2 id="contact-h">Contact</h2>
-    <p>Investor contact: <a class="placeholder" href="mailto:[[CONTACT_EMAIL]]">[[CONTACT_EMAIL]]</a></p>
+    <p>Founders: <a href="mailto:founders@agenticguardians.com">founders@agenticguardians.com</a> <span class="placeholder">[[CONFIRM]]</span></p>
     <p>Deck: <a class="placeholder" href="[[DECK_URL]]">[[DECK_URL]]</a></p>
   </section>
 </main>

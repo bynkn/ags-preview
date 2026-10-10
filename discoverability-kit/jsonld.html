@@ -1,8 +1,10 @@
 <!--
-  Agentic Guardians · schema.org JSON-LD
-  Paste inside <head>. Replace every [[...]] value. If a fact is not available yet,
-  DELETE that property rather than shipping a placeholder (search engines and AI
-  assistants will read placeholders literally).
+  Agentic Guardians · schema.org JSON-LD (v2)
+  Paste inside <head> of the home page (and optionally /investors/).
+  Replace every [[...]] value. If a fact isn't available yet, DELETE that property
+  rather than shipping a placeholder (assistants read placeholders literally).
+  "email" is the suggested default (founders@agenticguardians.com, as linked on the site): CONFIRM.
+  "Armine [[SURNAME]]": confirm the surname spelling before publishing.
 -->
 <script type="application/ld+json">
 {
@@ -13,28 +15,44 @@
       "@id": "[[DOMAIN]]/#organization",
       "name": "Agentic Guardians",
       "url": "[[DOMAIN]]/",
-      "logo": "[[DOMAIN]]/[[LOGO_PATH e.g. logo.png, min 112x112]]",
-      "slogan": "The trust layer for AI agents",
-      "description": "Agentic Guardians scores your agent’s behaviour before every action runs. It doesn’t read prompts. It can’t be persuaded.",
-      "email": "[[CONTACT_EMAIL]]",
+      "logo": "[[DOMAIN]]/[[LOGO_PATH]]",
+      "slogan": "AI trust you can prove.",
+      "description": "Agentic Guardians is the runtime trust layer for AI agents. It scores your agent’s behaviour before every action runs. It doesn’t read prompts. It can’t be persuaded. Every block is signed (Ed25519). Anyone can verify it.",
+      "email": "founders@agenticguardians.com",
       "foundingDate": "[[FOUNDING_YEAR]]",
-      "location": "[[LOCATION: city, country]]",
+      "location": "[[LOCATION]]",
       "founder": [
-        { "@type": "Person", "name": "[[FOUNDER_1_NAME]]", "jobTitle": "[[FOUNDER_1_TITLE]]", "sameAs": ["[[FOUNDER_1_LINKEDIN]]"] },
-        { "@type": "Person", "name": "[[FOUNDER_2_NAME]]", "jobTitle": "[[FOUNDER_2_TITLE]]", "sameAs": ["[[FOUNDER_2_LINKEDIN]]"] }
+        {
+          "@type": "Person",
+          "@id": "[[DOMAIN]]/#founder-armine",
+          "name": "Armine [[SURNAME]]",
+          "jobTitle": "Co-Founder, Go-to-Market",
+          "sameAs": ["https://ca.linkedin.com/in/armine"]
+        },
+        {
+          "@type": "Person",
+          "@id": "[[DOMAIN]]/#founder-ghazaros-barseghyan",
+          "name": "Ghazaros Barseghyan",
+          "honorificPrefix": "Dr.",
+          "jobTitle": "Co-Founder, Engine",
+          "sameAs": ["https://am.linkedin.com/in/ghazaros-barseghyan-2b585aa3"]
+        }
       ],
       "sameAs": [
-        "[[LINKEDIN_COMPANY_URL]]",
-        "[[X_PROFILE_URL]]",
-        "[[GITHUB_ORG_URL]]",
-        "[[CRUNCHBASE_URL]]"
+        "[[COMPANY_LINKEDIN_URL]]",
+        "[[X_PROFILE_URL]]"
       ],
       "knowsAbout": [
         "AI agent security",
         "Agent guardrails",
         "Agentic trust layer",
+        "Runtime trust layer for AI agents",
         "AI agent runtime safety",
-        "Behavioural anomaly detection for AI agents"
+        "Behavioural anomaly detection for AI agents",
+        "NIST AI RMF",
+        "ISO/IEC 42001",
+        "ISO/IEC 27001",
+        "GDPR"
       ]
     },
     {
@@ -44,16 +62,19 @@
       "applicationCategory": "SecurityApplication",
       "url": "[[DOMAIN]]/",
       "publisher": { "@id": "[[DOMAIN]]/#organization" },
-      "description": "The trust layer for AI agents. Agentic Guardians learns each agent’s behavioural fingerprint, scores every action before it runs, and blocks any deviation from the baseline. It reads agent actions (file reads, API calls, shell commands), not prompts or tokens. Statistical behavioural model with no language model in the decision path. Runs on CPU. No GPU needed. Stays local. No cloud round-trip. Every block is signed (Ed25519). Anyone can verify it.",
+      "audience": { "@type": "BusinessAudience", "audienceType": "SMEs deploying AI agents" },
+      "description": "The runtime trust layer for AI agents. Agentic Guardians learns each agent’s normal action sequences, scores each next action before it runs, and allows, pauses for human review, or blocks it. It reads agent actions (file reads, API calls, shell commands, database queries), not prompts or tokens. Statistical behavioural model with no language model in the decision path. Runs on CPU. No GPU needed. Stays local. No cloud round-trip. Every block is signed (Ed25519). Anyone can verify it. Designed to align with NIST AI RMF, ISO/IEC 42001, ISO/IEC 27001 and GDPR.",
       "featureList": [
-        "Learn: builds your agent’s behavioural fingerprint",
-        "Check: every action is scored before it runs",
-        "Block: any deviation from the baseline is blocked",
-        "Input: agent actions (file reads, API calls, shell commands), not prompts, not tokens",
+        "Learn: builds each agent’s behavioural fingerprint from its normal action sequences",
+        "Check: scores each next action before it runs",
+        "Detect: spots sequence deviations in real time",
+        "Decide: allow, pause for human review, or block",
+        "Every block is signed (Ed25519). Anyone can verify it",
+        "Reads actions, not prompts or tokens, so it can’t be injected",
         "Statistical behavioural model. No language model in the decision path",
         "Runs on CPU. No GPU needed",
         "Stays local. No cloud round-trip",
-        "Every block is signed (Ed25519). Anyone can verify it"
+        "Designed to align with NIST AI RMF, ISO/IEC 42001, ISO/IEC 27001 and GDPR"
       ]
     },
     {

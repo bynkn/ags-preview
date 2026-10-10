@@ -1,6 +1,8 @@
-# Agentic Guardians · AI / investor-bot discoverability kit
+# Agentic Guardians · AI / investor-bot discoverability kit (v2)
 
-For Jagad. Goal: when an investor's AI assistant (ChatGPT, Perplexity, Grok, Claude, Gemini…) scouts deals, it finds Agentic Guardians and gets an accurate, machine-readable picture. Every product claim in this kit is copied or lightly paraphrased from developer-v7 and envelope-v2 (see "Claims audit" below). Facts only Armine has are `[[PLACEHOLDERS]]`; see `FACTS-NEEDED.md`.
+**v2 (filled draft):** combines the live site with the founders' one-page proposal and their own product materials. New in v2: "runtime trust layer" positioning, SME focus, the "AI trust you can prove" tagline (approved), allow / pause / block, "designed to align with" NIST AI RMF, ISO/IEC 42001, ISO/IEC 27001 and GDPR, stage, the founders with LinkedIn URLs, and a suggested contact. Remaining placeholders are listed in `FACTS-NEEDED.md`.
+
+For Jagad. Goal: when an investor's AI assistant (ChatGPT, Perplexity, Grok, Claude, Gemini…) scouts deals, it finds Agentic Guardians and gets an accurate, machine-readable picture. Every product claim in this kit comes from the live site (developer-v7, envelope-v2) or the founders' own proposal and product materials (see "Claims audit" below). Facts only Armine has are `[[PLACEHOLDERS]]`; see `FACTS-NEEDED.md`.
 
 ## Files and where they go
 
@@ -34,6 +36,9 @@ Used in titles, descriptions, llms.txt and JSON-LD `knowsAbout`; keep them in vi
 - agent action monitoring (file reads, API calls, shell commands)
 - prompt-injection-resistant (it doesn't read prompts, so it can't be injected)
 - signed, verifiable blocks (Ed25519)
+- runtime trust layer for AI agents
+- AI agent governance for SMEs
+- NIST AI RMF / ISO 42001 / ISO 27001 / GDPR alignment (always "designed to align with", never "certified" or "compliant")
 - local, CPU-only, no language model in the decision path
 
 ## Copy rules applied
@@ -64,3 +69,16 @@ Used in titles, descriptions, llms.txt and JSON-LD `knowsAbout`; keep them in vi
 | Private beta, early access, a few teams at a time | developer-v7 access section; envelope-v2 "onboarding our first teams personally" |
 | Your agent is running right now. Nobody is watching it yet. | developer-v7 closing |
 | © 2026 Agentic Guardians | both, footer |
+| Runtime trust layer for AI agents; built for SMEs; regulation aligned; trust you can prove | founders' proposal (header) |
+| Learn → evaluate next action before execution → detect sequence deviation in real time → allow / pause / block → verifiable proof artefact | founders' proposal ("Breakthrough Logic") |
+| Not AI watching AI; enforcement outside the semantic reasoning layer | founders' proposal |
+| Prompt filters / logs / manual review / AI supervising AI comparison (no names) | founders' proposal ("State of the Art Failure") |
+| SMEs lack AI security teams; machine-speed harm in payments, development, personnel data, legal, health admin; unintended GDPR / AI Act breaches | founders' proposal ("Consequences") |
+| Lightweight enough for SMEs; robust enough for regulated workflows; auditability, human review, compliance evidence | founders' proposal ("Why it matters") |
+| Designed to align with NIST AI RMF, ISO/IEC 42001, ISO/IEC 27001, GDPR | founders' proposal ("Aligned with"); softened to "designed to align with" |
+| AI trust you can prove | founders (approved tagline) |
+| Why-now lines, "who guards the guardians", "no rules to write", database queries, founder bios, IEEE Access (2020) research | founders' product materials |
+| Every block is signed (Ed25519). Anyone can verify it. | site, reconfirmed by Armine |
+
+### Wording choice: "deterministic" vs "statistical"
+The proposal says "deterministic behavioural enforcement" and "deterministic runtime control". The site says "Statistical behavioural model", and the certificate shows an anomaly score. Both can be true: the scoring is statistical, and the enforcement (allow / pause / block before execution) is a definite outcome. To avoid an AI assistant reading a contradiction, the kit says "statistical behavioural model" for the engine and "behavioural enforcement before execution" for the outcome, and doesn't use "deterministic". The founders can adopt "deterministic enforcement" once they're comfortable it holds publicly.
