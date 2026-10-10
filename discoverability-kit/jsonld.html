@@ -1,0 +1,71 @@
+<!--
+  Agentic Guardians · schema.org JSON-LD
+  Paste inside <head>. Replace every [[...]] value. If a fact is not available yet,
+  DELETE that property rather than shipping a placeholder (search engines and AI
+  assistants will read placeholders literally).
+-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "[[DOMAIN]]/#organization",
+      "name": "Agentic Guardians",
+      "url": "[[DOMAIN]]/",
+      "logo": "[[DOMAIN]]/[[LOGO_PATH e.g. logo.png, min 112x112]]",
+      "slogan": "The trust layer for AI agents",
+      "description": "Agentic Guardians scores your agent’s behaviour before every action runs. It doesn’t read prompts. It can’t be persuaded.",
+      "email": "[[CONTACT_EMAIL]]",
+      "foundingDate": "[[FOUNDING_YEAR]]",
+      "location": "[[LOCATION: city, country]]",
+      "founder": [
+        { "@type": "Person", "name": "[[FOUNDER_1_NAME]]", "jobTitle": "[[FOUNDER_1_TITLE]]", "sameAs": ["[[FOUNDER_1_LINKEDIN]]"] },
+        { "@type": "Person", "name": "[[FOUNDER_2_NAME]]", "jobTitle": "[[FOUNDER_2_TITLE]]", "sameAs": ["[[FOUNDER_2_LINKEDIN]]"] }
+      ],
+      "sameAs": [
+        "[[LINKEDIN_COMPANY_URL]]",
+        "[[X_PROFILE_URL]]",
+        "[[GITHUB_ORG_URL]]",
+        "[[CRUNCHBASE_URL]]"
+      ],
+      "knowsAbout": [
+        "AI agent security",
+        "Agent guardrails",
+        "Agentic trust layer",
+        "AI agent runtime safety",
+        "Behavioural anomaly detection for AI agents"
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "[[DOMAIN]]/#product",
+      "name": "Agentic Guardians",
+      "applicationCategory": "SecurityApplication",
+      "url": "[[DOMAIN]]/",
+      "publisher": { "@id": "[[DOMAIN]]/#organization" },
+      "description": "The trust layer for AI agents. Agentic Guardians learns each agent’s behavioural fingerprint, scores every action before it runs, and blocks any deviation from the baseline. It reads agent actions (file reads, API calls, shell commands), not prompts or tokens. Statistical behavioural model with no language model in the decision path. Runs on CPU. No GPU needed. Stays local. No cloud round-trip. Every block is signed (Ed25519). Anyone can verify it.",
+      "featureList": [
+        "Learn: builds your agent’s behavioural fingerprint",
+        "Check: every action is scored before it runs",
+        "Block: any deviation from the baseline is blocked",
+        "Input: agent actions (file reads, API calls, shell commands), not prompts, not tokens",
+        "Statistical behavioural model. No language model in the decision path",
+        "Runs on CPU. No GPU needed",
+        "Stays local. No cloud round-trip",
+        "Every block is signed (Ed25519). Anyone can verify it"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "[[DOMAIN]]/#website",
+      "name": "Agentic Guardians",
+      "alternateName": "AGS",
+      "url": "[[DOMAIN]]/",
+      "description": "Agentic Guardians scores your agent’s behaviour before every action runs. It doesn’t read prompts. It can’t be persuaded.",
+      "publisher": { "@id": "[[DOMAIN]]/#organization" },
+      "inLanguage": "en"
+    }
+  ]
+}
+</script>

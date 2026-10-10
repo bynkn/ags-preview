@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Agentic Guardians · sitemap template. Replace [[DOMAIN]] (absolute URLs required)
+     and [[LASTMOD]] (YYYY-MM-DD). Add one <url> per public page. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>[[DOMAIN]]/</loc>
+    <lastmod>[[LASTMOD]]</lastmod>
+  </url>
+  <url>
+    <loc>[[DOMAIN]]/investors/</loc>
+    <lastmod>[[LASTMOD]]</lastmod>
+  </url>
+  <url>
+    <loc>[[DOMAIN]]/llms.txt</loc>
+    <lastmod>[[LASTMOD]]</lastmod>
+  </url>
+</urlset>

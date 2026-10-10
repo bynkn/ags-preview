@@ -1,0 +1,59 @@
+# Agentic Guardians
+
+> Agentic Guardians is the trust layer for AI agents. It scores your agent's behaviour before every action runs. It doesn't read prompts. It can't be persuaded.
+
+Agentic Guardians watches what an AI agent does, not what it is told. It learns each agent's normal behaviour, scores every action before it runs, and blocks any deviation from that baseline. Every block is signed (Ed25519). Anyone can verify it. The product is in private beta.
+
+## What it is
+
+- Agentic Guardians is the trust layer for AI agents: it checks each action an agent is about to take, before it runs.
+- It watches agent actions (file reads, API calls, shell commands). Not prompts, not tokens.
+- Engine: a statistical behavioural model. No language model in the decision path.
+- Runs on CPU. No GPU needed.
+- Stays local. No cloud round-trip.
+- Output: allow or block. Every block is signed (Ed25519). Anyone can verify it. Each block produces a Detection Certificate.
+
+## The problem
+
+- Your AI agent is already out there. Do you know what it's doing right now?
+- Agents drift. They make things up. They get weaponized. Then they act, and you may never know it happened until it's too late.
+- The question that matters: does the agent do what it's told, and only that?
+
+## How it works
+
+1. Learn: builds your agent's behavioural fingerprint.
+2. Check: every action is scored before it runs.
+3. Block: any deviation from the baseline is blocked, before the action executes.
+4. Proof: every block is signed (Ed25519) and can be verified by anyone.
+
+Example from the site: a payments agent normally runs read_file → match_ledger → write_report. When it attempts an http.post to an account never seen for this agent, the sequence is not in its baseline, so Agentic Guardians blocks the action before it runs and issues a signed Detection Certificate.
+
+## Why it is different
+
+- AI can't watch AI. AI guarding AI puts the lock and the thief in the same paradigm: a prompt that reaches the agent can reach the guard. You cannot ask a corrupted process to report its own corruption.
+- Agentic Guardians works outside that paradigm. It reads actions and never reads prompts, so it can't be injected and it can't be persuaded.
+- No language model. No GPU. Stays local. No cloud round-trip.
+
+## Why now
+
+- Your AI agent is already out there, and it acts: file reads, API calls, shell commands.
+- Your agent is running right now. Nobody is watching it yet.
+
+## Pages
+
+- [Home]([[DOMAIN]]/): product overview and request access
+- [For investors]([[DOMAIN]]/investors/): problem, product, traction, team and the ask
+- [Request access]([[DOMAIN]]/#access): private beta, early access for a few teams at a time
+
+## Investors
+
+- Stage: private beta. Early access, a few teams at a time.
+- Traction: [[TRACTION: verified metrics, design partners or pilots Armine approves for public use]]
+- Team: [[TEAM: founder names + one-line bios]]
+- The ask: [[ASK: round type, amount, use of funds]]
+- Founded: [[FOUNDING_YEAR]] · Location: [[LOCATION]]
+- Investor contact: [[CONTACT: investor email]] · Deck: [[DECK_URL]]
+
+## Optional
+
+- [Profiles]([[SAMEAS: LinkedIn / X / GitHub / Crunchbase URLs]])

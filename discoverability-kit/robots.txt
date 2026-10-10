@@ -1,0 +1,55 @@
+# Agentic Guardians · robots.txt
+# Goal: be readable and citable by search engines and AI assistants.
+# Must live at the DOMAIN ROOT (https://[[DOMAIN_HOST]]/robots.txt) to take effect.
+
+# --- OpenAI (ChatGPT) ---
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+Allow: /
+
+# --- Anthropic (Claude) --- (Claude-Web and anthropic-ai are legacy tokens, kept for safety)
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: Claude-Web
+User-agent: anthropic-ai
+Allow: /
+
+# --- Perplexity ---
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+Allow: /
+
+# --- Google (Googlebot powers Search + AI Overviews; Google-Extended governs Gemini use/grounding) ---
+User-agent: Googlebot
+User-agent: Google-Extended
+Allow: /
+
+# --- Apple ---
+User-agent: Applebot
+User-agent: Applebot-Extended
+Allow: /
+
+# --- Microsoft (Bing / Copilot) ---
+User-agent: Bingbot
+Allow: /
+
+# --- xAI (Grok): no official token published; these are the names public registries report ---
+User-agent: GrokBot
+User-agent: xAI-SearchBot
+Allow: /
+
+# --- Others ---
+User-agent: Meta-ExternalAgent
+User-agent: Amazonbot
+User-agent: DuckAssistBot
+User-agent: MistralAI-User
+User-agent: CCBot
+Allow: /
+
+# --- Everyone else ---
+User-agent: *
+Allow: /
+
+Sitemap: [[DOMAIN]]/sitemap.xml
