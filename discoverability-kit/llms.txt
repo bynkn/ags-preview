@@ -1,8 +1,8 @@
 # Agentic Guardians
 
-> Agentic Guardians is the runtime trust layer for AI agents. It scores your agent's behaviour before every action runs. It doesn't read prompts. It can't be persuaded. Every block is signed (Ed25519). Anyone can verify it. AI trust you can prove.
+> Your AI agent is already out there. Do you know what it's doing right now? Agentic Guardians answers that question. It is the runtime trust layer for AI agents. It scores your agent's behaviour before every action runs. It doesn't read prompts. It can't be persuaded. Every block is signed (Ed25519). Anyone can verify it. AI trust you can prove.
 
-The core question: **Do you know what your agent is doing right now?** And does it do what it's told, and only that? Agentic Guardians is built to answer both. It learns each agent's normal action sequences, scores every next action before it runs, and stops deviations before they execute, whether they come from prompt injection, logic drift or hallucination. It watches actions, not words, so it sits outside the language layer that attacks target. It is built for SMEs: lightweight enough to adopt without a large security team, robust enough for regulated workflows. Stage: private beta.
+The follow-up question: does the agent do what it's told, and only that? Agentic Guardians learns each agent's normal action sequences, scores every next action before it runs, and stops deviations before they execute, whether they come from prompt injection, logic drift or hallucination. It watches actions, not words, so it sits outside the language layer that attacks target. It is built for SMEs: lightweight enough to adopt without a large security team, robust enough for regulated workflows. Stage: private beta.
 
 ## What it is
 
@@ -16,7 +16,7 @@ The core question: **Do you know what your agent is doing right now?** And does 
 
 ## The problem
 
-- Your AI agent is already out there. Do you know what it's doing right now?
+- Agents act: they read files, call APIs, query databases and run commands. Your agent is running right now. Nobody is watching it yet.
 - Agents drift. They make things up. They get weaponized. Then they act, at machine speed, and you may never know it happened until it's too late.
 - No breach required. An agent that was never attacked can still misread its instructions and act with complete confidence on a wrong conclusion.
 - Today's security and governance layers check prompts, policies or outputs. They don't control the sequence of actions an agent actually takes before it takes them.
