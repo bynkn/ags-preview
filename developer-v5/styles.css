@@ -781,3 +781,6 @@ html,body{overflow-x:clip}
 
 /* built different label: keep on one line */
 .spec-l .eyebrow{white-space:nowrap}
+
+/* built different: avoid one-word last lines */
+.spec-t dd{text-wrap:pretty}

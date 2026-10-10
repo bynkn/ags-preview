@@ -995,3 +995,6 @@ body{font-family:var(--sans);font-feature-settings:"cv11","ss01"}
 #paradigm-copy .body,#paradigm-copy .body-l,#paradigm-copy p{text-wrap:pretty}
 .body-sub+.body-sub{margin-top:8px}
 .pk{color:var(--mu)}
+
+/* built different: avoid one-word last lines */
+.spec-t dd{text-wrap:pretty}
