@@ -93,18 +93,18 @@
 
   /* ---------- callback replay ----------
      A pure function of time: render(t). Starts when the terminal scrolls into view.
-     ?static=1 → final state · ?t=<ms> → frozen frame at t.  ~7.6s total. */
+     ?static=1 → final state · ?t=<ms> → frozen frame at t.  ~8.1s total. */
   var cb=$('#cbTerm');
   if(cb){
     var T={
-      lines:[[250,1350],[1650,2350],[3000,3700],[4550,6150]], // [type start, type end]; a line every ~1350ms
-      pass:[null,2500,3850],   // "ok" + "matches baseline"
+      lines:[[250,1350],[1800,2500],[3300,4000],[5000,6600]], // [type start, type end]; a line every ~1350ms
+      pass:[null,2650,4150],   // "ok" + "matches baseline"
       // brief hold (~700ms) after the second "ok" before the transfer line starts
-      flip:6150,               // red the moment the transfer line completes
-      prompt:6450,             // $ ▌
-      cert:7150,               // ~1000ms after the flip
-      foot:7350,
-      end:7650
+      flip:6600,               // red the moment the transfer line completes
+      prompt:6900,             // $ ▌
+      cert:7650,               // ~1050ms after the flip
+      foot:7850,
+      end:8150
     };
     var grid=cb.parentNode, cl=$$('.ln',cb), w=$('.watcher',cb), blk=$('.blk',cb);
     var toks=$$('#cbSide .tok'), wls=$$('#curWatch .wl'), curLab=$('#curLab'), curMeta=$('#curMeta');
