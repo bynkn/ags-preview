@@ -917,3 +917,6 @@ body{font-family:var(--sans);font-feature-settings:"cv11","ss01"}
 /* problem two-liner, paradigm sub-line, AG label removed, dot moved */
 .body.body-sub{margin:18px auto 0;font-size:var(--ts3);line-height:1.55;letter-spacing:0}
 .safe-head .h2 .hdot-ag{margin:0 .1em 0 .26em;vertical-align:middle}
+
+/* closing headline: keep each sentence on its own line where it fits */
+.kl-s{display:inline-block}

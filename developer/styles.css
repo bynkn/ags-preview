@@ -434,3 +434,6 @@ a{color:inherit}
 /* problem two-liner, paradigm sub-line, AG label removed, dot moved */
 .body-l.body-sub{margin-top:18px;font-size:var(--t3);line-height:1.55;letter-spacing:0}
 .problem .offset>.question:first-child{margin-top:0} /* the note above it is gone; keep the offset gap only */
+
+/* closing headline: keep each sentence on its own line where it fits */
+.kl-s{display:inline-block}
