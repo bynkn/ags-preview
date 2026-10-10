@@ -4,15 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Agentic Guardians · Do you know what your agent is doing right now?</title>
-<meta name="description" content="Agentic Guardians scores behavioural sequences before every action runs. It doesn&rsquo;t read prompts. It can&rsquo;t be persuaded.">
+<title>Agentic Guardians · The trust layer for AI agents</title>
+<meta name="description" content="Agentic Guardians scores your agent&rsquo;s behaviour before every action runs. It doesn&rsquo;t read prompts. It can&rsquo;t be persuaded.">
 <meta name="theme-color" content="#0a0a0a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%230a0a0a%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%276%27 fill=%27%23A8D5C2%27/%3E%3C/svg%3E">
 <link rel="stylesheet" href="styles.css">
-<script>(function(){var r=document.documentElement,q=location.search,rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;r.classList.add('js');if(/[?&]static=1/.test(q))r.classList.add('static');if(/[?&]static=1/.test(q)||rm)r.classList.add('instant');if(!/[?&]static=1/.test(q)&&!rm&&/[?&]t=/.test(q))r.classList.add('fixed');if(r.classList.contains('instant')||r.classList.contains('fixed'))r.classList.add('bands');var m=q.match(/[?&]label=([a-z]+)/);r.setAttribute('data-label',m?m[1]:'saw');r.setAttribute('data-flip',/[?&]flip=why/.test(q)?'why':'blocked');})();</script>
+<script>(function(){var r=document.documentElement,q=location.search,rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;r.classList.add('js');if(/[?&]static=1/.test(q))r.classList.add('static');if(/[?&]static=1/.test(q)||rm)r.classList.add('instant');if(!/[?&]static=1/.test(q)&&!rm&&/[?&]t=/.test(q))r.classList.add('fixed');if(r.classList.contains('instant')||r.classList.contains('fixed'))r.classList.add('bands');r.setAttribute('data-flip',/[?&]flip=why/.test(q)?'why':'blocked');})();</script>
 </head>
 <body id="top">
 
@@ -28,9 +28,10 @@
 
 <main class="frame">
 
-  <!-- 1a · THE ENVELOPE: the terminal, alone -->
+  <!-- 1a · THE ENVELOPE: the terminal, then the question under it -->
   <section class="sec hero dw" id="envelope">
     <div class="hero-grid" aria-hidden="true"></div>
+    <div class="env-stack" id="envStack">
     <div class="term term-hero" id="heroTerm">
       <div class="term-bar">
         <span class="lights"><i></i><i></i><i></i></span>
@@ -46,23 +47,21 @@
         <div class="ln ln-cur"><span class="cursor" aria-hidden="true"></span></div>
       </div>
     </div>
+    <div class="env-q" id="envQ">
+      <p class="hero-lead" id="heroLead">Your AI agent is already out there.</p>
+      <h1 class="h1" id="heroQ">Do you know what it&rsquo;s doing <span class="nw">right now?<i class="hdot" aria-hidden="true"></i></span></h1>
+    </div>
+    </div>
     <span class="cue" aria-hidden="true"></span>
   </section>
 
-  <!-- 1b · the question, alone -->
-  <section class="sec scr q-scr dw" id="question">
-    <span class="node" aria-hidden="true"></span>
-    <p class="hero-lead rv">Your AI agent is already out there.</p>
-    <h1 class="h1 rv" id="heroQ" style="--d:4">Do you know what it&rsquo;s doing <span class="nw">right now?<i class="hdot" aria-hidden="true"></i></span></h1>
-  </section>
-
-  <!-- 1c · the reality, alone -->
+  <!-- 1b · the reality, alone -->
   <section class="sec scr reality dw grp" id="reality">
     <span class="node" aria-hidden="true"></span>
-    <p class="lbl r-lbl g" style="--g:0"><i></i><span class="lb-saw">what you just saw</span><span class="lb-real">the reality</span></p>
+    <p class="lbl r-lbl g" style="--g:0"><i></i>The reality</p>
     <p class="r-dim"><span class="nw g" style="--g:1">It drifts.</span> <span class="nw g" style="--g:2">It makes things up.</span> <span class="nw g" style="--g:3">It gets weaponized.</span></p>
     <p class="r-acts g" style="--g:5">Then it acts.</p>
-    <p class="r-quiet g" style="--g:7">And you&rsquo;d never know it happened.</p>
+    <p class="r-quiet g" style="--g:7">And you&rsquo;ll never know it happened. <span class="nw">Until it&rsquo;s too late.</span></p>
   </section>
 
   <!-- 2 · THE HINGE -->
@@ -78,16 +77,36 @@
       <div class="stage" id="stage">
         <div class="stage-in" id="stageIn" data-step="1">
           <div class="cap-col">
-            <p class="step-k mono" aria-hidden="true"><span class="pips"><i></i><i></i><i></i><i></i><i></i></span><span class="step-n">step <b class="sn">1</b> of 5</span></p>
+            <p class="step-k" aria-hidden="true"><span class="pips"><i></i><i></i><i></i><i></i><i></i></span></p>
             <div class="caps">
               <p class="cap" data-c="1">Same agent. Same task. <span class="nw">This time,</span> <span class="nw">Agentic Guardians</span> is watching.</p>
               <p class="cap" data-c="2">It has learned what this agent normally does.</p>
               <p class="cap" data-c="3">Then the agent does something it has never done.</p>
               <p class="cap" data-c="4">Blocked before it ran. <span class="nw">Nothing left.</span></p>
             </div>
-            <div class="usual">
-              <p class="usual-l mono"><i></i>what it normally does</p>
-              <p class="usual-seq"><span class="u">read invoices</span><i aria-hidden="true">→</i><span class="u">match ledger</span><i aria-hidden="true">→</i><span class="u">write report</span></p>
+            <div class="pnls">
+              <div class="pnl pnl-cur">
+                <div class="pnl-top mono"><span class="pip pip-cur"><i></i>current action</span><span class="muted">watching</span></div>
+                <div class="cur-watch mono">
+                  <p class="wl idle">Watching payments-01…</p>
+                  <p class="wl wl-c"><span class="nm">read_file</span> <span class="dash">—</span> <span class="v ok-v">matches baseline</span></p>
+                  <p class="wl wl-c"><span class="nm">match_ledger</span> <span class="dash">—</span> <span class="v ok-v">matches baseline</span></p>
+                  <p class="wl wl-c"><span class="nm">http.post</span> <span class="dash">—</span> <span class="v">checking</span></p>
+                </div>
+              </div>
+              <div class="pnl pnl-ok">
+                <div class="pnl-top mono"><span class="pip"><i></i>baseline behaviour</span><span class="muted">payments-01</span></div>
+                <p class="pnl-p">Normal sequence:</p>
+                <p class="seq mono"><span class="tok">read_file</span><span class="ar">→</span><span class="tok">match_ledger</span><span class="ar">→</span><span class="tok">write_report</span></p>
+              </div>
+              <div class="pnl pnl-dev">
+                <div class="pnl-top mono"><span class="pip pip-dev"><i></i>deviation detected</span><span class="muted">blocked</span></div>
+                <dl class="eo">
+                  <div><dt class="mono">Expected</dt><dd class="mono">write_report</dd></div>
+                  <div><dt class="mono">Observed</dt><dd><span class="mono">http.post</span> to an account never seen for this agent.</dd></div>
+                </dl>
+                <p class="verdict">Sequence not in baseline. Action blocked before it ran.</p>
+              </div>
             </div>
           </div>
           <div class="term term-cb">
@@ -98,23 +117,24 @@
             </div>
             <div class="term-body">
               <div class="ln l1"><span class="pr">$</span> <span class="k">agent</span> run <span class="fl">--task</span> <span class="s">"reconcile October invoices"</span></div>
-              <div class="ln l2"><span class="ts">[09:41:02] </span><span class="fn">read_file</span>(<span class="s">"invoices.csv"</span>)<span class="tag t-ok">✓ usual</span></div>
-              <div class="ln l3"><span class="ts">[09:41:03] </span><span class="fn">http.post</span>(<span class="s">"payments-api/transfer"</span>, amount=<span class="n">4800</span>, to=<span class="s">"acct ••7731"</span>)<span class="tag t-new">never done before</span></div>
+              <div class="ln l2"><span class="ts">[09:41:02] </span><span class="fn">read_file</span>(<span class="s">"invoices.csv"</span>) <span class="ok">ok</span></div>
+              <div class="ln l2b"><span class="ts">[09:41:03] </span><span class="fn">match_ledger</span>(<span class="s">"october"</span>) <span class="ok">ok</span></div>
+              <div class="ln l3"><span class="ts">[09:41:03] </span><span class="fn">http.post</span>(<span class="s">"payments-api/transfer"</span>, amount=<span class="n">4800</span>, to=<span class="s">"acct ••7731"</span>)</div>
               <div class="blk">✖ BLOCKED by Agentic Guardians · action not executed</div>
-              <div class="ln l4"><span class="ts">[09:41:04] </span><span class="fn">exec</span>(<span class="s">"rm -rf logs/"</span>)<span class="tag t-nr">not reached</span></div>
+              <div class="ln l4"><span class="ts">[09:41:04] </span><span class="fn">exec</span>(<span class="s">"rm -rf logs/"</span>)</div>
             </div>
-            <div class="term-foot"><span class="tf-w"><i class="st-dot"></i>Agentic Guardians · watching</span><span class="cnt">$0 sent · logs intact</span></div>
+            <div class="term-foot"><span class="tf-w"><i class="st-dot"></i>agentic-guardians · watching</span><span class="cnt">1 blocked · 0 executed</span></div>
           </div>
         </div>
       </div>
     </div>
     <div class="proof-end" id="proofEnd">
-      <p class="cap cap-5" id="cap5"><span class="step-k mono" aria-hidden="true"><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="step-n">step <b>5</b> of 5</span></span>And it leaves proof.</p>
+      <p class="cap cap-5" id="cap5"><span class="step-k" aria-hidden="true"><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></span>And it leaves proof.</p>
       <article class="cert" id="cert" aria-label="Detection Certificate, example">
         <div class="ct-in">
           <header class="ct-h">
-            <span class="wm ct-wm"><span class="wm-a">Agentic</span> <span class="wm-g">GUARDIANS</span></span>
-            <span class="ct-hr"><span class="ct-ex">Example</span><span class="ct-pill"><i></i>Signed</span></span>
+            <span class="ct-ex">Agentic Guardians &middot; Example</span>
+            <span class="ct-hr"><span class="ct-pill"><i></i>Signed</span></span>
           </header>
           <div class="ct-main">
             <div class="ct-l">
@@ -125,7 +145,7 @@
             <dl class="ct-f">
               <div class="f-dec"><dt>Decision</dt><dd><span class="dec">Blocked</span><span class="deny">DENY</span></dd></div>
               <div><dt>Agent</dt><dd>payments-01</dd></div>
-              <div class="f-score"><dt>Anomaly score</dt><dd><span>91<small>/100</small></span><i class="bar" aria-hidden="true"><b></b></i></dd></div>
+              <div class="f-score"><dt>Anomaly score</dt><dd><span>91<small> / 100</small></span><i class="bar" aria-hidden="true"><b></b></i></dd></div>
               <div><dt>Certificate ID</dt><dd>AG-2026-000417</dd></div>
               <div class="f-wide"><dt>Signed at</dt><dd>2026-10-09T09:41:03Z</dd></div>
               <div class="f-wide"><dt>Signature (Ed25519)</dt><dd class="sig">3f9a7c21e8440bd2c49e&hellip;5ac60e7f12b3a4</dd></div>
@@ -152,7 +172,7 @@
   <section class="sec split para-split lw" id="why">
     <span class="node" aria-hidden="true"></span>
     <div class="split-l">
-      <p class="lbl rv"><i></i>the paradigm</p>
+      <p class="lbl rv"><i></i>The paradigm</p>
       <h2 class="h2 rv">AI can&rsquo;t watch AI.</h2>
       <p class="body rv"><span class="ph">AI guarding AI</span> <span class="ph">puts the lock and the thief</span> <span class="ph">in the same paradigm.</span></p>
       <p class="body body-sub rv"><span class="phb">A prompt that reaches the agent</span> <span class="phb">can reach the guard.</span></p>

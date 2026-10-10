@@ -11,12 +11,19 @@
   function navH(){return window.innerWidth<=760?56:64}
 
   /* ---------- 1a · the envelope: the terminal types, then holds still ---------- */
-  var hero=$('#heroTerm');
+  var hero=$('#heroTerm'), stack=$('#envStack'), envQ=$('#envQ'), hLead=$('#heroLead'), hQ=$('#heroQ');
   var done=function(){if(!root.hasAttribute('data-hero-done'))root.setAttribute('data-hero-done','1')};
+  var showQ=function(){[hLead,hQ].forEach(function(e){if(e)e.classList.add('show')})};
   if(hero){
     var lines=$$('.ln',hero);
-    if(INSTANT||FIXED){lines.forEach(function(l){l.classList.add('on')});done()}
+    if(INSTANT||FIXED){lines.forEach(function(l){l.classList.add('on')});showQ();done()}
     else{
+      // the terminal starts centred on its own; it rises as the question fades in beneath it
+      var opened=false;
+      var setShift=function(){if(!opened&&stack&&envQ)stack.style.setProperty('--shift',((envQ.offsetHeight+parseFloat(getComputedStyle(envQ).marginTop))/2)+'px')};
+      setShift();window.addEventListener('resize',setShift);
+      if(document.fonts&&document.fonts.ready)document.fonts.ready.then(setShift);
+      var open=function(){opened=true;if(stack)stack.style.setProperty('--shift','0px')};
       (async function(){
         var first=lines[0], tx=$('.tx',first), html=tx.innerHTML, text=tx.getAttribute('data-text');
         tx.textContent='';first.classList.add('on');
@@ -30,10 +37,15 @@
         lines[3].classList.add('on');await wait(900);   // rm -rf logs/
         lines[4].classList.add('on');await wait(400);   // ✔ transfer complete · $4,800 sent
         lines[5].classList.add('on');
-        await wait(1800);                               // a beat of stillness
+        await wait(1100);                               // a short beat
+        open();await wait(250);
+        if(hLead)hLead.classList.add('show');
+        await wait(1000);
+        if(hQ)hQ.classList.add('show');
+        await wait(1600);                               // stillness
         done();
       })();
-      window.addEventListener('scroll',function s(){if(window.scrollY>40){lines.forEach(function(l){l.classList.add('on')});done();window.removeEventListener('scroll',s)}},{passive:true});
+      window.addEventListener('scroll',function s(){if(window.scrollY>40){lines.forEach(function(l){l.classList.add('on')});open();showQ();done();window.removeEventListener('scroll',s)}},{passive:true});
     }
   }
 
@@ -58,8 +70,7 @@
     if(el.getAttribute('data-step')!==s)el.setAttribute('data-step',s);
     $$('.caps .cap',el).forEach(function(c){c.classList.toggle('on',+c.getAttribute('data-c')===n)});
     $$('.step-k .pips i',el).forEach(function(p,i){p.classList.toggle('on',i<n)});
-    var sn=$('.sn',el);if(sn)sn.textContent=s;
-    var stt=$('.st-t',el);if(stt)stt.textContent=n<3?'guarded':n===3?'checking':'blocked';
+    var stt=$('.st-t',el);if(stt)stt.textContent=n<4?'guarded':'deviation';
   }
   var meta=$('meta[name="theme-color"]');
   function world(light){
