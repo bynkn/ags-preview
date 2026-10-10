@@ -778,3 +778,6 @@ html,body{overflow-x:clip}
   #paradigm .cc-line .ln-no{width:26px}
 }
 @media (max-width:980px){#paradigm .phb{display:inline-block}}
+
+/* built different label: keep on one line */
+.spec-l .eyebrow{white-space:nowrap}
