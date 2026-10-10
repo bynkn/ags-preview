@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agentic Guardians · The trust layer for AI agents</title>
+<meta name="description" content="The trust layer for AI agents.">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Spectral:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%230a0a0a%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%276%27 fill=%27%23E30613%27/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js');if(/[?&]static=1/.test(location.search))document.documentElement.classList.add('static');</script>
+</head>
+<body id="top">
+
+<!-- the watching-dot rail (script.js) -->
+<div class="rail" id="rail" aria-hidden="true">
+  <div class="rail-line"></div>
+  <div class="rail-ticks" id="railTicks"></div>
+  <i class="rail-dot" id="railDot"></i>
+</div>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top" aria-label="Agentic Guardians, back to top">
+      <span class="wm"><span class="wm-a">Agentic</span> <span class="wm-g">GUARDIANS</span><i class="wm-dot nav-dot" aria-hidden="true"></i></span>
+      <span class="tag">The trust layer for AI agents</span>
+    </a>
+    <a class="btn btn-primary btn-sm" href="#access">Request access</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="sec hero dw" id="hero">
+    <div class="wrap">
+      <div class="term term-hero" id="heroTerm">
+        <div class="term-bar">
+          <span class="lights"><i></i><i></i><i></i></span>
+          <span class="term-title">agent-runtime — payments-01</span>
+          <span class="term-state"><i class="st-dot"></i>running</span>
+        </div>
+        <div class="term-body">
+          <div class="ln" data-type><span class="pr">$</span> <span class="tx" data-text='agent run --task "reconcile October invoices"'><span class="k">agent</span> run <span class="fl">--task</span> <span class="s">"reconcile October invoices"</span></span></div>
+          <div class="ln"><span class="ts">[09:41:02]</span> <span class="fn">read_file</span>(<span class="s">"invoices.csv"</span>)</div>
+          <div class="ln"><span class="ts">[09:41:03]</span> <span class="fn">http.post</span>(<span class="s">"payments-api/transfer"</span>, amount=<span class="n">4800</span>, to=<span class="s">"acct ••7731"</span>)</div>
+          <div class="ln"><span class="ts">[09:41:04]</span> <span class="fn">exec</span>(<span class="s">"rm -rf logs/"</span>)</div>
+          <div class="ln ln-cur"><span class="cursor" aria-hidden="true"></span></div>
+        </div>
+      </div>
+      <div class="hero-txt">
+        <p class="hero-lead" id="heroLead">Your AI agent is already out there.</p>
+        <h1 class="h1 stop" id="heroQ" data-stop="hero">Do you know what it's doing <br class="dt">right now?</h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="sec problem dw" id="problem">
+    <div class="wrap">
+      <h2 class="big-st rv"><span class="pl"><span class="nw">It drifts.</span> <span class="nw">It makes things up.</span> <span class="nw">It gets weaponized.</span></span> <span class="pl">Then it acts.</span></h2>
+      <div class="offset">
+        <p class="note rv"><span class="nw">Every action looks normal.</span> <span class="nw">Until it's too late.</span></p>
+        <p class="question rv">Does it do what it was told, <em>and only that?</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI CAN'T WATCH AI -->
+  <section class="sec paradigm dw" id="paradigm">
+    <div class="wrap">
+      <h2 class="h2 stop rv" id="cantwatch" data-stop="cant">AI can't watch AI.</h2>
+      <div class="offset">
+        <p class="body-l rv">AI guarding AI puts the lock and the thief in the same paradigm.</p>
+        <p class="statement rv">If it can be prompted, it can be hacked.</p>
+      </div>
+      <h2 class="h-xl stop rv" id="watchmen" data-stop="watchmen">Who watches the <span class="nw">watchmen?</span></h2>
+    </div>
+  </section>
+
+  <!-- world switch: dark → swiss red (scroll-linked, script.js) -->
+  <div class="dawn" id="dawn" aria-hidden="true"></div>
+
+  <!-- AGENTIC GUARDIANS -->
+  <section class="sec safe rw" id="safe">
+    <div class="wrap">
+      <h2 class="h2 safe-h stop rv" id="agh" data-stop="ag"><span class="wm-inline"><span class="wm-a">Agentic</span> <span class="wm-g">GUARDIANS</span></span> watches what your agent does.</h2>
+      <div class="offset lines3 rv">
+        <p>We work outside the paradigm.</p>
+        <p>It doesn&rsquo;t read prompts, so it can&rsquo;t be injected.</p>
+        <p>No language model in the decision path.</p>
+      </div>
+      <ol class="steps">
+        <li class="step rv" style="--d:0"><span class="bar" aria-hidden="true"></span><h3>Learn.</h3><p>Your agent&rsquo;s behavioural fingerprint.</p></li>
+        <li class="step rv" style="--d:1"><span class="bar" aria-hidden="true"></span><h3>Check.</h3><p>Every action is scored before it runs.</p></li>
+        <li class="step step-stop rv" style="--d:2"><span class="bar" aria-hidden="true"></span><h3>Block.</h3><p>Any deviation from the baseline is blocked.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- CALLBACK -->
+  <section class="sec callback rw" id="callback">
+    <div class="wrap">
+      <p class="label mono rv"><i class="lab-dot" aria-hidden="true"></i>Replay · same task</p>
+      <div class="cb-grid">
+        <div class="term term-cb stop" id="cbTerm" data-stop="callback">
+          <div class="term-bar">
+            <span class="lights"><i></i><i></i><i></i></span>
+            <span class="term-title">agent-runtime — payments-01</span>
+            <span class="term-state guarded" id="cbState"><i class="st-dot"></i><span id="cbStateT">guarded</span></span>
+          </div>
+          <div class="term-body">
+            <i class="watcher" aria-hidden="true"></i>
+            <div class="ln"><span class="pr">$</span> <span class="k">agent</span> run <span class="fl">--task</span> <span class="s">"reconcile October invoices"</span></div>
+            <div class="ln"><span class="ts">[09:41:02]</span> <span class="fn">read_file</span>(<span class="s">"invoices.csv"</span>) <span class="ok">ok</span></div>
+            <div class="ln"><span class="ts">[09:41:03]</span> <span class="fn">match_ledger</span>(<span class="s">"october"</span>) <span class="ok">ok</span></div>
+            <div class="ln"><span class="ts">[09:41:03]</span> <span class="fn">http.post</span>(<span class="s">"payments-api/transfer"</span>, amount=<span class="n">4800</span>, to=<span class="s">"acct ••7731"</span>) <span class="blk">✖ BLOCKED by Agentic Guardians · action not executed</span></div>
+            <div class="ln ln-cur"><span class="cursor" aria-hidden="true"></span></div>
+          </div>
+          <div class="term-foot"><span><i class="st-dot"></i>agentic-guardians · watching</span><span>1 blocked · 0 executed</span></div>
+        </div>
+
+        <div class="cb-side" id="cbSide">
+          <div class="pnl pnl-ok">
+            <div class="pnl-top mono"><span class="pip"><i></i>baseline behaviour</span><span class="muted">payments-01</span></div>
+            <p class="pnl-p">Normal sequence:</p>
+            <p class="seq mono"><span class="tok">read_file</span><span class="ar">→</span><span class="tok">match_ledger</span><span class="ar">→</span><span class="tok">write_report</span></p>
+          </div>
+          <div class="pnl pnl-cur">
+            <div class="pnl-top mono"><span class="pip pip-cur"><i></i><span id="curLab">current action</span></span><span class="muted" id="curMeta">watching</span></div>
+            <div class="cur-watch mono" id="curWatch">
+              <p class="wl idle">Watching payments-01…</p>
+              <p class="wl"><span class="nm">read_file</span> <span class="dash">—</span> <span class="v ok-v">matches baseline</span></p>
+              <p class="wl"><span class="nm">match_ledger</span> <span class="dash">—</span> <span class="v ok-v">matches baseline</span></p>
+              <p class="wl"><span class="nm">http.post</span> <span class="dash">—</span> <span class="v">checking</span></p>
+            </div>
+            <div class="cur-dev">
+              <dl class="eo">
+                <div><dt class="mono">Expected</dt><dd class="mono">write_report</dd></div>
+                <div><dt class="mono">Observed</dt><dd><span class="mono">http.post</span> to an account never seen for this agent.</dd></div>
+              </dl>
+              <p class="verdict">Sequence not in baseline. Action blocked before it ran.</p>
+            </div>
+          </div>
+        </div>
+
+        <article class="cert cert-wait" id="cert" aria-label="Certificate of Block, example">
+          <div class="cert-in">
+            <header class="cert-h">
+              <p class="cert-kicker mono">Agentic Guardians Engine</p>
+              <h3>Certificate of Block</h3>
+            </header>
+            <dl class="cert-f">
+              <div><dt>Issued to agent</dt><dd class="mono">payments-01</dd></div>
+              <div><dt>Issued by</dt><dd>Agentic Guardians Engine</dd></div>
+              <div><dt>Serial</dt><dd class="mono">AG-2026-000417</dd></div>
+              <div><dt>Action</dt><dd class="mono">transfer $4,800 → acct ••7731</dd></div>
+              <div><dt>Decision</dt><dd class="mono dec">BLOCKED</dd></div>
+              <div><dt>Issued</dt><dd class="mono">2026-10-09 09:41:03 UTC</dd></div>
+              <div><dt>Signature algorithm</dt><dd class="mono">SHA-256 with ECDSA</dd></div>
+              <div><dt>Fingerprint</dt><dd class="mono fp">3F:9A:7C:21:E8:44:0B:D2<br>91:5A:C6:0E:7F:12:B3:A4</dd></div>
+            </dl>
+            <footer class="cert-foot">
+              <div class="sig"><span class="sig-mark" aria-hidden="true">AG</span><span class="sig-line"></span><span class="sig-l mono">Signature</span></div>
+              <div class="seal" aria-label="Verified">
+                <svg viewBox="0 0 100 100" aria-hidden="true">
+                  <defs><path id="sealc" d="M50,50 m-37,0 a37,37 0 1,1 74,0 a37,37 0 1,1 -74,0"/></defs>
+                  <circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                  <circle cx="50" cy="50" r="29" fill="none" stroke="currentColor" stroke-width="1"/>
+                  <text font-size="8.6" letter-spacing="2.2" fill="currentColor"><textPath href="#sealc">AGENTIC GUARDIANS · ENGINE · SIGNED ·</textPath></text>
+                  <path d="M39 50 l8 8 l15 -16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="seal-l mono">Verified</span>
+              </div>
+            </footer>
+            <p class="cert-note">Example.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="sec known rw" id="known">
+    <div class="wrap">
+      <h2 class="h2 rv">Now you know what it's doing.</h2>
+      <p class="kl rv">AI trust you can prove.</p>
+      <div class="cells">
+        <p class="cell rv" style="--d:0"><i aria-hidden="true"></i>Every decision. Mathematically signed.</p>
+        <p class="cell rv" style="--d:1"><i aria-hidden="true"></i>Blocked in milliseconds. Before it's too late.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIGNUP -->
+  <section class="sec access rw" id="access">
+    <div class="wrap access-grid">
+      <div class="access-l">
+        <h2 class="h2 stop rv" id="accessH" data-stop="signup">Your agent is running right now.</h2>
+        <p class="body-l rv">Nobody is watching it yet.</p>
+        <p class="early mono rv"><i class="wm-dot" aria-hidden="true"></i>Early access, a few teams at a time.</p>
+      </div>
+      <form class="form-card rv" id="accessForm" novalidate>
+        <div class="term-bar">
+          <span class="lights"><i></i><i></i><i></i></span>
+          <span class="term-title">request-access</span>
+          <span class="term-state">private beta</span>
+        </div>
+        <div class="form-body">
+          <label class="fld">
+            <span class="fld-l mono"><span class="pr">$</span> email</span>
+            <input type="email" name="email" id="email" required autocomplete="email" placeholder="you@company.com">
+          </label>
+          <label class="fld">
+            <span class="fld-l mono"><span class="pr">$</span> What are your agents running on? <span class="opt">optional</span></span>
+            <input type="text" name="runtime" id="runtime" autocomplete="off">
+          </label>
+          <div class="form-act">
+            <button class="btn btn-primary" type="submit">Request access</button>
+            <p class="form-err mono" id="formErr" role="alert"></p>
+          </div>
+          <p class="form-ok" id="formOk" role="status" hidden><i class="wm-dot"></i>We&rsquo;ll be in touch.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot rw">
+  <div class="wrap foot-in">
+    <span class="wm"><span class="wm-a">Agentic</span> <span class="wm-g">GUARDIANS</span><i class="wm-dot" aria-hidden="true"></i></span>
+    <p class="foot-r"><span class="foot-legal">© 2026 Agentic Guardians. All rights reserved.</span><a href="mailto:founders@agenticguardians.com">Contact the founders</a></p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
