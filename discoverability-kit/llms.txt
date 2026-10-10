@@ -2,7 +2,7 @@
 
 > Agentic Guardians is the runtime trust layer for AI agents. It scores your agent's behaviour before every action runs. It doesn't read prompts. It can't be persuaded. Every block is signed (Ed25519). Anyone can verify it. AI trust you can prove.
 
-Agentic Guardians answers the question every agent deployment eventually has to face: will the agent do what it's told, and only that? It learns each agent's normal action sequences, scores every next action before it runs, and stops deviations before they execute, whether they come from prompt injection, logic drift or hallucination. It watches actions, not words, so it sits outside the language layer that attacks target. It is built for SMEs: lightweight enough to adopt without a large security team, robust enough for regulated workflows. Stage: private beta.
+The core question: **Do you know what your agent is doing right now?** And does it do what it's told, and only that? Agentic Guardians is built to answer both. It learns each agent's normal action sequences, scores every next action before it runs, and stops deviations before they execute, whether they come from prompt injection, logic drift or hallucination. It watches actions, not words, so it sits outside the language layer that attacks target. It is built for SMEs: lightweight enough to adopt without a large security team, robust enough for regulated workflows. Stage: private beta.
 
 ## What it is
 
