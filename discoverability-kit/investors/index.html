@@ -51,6 +51,10 @@
   code { font-family:ui-monospace,monospace; font-size:.9em; }
   .team article { margin-bottom:18px; }
   .team h3 { margin-top:0; }
+  .incident { padding:48px 0; border-top:1px solid var(--line); }
+  .incident .big { margin:0 0 12px; }
+  .incident .source { font-size:.8rem; color:var(--muted); margin:12px 0 0; }
+  .incident .source a { color:var(--muted); }
   .latin { color:var(--muted); font-size:.9rem; margin-top:-8px; }
   .team .why { font-size:1.1rem; margin:0 0 28px; }
   .placeholder { background:#fff6d6; padding:0 4px; font-family:ui-monospace,monospace; font-size:.85em; }
@@ -70,6 +74,14 @@
       <p class="tagline">AI trust you can prove.</p>
     </div>
   </header>
+
+  <aside class="incident" aria-labelledby="incident-h">
+    <p class="kicker" id="incident-h">April 2026. PocketOS.</p>
+    <p class="big">A coding agent was asked to fix a routine problem. It found a key in an unrelated file, decided on its own to delete a volume, and took the production database and its backups with it.</p>
+    <p class="big"><strong>Nine seconds. Nobody was watching. Nothing stopped it.</strong></p>
+    <p>That’s the action Agentic Guardians is built to catch: one that doesn’t fit the agent’s rhythm, stopped before it runs.</p>
+    <p class="source"><a href="https://www.computing.co.uk/news/2026/ai/ai-coding-agent-goes-rogue">Reported by Computing</a></p>
+  </aside>
 
   <nav class="toc" aria-label="On this page">
     <ul>
@@ -96,7 +108,7 @@
         <p>It drifts. It makes things up. It gets weaponized. Then it acts.</p>
         <p>A compromised agent doesn’t look compromised. It isn’t a break-in. It’s a takeover from the inside. And you’ll never know it happened. Until it’s too late.</p>
       </div>
-      <p>It doesn’t even take an attack. An agent can misread its instructions and act, sure of itself, on the wrong idea.</p>
+      <p>It doesn’t even take an attack. Sometimes the agent just decides.</p>
       <p>Today’s tools read prompts, check policies, or find out afterwards. None of them stop the action before it runs.</p>
       <h3>Who feels it most</h3>
       <p>Small and mid-sized companies. They’re adopting AI fast, often without a security team to watch it.</p>

@@ -20,6 +20,7 @@ Every agent has a rhythm. Agentic Guardians learns it. When the rhythm breaks, t
 - Agents drift. They make things up. They get weaponized. Then they act.
 - A compromised agent doesn't look compromised. It isn't a break-in. It's a takeover from the inside. You may never know it happened.
 - It doesn't take an attack. An agent can misread its instructions and act, sure of itself, on the wrong idea.
+- Real case: in April 2026 an AI coding agent fixing a routine problem at PocketOS decided on its own to delete a storage volume, wiping the production database and its volume-level backups in about nine seconds (the data was later recovered from off-site backups). Source: https://www.computing.co.uk/news/2026/ai/ai-coding-agent-goes-rogue
 - Today's tools read prompts, check policies, or find out afterwards. None of them stop the action before it runs.
 - The stakes: mistakes in payments, code, personnel records, legal work and health administration, faster than a person can step in. Some break GDPR, the EU AI Act or a contract.
 
