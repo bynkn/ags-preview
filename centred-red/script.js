@@ -127,15 +127,15 @@
   /* ---------------- S5 · callback console (from mock-callback) ----------------
      The whole sequence is a pure function of time: render(t). Starts when the
      terminal scrolls into view.  ?static=1 → final state   ?t=<ms> → frozen frame */
-  /* v5 pacing (from ag-v5-openscout-red): ~5.7s total, a line every ~950ms with a human
-     typing rhythm; red the moment the transfer line completes; certificate ~800ms later */
+  /* v7 pacing (from ag-v7-dev): ~7.65s total, a line every ~1350ms with a human typing
+     rhythm; ~700ms hold before the transfer line; red the moment it completes; certificate ~1000ms later */
   var T = {
-    lines: [[200, 980], [1160, 1640], [2140, 2600], [3100, 3980]],  // [type start, type end] per line
-    pass: [null, 1800, 2760],  // ok + "matches baseline"
-    flip: 3980,                // red: status band, panel, BLOCKED
-    prompt: 4250,              // $ ▌
-    cert: 4780,                // ~800ms after the flip
-    end: 5700
+    lines: [[250, 1350], [1650, 2350], [3000, 3700], [4550, 6150]],  // [type start, type end] per line
+    pass: [null, 2500, 3850],  // ok + "matches baseline"
+    flip: 6150,                // red: status band, panel, BLOCKED
+    prompt: 6450,              // $ ▌
+    cert: 7150,                // ~1000ms after the flip
+    end: 7650
   };
   var con = $('#console'), term = $('#term'), trav = $('#trav'), cert = $('#cert'), known = $('#known');
   var TL = $$('.ln', term), band = $('#band-text'), curLab = $('#cur-label');
