@@ -368,3 +368,18 @@ html[data-hero-done] .stage-in,.static .stage-in{opacity:1}
 .fixed .stage-in,.fixed .stage-in *,.static-steps,.static-steps *{transition:none!important}
 .static-steps~.proof-end{margin-top:72px}
 @media (max-width:760px){.static-steps~.proof-end{margin-top:56px}}
+
+/* ---------- BEAT 3 · paradigm two-column ---------- */
+.why-top{align-items:center}
+.why-l .lbl{margin-bottom:18px}
+.why-lead{margin:22px 0 0;font-size:24px;line-height:1.4;color:var(--tx2);letter-spacing:-.015em;text-wrap:balance}
+.why-sub.why-one{margin-top:18px;font-size:clamp(16px,1.42vw,20px)}
+.why-r{min-width:0}
+.why-sub.why-note{margin:20px 0 0;font-size:clamp(16px,1.42vw,20px)}
+@media (min-width:1024px){.why-sub.why-one{text-wrap:nowrap;white-space:nowrap}}
+@media (max-width:1100px){.why-sub.why-one,.why-sub.why-note{font-size:19px}}
+@media (max-width:760px){
+  .why-lead{font-size:20px}
+  .why-lead .nw{white-space:normal}
+  .why-sub.why-one,.why-sub.why-note{font-size:17px}
+}
