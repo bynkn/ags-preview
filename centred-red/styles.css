@@ -421,3 +421,6 @@ main{position:relative;z-index:1}
 
 /* problem two-liner, paradigm sub-line, AG label removed, dot moved */
 .body.body-sub{margin-top:18px;font-size:var(--ts3);line-height:1.55;letter-spacing:0;max-width:40ch}
+
+/* closing headline: keep each sentence on its own line where it fits */
+.kl-s{display:inline-block}

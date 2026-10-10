@@ -381,3 +381,8 @@ html:not([data-safe="graphite"]) .trav.chk,html:not([data-safe="graphite"]) .sd{
 .footer a.cf{white-space:nowrap}
 .footer .cp{text-wrap:balance}
 .s2 .ask{grid-column:1/-1;margin-top:56px;font-family:var(--disp,var(--sans));font-weight:600;font-size:clamp(24px,2.6vw,36px);letter-spacing:-.025em;line-height:1.15}.s2 .ask .rv{display:inline-block}.s2 .only{color:var(--coral)}
+
+/* closing headline: keep each sentence on its own line where it fits */
+.kl-s{display:inline-block}
+/* closing headline: cap size so "Now you’ll know what it’s doing." fits one line on desktop */
+@media (min-width:721px){.known .kh{font-size:min(5.5rem,6.3vw)!important}}
