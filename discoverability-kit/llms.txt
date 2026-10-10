@@ -32,19 +32,23 @@ Every agent has a rhythm. Agentic Guardians learns it. When the rhythm breaks, t
 
 Example: a payments agent always runs read_file → match_ledger → write_report. One day it tries an http.post to an account it has never paid. Agentic Guardians blocks the action before it runs and issues a signed Detection Certificate. Nothing is sent.
 
-## How it is different
+## Why we win: not AI watching AI
 
+- Who guards the guardians? Most tools that watch agents are AI themselves: same architecture, same attack surface, same language. A prompt injection that fools the agent can reach the guard too.
+- You cannot ask a corrupted process to report its own corruption. An AI watching an AI is just another alignment problem.
+- Agentic Guardians doesn't process tokens. It doesn't read prompts, so a prompt can't reach it. There's nothing for an injection to talk to.
+- It watches sequences of actions at the system level, using statistical models, not language models. CPU, not GPU.
 - A compromised agent can say all the right things. It can't fake its rhythm.
-- We don't use AI to watch AI. If AI guards AI, a prompt that reaches the agent can reach the guard. You can't ask a corrupted process to report its own corruption.
-- Prompt filters read the same language the attacker writes in. Logs tell you afterwards. People can't keep up with machine speed. Another AI can be fooled too.
+- Filters read the attacker's language. Logs tell you afterwards. People can't keep up with machine speed.
 - You don't need to understand the maths. You just need to check the signature.
 - Light enough for a small company to run. Leaves the records regulated work needs.
 
 ## Why now
 
-- Everyone wants agents. Almost nobody trusts them yet.
-- The industry worked out how to build agents. Nobody worked out how to make sure they're safe.
-- As companies hand work to agents, they lose the people who would have caught a rogue one. Something has to take their place, before the first serious incident rather than after.
+- Every major AI company is racing to make agents deployable at scale. The thing blocking adoption is trust.
+- Everyone wants agents. Almost nobody trusts them yet. As companies hand work to agents, they lose the people who would have caught a rogue one.
+- Nobody has solved trust with maths yet. We've spent over a decade on the maths it needs (see the IEEE Access 2020 research below).
+- The window is now.
 
 ## Pages
 
@@ -54,7 +58,7 @@ Example: a payments agent always runs read_file → match_ledger → write_repor
 ## Investors
 
 - Stage: private beta. The engine works end to end: it learns each agent's baseline, blocks before execution, and signs every block. We're onboarding our first teams ourselves.
-- Why we built it: Armine set up her own agent and realised she'd be giving it blind access to her world. The CTOs and engineers she asked said the same: the gains are real, so they sign off, but they sign off nervous. Ghazaros had spent years catching fraud by how it behaves, not by what it says. Agents need the same.
+- Why we built it: Armine set up his own agent and realised he'd be giving it blind access to his world. The CTOs and engineers he asked said the same: the gains are real, so they sign off, but they sign off nervous. Ghazaros had spent years catching fraud by how it behaves, not by what it says. Agents need the same.
 - Armine [[SURNAME]], Co-Founder (go-to-market): two decades building technology companies, a prior exit, patented inventor, Techstars alum. https://ca.linkedin.com/in/armine
 - Dr. Ghazaros Barseghyan, Co-Founder (engine): over a decade of research into behavioural sequence models, taken from peer-reviewed research into production fraud detection. https://am.linkedin.com/in/ghazaros-barseghyan-2b585aa3
 - Research: Barseghyan et al., "Model for Detection of Masquerade Attacks Based on Variable-Length Sequences", IEEE Access, 2020. https://doi.org/10.1109/ACCESS.2020.3039166

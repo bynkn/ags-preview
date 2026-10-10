@@ -51,6 +51,7 @@
   code { font-family:ui-monospace,monospace; font-size:.9em; }
   .team article { margin-bottom:18px; }
   .team h3 { margin-top:0; }
+  .latin { color:var(--muted); font-size:.9rem; margin-top:-8px; }
   .team .why { font-size:1.1rem; margin:0 0 28px; }
   .placeholder { background:#fff6d6; padding:0 4px; font-family:ui-monospace,monospace; font-size:.85em; }
   footer { border-top:1px solid var(--line); padding:32px 0 56px; color:var(--muted); font-size:.875rem; }
@@ -77,7 +78,7 @@
       <li><a href="#product">Product</a></li>
       <li><a href="#proof">Proof</a></li>
       <li><a href="#how-it-works">How it works</a></li>
-      <li><a href="#different">How it’s different</a></li>
+      <li><a href="#different">Why we win</a></li>
       <li><a href="#alignment">Alignment</a></li>
       <li><a href="#stage">Stage</a></li>
       <li><a href="#team">Team</a></li>
@@ -106,10 +107,10 @@
     <section id="why-now" aria-labelledby="why-now-h">
       <h2 id="why-now-h">Why now</h2>
       <div class="short">
-        <p><strong>Everyone wants agents. Almost nobody trusts them yet.</strong></p>
-        <p>The industry worked out how to build agents. Nobody worked out how to make sure they’re safe.</p>
-        <p>As companies hand work to agents, they lose the people who would have caught a rogue one. Something has to take their place.</p>
-        <p>We’d rather it existed before the first serious incident than after.</p>
+        <p>Every major AI company is racing to make agents deployable at scale. The thing blocking adoption is trust.</p>
+        <p>Everyone wants agents. Almost nobody trusts them yet. And as companies hand work to agents, they lose the people who would have caught a rogue one.</p>
+        <p>Nobody has solved trust with maths yet. <a href="#team">We’ve spent over a decade on the maths it needs.</a></p>
+        <p><strong>The window is now.</strong></p>
       </div>
     </section>
 
@@ -152,17 +153,16 @@
     </section>
 
     <section id="different" aria-labelledby="different-h">
-      <h2 id="different-h">How it’s different</h2>
+      <h2 id="different-h">Why we win: not AI watching AI</h2>
+      <p class="big"><strong>Who guards the guardians?</strong></p>
+      <p class="latin"><em>Quis custodiet ipsos custodes.</em> Juvenal, 1st century AD.</p>
+      <p>Most tools that watch agents are AI themselves. Same architecture. Same attack surface. They speak the same language as the agent, so a prompt injection that fools the agent can reach the guard too.</p>
+      <p>You cannot ask a corrupted process to report its own corruption. An AI watching an AI is just another alignment problem.</p>
+      <p>Our engine doesn’t speak that language. It doesn’t process tokens. It doesn’t read prompts, so a prompt can’t reach it. There’s nothing for an injection to talk to.</p>
+      <p>It watches sequences of actions at the system level. Statistical models, not language models. Patterns in what the agent does, not meaning in what it’s told. CPU, not GPU.</p>
       <p class="big"><strong>A compromised agent can say all the right things. It can’t fake its rhythm.</strong></p>
-      <p>That’s why we don’t use AI to watch AI. If AI guards AI, a prompt that reaches the agent can reach the guard. You can’t ask a corrupted process to report its own corruption.</p>
-      <p>So we watch what the agent does, never what it’s told.</p>
-      <ul>
-        <li>Prompt filters read the same language the attacker writes in.</li>
-        <li>Logs tell you afterwards.</li>
-        <li>People can’t keep up with machine speed.</li>
-        <li>Another AI can be fooled too.</li>
-      </ul>
-      <p>Agentic Guardians is light enough for a small company to run, and it leaves the records regulated work needs.</p>
+      <p>Filters read the attacker’s language. Logs tell you afterwards. People can’t keep up with machine speed. Agentic Guardians stands outside all of that, and an agent can’t talk its way past something that never listens.</p>
+      <p><strong>That’s why we win.</strong></p>
     </section>
 
     <section id="alignment" aria-labelledby="alignment-h">
@@ -178,7 +178,7 @@
     <section id="team" class="team" aria-labelledby="team-h">
       <h2 id="team-h">Team</h2>
       <h3>Why we’re building this</h3>
-      <p class="why">It started when Armine set up her own agent and realised she’d be giving it blind access to her world. She asked CTOs, engineers and friends building with agents. They all said the same thing: the gains are real, so they sign off. But they sign off nervous. Ghazaros had spent years catching fraud by how it behaves, not by what it says. Agents need the same. So we built it.</p>
+      <p class="why">It started when Armine set up his own agent and realised he’d be giving it blind access to his world. He asked CTOs, engineers and friends building with agents. They all said the same thing: the gains are real, so they sign off. But they sign off nervous. Ghazaros had spent years catching fraud by how it behaves, not by what it says. Agents need the same. So we built it.</p>
       <article>
         <h3>Armine <span class="placeholder">[[SURNAME]]</span>, Co-Founder, Go-to-Market</h3>
         <p>Two decades building technology companies, with a prior exit. Patented inventor. Techstars alum. <a href="https://ca.linkedin.com/in/armine">LinkedIn</a></p>
