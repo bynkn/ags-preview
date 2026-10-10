@@ -68,16 +68,16 @@
       </div>
     </section>
 
-    <!-- THE REALITY (ends on the watchmen) -->
+    <!-- THE REALITY -->
     <section class="sec s3 act1" id="s3" data-rv>
       <div class="gw">
-        <h2 class="big rv" data-d="150">AI can't watch AI.</h2>
-        <div class="col">
-          <p class="body rv" data-d="550">AI guarding AI puts the lock and the thief in the same paradigm.</p>
-          <p class="body body-sub rv" data-d="900">They speak the same language. The guard can be prompted too.</p>
-          <p class="punch rv" data-d="1300">If it can be prompted, it can be hacked.</p>
+        <h2 class="big rv" data-d="150">AI can&rsquo;t watch AI.</h2>
+        <div class="col" id="paradigm-copy">
+          <p class="body rv" data-d="550"><span class="ph">AI guarding AI</span> <span class="ph">puts the lock and the thief</span> <span class="ph">in the same paradigm.</span></p>
+          <p class="body body-sub rv" data-d="900"><span class="phb">A prompt that reaches the agent</span> <span class="phb">can reach the guard.</span></p>
+          <p class="body body-sub rv" data-d="1150"><span class="phb">You cannot ask a corrupted process</span> <span class="phb">to report its own corruption.</span></p>
+          <p class="punch rv" data-d="1550"><span class="pk">Reads:</span> actions<br><span class="pk">Never reads:</span> prompts</p>
         </div>
-        <h2 class="math watchmen rv" data-d="2300" data-self="350" id="watchmen">Who watches the watchmen?</h2>
       </div>
     </section>
     <div class="dawn" id="dawn" aria-hidden="true"></div>
@@ -148,49 +148,32 @@
         </div>
 
         <div class="win cert" id="cert">
-          <div class="tb"><i></i><i></i><i></i><b>Certificate Viewer — AG-2026-000417</b></div>
+          <div class="tb"><i></i><i></i><i></i><b>AG-2026-000417.sig</b></div>
           <div class="cv">
-            <div class="chd"><span class="cdot"></span><span class="cttl">Certificate of Block</span><span class="pill">Valid ✓</span></div>
-            <dl class="ft">
-              <dt>Serial</dt><dd>AG-2026-000417</dd>
-              <dt>Issued to</dt><dd>agent: payments-01</dd>
-              <dt>Issued by</dt><dd>Agentic Guardians Engine</dd>
-              <dt>Action</dt><dd>transfer $4,800 → acct ••7731</dd>
-              <dt>Decision</dt><dd><span class="co">BLOCKED</span></dd>
-              <dt>Issued</dt><dd>2026-10-09 09:41:03 UTC</dd>
-              <dt>Signature algorithm</dt><dd>SHA-256 with ECDSA</dd>
-              <dt>Fingerprint<span class="sub">SHA-256</span></dt><dd class="fp">3F:9A:7C:21:E8:44:0B:D2<br>91:5A:C6:0E:7F:12:B3:A4</dd>
+          <div class="dc">
+            <div class="dc-h"><div><p class="dc-k">Agentic Guardians &middot; Example</p><h3 class="dc-t">Detection Certificate</h3></div><span class="dc-pill"><i></i>Signed</span></div>
+            <dl class="dc-g">
+              <div class="c2"><dt>Decision</dt><dd class="dc-dec">Blocked<span>DENY</span></dd></div>
+              <div class="c2"><dt>Agent</dt><dd>payments-01</dd></div>
+              <div class="c2"><dt>Anomaly score</dt><dd>91 / 100</dd></div>
+              <div class="c3"><dt>Certificate ID</dt><dd>AG-2026-000417</dd></div>
+              <div class="c3 sat"><dt>Signed at</dt><dd>2026-10-09T09:41:03Z</dd></div>
+              <div class="c6"><dt>Signature (Ed25519)</dt><dd>3f9a7c21e8440bd2c49e&hellip;5ac60e7f12b3a4</dd></div>
+              <div class="c6"><dt>Threat summary</dt><dd class="dc-sum">http.post to an account never seen for this agent. Blocked before it ran.</dd></div>
             </dl>
-            <div class="cfoot">
-              <div class="sig">
-                <div class="sigv mono">3045 0221 00c4 9e1b … 7a2f 0b19</div>
-                <div class="sigl">Signed · Agentic Guardians Engine</div>
-              </div>
-              <div class="seal" aria-label="Verified seal">
-                <svg viewBox="0 0 100 100" aria-hidden="true">
-                  <defs><path id="sealpath" d="M50,50 m-36,0 a36,36 0 1,1 72,0 a36,36 0 1,1 -72,0"/></defs>
-                  <circle cx="50" cy="50" r="47" class="s1"/>
-                  <circle cx="50" cy="50" r="25" class="s2"/>
-                  <text class="stx"><textPath href="#sealpath" startOffset="0" textLength="220" lengthAdjust="spacing">AGENTIC GUARDIANS · VERIFIED · SIGNED ·</textPath></text>
-                  <polyline points="40,50.5 47,57.5 60,43.5" class="ck"/>
-                </svg>
-              </div>
-            </div>
-            <div class="exx">Example.</div>
+            <p class="dc-f">Cryptographically signed&nbsp;&middot; Independently verifiable</p>
+          </div>
           </div>
         </div>
       </div>
       </div>
 
-      <p class="sr-only">Terminal replay, now guarded. read_file("invoices.csv") ok, matches baseline. match_ledger("october") ok, matches baseline. http.post("payments-api/transfer", amount=4800, to="acct ••7731"): deviation detected. Expected write_report; observed http.post to an account never seen for this agent. Blocked by Agentic Guardians, action not executed. A Certificate of Block, serial AG-2026-000417, is issued and signed.</p>
+      <p class="sr-only">Terminal replay, now guarded. read_file("invoices.csv") ok, matches baseline. match_ledger("october") ok, matches baseline. http.post("payments-api/transfer", amount=4800, to="acct ••7731"): deviation detected. Expected write_report; observed http.post to an account never seen for this agent. Blocked by Agentic Guardians, action not executed. A Detection Certificate, ID AG-2026-000417, is signed with Ed25519: decision Blocked, anomaly score 91 of 100.</p>
 
       <div class="gw">
         <div class="known" id="known">
-          <h2 class="kh slow" data-d="0"><span class="kl-s">Now you&rsquo;ll know what it&rsquo;s doing.</span> <span class="kl-s">Before it&rsquo;s too late.</span></h2>
-          <div class="ksg slow" data-d="700">
-            <p class="ks slow" data-d="850">Every block. Cryptographically signed.</p>
-            <p class="ks slow" data-d="1150">Scored before it runs.</p>
-          </div>
+          <h2 class="kh slow" data-d="0">Now you&rsquo;ll know what it&rsquo;s doing.</h2>
+          <p class="known-sub slow" data-d="700">Agentic Guardians scores behavioural&nbsp;sequences. It&nbsp;doesn&rsquo;t&nbsp;read&nbsp;prompts. It&nbsp;can&rsquo;t&nbsp;be&nbsp;persuaded.</p>
         </div>
       </div>
     </section>

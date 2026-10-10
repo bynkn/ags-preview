@@ -70,20 +70,19 @@
   <section class="sec split dw" id="paradigm">
     <div class="split-l">
       <p class="eyebrow rv">The paradigm</p>
-      <h2 class="h2 rv">AI can't watch AI.</h2>
-      <p class="body rv">AI guarding AI puts the lock and the thief in the same paradigm.</p>
-      <p class="body body-sub rv">They speak the same language. The guard can be prompted too.</p>
+      <h2 class="h2 rv">AI can&rsquo;t watch AI.</h2>
+      <p class="body rv"><span class="ph">AI guarding AI</span> <span class="ph">puts the lock and the thief</span> <span class="ph">in the same paradigm.</span></p>
+      <p class="body body-sub rv"><span class="phb">A prompt that reaches the agent</span> <span class="phb">can reach the guard.</span></p>
     </div>
     <div class="split-r">
+      <div class="para-r">
       <div class="code-card rv">
         <div class="cc-bar mono"><span>guard.md</span><span class="muted">2 lines</span></div>
-        <p class="cc-line mono"><span class="ln-no">1</span><span><span class="cmt">#</span> If it can be prompted,</span></p>
-        <p class="cc-line mono cc-2"><span class="ln-no">2</span><span><span class="cmt">#</span> it can be hacked.</span></p>
+        <p class="cc-line mono"><span class="ln-no">1</span><span><span class="cmt">#</span> <span class="ck">Reads:</span> actions</span></p>
+        <p class="cc-line mono cc-2"><span class="ln-no">2</span><span><span class="cmt">#</span> <span class="ck">Never reads:</span> prompts</span></p>
       </div>
-    </div>
-    <div class="para-end">
-      <div class="w-grid" aria-hidden="true"></div>
-      <h2 class="h-xl rv" id="watchmen">Who watches the <span class="nw">watchmen?<i class="watch-dot" aria-hidden="true"></i></span></h2>
+        <p class="body body-sub para-note rv"><span class="phb">You cannot ask a corrupted process</span> <span class="phb">to report its own corruption.</span></p>
+      </div>
     </div>
   </section>
 
@@ -172,37 +171,20 @@
         </div>
       </div>
 
-      <article class="cert cert-wait" id="cert" aria-label="Certificate of Block, example">
-        <div class="cert-in">
-          <header class="cert-h">
-            <p class="cert-kicker mono">Agentic Guardians Engine</p>
-            <h3>Certificate of Block</h3>
-          </header>
-          <dl class="cert-f">
-            <div><dt>Issued to agent</dt><dd class="mono">payments-01</dd></div>
-            <div><dt>Issued by</dt><dd>Agentic Guardians Engine</dd></div>
-            <div><dt>Serial</dt><dd class="mono">AG-2026-000417</dd></div>
-            <div><dt>Action</dt><dd class="mono">transfer $4,800 → acct ••7731</dd></div>
-            <div><dt>Decision</dt><dd class="mono dec">BLOCKED</dd></div>
-            <div><dt>Issued</dt><dd class="mono">2026-10-09 09:41:03 UTC</dd></div>
-            <div><dt>Signature algorithm</dt><dd class="mono">SHA-256 with ECDSA</dd></div>
-            <div><dt>Fingerprint</dt><dd class="mono fp">3F:9A:7C:21:E8:44:0B:D2<br>91:5A:C6:0E:7F:12:B3:A4</dd></div>
-          </dl>
-          <footer class="cert-foot">
-            <div class="sig"><span class="sig-mark" aria-hidden="true">AG</span><span class="sig-line"></span><span class="sig-l mono">Signature</span></div>
-            <div class="seal" aria-label="Verified">
-              <svg viewBox="0 0 100 100" aria-hidden="true">
-                <defs><path id="sealc" d="M50,50 m-37,0 a37,37 0 1,1 74,0 a37,37 0 1,1 -74,0"/></defs>
-                <circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="1.5"/>
-                <circle cx="50" cy="50" r="29" fill="none" stroke="currentColor" stroke-width="1"/>
-                <text font-size="8.6" letter-spacing="2.2" fill="currentColor"><textPath href="#sealc">AGENTIC GUARDIANS · ENGINE · SIGNED ·</textPath></text>
-                <path d="M39 50 l8 8 l15 -16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <span class="seal-l mono">Verified</span>
-            </div>
-          </footer>
-          <p class="cert-note">Example.</p>
-        </div>
+      <article class="cert cert-wait" id="cert" aria-label="Detection Certificate, example">
+        <div class="dc">
+            <div class="dc-h"><div><p class="dc-k">Agentic Guardians &middot; Example</p><h3 class="dc-t">Detection Certificate</h3></div><span class="dc-pill"><i></i>Signed</span></div>
+            <dl class="dc-g">
+              <div class="c2"><dt>Decision</dt><dd class="dc-dec">Blocked<span>DENY</span></dd></div>
+              <div class="c2"><dt>Agent</dt><dd>payments-01</dd></div>
+              <div class="c2"><dt>Anomaly score</dt><dd>91 / 100</dd></div>
+              <div class="c3"><dt>Certificate ID</dt><dd>AG-2026-000417</dd></div>
+              <div class="c3 sat"><dt>Signed at</dt><dd>2026-10-09T09:41:03Z</dd></div>
+              <div class="c6"><dt>Signature (Ed25519)</dt><dd>3f9a7c21e8440bd2c49e&hellip;5ac60e7f12b3a4</dd></div>
+              <div class="c6"><dt>Threat summary</dt><dd class="dc-sum">http.post to an account never seen for this agent. Blocked before it ran.</dd></div>
+            </dl>
+            <p class="dc-f">Cryptographically signed&nbsp;&middot; Independently verifiable</p>
+          </div>
       </article>
     </div>
   </section>
@@ -210,11 +192,8 @@
   <!-- CLOSING -->
   <section class="sec known rw" id="known">
     <p class="eyebrow rv">Proof</p>
-    <h2 class="h2 big rv">Now you&rsquo;ll know what it&rsquo;s doing. Before it&rsquo;s too late.</h2>
-    <div class="cells">
-      <div class="cell rv" style="--d:0"><p class="cell-k mono">signed</p><p class="cell-v">Every block. Cryptographically signed.</p></div>
-      <div class="cell rv" style="--d:1"><p class="cell-k mono">pre-execution</p><p class="cell-v">Scored before it runs.</p></div>
-    </div>
+    <h2 class="h2 big rv">Now you&rsquo;ll know what it&rsquo;s doing.</h2>
+    <p class="known-sub rv">Agentic Guardians scores behavioural&nbsp;sequences. It&nbsp;doesn&rsquo;t&nbsp;read&nbsp;prompts. It&nbsp;can&rsquo;t&nbsp;be&nbsp;persuaded.</p>
   </section>
 
   <!-- SIGNUP -->

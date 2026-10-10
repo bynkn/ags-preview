@@ -424,3 +424,73 @@ main{position:relative;z-index:1}
 
 /* closing headline: keep each sentence on its own line where it fits */
 .kl-s{display:inline-block}
+
+
+/* ==== a2 rollout: one-row callback, compact Detection Certificate, paradigm rewrite, calm closing ==== */
+
+/* ---- preview-row: compact Detection Certificate ---- */
+.dc{font-family:var(--dc-sans);color:var(--dc-tx)}
+.dc-h{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px}
+.dc-k{margin:0 0 3px;font-family:var(--dc-mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--dc-mu)}
+.dc-t{margin:0;font-family:var(--dc-sans);font-size:16px;font-weight:600;letter-spacing:-.01em;line-height:1.15;color:var(--dc-tx)}
+.dc-pill{display:inline-flex;align-items:center;gap:6px;flex:none;font-family:var(--dc-mono);font-size:9.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--dc-ok);border:1px solid var(--dc-ok);border-radius:999px;padding:3px 9px 3px 8px;background:color-mix(in srgb,var(--dc-ok) 8%,transparent)}
+.dc-pill i{width:6px;height:6px;border-radius:50%;background:currentColor}
+.dc-g{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1px;margin:0;background:var(--dc-ln);border:1px solid var(--dc-ln);border-radius:4px;overflow:hidden}
+.dc-g>div{background:var(--dc-cell);padding:7px 10px 8px;min-width:0}
+.dc-g .c2{grid-column:span 2}.dc-g .c3{grid-column:span 3}.dc-g .c6{grid-column:span 6}
+.dc-g dt{font-family:var(--dc-mono);font-size:8.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--dc-mu);margin:0 0 3px;white-space:nowrap}
+.dc-g dd{margin:0;font-family:var(--dc-mono);font-size:11px;line-height:1.35;color:var(--dc-tx);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dc-g dd.dc-sum{font-family:var(--dc-sans);font-size:12px;white-space:normal}
+.dc-dec{color:var(--dc-bad)!important;font-weight:600}
+.dc-dec span{margin-left:7px;font-size:9px;font-weight:500;letter-spacing:.12em;opacity:.8}
+.dc-f{margin:10px 0 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:var(--dc-mono);font-size:9.5px;letter-spacing:.02em;color:var(--dc-tx)}
+.dc-ex{color:var(--dc-mu);font-style:italic;font-family:var(--dc-sans);letter-spacing:0}
+
+.console .cert{--dc-sans:inherit;--dc-mono:'JetBrains Mono',monospace;--dc-tx:var(--C-tx);--dc-mu:var(--C-mu);--dc-ln:var(--C-ln);
+  --dc-cell:color-mix(in srgb,var(--C-bg) 96%,var(--C-tx));--dc-ok:var(--C-pill);--dc-bad:var(--bad-tx)}
+.console .cert .cv{padding:14px 16px 12px}
+@media (max-width:640px){.dc-g .c2{grid-column:span 3}.dc-g .c2:first-child{grid-column:span 6}}
+
+/* ---- preview-row A2: compact cert inside the frame (>=1200px) ---- */
+@media (min-width:1200px){
+  .dc-h{margin-bottom:10px}
+  .dc-k{font-size:9.5px;letter-spacing:.12em;color:var(--dc-lab)}
+  .dc-t{font-size:15px}
+  .dc-pill{font-size:9.5px;letter-spacing:.12em;padding:2px 8px 2px 7px}
+  .dc-g{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .dc-g .c2,.dc-g .c3{grid-column:auto}.dc-g .c6,.dc-g .sat{grid-column:1/-1}
+  .dc-g>div{padding:6px 9px 7px}
+  .dc-g dt{font-size:9.5px;letter-spacing:.08em;color:var(--dc-lab)}
+  .dc-g dd{font-size:11px}
+  .dc-g dd.dc-sum{font-size:12px;line-height:1.4}
+  .dc-dec span{font-size:9.5px}
+  .dc-f{font-size:9.5px;letter-spacing:0}
+}
+
+.console .cert{--dc-lab:color-mix(in srgb,var(--C-mu) 55%,var(--C-tx))}
+@media (min-width:1200px){
+  .console{max-width:1180px;display:grid;grid-template-columns:minmax(0,1.28fr) minmax(0,.9fr) minmax(0,1.02fr);column-gap:16px;align-items:start}
+  .console>.band{grid-column:1/-1}
+  .console>.grid{display:contents}
+  .console>.grid>.term{align-self:start}
+  .console>.grid>.side{align-self:start;gap:12px}
+  .console .cert{max-width:none;margin:0;align-self:start}
+  .console .cert .cv{padding:12px 14px 11px}
+  .term-day .tc{font-size:12px;padding:18px 14px 16px 40px}
+  .term-day .cont{padding-left:2ch}
+}
+
+/* ---- preview-row A2 extras: one-line hero question, quiet closing support line ---- */
+@media (min-width:1024px){
+  .q#q{white-space:nowrap;max-width:none;font-size:min(var(--ts1),4.6vw)}
+}
+#known .kh:has(+.ks-sub){margin-bottom:0}
+.kh+.ks-sub{margin-top:22px}
+.ks-sub{font-size:var(--ts3);line-height:var(--lh3);letter-spacing:0;font-weight:400;color:var(--mu);max-width:44ch;margin-left:auto;margin-right:auto}
+
+/* paradigm: phrase-aware wrapping (single column) */
+@media (min-width:721px){#paradigm-copy .ph,#paradigm-copy .phb{display:inline-block}}
+#paradigm-copy .body,#paradigm-copy .body-l,#paradigm-copy p{text-wrap:pretty}
+.body-sub+.body-sub{margin-top:8px}
+.pk{color:var(--mu)}
