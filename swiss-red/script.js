@@ -41,7 +41,7 @@
     var alive = ss(0.72, 1, t);                           // the signal comes alive last
     set('bg', bg); set('fg', fg);
     d.style.setProperty('--mu', rgb(mix(A.mu, B.mu, f)));
-    var dt = mix(A.dot, B.mu, alive);   // v8: the brand dot stays neutral; the accent waits for the block
+    var dt = mix(A.dot, B.dot, alive);
     d.style.setProperty('--dot', rgb(dt)); d.style.setProperty('--dotc', dt.join(','));
     var ac = mix(fg, B.acc, alive);
     d.style.setProperty('--acc', rgb(ac)); d.style.setProperty('--accc', ac.join(','));

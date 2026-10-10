@@ -17,7 +17,7 @@
   /* ---- palette: ACT 1 (exposed, dark) → ACT 2 (safe world, from html[data-safe] in styles.css) ---- */
   var cs = getComputedStyle(d);
   var B = { bg: hex(cs.getPropertyValue('--P-bg')), fg: hex(cs.getPropertyValue('--P-fg')),
-            mu: hex(cs.getPropertyValue('--P-mu')), dot: hex(cs.getPropertyValue('--P-mu')) };  // v8: the dot stays neutral; the accent waits for the block
+            mu: hex(cs.getPropertyValue('--P-mu')), dot: hex(cs.getPropertyValue('--P-dot')) };
   var LIGHT = (B.bg[0] * .299 + B.bg[1] * .587 + B.bg[2] * .114) > 140;
   var CFG = {
     A: { bg: [14, 14, 15], fg: [237, 235, 230], mu: [142, 140, 135], dot: [92, 92, 92] },
