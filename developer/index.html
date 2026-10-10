@@ -61,10 +61,13 @@
   <!-- PROBLEM -->
   <section class="sec problem dw" id="problem">
     <div class="wrap">
-      <h2 class="big-st rv"><span class="pl"><span class="nw">It drifts.</span> <span class="nw">It makes things up.</span> <span class="nw">It gets weaponized.</span></span> <span class="pl">Then it acts.</span></h2>
-      <div class="offset">
-        <p class="note rv"><span class="nw">And you&rsquo;ll never know</span> <span class="nw">it happened.</span></p>
-        <p class="question rv">Does it do what it was told, <em>and only that?</em></p>
+      <p class="lab rv">The problem</p>
+      <div class="v8g v8-end">
+        <h2 class="big-st rv"><span class="pl"><span class="nw">It drifts.</span> <span class="nw">It makes things up.</span> <span class="nw">It gets weaponized.</span></span> <span class="pl">Then it acts.</span></h2>
+        <div class="v8r">
+          <p class="note rv"><span class="nw">And you&rsquo;ll never know</span> <span class="nw">it happened.</span></p>
+          <p class="question rv">Does it do what it was told, <em>and only that?</em></p>
+        </div>
       </div>
     </div>
   </section>
@@ -72,12 +75,17 @@
   <!-- AI CAN'T WATCH AI -->
   <section class="sec paradigm dw" id="paradigm">
     <div class="wrap">
-      <h2 class="h2 stop rv" id="cantwatch" data-stop="cant">AI can't watch AI.</h2>
-      <div class="offset">
-        <p class="body-l rv">AI guarding AI puts the lock and the thief in the same paradigm.</p>
-        <p class="statement rv">If it can be prompted, it can be hacked.</p>
+      <p class="lab rv">The paradigm</p>
+      <div class="v8g">
+        <div class="v8l">
+          <h2 class="h2 stop rv" id="cantwatch" data-stop="cant">AI can't watch AI.</h2>
+          <p class="body-l rv">AI guarding AI puts the lock and the thief in the same paradigm.</p>
+        </div>
+        <div class="v8r rv"><figure class="fc fc-lg" aria-label="guard.md"><div class="fc-bar"><span class="fc-name">guard.md</span><span class="fc-meta">2 lines</span></div><ol class="fc-body"><li><span class="fc-t"><span class="fc-m">#</span> If it can be prompted,</span></li><li><span class="fc-t"><span class="fc-m">#</span> it can be hacked.</span></li></ol></figure></div>
       </div>
-      <h2 class="h-xl stop rv" id="watchmen" data-stop="watchmen">Who watches the <span class="nw">watchmen?</span></h2>
+      <div class="v8full">
+        <h2 class="h-xl stop rv" id="watchmen" data-stop="watchmen">Who watches the <span class="nw">watchmen?</span></h2>
+      </div>
     </div>
   </section>
 
@@ -87,11 +95,18 @@
   <!-- AGENTIC GUARDIANS -->
   <section class="sec safe rw" id="safe">
     <div class="wrap">
-      <h2 class="h2 safe-h stop rv" id="agh" data-stop="ag"><span class="wm-inline"><span class="wm-a">Agentic</span> <span class="wm-g">GUARDIANS</span></span> watches what your agent does.</h2>
-      <div class="offset lines3 rv">
-        <p>We work outside the paradigm.</p>
-        <p>It doesn&rsquo;t read prompts, so it can&rsquo;t be injected.</p>
-        <p>No language model in the decision path.</p>
+      <p class="lab rv">How it works</p>
+      <div class="v8g">
+        <div class="v8l">
+          <h2 class="h2 safe-h stop rv" id="agh" data-stop="ag"><span class="wm-inline"><span class="wm-a">Agentic</span> <span class="wm-g">GUARDIANS</span></span> watches what your agent does.</h2>
+          <div class="lines3 rv">
+            <p>We work outside the paradigm.</p>
+            <p>It doesn&rsquo;t read prompts, so it can&rsquo;t be injected.</p>
+            <p>No language model in the decision path.</p>
+            <p>Runs on CPU. No GPU needed.</p>
+          </div>
+        </div>
+        <div class="v8r rv"><figure class="fc fc-code" aria-label="baseline.json"><div class="fc-bar"><span class="fc-name">baseline.json</span><span class="fc-meta">9 lines</span></div><ol class="fc-body"><li><span class="fc-t"><span class="fc-p">{</span></span></li><li><span class="fc-t">  <span class="fc-k">"agent"</span><span class="fc-p">:</span> <span class="fc-s">"payments-01"</span><span class="fc-p">,</span></span></li><li><span class="fc-t">  <span class="fc-k">"task"</span><span class="fc-p">:</span> <span class="fc-s">"reconcile October invoices"</span><span class="fc-p">,</span></span></li><li><span class="fc-t">  <span class="fc-k">"baseline"</span><span class="fc-p">:</span> <span class="fc-p">[</span></span></li><li><span class="fc-t">    <span class="fc-s">"read_file"</span><span class="fc-p">,</span></span></li><li><span class="fc-t">    <span class="fc-s">"match_ledger"</span><span class="fc-p">,</span></span></li><li><span class="fc-t">    <span class="fc-s">"write_report"</span></span></li><li><span class="fc-t">  <span class="fc-p">]</span></span></li><li><span class="fc-t"><span class="fc-p">}</span></span></li></ol></figure></div>
       </div>
       <ol class="steps">
         <li class="step rv" style="--d:0"><span class="bar" aria-hidden="true"></span><h3>Learn.</h3><p>Your agent&rsquo;s behavioural fingerprint.</p></li>
@@ -104,7 +119,7 @@
   <!-- CALLBACK -->
   <section class="sec callback rw" id="callback">
     <div class="wrap">
-      <p class="label mono rv"><i class="lab-dot" aria-hidden="true"></i>Replay · same task</p>
+      <p class="lab rv">Replay · same task</p>
       <div class="cb-grid">
         <div class="term term-cb stop" id="cbTerm" data-stop="callback">
           <div class="term-bar">
@@ -186,11 +201,14 @@
   <!-- CLOSING -->
   <section class="sec known rw" id="known">
     <div class="wrap">
-      <h2 class="h2 rv">Now you know what it's doing.</h2>
-      <p class="kl rv">AI trust you can prove.</p>
+      <p class="lab rv">Proof</p>
+      <div class="v8g">
+        <div class="v8l"><h2 class="h2 rv">Now you&rsquo;ll know. Before it&rsquo;s too late.</h2></div>
+        <div class="v8r rv"><figure class="fc fc-code" aria-label="certificate.sig"><div class="fc-bar"><span class="fc-name">certificate.sig</span><span class="fc-meta">8 lines</span></div><ol class="fc-body"><li><span class="fc-t"><span class="fc-m">#</span> Certificate of Block</span></li><li><span class="fc-t"><span class="fc-k">serial</span>      AG-2026-000417</span></li><li><span class="fc-t"><span class="fc-k">agent</span>       payments-01</span></li><li><span class="fc-t"><span class="fc-k">action</span>      transfer $4,800 → acct ••7731</span></li><li><span class="fc-t"><span class="fc-k">decision</span>    BLOCKED</span></li><li><span class="fc-t"><span class="fc-k">issued</span>      2026-10-09 09:41:03 UTC</span></li><li><span class="fc-t"><span class="fc-k">algorithm</span>   SHA-256 with ECDSA</span></li><li><span class="fc-t"><span class="fc-k">fingerprint</span> 3F:9A:7C:21:E8:44:0B:D2</span></li></ol></figure></div>
+      </div>
       <div class="cells">
-        <p class="cell rv" style="--d:0"><i aria-hidden="true"></i>Every decision. Mathematically signed.</p>
-        <p class="cell rv" style="--d:1"><i aria-hidden="true"></i>Now you&rsquo;ll know. Before it&rsquo;s too late.</p>
+        <p class="cell rv" style="--d:0">Every block. Cryptographically signed.</p>
+        <p class="cell rv" style="--d:1">Scored before it runs.</p>
       </div>
     </div>
   </section>

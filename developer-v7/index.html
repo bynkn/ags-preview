@@ -27,7 +27,7 @@
 
 <main class="frame">
 
-  <!-- 1 HERO -->
+  <!-- HERO -->
   <section class="sec hero dw" id="hero">
     <div class="hero-grid" aria-hidden="true"></div>
     <div class="term term-hero h-in" style="--d:1" id="heroTerm">
@@ -49,28 +49,38 @@
     <h1 class="h1" id="heroQ">Do you know what it's doing <br class="dt"><span class="nw">right now?<i class="hdot" aria-hidden="true"></i></span></h1>
   </section>
 
-  <!-- 2 PROBLEM -->
+  <!-- PROBLEM -->
   <section class="sec problem dw" id="problem">
     <span class="node" aria-hidden="true"></span>
     <p class="lbl rv"><i></i>the problem</p>
-    <h2 class="pl-lines rv"><span class="pl"><span class="nw">It drifts.</span> <span class="nw">It makes things up.</span> <span class="nw">It gets weaponized.</span></span> <span class="pl">Then it acts.</span></h2>
-    <p class="note rv"><span class="nw">And you&rsquo;ll never know</span> <span class="nw">it happened.</span></p>
-    <div class="question rv">
-      <span class="q-mark mono" aria-hidden="true">?</span>
-      <p>Does it do what it was told, <em>and only that?</em></p>
+    <div class="v8g v8-end">
+      <div class="v8l">
+        <h2 class="pl-lines rv"><span class="pl"><span class="nw">It drifts.</span> <span class="nw">It makes things up.</span> <span class="nw">It gets weaponized.</span></span> <span class="pl">Then it acts.</span></h2>
+      </div>
+      <div class="v8r">
+        <p class="note rv"><span class="nw">And you&rsquo;ll never know</span> <span class="nw">it happened.</span></p>
+        <div class="question rv">
+          <span class="q-mark mono" aria-hidden="true">?</span>
+          <p>Does it do what it was told, <em>and only that?</em></p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- 3 AI CAN'T WATCH AI -->
+  <!-- AI CAN'T WATCH AI -->
   <section class="sec para dw" id="paradigm">
     <span class="node" aria-hidden="true"></span>
     <p class="lbl rv"><i></i>the paradigm</p>
-    <h2 class="h2 rv">AI can't watch AI.</h2>
-    <p class="body rv">AI guarding AI puts the lock and the thief in the same paradigm.</p>
-    <p class="claim rv"><span class="nw">If it can be prompted,</span> <span class="nw">it can be hacked.</span></p>
+    <div class="v8g">
+      <div class="v8l">
+        <h2 class="h2 rv">AI can't watch AI.</h2>
+        <p class="body rv">AI guarding AI puts the lock and the thief in the same paradigm.</p>
+      </div>
+      <div class="v8r rv"><figure class="fc fc-lg" aria-label="guard.md"><div class="fc-bar"><span class="fc-name">guard.md</span><span class="fc-meta">2 lines</span></div><ol class="fc-body"><li><span class="fc-t"><span class="fc-m">#</span> If it can be prompted,</span></li><li><span class="fc-t"><span class="fc-m">#</span> it can be hacked.</span></li></ol></figure></div>
+    </div>
   </section>
 
-  <!-- 4 WHO WATCHES THE WATCHMEN -->
+  <!-- WHO WATCHES THE WATCHMEN -->
   <section class="sec watchmen dw" id="watch">
     <span class="node" aria-hidden="true"></span>
     <div class="w-grid" aria-hidden="true"></div>
@@ -80,16 +90,22 @@
   <!-- world switch: dark → swiss red (scroll-linked, script.js) -->
   <div class="dawn" id="dawn" aria-hidden="true"><div class="dawn-grid"></div></div>
 
-  <!-- 5 SAFE -->
+  <!-- SAFE -->
   <section class="sec safe rw" id="safe">
     <div class="safe-head">
       <span class="node" aria-hidden="true"></span>
-      <p class="lbl rv"><i></i>agentic guardians</p>
-      <h2 class="h2 rv"><span class="wm-inline"><span class="wm-a">Agentic</span> <span class="wm-g">GUARDIANS</span></span> watches what your agent <span class="nw">does.<i class="hdot" aria-hidden="true"></i></span></h2>
-      <div class="lines3 rv">
-        <p>We work outside the paradigm.</p>
-        <p>It doesn&rsquo;t read prompts, so it can&rsquo;t be injected.</p>
-        <p>No language model in the decision path.</p>
+      <p class="lbl rv"><i></i>how it works</p>
+      <div class="v8g">
+        <div class="v8l">
+          <h2 class="h2 rv"><span class="wm-inline"><span class="wm-a">Agentic</span> <span class="wm-g">GUARDIANS</span></span> watches what your agent <span class="nw">does.<i class="hdot" aria-hidden="true"></i></span></h2>
+          <div class="lines3 rv">
+            <p>We work outside the paradigm.</p>
+            <p>It doesn&rsquo;t read prompts, so it can&rsquo;t be injected.</p>
+            <p>No language model in the decision path.</p>
+            <p>Runs on CPU. No GPU needed.</p>
+          </div>
+        </div>
+        <div class="v8r rv"><figure class="fc fc-code" aria-label="baseline.json"><div class="fc-bar"><span class="fc-name">baseline.json</span><span class="fc-meta">9 lines</span></div><ol class="fc-body"><li><span class="fc-t"><span class="fc-p">{</span></span></li><li><span class="fc-t">  <span class="fc-k">"agent"</span><span class="fc-p">:</span> <span class="fc-s">"payments-01"</span><span class="fc-p">,</span></span></li><li><span class="fc-t">  <span class="fc-k">"task"</span><span class="fc-p">:</span> <span class="fc-s">"reconcile October invoices"</span><span class="fc-p">,</span></span></li><li><span class="fc-t">  <span class="fc-k">"baseline"</span><span class="fc-p">:</span> <span class="fc-p">[</span></span></li><li><span class="fc-t">    <span class="fc-s">"read_file"</span><span class="fc-p">,</span></span></li><li><span class="fc-t">    <span class="fc-s">"match_ledger"</span><span class="fc-p">,</span></span></li><li><span class="fc-t">    <span class="fc-s">"write_report"</span></span></li><li><span class="fc-t">  <span class="fc-p">]</span></span></li><li><span class="fc-t"><span class="fc-p">}</span></span></li></ol></figure></div>
       </div>
     </div>
     <ol class="steps">
@@ -115,14 +131,14 @@
       <dl class="spec-t rv">
         <div class="row"><dt>Input</dt><dd>Agent actions: file reads, API calls, shell commands. Not prompts, not tokens.</dd></div>
         <div class="row"><dt>Engine</dt><dd>Statistical behavioural model. No language model in the decision path.</dd></div>
-        <div class="row"><dt>Runs</dt><dd>On CPU.</dd></div>
+        <div class="row"><dt>Runs</dt><dd>On CPU. No GPU needed.</dd></div>
         <div class="row"><dt>Timing</dt><dd>Scored before each action runs.</dd></div>
-        <div class="row"><dt>Output</dt><dd>Allow or block. A block can carry a signed certificate.</dd></div>
+        <div class="row"><dt>Output</dt><dd>Allow or block. Every block is signed and verifiable.</dd></div>
       </dl>
     </div>
   </section>
 
-  <!-- 6 CALLBACK -->
+  <!-- CALLBACK -->
   <section class="sec callback rw" id="callback">
     <span class="node" aria-hidden="true"></span>
     <p class="lbl rv"><i></i>replay · same task</p>
@@ -207,10 +223,13 @@
   <section class="sec known rw" id="known">
     <span class="node" aria-hidden="true"></span>
     <p class="lbl rv"><i></i>proof</p>
-    <h2 class="h2 big rv">Now you know what it's <span class="nw">doing.<i class="hdot" aria-hidden="true"></i></span><span class="kl">AI trust you can prove.</span></h2>
+    <div class="v8g v8-proof">
+      <div class="v8l"><h2 class="h2 big rv">Now you&rsquo;ll know. Before it&rsquo;s too late.</h2></div>
+      <div class="v8r rv"><figure class="fc fc-code" aria-label="certificate.sig"><div class="fc-bar"><span class="fc-name">certificate.sig</span><span class="fc-meta">8 lines</span></div><ol class="fc-body"><li><span class="fc-t"><span class="fc-m">#</span> Certificate of Block</span></li><li><span class="fc-t"><span class="fc-k">serial</span>      AG-2026-000417</span></li><li><span class="fc-t"><span class="fc-k">agent</span>       payments-01</span></li><li><span class="fc-t"><span class="fc-k">action</span>      transfer $4,800 → acct ••7731</span></li><li><span class="fc-t"><span class="fc-k">decision</span>    BLOCKED</span></li><li><span class="fc-t"><span class="fc-k">issued</span>      2026-10-09 09:41:03 UTC</span></li><li><span class="fc-t"><span class="fc-k">algorithm</span>   SHA-256 with ECDSA</span></li><li><span class="fc-t"><span class="fc-k">fingerprint</span> 3F:9A:7C:21:E8:44:0B:D2</span></li></ol></figure></div>
+    </div>
     <div class="cells">
-      <div class="cell rv" style="--d:0"><p class="cell-k mono">signed</p><p class="cell-v">Every decision. Mathematically signed.</p></div>
-      <div class="cell rv" style="--d:1"><p class="cell-k mono">pre-execution</p><p class="cell-v">Now you&rsquo;ll know. Before it&rsquo;s too late.</p></div>
+      <div class="cell rv" style="--d:0"><p class="cell-k mono">signed</p><p class="cell-v">Every block. Cryptographically signed.</p></div>
+      <div class="cell rv" style="--d:1"><p class="cell-k mono">pre-execution</p><p class="cell-v">Scored before it runs.</p></div>
     </div>
   </section>
 
