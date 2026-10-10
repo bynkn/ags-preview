@@ -433,3 +433,6 @@ main{position:relative;z-index:1}
 html[data-safe="black"] .trav{box-shadow:0 0 10px 2px rgba(168,213,194,.45)}
 html[data-safe="black"] .trav.c{box-shadow:none}
 html[data-safe="black"] .cdot{box-shadow:0 0 10px 2px rgba(168,213,194,.5)}
+
+/* problem two-liner, paradigm sub-line, AG label removed, dot moved */
+.body.body-sub{margin-top:18px;font-size:var(--ts3);line-height:1.55;letter-spacing:0;max-width:40ch}

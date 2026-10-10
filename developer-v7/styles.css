@@ -897,3 +897,7 @@ body{font-family:var(--sans);font-feature-settings:"cv11","ss01"}
 .spec-t dt{font-size:13px;letter-spacing:.02em}
 .spec-t dd{font-size:16.5px}
 @media (max-width:640px){.spec-t .row{grid-template-columns:96px minmax(0,1fr);gap:16px;padding:22px 0}.spec-t dd{font-size:15px}}
+
+/* problem two-liner, paradigm sub-line, AG label removed, dot moved */
+.body.body-sub{margin-top:18px;font-size:var(--ts3);line-height:1.55;letter-spacing:0}
+.safe-head .h2 .hdot-ag{margin:0 .1em 0 .26em;vertical-align:middle}

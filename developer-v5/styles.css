@@ -684,3 +684,6 @@ body{background:var(--bg);color:var(--tx)}
 .foot-line .fsep{color:var(--ln2)}
 @media (max-width:640px){.early{font-size:12.5px;margin-bottom:32px}}
 html,body{overflow-x:clip}
+
+/* problem two-liner, paradigm sub-line, AG label removed, dot moved */
+.body.body-sub{margin-top:18px;font-size:var(--ts3);line-height:1.55;letter-spacing:0}

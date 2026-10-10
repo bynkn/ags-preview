@@ -418,3 +418,6 @@ main{position:relative;z-index:1}
 .early{margin-top:22px;display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.2em;color:var(--mu)}
 .edot{width:6px;height:6px;border-radius:50%;background:var(--dot);flex:none;animation:breathe 2.6s ease-in-out infinite}
 @media (max-width:720px){.early{font-size:10.5px;letter-spacing:.16em}}
+
+/* problem two-liner, paradigm sub-line, AG label removed, dot moved */
+.body.body-sub{margin-top:18px;font-size:var(--ts3);line-height:1.55;letter-spacing:0;max-width:40ch}

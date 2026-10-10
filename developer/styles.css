@@ -430,3 +430,7 @@ a{color:inherit}
   html{scroll-behavior:auto}
 }
 @media (min-width:1400px){.hero .wrap,.access .wrap{width:var(--wrap);max-width:none;padding-left:0;padding-right:0}}
+
+/* problem two-liner, paradigm sub-line, AG label removed, dot moved */
+.body-l.body-sub{margin-top:18px;font-size:var(--t3);line-height:1.55;letter-spacing:0}
+.problem .offset>.question:first-child{margin-top:0} /* the note above it is gone; keep the offset gap only */

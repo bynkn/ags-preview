@@ -223,3 +223,6 @@ html[data-safe="tealflat"],html[data-safe="teal"]{
   .fline .fsep{display:none}
   .fline .wm{margin-bottom:4px}
 }
+
+/* problem two-liner, paradigm sub-line, AG label removed, dot moved */
+.body.body-sub{margin-top:18px;font-size:var(--ts3);line-height:1.55;letter-spacing:0}
