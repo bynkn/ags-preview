@@ -51,6 +51,7 @@
   code { font-family:ui-monospace,monospace; font-size:.9em; }
   .team article { margin-bottom:18px; }
   .team h3 { margin-top:0; }
+  .team .why { font-size:1.1rem; margin:0 0 28px; }
   .placeholder { background:#fff6d6; padding:0 4px; font-family:ui-monospace,monospace; font-size:.85em; }
   footer { border-top:1px solid var(--line); padding:32px 0 56px; color:var(--muted); font-size:.875rem; }
 </style>
@@ -62,7 +63,7 @@
   <header class="hero" id="question">
     <p class="lead">Your AI agent is already out there.</p>
     <h1>Do you know what it’s doing right now?</h1>
-    <p class="beat">Most teams can’t answer that. Nobody is watching it yet.</p>
+    <p class="beat">Nobody is watching it yet.</p>
     <div class="answer">
       <p class="subhead">Agentic Guardians is the runtime trust layer for AI agents.</p>
       <p class="tagline">AI trust you can prove.</p>
@@ -90,99 +91,104 @@
       <p class="kicker">The realisation</p>
       <h2 id="problem-h">Problem: your agent acts, and nobody sees it</h2>
       <div class="short big">
-        <p>It reads files. Calls APIs. Queries databases. Runs commands.</p>
-        <p>It drifts. It makes things up. It gets weaponized. Then it acts, at machine speed.</p>
-        <p>And you’ll never know it happened. Until it’s too late.</p>
+        <p>Your agent reads files, calls APIs, queries databases and runs commands. On its own, at machine speed.</p>
+        <p>It drifts. It makes things up. It gets weaponized. Then it acts.</p>
+        <p>A compromised agent doesn’t look compromised. It isn’t a break-in. It’s a takeover from the inside. And you’ll never know it happened. Until it’s too late.</p>
       </div>
-      <p>No breach is required. An agent that was never attacked can still misread its instructions and act with complete confidence on a wrong conclusion.</p>
-      <p>Today’s tools read prompts, policies or outputs, or find out afterwards. None of them stop the action before it runs.</p>
+      <p>It doesn’t even take an attack. An agent can misread its instructions and act, sure of itself, on the wrong idea.</p>
+      <p>Today’s tools read prompts, check policies, or find out afterwards. None of them stop the action before it runs.</p>
       <h3>Who feels it most</h3>
-      <p>SMEs. They are adopting AI fast, often without a dedicated AI security team or enterprise-grade protection.</p>
+      <p>Small and mid-sized companies. They’re adopting AI fast, often without a security team to watch it.</p>
       <h3>What’s at stake</h3>
-      <p>Harm at machine speed in payments, software development, personnel data, legal operations and health administration, before a human can step in. And regulatory exposure: agents can trigger unintended breaches of GDPR, the EU AI Act and contractual obligations.</p>
+      <p>Mistakes in payments, code, personnel records, legal work and health administration, made faster than a person can step in. Some of them break GDPR, the EU AI Act or a contract.</p>
     </section>
 
     <section id="why-now" aria-labelledby="why-now-h">
       <h2 id="why-now-h">Why now</h2>
       <div class="short">
-        <p><strong>Everyone wants agents. Almost nobody trusts them yet.</strong> That gap is where Agentic Guardians lives.</p>
-        <p>The industry answered “how do I build this agent?” Nobody answered “how do I make sure it’s safe?”</p>
-        <p>As companies hand work to agents, they remove the people who would have caught a rogue one. Agentic Guardians is the oversight layer that’s left.</p>
-        <p>It needs to exist before the first serious incident, not after.</p>
+        <p><strong>Everyone wants agents. Almost nobody trusts them yet.</strong></p>
+        <p>The industry worked out how to build agents. Nobody worked out how to make sure they’re safe.</p>
+        <p>As companies hand work to agents, they lose the people who would have caught a rogue one. Something has to take their place.</p>
+        <p>We’d rather it existed before the first serious incident than after.</p>
       </div>
     </section>
 
     <section id="product" aria-labelledby="product-h">
       <p class="kicker">The answer</p>
       <h2 id="product-h">Product: now you’ll know what it’s doing</h2>
-      <p class="big">Agentic Guardians learns what your agent normally does. It checks every action before it runs. When something doesn’t fit, it stops it, or pauses it for a human. Before the damage, not after.</p>
+      <p class="big">Every agent has a rhythm. Agentic Guardians learns it. When the rhythm breaks, the action stops before it runs.</p>
+      <p>If an action fits, it goes through. If it doesn’t, Agentic Guardians blocks it, or pauses it for a person to look at.</p>
       <div class="callout">
         <p>A payments agent always runs <code>read_file → match_ledger → write_report</code>.</p>
         <p>One day it tries an <code>http.post</code> to an account it has never paid.</p>
         <p><strong>Blocked before it ran.</strong> Nothing sent. A signed certificate records why.</p>
       </div>
-      <h3>What it lets you know</h3>
+      <h3>What that gives you</h3>
       <ul class="know">
-        <li><strong>Every action was checked before it ran.</strong> Not logged afterwards.</li>
-        <li><strong>No prompt can talk it round.</strong> It never reads prompts, so it can’t be injected or persuaded.</li>
-        <li><strong>Your data stayed with you.</strong> Stays local. No cloud round-trip.</li>
+        <li><strong>Every action checked before it runs.</strong> Not logged after.</li>
+        <li><strong>Nothing to persuade.</strong> It never reads prompts, so it can’t be injected.</li>
+        <li><strong>Your data stays with you.</strong> Stays local. No cloud round-trip.</li>
         <li><strong>Nothing heavy to run.</strong> On CPU. No GPU needed.</li>
-        <li><strong>Nothing to configure.</strong> No rules to write. It learns what normal looks like.</li>
+        <li><strong>No rules to write.</strong> It learns what normal looks like.</li>
       </ul>
     </section>
 
     <section id="proof" aria-labelledby="proof-h">
       <h2 id="proof-h">Proof</h2>
       <p class="proofline">Every block is signed (Ed25519). Anyone can verify it.</p>
+      <p class="big">You don’t need to understand the maths. You just need to check the signature.</p>
       <p>Each block leaves a Detection Certificate: what was stopped, and why. You don’t have to take our word for it. Neither do your auditors.</p>
     </section>
 
     <section id="how-it-works" aria-labelledby="how-h">
       <h2 id="how-h">How it works</h2>
       <ol>
-        <li><strong>Learn.</strong> Builds each agent’s behavioural fingerprint from its normal action sequences.</li>
-        <li><strong>Check.</strong> Scores each next action before it runs.</li>
-        <li><strong>Act.</strong> Allows it, pauses it for review, or blocks it.</li>
-        <li><strong>Prove.</strong> Signs every block.</li>
+        <li><strong>Learn.</strong> It watches an agent’s actions and learns its normal sequences.</li>
+        <li><strong>Check.</strong> Before each action runs, it scores it against everything that came before.</li>
+        <li><strong>Act.</strong> Allow, pause, or block.</li>
+        <li><strong>Prove.</strong> Sign every block.</li>
       </ol>
-      <p>It watches actions (file reads, API calls, shell commands, database queries), not prompts or tokens. The engine is a statistical behavioural model with no language model in the decision path.</p>
+      <p>It reads actions: file reads, API calls, shell commands, database queries. Never prompts. The engine is a statistical behavioural model. No language model in the decision path.</p>
     </section>
 
     <section id="different" aria-labelledby="different-h">
       <h2 id="different-h">How it’s different</h2>
-      <p class="big"><strong>Not AI watching AI.</strong></p>
-      <p>AI guarding AI puts the lock and the thief in the same paradigm. A prompt that reaches the agent can reach the guard. You cannot ask a corrupted process to report its own corruption.</p>
-      <p>Agentic Guardians works outside the language layer. It reads what the agent does, never what it’s told.</p>
+      <p class="big"><strong>A compromised agent can say all the right things. It can’t fake its rhythm.</strong></p>
+      <p>That’s why we don’t use AI to watch AI. If AI guards AI, a prompt that reaches the agent can reach the guard. You can’t ask a corrupted process to report its own corruption.</p>
+      <p>So we watch what the agent does, never what it’s told.</p>
       <ul>
-        <li>Prompt filters and guardrails read language, so they share the model’s attack surface.</li>
-        <li>Logs and monitoring find problems after the fact.</li>
-        <li>Manual review can’t keep up with machine speed.</li>
-        <li>AI supervising AI adds another layer that can itself be fooled.</li>
+        <li>Prompt filters read the same language the attacker writes in.</li>
+        <li>Logs tell you afterwards.</li>
+        <li>People can’t keep up with machine speed.</li>
+        <li>Another AI can be fooled too.</li>
       </ul>
-      <p>Lightweight enough for SMEs. Robust enough for regulated workflows. Built on peer-reviewed research into behavioural sequence models (IEEE Access, 2020), proven in production fraud detection before being pointed at AI agents.</p>
+      <p>Agentic Guardians is light enough for a small company to run, and it leaves the records regulated work needs.</p>
     </section>
 
     <section id="alignment" aria-labelledby="alignment-h">
       <h2 id="alignment-h">Alignment</h2>
-      <p>Agentic Guardians is designed to align with the NIST AI Risk Management Framework (AI RMF), ISO/IEC 42001, ISO/IEC 27001 and GDPR. Signed blocks and pause-for-review support auditability, human oversight and compliance evidence.</p>
+      <p>We designed Agentic Guardians to align with the NIST AI Risk Management Framework (AI RMF), ISO/IEC 42001, ISO/IEC 27001 and GDPR. Signed blocks give auditors a record. Pause-for-review keeps a person in the loop.</p>
     </section>
 
     <section id="stage" aria-labelledby="stage-h">
       <h2 id="stage-h">Stage</h2>
-      <p><strong>Private beta.</strong> The engine works end to end: per-agent baselines, blocks before execution, signed certificates. We’re onboarding our first teams personally.</p>
+      <p><strong>Private beta.</strong> The engine works end to end: it learns each agent’s baseline, blocks before execution, and signs every block. We’re onboarding our first teams ourselves.</p>
     </section>
 
     <section id="team" class="team" aria-labelledby="team-h">
       <h2 id="team-h">Team</h2>
+      <h3>Why we’re building this</h3>
+      <p class="why">It started when Armine set up her own agent and realised she’d be giving it blind access to her world. She asked CTOs, engineers and friends building with agents. They all said the same thing: the gains are real, so they sign off. But they sign off nervous. Ghazaros had spent years catching fraud by how it behaves, not by what it says. Agents need the same. So we built it.</p>
       <article>
         <h3>Armine <span class="placeholder">[[SURNAME]]</span>, Co-Founder, Go-to-Market</h3>
         <p>Two decades building technology companies, with a prior exit. Patented inventor. Techstars alum. <a href="https://ca.linkedin.com/in/armine">LinkedIn</a></p>
       </article>
       <article>
         <h3>Dr. Ghazaros Barseghyan, Co-Founder, Engine</h3>
-        <p>Over a decade on behavioural sequence detection. His model was published in IEEE Access (2020) and ran in production fraud detection. The engine exists because he built it. <a href="https://am.linkedin.com/in/ghazaros-barseghyan-2b585aa3">LinkedIn</a></p>
+        <p>Over a decade of research into behavioural sequence models. He took his model from a peer-reviewed paper into production fraud detection. The engine behind Agentic Guardians is his. <a href="https://am.linkedin.com/in/ghazaros-barseghyan-2b585aa3">LinkedIn</a></p>
+        <p>Read the research: Barseghyan et al., <cite>“Model for Detection of Masquerade Attacks Based on Variable-Length Sequences”</cite>, IEEE Access, 2020. <a href="https://doi.org/10.1109/ACCESS.2020.3039166">doi:10.1109/ACCESS.2020.3039166</a></p>
       </article>
-      <p>Behind the founders is a team of scientists and engineers with backgrounds in behavioural detection, production systems and AI infrastructure.</p>
+      <p>Behind us is a team of scientists and engineers who have worked on behavioural detection, production systems and AI infrastructure.</p>
     </section>
 
     <section id="ask" aria-labelledby="ask-h">
@@ -192,7 +198,7 @@
 
     <section id="contact" aria-labelledby="contact-h">
       <h2 id="contact-h">Contact</h2>
-      <p>Founders: <a href="mailto:founders@agenticguardians.com">founders@agenticguardians.com</a> <span class="placeholder">[[CONFIRM]]</span></p>
+      <p>Write to us: <a href="mailto:founders@agenticguardians.com">founders@agenticguardians.com</a> <span class="placeholder">[[CONFIRM]]</span></p>
       <p>Deck: <a class="placeholder" href="[[DECK_URL]]">[[DECK_URL]]</a></p>
     </section>
   </main>
