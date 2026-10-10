@@ -164,10 +164,6 @@ html[data-hero-done] .cue,.instant .cue,.fixed .cue{transform:none}
 .r-acts{margin:22px 0 0;font-family:var(--disp);font-size:calc(var(--ts1) * 1.12);line-height:1.02;font-weight:600;letter-spacing:-.04em;color:#fff}
 .r-quiet{margin:26px 0 0;font-size:clamp(17px,.95rem + .35vw,20px);line-height:1.5;color:var(--mu)}
 
-/* hinge */
-.q-mark{display:grid;place-items:center;width:40px;height:40px;border:1px solid var(--ln2);border-radius:50%;color:var(--amber);font-size:18px;background:var(--pnl);margin:0 0 30px}
-.hinge-q{margin:0;max-width:960px;font-family:var(--disp);font-size:var(--ts1);line-height:1.08;font-weight:600;letter-spacing:-.034em;color:var(--mu);text-wrap:balance}
-.hinge-q em{font-style:normal;color:var(--tx);text-decoration:underline;text-decoration-color:var(--amber);text-decoration-thickness:3px;text-underline-offset:.16em}
 
 /* ---------- 3 · the proof: pinned stage, one caption per step ---------- */
 .proof{padding:0 48px;text-align:left}
@@ -415,7 +411,6 @@ html[data-hero-done] .cue,.instant .cue,.fixed .cue{transform:none}
   .term-hero .term-body{font-size:14px;line-height:1.75;padding:18px 16px 20px;min-height:calc(9 * 1.75em + 38px)}
   .hero-lead{margin-bottom:14px}
   .r-acts{font-size:44px}
-  .q-mark{width:36px;height:36px;margin-bottom:24px}
   .proof{padding:0 16px}
   .track{--seg:34vh}
   .stage-in{gap:14px}

@@ -59,11 +59,11 @@
 
   /* ---------- 3 · the proof ----------
      Steps 1-4 live on a pinned stage, each owning a quarter of the pinned scroll (30vh).
-     The stage only appears once the hinge question has fully left (under the nav).
+     The stage only appears once the reality screen has fully left (under the nav).
      Step 4 (BLOCKED) flips the page to the light world; step 5 + the certificate follow in flow.
      ?static=1 / reduced motion: stacked steps with captions, each band in its own world.
      ?t=<ms>: frozen frame, step = 1 + floor(t / 2200); t >= 8800 shows step 5 + certificate. */
-  var track=$('#track'), stage=$('#stage'), si=$('#stageIn'), cert=$('#cert'), proofEnd=$('#proofEnd'), proof=$('#proof'), hingeQ=$('#hingeQ'), why=$('#why');
+  var track=$('#track'), stage=$('#stage'), si=$('#stageIn'), cert=$('#cert'), proofEnd=$('#proofEnd'), proof=$('#proof'), realityEnd=$('#realityEnd'), why=$('#why');
   var STEP_MS=2200;
   function setStep(el,n){
     var s=String(n);
@@ -118,8 +118,8 @@
         var r=track.getBoundingClientRect(), total=track.offsetHeight-stage.offsetHeight;
         var p=total>0?(nh-r.top)/total:0;
         var k=p<.25?1:p<.5?2:p<.75?3:4;
-        // the stage appears only once the hinge question is fully gone (above the nav)
-        var gone=!hingeQ||hingeQ.getBoundingClientRect().bottom<nh+2;
+        // the stage appears only once the reality screen is fully gone (above the nav)
+        var gone=!realityEnd||realityEnd.getBoundingClientRect().bottom<nh+2;
         si.classList.toggle('live',gone);
         if(!gone)k=1;
         if(k!==cur){cur=k;setStep(si,k)}
