@@ -1,0 +1,163 @@
+/* ==========================================================================
+   Swiss layer — classic International Typographic Style, pushed further:
+   visible 12-col modular grid, big flush-left grotesk, numerals as structure,
+   strong rules, and flat full-bleed blocks of a single colour.
+   Loaded after styles.css; all copy/structure unchanged.
+   ========================================================================== */
+:root{--blk:var(--P-acc);--onblk:#fff;--rule:2px;
+  /* modular type scale (1.5 / 1.333 steps): 11 · 13 · 16 · 24 · 40 · 64 · 104 · 168 */
+  --t1:11px;--t2:13px;--t3:16px;--t4:24px;--t5:clamp(1.9rem,2.8vw,2.5rem);--t6:clamp(2.6rem,4.45vw,4rem);--t7:clamp(3.2rem,7.2vw,6.5rem);--t8:clamp(4rem,11.7vw,10.5rem)}
+html[data-safe="swissred"]{--blk:#E30613;--onblk:#FFFFFF;--blkc:227,6,19}
+html[data-safe="dotsflat"]{--blk:#E8492F;--onblk:#F1EDE4;--blkc:232,73,47}
+html[data-safe="tealflat"]{--blk:#6CC0B8;--onblk:#2A2624;--blkc:108,192,184}
+
+/* ---- grid: visible, like the construction lines of a poster ---- */
+.guides i{border-left:1px solid rgba(var(--fgc),.035);border-right:0}
+.guides i:last-child{border-right:1px solid rgba(var(--fgc),.035)}
+
+/* ---- header: flat bar, grid-aligned ---- */
+.site-header{background:rgb(var(--bgc));-webkit-backdrop-filter:none;backdrop-filter:none}
+.hd{padding-top:20px;padding-bottom:16px}
+.hd::after{background:rgba(var(--fgc),.9);height:1px}
+.tag{grid-column:7/10}
+
+/* ---- section heads: a rule, then the content (no index labels) ---- */
+.sec>.gw:first-child{padding-top:48px}
+.sec>.gw:first-child::before{height:var(--rule);background:rgba(var(--fgc),.9)}
+.act1.sec>.gw:first-child::before{height:1px;background:rgba(var(--fgc),.38)}
+
+/* ---- typography: bold grotesk, flush-left, ragged right, tight leading ---- */
+.q{font-weight:700;letter-spacing:-.048em;line-height:.9;font-size:var(--t7)}
+.s2 .l{font-weight:700;letter-spacing:-.045em;line-height:.95;font-size:var(--t6)}
+.big{font-weight:800;font-size:var(--t8);letter-spacing:-.058em;line-height:.82}
+.punch{font-weight:700}
+.math{font-weight:700}
+.watch{font-size:clamp(2.3rem,5.1vw,4.6rem);font-weight:700;letter-spacing:-.048em;line-height:.92}
+.kh{font-weight:700;font-size:var(--t7);letter-spacing:-.05em;line-height:.9}
+.dh{font-weight:700;font-size:var(--t7);letter-spacing:-.052em;line-height:.88}
+.note{border-top:var(--rule) solid rgba(var(--fgc),.9)}
+
+/* ---- windows: square, precise ---- */
+.win{border-radius:0}
+.tb i{border-radius:0;width:8px;height:8px}
+.tb i:first-child{border-radius:50%}
+.act2 .win{box-shadow:none!important;outline:1px solid rgba(var(--fgc),.9);outline-offset:0}
+
+/* ---- 04: the headline stands on its own, flush-left across the grid ---- */
+.safe{padding-top:0}
+.safe>.gw:first-child{padding-top:0;grid-template-rows:auto auto auto}
+html[data-safe] .safe>.gw:first-child::before{height:var(--rule);top:0;background:rgba(var(--fgc),.9)}
+.safe .watch{grid-row:1;grid-column:1/12;margin-top:var(--secpad)}
+.safe .nolm{grid-row:2;grid-column:5/10;margin-top:44px}
+.safe .steps{grid-row:3}
+.steps{margin-top:96px}
+.st{border-top:var(--rule) solid var(--fg)!important;padding-top:16px}
+.num{font-weight:300!important}
+.st h3{font-size:var(--t4);font-weight:700;letter-spacing:-.03em}
+.st p{font-size:15px}
+
+/* ---- 05: windows on the grid; closing statement as a full-bleed block ---- */
+.cb>.gw:first-child{margin-bottom:0}
+.known{border-top:var(--rule) solid rgba(var(--fgc),.9)}
+.kh{margin-top:40px}
+.kl{grid-column:1/8;margin-top:32px;font-size:var(--t5);font-weight:400;letter-spacing:-.035em}
+.ksg{grid-column:1/13;margin-top:88px;position:relative;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gut);
+  padding:44px 0 56px;color:var(--onblk)}
+.ksg::before{content:"";position:absolute;top:0;bottom:0;left:calc(-1 * (var(--pad) + max(0px, (100vw - 1440px) / 2)));right:calc(-1 * (var(--pad) + max(0px, (100vw - 1440px) / 2)));
+  background:var(--blk);z-index:0}
+.js .ksg::before{transform:scaleX(0);transform-origin:left center;transition:transform 1.3s cubic-bezier(.7,0,.2,1)}
+.js .ksg.in::before,.no-motion .ksg::before{transform:none}
+.ksg .ks,html[data-safe] .ksg .ks{position:relative;z-index:1;font-family:var(--disp);text-transform:none;letter-spacing:-.04em;
+  font-size:var(--t5);font-weight:700;line-height:1;color:var(--onblk);margin:0}
+.ksg .ks,html[data-safe] .ksg .ks{grid-column:1/13;font-size:clamp(2rem,3.6vw,3.25rem);line-height:1.02;letter-spacing:-.045em}
+.ksg .ks+.ks,html[data-safe] .ksg .ks+.ks{margin-top:6px}
+
+/* ---- 06: access ---- */
+.door{padding-top:var(--secpad)}
+.field{border-bottom:1px solid rgba(var(--fgc),.9)}
+.btn,html[data-safe] .btn{background:var(--blk);color:var(--onblk);font-weight:600;padding:18px 32px;font-size:15px}
+html[data-safe] .btn:hover{background:var(--fg);color:var(--bg);opacity:1}
+
+/* ---- footer ---- */
+.footer .gw::before{height:var(--rule);background:rgba(var(--fgc),.9)}
+.footer{padding-top:0}
+
+/* ---- responsive ---- */
+@media (max-width:900px){
+  .safe .watch{grid-column:1/13;margin-top:72px}
+  .safe .nolm{grid-column:3/13}
+  .ksg{margin-top:56px;padding:32px 0 36px}
+}
+@media (max-width:720px){
+  .q{font-size:clamp(2.3rem,11vw,3.4rem)}
+  .s2 .l{font-size:clamp(2rem,9.4vw,2.8rem)}
+  .big{font-size:clamp(3rem,15.5vw,4.6rem)}
+  .watch,.kh,.dh{font-size:clamp(2.1rem,10vw,3rem)}
+  .ksg .ks,html[data-safe] .ksg .ks{font-size:27px}
+}
+.js .ksg.slow{opacity:1;transform:none;transition:none}
+
+/* ==========================================================================
+   ONE TYPE SCALE (founder review, Oct 2026) — loaded last, overrides the above
+   tier 1 · core message   — the big statements, all the same size
+   tier 2 · statement      — supporting lines that carry the story (~50% of t1)
+   tier 3 · body           — explanatory copy
+   tier 4 · small          — labels, footer, terminal/cert, index marks (own styles)
+   ========================================================================== */
+:root{
+  --ts1:clamp(2.4rem, 1.2rem + 5.2vw, 5.5rem);    /* 390 → 39.5px · 1440 → 88px */
+  --ts2:clamp(1.375rem, .8rem + 2.4vw, 2.75rem);  /* 390 → 22.2px · 1440 → 44px */
+  --ts3:clamp(1.05rem, .95rem + .35vw, 1.25rem);  /* 390 → 16.6px · 1440 → 20px */
+}
+/* tier 1 */
+.q,.big,.math,.watch,.kh,.dh{font-size:var(--ts1);line-height:.92;letter-spacing:-.045em;font-weight:800}
+.big{margin-left:0}
+.watch .a{font-weight:300}
+/* tier 2 */
+.lead,.s2 .l,.note,.s2 .ask,.body,.punch,.fpline,.kl,
+.ks,html[data-safe] .ks,.ksg .ks,html[data-safe] .ksg .ks{
+  font-family:var(--disp);font-size:var(--ts2);line-height:1.08;letter-spacing:-.03em;text-transform:none}
+.ks,html[data-safe] .ks{color:var(--fg);font-weight:500}
+.ksg .ks,html[data-safe] .ksg .ks{color:var(--onblk,var(--fg));font-weight:700}
+/* tier 3 */
+.nolm,.st p,.dsub{font-family:var(--sans);font-size:var(--ts3);line-height:1.5;letter-spacing:0;text-transform:none;font-weight:400}
+.st p{max-width:30ch}
+.lead,.s2 .l,.note,.s2 .ask,.body,.punch,.fpline,.kl,.ks,.nolm{text-wrap:balance}
+
+/* 01 hero: terminal → statement (t2) → question (t1), flush-left under the window */
+.hero .term-night{margin-top:0}
+.lead{grid-column:1/13;margin-top:64px;font-weight:500}
+.q{margin-top:20px}
+
+/* 02 problem: two lines at one size; the second turns for the worse */
+.s2 .l{font-weight:700;line-height:1.04}
+.s2 .l+.l{margin-top:.12em}
+.s2 .worse{color:var(--coral)}
+.s2 .nw,.note .nw{white-space:nowrap}
+.note{grid-column:7/13;margin-top:56px;padding-top:16px;font-weight:400;color:rgba(var(--fgc),.78);max-width:none}
+.s2 .ask{grid-column:1/13;margin-top:56px;font-weight:700}
+
+/* 03 reality */
+.s3 .col{grid-column:5/13;margin-top:48px}
+.punch{margin-top:24px;font-weight:700}
+
+/* 04 answer */
+.nolm{color:var(--mu)}
+.fpline{margin-top:72px;max-width:34ch;font-weight:500}
+.safe .nolm{grid-column:5/11}
+
+/* 05 closing */
+.kl{font-weight:400;margin-top:28px}
+
+@media (max-width:900px){
+  .s3 .col,.note,.safe .nolm{grid-column:1/13}
+}
+@media (max-width:720px){
+  .lead{margin-top:44px}
+  .q{margin-top:14px}
+  .note,.s2 .ask{margin-top:40px}
+  .s3 .col{margin-top:32px}
+  .fpline{margin-top:48px}
+}
+/* static/print shots: no fade-in on the hero */
+.static .lead,.static .q,.static .term-night{transition:none}
