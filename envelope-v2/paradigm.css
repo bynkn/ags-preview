@@ -89,7 +89,7 @@ html.ptab-anim .ptab tbody tr.in td.c-a{transition-delay:.22s}
 @media (min-width:981px){#why .para-top{grid-template-columns:minmax(0,1fr) auto;gap:48px}}
 /* watches statement (the key line): the name bigger than the line under it, brand dot in the logo green, three equal grey lines */
 #why .key-line.w-wrap{max-width:none;text-wrap:initial}
-#why .hdot{display:inline-block;width:.15em;height:.15em;min-width:7px;min-height:7px;margin-left:.12em;border-radius:50%;background:#A8D5C2;vertical-align:baseline}
+#why .hdot{display:inline-block;width:.15em;height:.15em;min-width:7px;min-height:7px;margin-left:.12em;border-radius:50%;background:var(--mu2);vertical-align:baseline}
 #why .w-lines{margin-top:18px}
 #why .w-lines p{margin:0;font-size:22px;line-height:1.35;letter-spacing:-.01em;text-wrap:balance}
 #why .w-lines p+p{margin-top:.25em}
