@@ -876,3 +876,8 @@ html[data-hero-done] .cue,.instant .cue,.fixed .cue{transform:none}
   .stage-in:is([data-step="3"],[data-step="4"]) .mt-cb .l:not(.f3):not(.f4):not(.st-l){display:none}
   .stage-in[data-step="4"] .mt-cb .l.f3{display:none}.stage-in[data-step="4"] .ag-acts li.r3{display:none}
 }
+
+/* reality line 2 matches the hero question exactly (.h1 + #heroQ): size, weight, tracking, colour at every width.
+   One line from 1024 up (JS shrink-to-fit stays as the overflow net); below that it wraps like the hero does. */
+#reality .r-never{font-family:var(--disp);font-size:var(--ts1);line-height:1.06;font-weight:600;letter-spacing:-.034em;color:var(--tx);white-space:normal;text-wrap:balance}
+@media (min-width:1024px){#reality .r-never{white-space:nowrap;font-size:min(var(--ts1),4.4vw,60px)}}

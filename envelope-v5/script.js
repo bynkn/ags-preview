@@ -58,7 +58,7 @@
      (with everything before it), so a fast scroll never lands on an empty screen. */
   var real=$('#reality');
   if(real){
-    var ris=$$('.ri',real), BEATS=[0,250,1650,3050,4750,6450,7950];
+    var ris=$$('.ri',real), BEATS=[0,1350,2750,4150,5850,7550,9050];   // ~1.1s pause after the label before 'It drifts.'
     var showTo=function(n){for(var i=0;i<=n&&i<ris.length;i++)ris[i].classList.add('on')};
     if(INSTANT||FIXED)showTo(ris.length);
     else{
