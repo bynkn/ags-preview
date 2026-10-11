@@ -60,7 +60,7 @@
      Step 6 ("And it leaves proof." + v7's compact Detection Certificate) follows in flow.
      ?static=1 / reduced motion: stacked steps with captions, each band in its own world.
      ?t=<ms>: frozen frame, step = 1 + floor(t / 2200); t >= 11000 shows step 6. */
-  var track=$('#track'), stage=$('#stage'), si=$('#stageIn'), cert=$('#cert'), proofEnd=$('#proofEnd'), proof=$('#proof'), realityEnd=$('#realityEnd'), why=$('#why');
+  var track=$('#track'), stage=$('#stage'), si=$('#stageIn'), cert=$('#cert'), proofEnd=$('#proofEnd'), proof=$('#proof'), realityEnd=$('#askEnd')||$('#realityEnd'), why=$('#why');
   var STEP_MS=2200, N=4;   // v5's 4 steps: WATCHING → BEHAVIOUR LOCKED → PROTECTED → SOMETHING LOOKS OFF
   function placeWatcher(el){
     var w=$('.watcher',el); if(!w)return;

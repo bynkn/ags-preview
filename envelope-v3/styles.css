@@ -552,3 +552,21 @@ html[data-hero-done] .cue,.instant .cue,.fixed .cue{transform:none}
 /* envelope-v5 sync: the pinned track holds v5's 4 steps */
 .track{height:calc(100vh - var(--nav) + 4 * var(--seg,24vh))}
 .stage-in.a5p{width:100%}
+
+/* envelope-v5 lines: 'And you’ll never know what it did.' (hero-question style) and the question before the proof */
+#reality .r-never{margin:22px 0 0;font-family:var(--disp);font-size:var(--ts1);line-height:1.06;font-weight:600;letter-spacing:-.034em;color:#fff;text-wrap:balance}
+@media (min-width:1024px){#reality .r-never{white-space:nowrap;font-size:min(var(--ts1),4.4vw,60px)}}
+@media (max-width:760px){#reality .r-never{margin-top:18px}}
+#reality .r-quiet{margin-top:22px}
+.ask{padding:92px var(--pad);text-align:center}
+.ask .ask-line{margin:0 auto;text-align:center}
+@media (min-width:1024px){.ask .ask-line{max-width:none;width:max-content}}
+@media (max-width:1023px){.ask .ask-line .ask-b{display:block}}
+@media (max-width:760px){.ask{padding:64px 16px}}
+.ask .ask-line .ask-a{color:var(--mu2)}
+.ask .ask-line .ask-b{color:#fff}
+.js .ask .ask-line .ask-b{opacity:0;transition:opacity .9s ease}
+.js .ask .ask-line.in .ask-b{opacity:1;transition-delay:1.6s}
+.instant .ask .ask-line .ask-b,.fixed .ask .ask-line .ask-b{opacity:1!important;transition:none!important}
+.ask .hero-ask{font-family:var(--disp);font-size:clamp(1.625rem,1.05rem + 2.1vw,2.75rem);line-height:1.12;font-weight:600;letter-spacing:-.03em;text-wrap:balance;max-width:var(--cw)}
+@media (min-width:1024px){.ask .hero-ask{white-space:nowrap;font-size:min(2.75rem,3.2vw,44px)}}
