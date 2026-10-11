@@ -512,3 +512,11 @@ a{color:inherit}
 #paradigm-copy .body,#paradigm-copy .body-l,#paradigm-copy p{text-wrap:pretty}
 .body-sub+.body-sub{margin-top:8px}
 .pk{color:var(--mu)}
+/* ===== sync with envelope-v5 · 14px text floor (the paradigm section is left as it is) ===== */
+.nav .tag,.nav .btn-sm,.lbl:not(#paradigm *),.eyebrow:not(#paradigm *),.spec-t dt,.early,.form-card .term-bar .term-title,.form-card .term-bar .term-state,
+.fld-l,.fld-l .pr,.fld-l .opt,.foot-line,.foot-line *,.foot-r,.foot-r *{font-size:14px!important}
+/* sync with envelope-v5 · the opening terminal keeps this version's placement (right-aligned, 700px) and entrance */
+#hero .a5h{width:min(700px,100%);margin-left:auto}
+.js #hero .a5h{opacity:0;animation:fadeUp .7s cubic-bezier(.2,.7,.2,1) .1s forwards}
+.static #hero .a5h{opacity:1!important;animation:none!important}
+@media (prefers-reduced-motion:reduce){.js #hero .a5h{opacity:1;animation:none}}
