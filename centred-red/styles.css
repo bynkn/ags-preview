@@ -494,3 +494,7 @@ main{position:relative;z-index:1}
 #paradigm-copy .body,#paradigm-copy .body-l,#paradigm-copy p{text-wrap:pretty}
 .body-sub+.body-sub{margin-top:8px}
 .pk{color:var(--mu)}
+/* envelope-v5 sync: host console is a plain wrapper for the a5 proof + certificate */
+.console#console{display:block!important;max-width:none!important;text-align:left}
+/* 14px floor (paradigm #s3 untouched) */
+.site-header .tag{font-size:14px!important}.early{font-size:14px!important}.flabel{font-size:14px!important}.flabel .opt{font-size:14px!important}.footer .cf,.footer .cp,.footer .fsep{font-size:14px!important}
