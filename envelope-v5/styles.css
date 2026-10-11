@@ -573,22 +573,23 @@ html[data-hero-done] .cue,.instant .cue,.fixed .cue{transform:none}
   .term-hero .term-body{font-size:15px;line-height:1.6;padding:14px 16px 14px;min-height:calc(9 * 1.6em + 28px)}
 }
 
-/* ===== v5 · the reality: grey beats → the hinge → the biggest line → quiet coda ===== */
-.r-lbl{margin-bottom:28px}
-.r-dims{display:flex;flex-direction:column;gap:6px}
-.reality .r-dim{margin:0;font-family:var(--disp);font-size:clamp(1.625rem,1.1rem + 1.6vw,2.5rem);line-height:1.15;letter-spacing:-.025em;font-weight:500;color:var(--mu2)}
-.reality .r-acts{margin:30px 0 0;font-family:var(--disp);font-size:var(--ts1);line-height:1.04;font-weight:600;letter-spacing:-.035em;color:#fff}
-.r-never{margin:34px 0 0;max-width:15ch;font-family:var(--disp);font-size:clamp(2.75rem,1.5rem + 4.6vw,5.25rem);line-height:1;font-weight:700;letter-spacing:-.045em;color:#fff;text-wrap:balance}
-.r-late{margin:30px 0 0;font-family:var(--disp);font-size:clamp(1.125rem,1rem + .45vw,1.375rem);line-height:1.4;font-weight:400;letter-spacing:-.01em;color:var(--mu)}
+/* ===== v5 · the reality: one grey line whose phrases fade in place, the hinge, the strongest line, a quiet coda ===== */
+.r-lbl{margin-bottom:24px}
+.reality .r-dim{margin:0;font-family:var(--disp);font-size:var(--ts2);line-height:1.3;letter-spacing:-.02em;color:var(--mu2);font-weight:500;text-wrap:balance}
+.reality .r-acts{margin:20px 0 0;font-family:var(--disp);font-size:var(--ts1);line-height:1.05;font-weight:600;letter-spacing:-.035em;color:#fff}
+.r-never{margin:16px 0 0;font-family:var(--disp);font-size:calc(var(--ts1) * 1.1);line-height:1.05;font-weight:700;letter-spacing:-.04em;color:#fff;text-wrap:balance}
+@media (min-width:761px){.r-never{white-space:nowrap;font-size:min(calc(var(--ts1) * 1.1),calc((100vw - 200px) / 15))}.reality .r-acts{font-size:min(var(--ts1),calc((100vw - 200px) / 16.5))}}
+.r-late{margin:22px 0 0;font-family:var(--disp);font-size:clamp(1.125rem,1rem + .45vw,1.375rem);line-height:1.4;font-weight:400;letter-spacing:-.01em;color:var(--mu)}
 /* the beats are timed in script.js (one line at a time, a longer pause before the biggest line) */
 .js .reality .ri{opacity:0;transform:translateY(10px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .js .reality .ri.on{opacity:1;transform:none}
+/* the three phrases fade in place: the line is laid out from the start, nothing shifts */
+.js .reality .r-dim .ri{transform:none;transition:opacity .8s var(--ease)}
 .instant .reality .ri,.fixed .reality .ri{opacity:1!important;transform:none!important;transition:none!important}
 @media (max-width:760px){
-  .reality .r-dim{font-size:26px}
-  .reality .r-acts{font-size:36px;margin-top:24px}
-  .r-never{font-size:44px;margin-top:26px}
-  .r-late{margin-top:22px;font-size:18px}
+  .reality .r-acts{font-size:36px;margin-top:18px}
+  .r-never{font-size:38px;margin-top:14px}
+  .r-late{margin-top:18px;font-size:18px}
 }
 
 /* v5 opening spacing + true centring: the no-wrap desktop lines used to overflow their 880px box to the right */
