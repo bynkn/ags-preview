@@ -524,3 +524,15 @@ html[data-safe="black"] .cdot{box-shadow:0 0 10px 2px rgba(168,213,194,.5)}
 
 /* trust: weight only */
 .ask .ask-t{font-weight:600}
+
+/* ===== the reality in three beats: the A line (unchanged) · the hinge (B) · the punchline (A × 1.4) + "Until it’s too late." (B, dim) ===== */
+.s2{--sB:22px}
+@media (max-width:1023px){.s2{--sB:20px}}
+@media (max-width:760px){.s2{--sB:18px}}
+.s2 .l.l-hinge,.s2 .l.l-late{font-size:var(--sB);line-height:1.35;font-weight:500;letter-spacing:-.005em}
+.s2 .l.l-hinge{margin-top:48px;color:var(--mu)}
+.s2 .l.l-never{margin-top:80px;font-size:calc(var(--ts2) * 1.4);line-height:1.04;font-weight:700;letter-spacing:-.035em;color:var(--fg)}
+.s2 .l.l-late{margin-top:14px;color:rgba(var(--fgc),.42)}
+@media (min-width:761px){.s2 .l.l-hinge{white-space:nowrap}}
+@media (max-width:760px){.s2 .l.l-hinge{margin-top:34px}.s2 .l.l-never{margin-top:56px}.s2 .l.l-late{margin-top:10px}}
+.s2 .l.l-hinge,.s2 .l.l-never,.s2 .l.l-late{margin-bottom:0}
