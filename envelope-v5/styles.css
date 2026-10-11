@@ -643,3 +643,24 @@ html[data-hero-done] .cue,.instant .cue,.fixed .cue{transform:none}
 @media (max-width:760px){.mt-bar{padding:0 10px 0 66px}.mt-title{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}
 @media (max-width:760px){.mt-body .l.in{padding-left:5ch;text-indent:-3ch}}
 @media (max-width:760px){.mt-body .l.in{padding-left:5.6ch;text-indent:-3.6ch}}
+
+/* ===== v5 · reality, one-line layout (approved mock): line 1 = grey phrases + white "Then it acts." (size 1);
+   line 2 = the only big line; line 3 = coda at size 1. Sizes follow the section's own width (container units), 320 → 1920. ===== */
+.reality{container-type:inline-size;--s1:var(--ts2);--s2:min(calc(var(--ts1) * 1.1),calc(100cqw / 15.6))}
+@media (min-width:1024px){.reality{--s1:min(var(--ts2),calc(100cqw / 27.5))}.reality .r-dim{white-space:nowrap}}
+@media (max-width:760px){.reality{--s1:max(18px,min(22px,calc(100cqw / 14.6)));--s2:min(38px,calc(100cqw / 8.6))}}
+.reality .r-lbl{margin-bottom:30px}
+.reality .r-dim,.reality .r-late{font-family:var(--disp);font-size:var(--s1);line-height:1.3;font-weight:500;letter-spacing:0;color:var(--mu2)}
+.reality .r-dim{margin:6px 0 0}
+.reality .r-dim .r-then{color:#fff;font-weight:600}
+.reality .r-never{margin:30px 0 0;font-family:var(--disp);font-size:var(--s2);line-height:1.08;font-weight:700;letter-spacing:-.04em;color:#fff;white-space:nowrap;max-width:none}
+.reality .r-late{margin:30px 0 0}
+.js .reality .r-dim .ri{display:inline;transform:none;transition:opacity 1.3s ease}
+@media (max-width:760px){.reality .r-never{white-space:normal;margin-top:22px}.reality .r-late{margin-top:22px}}
+
+/* v5 · setup line: grey question, then "And only that?" in white after a short pause */
+.ask .ask-line .ask-a{color:var(--mu2)}
+.ask .ask-line .ask-b{color:#fff}
+.js .ask .ask-line .ask-b{opacity:0;transition:opacity .9s ease}
+.js .ask .ask-line.in .ask-b{opacity:1;transition-delay:1.6s}  /* the line fades in over .8s, then ~.8s pause */
+.instant .ask .ask-line .ask-b,.fixed .ask .ask-line .ask-b{opacity:1!important;transition:none!important}
