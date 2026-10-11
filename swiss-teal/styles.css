@@ -386,3 +386,9 @@ html:not([data-safe="graphite"]) .trav.chk,html:not([data-safe="graphite"]) .sd{
 .kl-s{display:inline-block}
 /* closing headline: cap size so "Now you’ll know what it’s doing." fits one line on desktop */
 @media (min-width:721px){.known .kh{font-size:min(5.5rem,6.3vw)!important}}
+
+/* envelope-v5 sync: host console is a plain full-width wrapper for the a5 proof + certificate (left-aligned on the Swiss grid) */
+.console#console{display:block!important;grid-column:1/13;max-width:none!important;text-align:left}
+.console#console>.a5p,.console#console>.a5c{margin-left:0;margin-right:auto}
+/* 14px floor (paradigm #s3 untouched) */
+.site-header .tag,.site-header .req,.site-header .req span,.early,.flabel,.flabel .opt,.fline .cf,.fline .cp,.fline .fsep{font-size:14px!important}
