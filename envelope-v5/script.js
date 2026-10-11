@@ -58,7 +58,7 @@
      (with everything before it), so a fast scroll never lands on an empty screen. */
   var real=$('#reality');
   if(real){
-    var ris=$$('.ri',real), BEATS=[0,1350,2750,4150,5850,7550,9050];   // ~1.1s pause after the label before 'It drifts.'
+    var ris=$$('.ri',real), BEATS=[0,1350,2750,4150,5850,7550,9450,10950];   // label, 4 phrases, the hinge, a longer pause, the punchline, the coda
     var showTo=function(n){for(var i=0;i<=n&&i<ris.length;i++)ris[i].classList.add('on')};
     if(INSTANT||FIXED)showTo(ris.length);
     else{
@@ -89,13 +89,11 @@
       if(el.scrollWidth>box){var fs=Math.max(min,parseFloat(cs.fontSize)*box/el.scrollWidth*.98);el.style.fontSize=fs+'px';return fs}return 0};
     var fitAll=function(){
       if(getComputedStyle(nv).whiteSpace==='nowrap')fit(nv,24);else nv.style.fontSize='';
-      lt.style.fontSize='';
       // line 1 is either one line (desktop) or two lines whose longest piece is "It gets weaponized. Then it acts."
       var fs=0;
       if(getComputedStyle(dm).whiteSpace==='nowrap')fs=fit(dm,18);
       else{dm.style.fontSize='';var piece=$('.r-dim > .nw:last-child',real2), box=inner();
         if(piece&&piece.offsetWidth>box){fs=Math.max(18,parseFloat(getComputedStyle(dm).fontSize)*box/piece.offsetWidth*.98);dm.style.fontSize=fs+'px'}}
-      if(fs)lt.style.fontSize=fs+'px';
     };
     fitAll();window.addEventListener('resize',fitAll);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitAll);
   })();
