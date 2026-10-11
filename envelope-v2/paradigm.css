@@ -1,0 +1,97 @@
+/* ==========================================================================
+   paradigm section + comparison table, and the watches statement
+   (synced from envelope-v5, adapted to this version's palette and fonts;
+   theme variables and layout for this version are at the end of this file)
+   ========================================================================== */
+/* left: headline at the certificate-title size, two grey lines, the closing line (smaller, stronger) */
+.para-h{font-size:clamp(25px,1rem + 2.1vw,44px)!important;line-height:1.1!important;letter-spacing:-.034em!important;white-space:nowrap}
+.para-fit{container-type:inline-size}
+.para-line{margin:0!important;color:var(--pt-copy)}
+.para-line+.para-line{margin-top:.2em!important}
+.para-line .pp{display:inline-block;white-space:nowrap}
+.para-close{margin:30px 0 0!important;font-size:var(--pt-close-fs,17px)!important;line-height:1.55!important;letter-spacing:0!important;color:var(--pt-close)!important}
+.para-close .pc{display:inline-block}
+@media (min-width:761px){.para-close{white-space:nowrap}.para-close .pc{display:inline}}
+@media (min-width:981px){
+  .para-line{white-space:nowrap;font-size:min(var(--pt-line-fs,30px),calc(100cqw / 26.6))!important;line-height:1.4!important}
+  .para-close{font-size:15px!important}
+}
+@media (max-width:980px){.para-line{font-size:min(var(--pt-line-fs,22px),calc(100cqw / 15.3))!important;line-height:1.35!important}}
+
+/* right: the table sits on the page; our column is a raised panel; quiet column with a small x, ours with a green check */
+.ptab-wrap{--w1:130px;--w2:188px;--w3:236px;--ext:12px;position:relative;width:calc(var(--w1) + var(--w2) + var(--w3));max-width:100%;margin:var(--ext) 0;text-align:left}
+.ptab-panel{position:absolute;top:calc(var(--ext) * -1);bottom:calc(var(--ext) * -1);left:calc(var(--w1) + var(--w2));width:var(--w3);background:var(--pt-panel);border-radius:var(--pt-radius,14px);box-shadow:var(--pt-shadow)}
+.pt-vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.ptab{position:relative;width:100%;margin:0;border-collapse:collapse;table-layout:fixed;font-family:var(--pt-font);text-align:left}
+.ptab col.w1{width:var(--w1)}.ptab col.w2{width:var(--w2)}.ptab col.w3{width:var(--w3)}
+.ptab th,.ptab td{padding:0;vertical-align:middle;font-weight:400;text-transform:none;letter-spacing:0;border:0;background:none}
+.ptab td{position:relative}
+.ptab thead th{height:56px;line-height:1.3}
+.ptab thead .c-m{padding-left:18px;font-size:15px;color:var(--pt-mu)}
+.ptab thead .c-a{padding-left:24px;font-size:16px;font-weight:700;letter-spacing:-.01em;color:var(--pt-ink)}
+.ptab tbody tr{border-top:1px solid var(--pt-line)}
+.ptab tbody th{height:64px;padding-right:12px;font-family:var(--pt-label-font);font-size:15px;line-height:1.35;color:var(--pt-label);white-space:nowrap}
+.ptab tbody td{height:64px;font-size:15px;line-height:1.4;letter-spacing:-.005em;white-space:nowrap}
+.ptab tbody td.c-m{padding-left:18px;color:var(--pt-mu)}
+.ptab tbody td.c-a{padding:0 16px 0 24px;color:var(--pt-ink);font-weight:600}
+.ptab .pt-v{display:inline-block}
+.ptab .pt-a,.ptab .pt-b{display:block}
+.ptab .nw{white-space:nowrap}
+.ptab tbody tr:last-child th,.ptab tbody tr:last-child td{padding-top:12px;padding-bottom:12px}
+.pt-mk{position:absolute}
+.pt-x{margin-left:-15px;font-size:15px;line-height:1.4;font-weight:400;color:var(--pt-x)}
+.pt-ok{top:50%;width:6px;height:10px;margin:-7px 0 0 -17px;border-right:2px solid var(--pt-ok);border-bottom:2px solid var(--pt-ok);border-radius:0 0 1px 0;transform:rotate(45deg)}
+.ptab tbody tr:last-child .pt-x{top:12px}
+.ptab tbody tr:last-child .pt-ok{top:calc(12px + .7em)}
+@media (max-width:600px){
+  /* phones: label on its own line, the two answers side by side, our panel the right-hand column */
+  .ptab-wrap{width:100%}
+  .ptab-panel{left:48%;width:52%}
+  .ptab,.ptab thead,.ptab tbody{display:block}
+  .ptab colgroup,.ptab thead td{display:none}
+  .ptab tr{display:grid;grid-template-columns:48% 52%}
+  .ptab thead th{height:auto;padding:14px 0 12px 16px}
+  .ptab thead .c-m{padding-left:16px}
+  .ptab thead .c-a{padding-left:16px;font-size:14.5px;white-space:nowrap}
+  .ptab tbody th{grid-column:1;grid-row:1;height:auto;padding:14px 0 2px 16px;font-size:14.5px}
+  .ptab tbody td{grid-row:2;height:auto;min-width:0;padding:0 0 14px 16px;white-space:normal}
+  .ptab tbody td.c-m{grid-column:1;padding:0 10px 14px 16px}
+  .ptab tbody td.c-a{grid-column:2;padding:0 10px 14px 26px}
+  .ptab .pt-v{display:block}
+  .ptab tbody tr:last-child th{padding:14px 0 2px 16px}
+  .ptab tbody tr:last-child td{padding-top:0;padding-bottom:14px}
+  .pt-ok,.ptab tbody tr:last-child .pt-ok{top:.7em;margin-left:-16px}
+  .ptab tbody tr:last-child .pt-x{top:0}
+}
+/* the one motion here: rows reveal one at a time, grey value first, then ours (paradigm.js adds .ptab-anim only when motion is allowed) */
+html.ptab-anim .ptab tbody th,html.ptab-anim .ptab tbody td{opacity:0;transform:translateY(6px);transition:opacity .5s cubic-bezier(.2,.7,.2,1),transform .5s cubic-bezier(.2,.7,.2,1)}
+html.ptab-anim .ptab tbody tr.in th,html.ptab-anim .ptab tbody tr.in td{opacity:1;transform:none}
+html.ptab-anim .ptab tbody tr.in td.c-a{transition-delay:.22s}
+@media (prefers-reduced-motion:reduce){html.ptab-anim .ptab tbody th,html.ptab-anim .ptab tbody td{opacity:1!important;transform:none!important}}
+
+/* watches: the name bigger than the line under it; three equal regular grey lines */
+.w-wrap{container-type:inline-size}
+.w-wrap .wm-inline{display:block;white-space:nowrap;font-size:min(calc(var(--pt-wh-fs,60px) * 1.38),calc(100cqw / var(--pt-name-div,9.7)));line-height:1.02;margin-bottom:.2em}
+.w-wrap .w-l1,.w-wrap .w-l2{display:block;font-size:min(var(--pt-wh-fs,60px),calc(100cqw / 13.7))}
+.w-wrap .wh-p{display:inline-block;white-space:nowrap}
+.w-lines p{font-weight:400!important;color:var(--pt-copy)!important}
+@media (max-width:760px){
+  .w-wrap .w-l1,.w-wrap .w-l2{font-size:calc(var(--pt-wh-fs,36px) * .72);line-height:1.08}
+}
+/* ---------- envelope-v2: dark throughout, Geist ---------- */
+#why{--pt-font:var(--sans);--pt-label-font:var(--sans);
+  --pt-copy:var(--mu);--pt-close:var(--tx2);--pt-line-fs:22px;
+  --pt-panel:var(--p1);--pt-radius:14px;--pt-shadow:0 1px 0 rgba(255,255,255,.05) inset,0 0 0 1px rgba(255,255,255,.08),0 24px 60px -24px rgba(0,0,0,.9);
+  --pt-ink:var(--tx);--pt-mu:#8c8c8c;--pt-label:var(--mu);--pt-x:#5a5a5a;--pt-ok:var(--green);--pt-line:rgba(255,255,255,.08);
+  --pt-wh-fs:52px;--pt-name-div:10.6}
+#why .para-h{margin:0 0 22px;color:#fff}
+#why .why-l .lbl{margin-bottom:22px}
+@media (min-width:981px){#why .para-top{grid-template-columns:minmax(0,1fr) auto;gap:48px}}
+/* watches statement (the key line): the name bigger than the line under it, brand dot in the logo green, three equal grey lines */
+#why .key-line.w-wrap{max-width:none;text-wrap:initial}
+#why .hdot{display:inline-block;width:.15em;height:.15em;min-width:7px;min-height:7px;margin-left:.12em;border-radius:50%;background:#A8D5C2;vertical-align:baseline}
+#why .w-lines{margin-top:18px}
+#why .w-lines p{margin:0;font-size:22px;line-height:1.35;letter-spacing:-.01em;text-wrap:balance}
+#why .w-lines p+p{margin-top:.25em}
+@media (max-width:760px){#why{--pt-wh-fs:36px}#why .w-lines p{font-size:18px}}
+#why .para-line.why-sl{margin-top:.2em!important}
