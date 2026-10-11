@@ -50,6 +50,25 @@
     }
   }
 
+  /* ---------- 1b · the reality: one line per beat once the section is in view ----------
+     Timed beats; any line that has scrolled into the upper half of the screen shows at once
+     (with everything before it), so a fast scroll never lands on an empty screen. */
+  var real=$('#reality');
+  if(real){
+    var ris=$$('.ri',real), BEATS=[0,250,1150,2050,3150,4850,6350];
+    var showTo=function(n){for(var i=0;i<=n&&i<ris.length;i++)ris[i].classList.add('on')};
+    if(INSTANT||FIXED)showTo(ris.length);
+    else{
+      var started=false, rq=false, rtick=function(){
+        rq=false;var vh=window.innerHeight, r=real.getBoundingClientRect();
+        if(!started&&r.top<vh*.6){started=true;ris.forEach(function(el,i){setTimeout(function(){showTo(i)},BEATS[i]||0)})}
+        for(var i=ris.length-1;i>=0;i--){if(ris[i].getBoundingClientRect().top<vh*.5){showTo(i);break}}
+        if(ris[ris.length-1].classList.contains('on'))window.removeEventListener('scroll',rreq);
+      }, rreq=function(){if(!rq){rq=true;requestAnimationFrame(rtick)}};
+      window.addEventListener('scroll',rreq,{passive:true});rtick();
+    }
+  }
+
   /* ---------- reveals (single elements .rv, staggered groups .grp) ---------- */
   var rvs=$$('.rv').concat($$('.grp'));
   if(INSTANT||FIXED||!('IntersectionObserver' in window)){rvs.forEach(function(e){e.classList.add('in')})}
