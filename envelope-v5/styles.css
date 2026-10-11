@@ -612,3 +612,32 @@ html[data-hero-done] .cue,.instant .cue,.fixed .cue{transform:none}
 @media (max-width:760px){.ask{min-height:0;padding:40px 16px 96px}}
 .ask{padding:92px var(--pad) 92px}
 @media (max-width:760px){.ask{padding:64px 16px 64px}}
+
+/* ===== v5 · opening terminal: a plain macOS Terminal window with real agent-CLI output (approved mockup v5c) ===== */
+.mt{position:relative;width:100%;max-width:880px;margin:0 auto;border-radius:10px;overflow:hidden;background:#1d1d1f;border:1px solid #3a3a3c;box-shadow:0 24px 60px rgba(0,0,0,.55),0 0 0 .5px rgba(255,255,255,.04) inset;text-align:left}
+.mt-bar{position:relative;height:28px;display:flex;align-items:center;justify-content:center;background:#2a2a2c;border-bottom:1px solid #111}
+.mt-l{position:absolute;left:12px;top:50%;transform:translateY(-50%);display:flex;gap:8px}
+.mt-l i{width:12px;height:12px;border-radius:50%;background:#ff5f57}.mt-l i:nth-child(2){background:#febc2e}.mt-l i:nth-child(3){background:#28c840}
+.mt-title{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Inter,sans-serif;font-size:14px;color:#9a9a9e;font-weight:500}
+.mt-body{margin:0;padding:16px 20px 18px;font-family:"SF Mono",Menlo,"JetBrains Mono",ui-monospace,monospace;font-size:14px;line-height:1.62;color:#d4d4d4}
+.mt-body .l{white-space:pre-wrap;word-break:break-word;min-height:1.62em;padding-left:2ch;text-indent:-2ch}
+.mt-body .l.in{padding-left:5ch;text-indent:-3ch}
+.mt-body b{font-weight:600;color:#ececec}
+.mt-body .d{color:#7b7b80}
+.mt-body .m{color:#8fa898}
+.mt-body .w{color:#d4d4d4}
+.mt-body br.mo{display:none}
+.mt .cursor{display:inline-block;width:.6em;height:1.1em;margin-left:1px;vertical-align:-.2em;background:#d4d4d4;animation:blink 1s steps(1) infinite}
+.js .mt .ln{visibility:hidden}
+.js .mt .ln.on{visibility:visible}
+.instant .mt .ln,.fixed .mt .ln{visibility:visible!important}
+@media (max-width:760px){
+  .mt-body{font-size:15px;line-height:1.45;padding:10px 12px 12px}
+  .mt-body .l{min-height:1.45em}
+  .mt-body .l.in{padding-left:4ch;text-indent:-3ch}
+  .mt-body .nm{display:none}
+  .mt-body br.mo{display:inline}
+  .mt-body .args{display:block;text-indent:0}
+  .mt-title{font-size:14px}
+}
+@media (max-width:760px){.mt-bar{padding:0 10px 0 66px}.mt-title{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}

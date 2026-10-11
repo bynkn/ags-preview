@@ -20,26 +20,31 @@
     else{
       // every element holds its final place from the start; things only fade/type in, one at a time
       var skip=false;
+      // type a line's visible text quickly, then restore its markup (spans, line breaks)
+      var typeLine=async function(el,msPer){
+        var html=el.innerHTML, text=el.textContent;
+        el.textContent='';el.classList.add('on');
+        var cur=document.createElement('span');cur.className='cursor';cur.setAttribute('aria-hidden','true');
+        var t=document.createTextNode('');el.appendChild(t);el.appendChild(cur);
+        for(var i=1;i<=text.length&&!skip;i++){t.nodeValue=text.slice(0,i);await wait(msPer+Math.random()*msPer*.6)}
+        el.innerHTML=html;
+      };
       (async function(){
-        var first=lines[0], tx=$('.tx',first), html=tx.innerHTML, text=tx.getAttribute('data-text');
+        // the prompt types at a human pace; the agent's output streams in fast, line by line
+        var first=lines[0], tx=$('.tx',first), cmd=tx.textContent;
         tx.textContent='';first.classList.add('on');
         var cur=document.createElement('span');cur.className='cursor';cur.setAttribute('aria-hidden','true');first.appendChild(cur);
-        await wait(800);
-        for(var i=1;i<=text.length&&!skip;i++){tx.textContent=text.slice(0,i);await wait(32+Math.random()*24)}
-        tx.innerHTML=html;first.removeChild(cur);
-        await wait(650);
-        lines[1].classList.add('on');await wait(950);   // read_file
-        lines[2].classList.add('on');await wait(1250);  // the $4,800 transfer
-        lines[3].classList.add('on');await wait(1000);  // rm -rf logs/
+        await wait(700);
+        for(var i=1;i<=cmd.length&&!skip;i++){tx.textContent=cmd.slice(0,i);await wait(20+Math.random()*14)}
+        first.removeChild(cur);tx.textContent=cmd;
+        await wait(450);
+        for(var n=1;n<=6&&!skip;n++){await typeLine(lines[n],4);await wait(n===3?650:420)}   // the note in inv_0419 gets a beat
+        await wait(300);
         if(hLead)hLead.classList.add('show');           // line 1, above the terminal
-        await wait(1700);
-        // the last line types out: ✔ transfer complete · $4,800 sent
-        var last=lines[4], lhtml=last.innerHTML, ltext=last.textContent;
-        if(!skip){last.textContent='';last.classList.add('on')}
-        for(var c=1;c<=ltext.length&&!skip;c++){last.textContent=ltext.slice(0,c);await wait(30+Math.random()*22)}
-        last.innerHTML=lhtml;await wait(300);
-        lines[5].classList.add('on');
-        await wait(1800);                               // a few beats
+        await wait(1500);
+        if(!skip)await typeLine(lines[7],14);           // ● Done. Reconciled 12 invoices.
+        lines.forEach(function(l){l.classList.add('on')});
+        await wait(1700);                               // a few beats
         if(hQ)hQ.classList.add('show');                 // the question, below the terminal
         await wait(1600);                               // stillness
         done();
