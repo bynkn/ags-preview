@@ -600,3 +600,15 @@ html[data-hero-done] .cue,.instant .cue,.fixed .cue{transform:none}
 @media (min-width:1024px){.env-q #heroQ,.env-q .hero-ask{max-width:none;width:max-content}}
 @media (max-height:820px) and (min-width:761px){.env-top{margin-bottom:30px}.env-q{margin-top:40px}.env-q .hero-ask{margin-top:20px}.term-hero .term-body{line-height:1.65;padding:18px 28px;min-height:calc(6 * 1.65em + 36px)}}
 @media (max-width:760px){.env-top{margin-bottom:24px}.env-q{margin-top:30px}.env-q .hero-ask{margin-top:18px}.hero{padding-top:62px;padding-bottom:40px}}
+
+/* v5 · the setup line, moved from the opening to sit just before the proof: its own short centred beat */
+.ask{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:44vh;min-height:44svh;padding:88px var(--pad);text-align:center}
+.ask .ask-line{margin:0 auto;text-align:center}
+@media (min-width:1024px){.ask .ask-line{max-width:none;width:max-content}}
+@media (max-width:760px){.ask{min-height:38vh;min-height:38svh;padding:64px 16px}}
+/* opening now ends on the question: balance the block in the space under the nav */
+@media (min-width:761px){.hero{padding-top:120px;padding-bottom:64px}}
+.ask{min-height:0;padding:56px var(--pad) 128px}
+@media (max-width:760px){.ask{min-height:0;padding:40px 16px 96px}}
+.ask{padding:92px var(--pad) 92px}
+@media (max-width:760px){.ask{padding:64px 16px 64px}}

@@ -11,9 +11,9 @@
   function navH(){return window.innerWidth<=760?56:64}
 
   /* ---------- 1a · the envelope: the terminal types, then holds still ---------- */
-  var hero=$('#heroTerm'), hLead=$('#heroLead'), hQ=$('#heroQ'), hAsk=$('#heroAsk');
+  var hero=$('#heroTerm'), hLead=$('#heroLead'), hQ=$('#heroQ');
   var done=function(){if(!root.hasAttribute('data-hero-done'))root.setAttribute('data-hero-done','1')};
-  var showQ=function(){[hLead,hQ,hAsk].forEach(function(e){if(e)e.classList.add('show')})};
+  var showQ=function(){[hLead,hQ].forEach(function(e){if(e)e.classList.add('show')})};
   if(hero){
     var lines=$$('.ln',hero);
     if(INSTANT||FIXED){lines.forEach(function(l){l.classList.add('on')});showQ();done()}
@@ -41,8 +41,6 @@
         lines[5].classList.add('on');
         await wait(1800);                               // a few beats
         if(hQ)hQ.classList.add('show');                 // the question, below the terminal
-        await wait(3700);                               // fade (1.1s) + ~2.6s: one more beat
-        if(hAsk)hAsk.classList.add('show');
         await wait(1600);                               // stillness
         done();
       })();
@@ -84,7 +82,7 @@
      Step 6 ("And it leaves proof." + v7's compact Detection Certificate) follows in flow.
      ?static=1 / reduced motion: stacked steps with captions, each band in its own world.
      ?t=<ms>: frozen frame, step = 1 + floor(t / 2200); t >= 11000 shows step 6. */
-  var track=$('#track'), stage=$('#stage'), si=$('#stageIn'), cert=$('#cert'), proofEnd=$('#proofEnd'), proof=$('#proof'), realityEnd=$('#realityEnd'), why=$('#why');
+  var track=$('#track'), stage=$('#stage'), si=$('#stageIn'), cert=$('#cert'), proofEnd=$('#proofEnd'), proof=$('#proof'), realityEnd=$('#askEnd')||$('#realityEnd'), why=$('#why');
   var STEP_MS=2200, N=5;
   function placeWatcher(el){
     var w=$('.watcher',el); if(!w)return;
@@ -159,7 +157,7 @@
         var r=track.getBoundingClientRect(), total=track.offsetHeight-sh;
         var p=total>0?(stick-r.top)/total:0;
         var k=Math.max(1,Math.min(N,1+Math.floor(p*N)));
-        // the stage appears only once the reality screen is fully gone (above the nav)
+        // the stage appears only once the setup line (after the reality screen) is fully gone (above the nav)
         var gone=!realityEnd||realityEnd.getBoundingClientRect().bottom<nh+2;
         si.classList.toggle('live',gone);
         if(!gone)k=1;
