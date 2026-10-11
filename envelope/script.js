@@ -15,12 +15,12 @@
   var hero=$('#heroTerm'), stack=$('#envStack'), envQ=$('#envQ');
   if(hero){
     var lines=$$('.ln',hero);
-    var hLead=$('#heroLead'), hQ=$('#heroQ'), hSub=$('#heroSub');
+    var hLead=$('#heroLead'), hQ=$('#heroQ'), hSub=$('#heroSub'), hNever=$('#heroNever');
     var done=function(){root.setAttribute('data-hero-done','1')};
     var setShift=function(){ if(stack&&envQ)stack.style.setProperty('--shift',((envQ.offsetHeight+parseFloat(getComputedStyle(envQ).marginTop))/2)+'px') };
     if(INSTANT){
       lines.forEach(function(l){l.classList.add('on')});
-      [hLead,hQ,hSub].forEach(function(e){if(e)e.classList.add('show')});
+      [hLead,hQ,hSub,hNever].forEach(function(e){if(e)e.classList.add('show')});
       done();
     }else{
       setShift();
@@ -46,11 +46,13 @@
         if(hQ)hQ.classList.add('show');
         await wait(1600);
         if(hSub)hSub.classList.add('show');
+        await wait(1100);
+        if(hNever)hNever.classList.add('show');
         await wait(600);
         done();
       })();
       // never hide the page from someone who scrolls early
-      window.addEventListener('scroll',function s(){if(window.scrollY>40){done();window.removeEventListener('scroll',s)}},{passive:true});
+      window.addEventListener('scroll',function s(){if(window.scrollY>40){opened=true;if(stack)stack.style.setProperty('--shift','0px');[hLead,hQ,hSub,hNever].forEach(function(e){if(e)e.classList.add('show')});done();window.removeEventListener('scroll',s)}},{passive:true});
     }
   }
 
