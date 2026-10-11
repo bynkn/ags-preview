@@ -108,7 +108,7 @@
      ?static=1 / reduced motion: stacked steps with captions, each band in its own world.
      ?t=<ms>: frozen frame, step = 1 + floor(t / 2200); t >= 11000 shows step 6. */
   var track=$('#track'), stage=$('#stage'), si=$('#stageIn'), cert=$('#cert'), proofEnd=$('#proofEnd'), proof=$('#proof'), realityEnd=$('#askEnd')||$('#realityEnd'), why=$('#why');
-  var STEP_MS=2200, N=5;
+  var STEP_MS=2200, N=4;   // 4 captioned steps (the first two captions merged)
   function placeWatcher(el){
     var w=$('.watcher',el); if(!w)return;
     var on=$$('.term-body .ln',el).filter(function(l){return l.offsetParent!==null&&!l.classList.contains('ln-cur')});
@@ -117,7 +117,7 @@
     w.style.top=(l.offsetTop+lh/2-4)+'px';
   }
   function setStep(el,n){
-    var s=String(n);
+    var s=String(n+1);   // visual state: steps 1-4 reuse the phase styles written for 2-5
     if(el.getAttribute('data-step')!==s)el.setAttribute('data-step',s);
     $$('.caps .cap',el).forEach(function(c){c.classList.toggle('on',+c.getAttribute('data-c')===n)});
     $$('.step-k .pips i',el).forEach(function(p,i){p.classList.toggle('on',i<n)});
@@ -162,7 +162,7 @@
         var nh=navH();
         proofEnd.style.marginTop='0px';
         // measure with the tallest (final) step laid out, then restore
-        var was=si.getAttribute('data-step');si.setAttribute('data-step',String(N));
+        var was=si.getAttribute('data-step');si.setAttribute('data-step',String(N+1));
         var sr=stage.getBoundingClientRect(), ir=si.getBoundingClientRect();
         si.setAttribute('data-step',was);
         // step 6 sits ~56px under the stage content as the stage unpins (no dead scroll)

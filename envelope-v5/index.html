@@ -76,51 +76,51 @@
       <div class="stage" id="stage">
         <div class="stage-in" id="stageIn" data-step="1">
           <div class="cap-row">
-            <p class="step-k" aria-hidden="true"><span class="pips"><i></i><i></i><i></i><i></i><i></i><i></i></span></p>
+            <p class="step-k" aria-hidden="true"><span class="pips"><i></i><i></i><i></i><i></i><i></i></span></p>
             <div class="caps">
-              <p class="cap" data-c="1">Same agent. Same task.</p>
-              <p class="cap" data-c="2">This time, <span class="wm-cap"><span class="wm-a">Agentic</span> <span class="wm-g">GUARDIANS</span></span> is&nbsp;watching.</p>
-              <p class="cap" data-c="3">It&rsquo;s learned this agent&rsquo;s normal behaviour.</p>
-              <p class="cap" data-c="4">Then the agent deviates.</p>
-              <p class="cap" data-c="5">Blocked before it ran. <span class="nw">No transfer.</span></p>
+              <p class="cap cap-2l" data-c="1"><span class="c1">Same agent. Same task.</span><span class="c2">This time, <span class="wm-cap"><span class="wm-a">Agentic</span> <span class="wm-g">GUARDIANS</span></span> is&nbsp;watching.</span></p>
+              <p class="cap" data-c="2">It&rsquo;s learned this agent&rsquo;s normal behaviour.</p>
+              <p class="cap" data-c="3">Then the agent deviates.</p>
+              <p class="cap" data-c="4">Blocked before it ran. <span class="nw">No transfer.</span></p>
             </div>
           </div>
           <div class="cb-grid">
-            <div class="term term-cb">
-              <div class="term-bar">
-                <span class="lights"><i></i><i></i><i></i></span>
-                <span class="term-title"><span class="tt-l">agent-runtime — </span>payments-01</span>
-                <span class="term-state guarded"><i class="st-dot"></i><span class="st-t">guarded</span></span>
+            <div class="mt mt-cb">
+              <div class="mt-bar"><span class="mt-l"><i></i><i></i><i></i></span><span class="mt-title">ops@payments-01 — agent — 120×12</span></div>
+              <div class="mt-body">
+                <i class="watcher" aria-hidden="true" hidden></i>
+                <div class="l"><span class="d">~/ops/payments-01 %</span> agent run --task "reconcile October invoices"</div>
+                <div class="l f2"><span class="m">●</span> <b>read_file</b>(invoices.csv) <span class="d">· 12 rows · 31ms</span></div>
+                <div class="l f2"><span class="m">●</span> <b>match_ledger</b>(october) <span class="d">· 12 matched · 44ms</span></div>
+                <div class="l f3"><span class="m">●</span> <b>read_file</b>(inv_0419.pdf) <span class="d">· 1 page · 112ms</span></div>
+                <div class="l f4 ml2"><span class="m">●</span> <b>match_ledger</b>(inv_0419) <span class="d">· 1 unmatched</span></div>
+                <div class="l f4"><span class="m">●</span> <b>http.post</b>(payments-api/transfer)<span class="args">  <span class="d">amount=4800 to="acct ••7731"</span></span></div>
+                <div class="l in f4 u4"><span class="d">⎿</span>  <span class="d">checking…</span></div>
+                <div class="l in f5 blk-l"><span class="x">⎿</span>  <span class="x">✖ Blocked by Agentic Guardians · not executed</span></div>
+                <div class="l st-l"><span class="d">agentic-guardians · watching</span><span class="d f5r"> · 1 blocked · 0 executed</span></div>
               </div>
-              <div class="term-body">
-                <i class="watcher" aria-hidden="true"></i>
-                <div class="ln l1"><span class="pr">$</span> <span class="k">agent</span> run <span class="fl">--task</span> <span class="s">"reconcile October invoices"</span></div>
-                <div class="ln l2"><span class="ts">[09:41:02] </span><span class="fn">read_file</span>(<span class="s">"invoices.csv"</span>) <span class="ok">ok</span></div>
-                <div class="ln l3"><span class="ts">[09:41:03] </span><span class="fn">match_ledger</span>(<span class="s">"october"</span>) <span class="ok">ok</span></div>
-                <div class="ln l4"><span class="ts">[09:41:03] </span><span class="fn">http.post</span>(<span class="s">"payments-api/transfer"</span>, amount=<span class="n">4800</span>, to=<span class="s">"acct ••7731"</span>) <span class="blk">✖ BLOCKED by Agentic Guardians · action not executed</span></div>
-                <div class="ln ln-cur"><span class="cursor" aria-hidden="true"></span></div>
-              </div>
-              <div class="term-foot"><span><i class="st-dot"></i>agentic-guardians · watching</span><span>1 blocked · 0 executed</span></div>
             </div>
             <div class="cb-side">
               <div class="side-a">
-                <div class="pnl pnl-cur">
-                  <div class="pnl-top mono"><span class="pip pip-cur"><i></i>current action</span><span class="muted">watching</span></div>
-                  <div class="cur-watch mono">
-                    <p class="wl idle">Watching payments-01…</p>
-                    <p class="wl w1"><span class="nm">read_file</span> <span class="dash">—</span> <span class="v ok-v">matches baseline</span></p>
-                    <p class="wl w2"><span class="nm">match_ledger</span> <span class="dash">—</span> <span class="v ok-v">matches baseline</span></p>
-                    <p class="wl w3"><span class="nm">http.post</span> <span class="dash">—</span> <span class="v">checking</span></p>
-                  </div>
+                <div class="pnl pnl-cur agp">
+                  <div class="pnl-top ph-top"><span class="pip pip-cur mono"><i></i>current action</span><span class="ph">
+                    <span class="phk s2"><i></i>WATCHING</span><span class="phk s3"><i></i>BEHAVIOUR LOCKED</span><span class="phk s4"><i></i>PROTECTED</span><span class="phk s5"><i></i>SOMETHING LOOKS OFF</span></span></div>
+                  <div class="ph-sub"><span class="s2">Learning in progress.</span><span class="s3">Fingerprint locked.</span><span class="s4">Always learning · confidence growing.</span><span class="s5">1 action blocked · enforcement active.</span></div>
+                  <ul class="ag-acts mono">
+                    <li class="f2 r1"><span class="an">read_file <span class="aa">invoices.csv</span></span><span class="tg">Learning</span></li>
+                    <li class="f2 r2"><span class="an">match_ledger <span class="aa">october</span></span><span class="tg">Learning</span></li>
+                    <li class="f3 r3"><span class="an">read_file <span class="aa">inv_0419.pdf</span></span><span class="tg">Allowed</span></li>
+                    <li class="f4 r35"><span class="an">match_ledger <span class="aa">inv_0419</span></span><span class="tg">Allowed</span></li>
+                    <li class="f4 r4"><span class="an">http.post <span class="aa">payments-api/transfer</span></span><span class="tg tg4">…</span><span class="tg tg5">Blocked</span></li>
+                  </ul>
                 </div>
               </div>
-              <div class="side-b">
-                <div class="pnl pnl-ok">
+                <div class="pnl pnl-ok rc">
                   <div class="pnl-top mono"><span class="pip"><i></i>baseline behaviour</span><span class="muted">payments-01</span></div>
                   <p class="pnl-p">Normal sequence:</p>
                   <p class="seq mono"><span class="tok">read_file</span><span class="ar">→</span><span class="tok">match_ledger</span><span class="ar">→</span><span class="tok exp">write_report</span></p>
                 </div>
-                <div class="pnl pnl-dev">
+                <div class="pnl pnl-dev rc">
                   <div class="pnl-top mono"><span class="pip pip-dev"><i></i>deviation detected</span><span class="muted">blocked</span></div>
                   <dl class="eo">
                     <div><dt class="mono">Expected</dt><dd class="mono">write_report</dd></div>
@@ -128,14 +128,13 @@
                   </dl>
                   <p class="verdict">Sequence not in baseline. Action blocked before it ran.</p>
                 </div>
-              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="proof-end" id="proofEnd">
-      <p class="cap cap-6" id="cap5"><span class="step-k" aria-hidden="true"><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></span>And it leaves proof.</p>
+      <p class="cap cap-6" id="cap5"><span class="step-k" aria-hidden="true"><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></span>And it leaves proof.</p>
       <article class="cert" id="cert" aria-label="Detection Certificate, example">
         <div class="dc">
           <div class="dc-h"><div><p class="dc-k">Agentic Guardians &middot; Example</p><h3 class="dc-t">Detection Certificate</h3></div><span class="dc-pill"><i></i>Signed</span></div>
