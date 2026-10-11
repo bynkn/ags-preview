@@ -37,10 +37,7 @@
         for(var i=1;i<=text.length;i++){tx.textContent=text.slice(0,i);await wait(34+Math.random()*26)}
         tx.innerHTML=html; first.removeChild(cur);
         await wait(650);
-        lines[1].classList.add('on'); await wait(950);   // read_file
-        lines[2].classList.add('on'); await wait(1250);  // the $4,800 transfer: give it a beat
-        lines[3].classList.add('on'); await wait(700);   // rm -rf logs/
-        lines[4].classList.add('on');
+        for(var k=1;k<lines.length;k++){lines[k].classList.add('on');await wait(k===lines.length-1?400:720)}
         await wait(1400);
         opened=true; stack.style.setProperty('--shift','0px');
         await wait(250);

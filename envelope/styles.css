@@ -330,3 +330,8 @@ a{color:inherit}
 }
 @media (max-width:760px){.cb-side .nw-m{white-space:normal}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* envelope-v5 sync: 14px floor (the paradigm block .why-top is untouched) */
+.nav-cta,.env-sub,.env-sub .nw,.key .lbl,#how summary span,.spec dt,.form-card .term-bar span,.fld-l,.fld-l *,.early,.foot-line,.foot-line *{font-size:max(14px,1em)}
+.nav-cta,.env-sub,.key .lbl,#how summary span,.spec dt,.form-card .term-bar .term-title,.form-card .term-bar .term-state,.fld-l,.early,.foot-line{font-size:14px!important}
+.fld-l .opt,.fld-l .pr,.foot-line a,.foot-line span{font-size:14px!important}
