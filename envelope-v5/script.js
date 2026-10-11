@@ -72,6 +72,14 @@
     }
   }
 
+
+  /* setup line: if it ever outgrows the screen on one line at desktop, break it after the first "?" */
+  (function(){
+    var l=$('#askEnd'), s=$('#ask');if(!l||!s)return;
+    var fit=function(){l.classList.remove('ask-2l');var cs=getComputedStyle(s), box=s.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);
+      if(l.getBoundingClientRect().width>box+.5)l.classList.add('ask-2l')};
+    fit();window.addEventListener('resize',fit);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+  })();
   /* safety net for the one-line reality lines: if font metrics ever make one wider than its box, shrink it to fit */
   (function(){
     var real2=$('#reality'), nv=$('.r-never',real2||document), dm=$('.r-dim',real2||document), lt=$('.r-late',real2||document);

@@ -881,3 +881,8 @@ html[data-hero-done] .cue,.instant .cue,.fixed .cue{transform:none}
    One line from 1024 up (JS shrink-to-fit stays as the overflow net); below that it wraps like the hero does. */
 #reality .r-never{font-family:var(--disp);font-size:var(--ts1);line-height:1.06;font-weight:600;letter-spacing:-.034em;color:var(--tx);white-space:normal;text-wrap:balance}
 @media (min-width:1024px){#reality .r-never{white-space:nowrap;font-size:min(var(--ts1),4.4vw,60px)}}
+
+/* setup line: one line from 1024 up when it fits; otherwise (and below 1024) "And only that?" drops to its own line after the first "?" */
+@media (max-width:1023px){.ask .ask-line .ask-b{display:block}}
+.ask .ask-line.ask-2l{width:auto;max-width:var(--cw)}
+.ask .ask-line.ask-2l .ask-b{display:block}
