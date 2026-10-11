@@ -396,6 +396,9 @@ html:not([data-safe="graphite"]) .trav.chk,html:not([data-safe="graphite"]) .sd{
 /* closing statement: 'Agentic Guardians is what trust looks like in the agentic era.'
    'trust' is highlighted as in the question: full-strength ink of this section (white on dark), one weight up; the rest is muted */
 .trust-line{grid-column:1/13;margin:44px 0 0;max-width:20em;text-align:left;font-family:'Inter Tight',var(--disp,var(--sans,sans-serif));font-size:clamp(1.625rem,1.05rem + 2.1vw,2.5rem);line-height:1.15;font-weight:600;letter-spacing:-.03em;text-wrap:balance}
-.trust-line .tl-m{opacity:.6}
+.trust-line .tl-m,.trust-line .tl-t{opacity:.6}
 .trust-line .tl-t{font-weight:700}
 @media (max-width:760px){.trust-line{margin-top:36px}}
+
+/* trust: weight only */
+.ask .ask-t{font-weight:800}
