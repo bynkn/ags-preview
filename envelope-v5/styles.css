@@ -922,3 +922,6 @@ html[data-hero-done] .cue,.instant .cue,.fixed .cue{transform:none}
   .dc-g4 dt{white-space:normal}
 }
 .cert-w{padding-bottom:16px}
+
+/* 'trust' in the grey half: the same white as 'And only that?', one weight step up */
+.ask .ask-line .ask-a .ask-t{color:#fff;font-weight:700}
