@@ -11,43 +11,42 @@
   function navH(){return window.innerWidth<=760?56:64}
 
   /* ---------- 1a · the envelope: the terminal types, then holds still ---------- */
-  var hero=$('#heroTerm'), stack=$('#envStack'), envQ=$('#envQ'), hLead=$('#heroLead'), hQ=$('#heroQ'), hAsk=$('#heroAsk');
+  var hero=$('#heroTerm'), hLead=$('#heroLead'), hQ=$('#heroQ'), hAsk=$('#heroAsk');
   var done=function(){if(!root.hasAttribute('data-hero-done'))root.setAttribute('data-hero-done','1')};
   var showQ=function(){[hLead,hQ,hAsk].forEach(function(e){if(e)e.classList.add('show')})};
   if(hero){
     var lines=$$('.ln',hero);
     if(INSTANT||FIXED){lines.forEach(function(l){l.classList.add('on')});showQ();done()}
     else{
-      // the terminal starts centred on its own; it settles down to make room for the lines above it
-      var opened=false;
-      var setShift=function(){if(!opened&&stack&&envQ)stack.style.setProperty('--shift',(-(envQ.offsetHeight+parseFloat(getComputedStyle(envQ).marginBottom))/2)+'px')};
-      setShift();window.addEventListener('resize',setShift);
-      if(document.fonts&&document.fonts.ready)document.fonts.ready.then(setShift);
-      var open=function(){opened=true;if(stack)stack.style.setProperty('--shift','0px')};
+      // every element holds its final place from the start; things only fade/type in, one at a time
+      var skip=false;
       (async function(){
         var first=lines[0], tx=$('.tx',first), html=tx.innerHTML, text=tx.getAttribute('data-text');
         tx.textContent='';first.classList.add('on');
         var cur=document.createElement('span');cur.className='cursor';cur.setAttribute('aria-hidden','true');first.appendChild(cur);
         await wait(800);
-        for(var i=1;i<=text.length;i++){tx.textContent=text.slice(0,i);await wait(32+Math.random()*24)}
+        for(var i=1;i<=text.length&&!skip;i++){tx.textContent=text.slice(0,i);await wait(32+Math.random()*24)}
         tx.innerHTML=html;first.removeChild(cur);
         await wait(650);
         lines[1].classList.add('on');await wait(950);   // read_file
         lines[2].classList.add('on');await wait(1250);  // the $4,800 transfer
-        lines[3].classList.add('on');await wait(900);   // rm -rf logs/
-        lines[4].classList.add('on');await wait(400);   // ✔ transfer complete · $4,800 sent
+        lines[3].classList.add('on');await wait(1000);  // rm -rf logs/
+        if(hLead)hLead.classList.add('show');           // line 1, above the terminal
+        await wait(1700);
+        // the last line types out: ✔ transfer complete · $4,800 sent
+        var last=lines[4], lhtml=last.innerHTML, ltext=last.textContent;
+        if(!skip){last.textContent='';last.classList.add('on')}
+        for(var c=1;c<=ltext.length&&!skip;c++){last.textContent=ltext.slice(0,c);await wait(30+Math.random()*22)}
+        last.innerHTML=lhtml;await wait(300);
         lines[5].classList.add('on');
-        await wait(500);                                // a short beat
-        open();await wait(1300);                        // the terminal settles (nothing else moves)
-        if(hLead)hLead.classList.add('show');           // ~1.8s after the terminal finished
-        await wait(1500);
-        if(hQ)hQ.classList.add('show');
-        await wait(2600);                               // let the question land
+        await wait(1800);                               // a few beats
+        if(hQ)hQ.classList.add('show');                 // the question, below the terminal
+        await wait(2800);                               // fade (1.1s) + ~1.7s
         if(hAsk)hAsk.classList.add('show');
         await wait(1600);                               // stillness
         done();
       })();
-      window.addEventListener('scroll',function s(){if(window.scrollY>40){lines.forEach(function(l){l.classList.add('on')});open();showQ();done();window.removeEventListener('scroll',s)}},{passive:true});
+      window.addEventListener('scroll',function s(){if(window.scrollY>40){skip=true;lines.forEach(function(l){l.classList.add('on')});showQ();done();window.removeEventListener('scroll',s)}},{passive:true});
     }
   }
 

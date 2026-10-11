@@ -549,21 +549,26 @@ html[data-hero-done] .cue,.instant .cue,.fixed .cue{transform:none}
 }
 @media (max-width:760px){.dc-g dd{white-space:normal;overflow-wrap:anywhere;text-overflow:clip}}
 
-/* ===== v5 · opening: three lines appear ABOVE the terminal, one at a time ===== */
-.env-q{margin:0 0 44px;text-align:center}
-.env-q .hero-lead{margin:0 0 14px}
-.hero-ask{margin:22px auto 0;max-width:var(--cw);font-family:var(--disp);font-size:clamp(1.625rem,1.05rem + 2.1vw,2.75rem);line-height:1.12;font-weight:600;letter-spacing:-.03em;color:var(--tx);text-wrap:balance}
+/* ===== v5 · opening: line 1 above the terminal; question + last line below it =====
+   Everything holds its final place from the start (no shifting), so only one thing moves at a time. */
+.env-stack{--shift:0px!important}
+.term-hero,.env-q{transform:none;transition:none}
+.env-top{margin:0 0 22px;text-align:center}
+.env-top .hero-lead{margin:0}
+.env-q{margin:34px 0 0;text-align:center}
+.hero-ask{margin:16px auto 0;max-width:var(--cw);font-family:var(--disp);font-size:clamp(1.625rem,1.05rem + 2.1vw,2.75rem);line-height:1.12;font-weight:600;letter-spacing:-.03em;color:var(--tx);text-wrap:balance}
 @media (min-width:1024px){.hero-ask{white-space:nowrap;font-size:min(2.75rem,3.2vw,44px)}}
-.js .env-q .hero-ask{opacity:0;transform:translateY(10px);transition:opacity 1.1s ease,transform 1.1s var(--ease)}
-.js .env-q .hero-ask.show{opacity:1;transform:none}
-.instant .env-q .hero-ask,.fixed .env-q .hero-ask{opacity:1;transform:none;transition:none}
-@media (max-height:820px) and (min-width:761px){.env-q{margin:0 0 32px}.hero-ask{margin-top:16px}}
-@media (max-width:760px){
-  .hero{padding:68px 16px 56px}
-  .env-q{margin:0 0 24px}
-  .env-q .hero-lead{margin:0 0 10px}
-  .hero-ask{margin-top:14px}
-  .term-hero .term-body{font-size:15px}
-}
-.term-hero,.env-q{transition:transform 1.2s var(--ease)}
+.js .env-top .hero-lead,.js .env-q .h1,.js .env-q .hero-ask{opacity:0;transform:translateY(10px);transition:opacity 1.1s ease,transform 1.1s var(--ease)}
+.js .env-top .show,.js .env-q .show{opacity:1;transform:none}
+.instant .env-top .hero-lead,.fixed .env-top .hero-lead,.instant .env-q .h1,.fixed .env-q .h1,.instant .env-q .hero-ask,.fixed .env-q .hero-ask{opacity:1;transform:none;transition:none}
 .term-hero .lost{white-space:nowrap}
+/* the terminal reserves only the rows it actually uses */
+.term-hero .term-body{padding:20px 28px 20px;line-height:1.8;min-height:calc(6 * 1.8em + 40px)}
+@media (max-height:820px) and (min-width:761px){.env-top{margin-bottom:18px}.env-q{margin-top:26px}.hero-ask{margin-top:12px}.term-hero .term-body{line-height:1.7;min-height:calc(6 * 1.7em + 40px)}}
+@media (max-width:760px){
+  .hero{padding:66px 16px 48px}
+  .env-top{margin-bottom:14px}
+  .env-q{margin-top:20px}
+  .hero-ask{margin-top:12px}
+  .term-hero .term-body{font-size:15px;line-height:1.6;padding:14px 16px 14px;min-height:calc(9 * 1.6em + 28px)}
+}
