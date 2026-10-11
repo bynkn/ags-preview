@@ -784,3 +784,6 @@ html,body{overflow-x:clip}
 
 /* built different: avoid one-word last lines */
 .spec-t dd{text-wrap:pretty}
+/* ===== sync with envelope-v5 · 14px text floor (the paradigm section is left as it is) ===== */
+.nav .tag,.nav .btn-sm,.lbl:not(#paradigm *),.eyebrow:not(#paradigm *),.spec-t dt,.early,.form-card .term-bar .term-title,.form-card .term-bar .term-state,
+.fld-l,.fld-l .pr,.fld-l .opt,.foot-line,.foot-line *,.foot-r,.foot-r *{font-size:14px!important}
