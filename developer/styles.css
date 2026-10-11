@@ -520,3 +520,9 @@ a{color:inherit}
 .js #hero .a5h{opacity:0;animation:fadeUp .7s cubic-bezier(.2,.7,.2,1) .1s forwards}
 .static #hero .a5h{opacity:1!important;animation:none!important}
 @media (prefers-reduced-motion:reduce){.js #hero .a5h{opacity:1;animation:none}}
+
+/* closing statement: 'Agentic Guardians is what trust looks like in the agentic era.'
+   'trust' is highlighted as in the question: the line's full-strength ink, one weight up (the close is light, so that ink is dark, not white) */
+.trust-line{margin:56px auto 0;max-width:var(--cw,860px);font-family:var(--disp,var(--sans));font-size:clamp(1.625rem,1.05rem + 2.1vw,2.5rem);line-height:1.15;font-weight:600;letter-spacing:-.03em;color:var(--mu);text-align:center;text-wrap:balance}
+.trust-line .tl-t{color:var(--tx);font-weight:700}
+@media (max-width:760px){.trust-line{margin-top:40px}}
