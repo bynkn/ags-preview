@@ -787,3 +787,6 @@ html,body{overflow-x:clip}
 /* ===== sync with envelope-v5 · 14px text floor (the paradigm section is left as it is) ===== */
 .nav .tag,.nav .btn-sm,.lbl:not(#paradigm *),.eyebrow:not(#paradigm *),.spec-t dt,.early,.form-card .term-bar .term-title,.form-card .term-bar .term-state,
 .fld-l,.fld-l .pr,.fld-l .opt,.foot-line,.foot-line *,.foot-r,.foot-r *{font-size:14px!important}
+
+/* 'trust' in the grey half: the same white as 'And only that?', one weight step up (no accent, no underline) */
+.question p .q-t{color:var(--tx);font-weight:600}
