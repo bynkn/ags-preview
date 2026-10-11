@@ -41,7 +41,7 @@
         lines[5].classList.add('on');
         await wait(1800);                               // a few beats
         if(hQ)hQ.classList.add('show');                 // the question, below the terminal
-        await wait(2800);                               // fade (1.1s) + ~1.7s
+        await wait(3700);                               // fade (1.1s) + ~2.6s: one more beat
         if(hAsk)hAsk.classList.add('show');
         await wait(1600);                               // stillness
         done();
@@ -51,7 +51,7 @@
   }
 
   /* ---------- 1b · the reality: one line per beat once the section is in view ----------
-     Timed beats; any line that has scrolled into the upper half of the screen shows at once
+     Timed beats; any line already scrolled near the top of the screen shows at once
      (with everything before it), so a fast scroll never lands on an empty screen. */
   var real=$('#reality');
   if(real){
@@ -62,7 +62,7 @@
       var started=false, rq=false, rtick=function(){
         rq=false;var vh=window.innerHeight, r=real.getBoundingClientRect();
         if(!started&&r.top<vh*.6){started=true;ris.forEach(function(el,i){setTimeout(function(){showTo(i)},BEATS[i]||0)})}
-        for(var i=ris.length-1;i>=0;i--){if(ris[i].getBoundingClientRect().top<vh*.5){showTo(i);break}}
+        for(var i=ris.length-1;i>=0;i--){if(ris[i].getBoundingClientRect().top<vh*.25){showTo(i);break}}
         if(ris[ris.length-1].classList.contains('on'))window.removeEventListener('scroll',rreq);
       }, rreq=function(){if(!rq){rq=true;requestAnimationFrame(rtick)}};
       window.addEventListener('scroll',rreq,{passive:true});rtick();

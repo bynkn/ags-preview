@@ -590,3 +590,12 @@ html[data-hero-done] .cue,.instant .cue,.fixed .cue{transform:none}
   .r-never{font-size:44px;margin-top:26px}
   .r-late{margin-top:22px;font-size:18px}
 }
+
+/* v5 opening spacing + true centring: the no-wrap desktop lines used to overflow their 880px box to the right */
+.env-top{margin-bottom:38px}
+.env-q{margin-top:50px;display:flex;flex-direction:column;align-items:center;width:100%;text-align:center}
+.env-q #heroQ,.env-q .hero-ask{margin-left:auto;margin-right:auto;padding:0;text-indent:0;text-align:center}
+.env-q .hero-ask{margin-top:26px}
+@media (min-width:1024px){.env-q #heroQ,.env-q .hero-ask{max-width:none;width:max-content}}
+@media (max-height:820px) and (min-width:761px){.env-top{margin-bottom:30px}.env-q{margin-top:40px}.env-q .hero-ask{margin-top:20px}.term-hero .term-body{line-height:1.65;padding:18px 28px;min-height:calc(6 * 1.65em + 36px)}}
+@media (max-width:760px){.env-top{margin-bottom:24px}.env-q{margin-top:30px}.env-q .hero-ask{margin-top:18px}.hero{padding-top:62px;padding-bottom:40px}}
