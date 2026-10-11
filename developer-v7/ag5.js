@@ -33,6 +33,7 @@
   if(INSTANT||FIXED!==null||!('IntersectionObserver' in window))showCerts();
   else{var io0=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('a5-in');io0.unobserve(e.target)}})},{rootMargin:'0px 0px -12% 0px'});certs.forEach(function(c){io0.observe(c)})}
   blocks.forEach(function(b){
+    if(b.hasAttribute('data-a5-ext'))return;   // the host page drives this block (e.g. a scroll-pinned stage)
     b.classList.add('a5-live');
     if(INSTANT){render(b,STEP*3);showCerts();return}
     if(FIXED!==null){render(b,FIXED);return}
