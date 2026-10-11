@@ -570,3 +570,6 @@ html[data-hero-done] .cue,.instant .cue,.fixed .cue{transform:none}
 .instant .ask .ask-line .ask-b,.fixed .ask .ask-line .ask-b{opacity:1!important;transition:none!important}
 .ask .hero-ask{font-family:var(--disp);font-size:clamp(1.625rem,1.05rem + 2.1vw,2.75rem);line-height:1.12;font-weight:600;letter-spacing:-.03em;text-wrap:balance;max-width:var(--cw)}
 @media (min-width:1024px){.ask .hero-ask{white-space:nowrap;font-size:min(2.75rem,3.2vw,44px)}}
+
+/* 'trust' in the grey half: the same white as 'And only that?', one weight step up */
+.ask .ask-line .ask-a .ask-t{color:#fff;font-weight:700}
