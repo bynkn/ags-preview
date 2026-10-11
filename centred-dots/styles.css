@@ -498,3 +498,10 @@ main{position:relative;z-index:1}
 .console#console{display:block!important;max-width:none!important;text-align:left}
 /* 14px floor (paradigm #s3 untouched) */
 .site-header .tag{font-size:14px!important}.early{font-size:14px!important}.flabel{font-size:14px!important}.flabel .opt{font-size:14px!important}.footer .cf,.footer .cp,.footer .fsep{font-size:14px!important}
+
+/* closing statement: 'Agentic Guardians is what trust looks like in the agentic era.'
+   'trust' is highlighted as in the question: full-strength ink of this section (white on dark), one weight up; the rest is muted */
+.trust-line{margin:56px auto 0;max-width:860px;text-align:center;font-family:'Inter Tight',var(--disp,var(--sans,sans-serif));font-size:clamp(1.625rem,1.05rem + 2.1vw,2.5rem);line-height:1.15;font-weight:600;letter-spacing:-.03em;text-wrap:balance}
+.trust-line .tl-m{opacity:.6}
+.trust-line .tl-t{font-weight:700}
+@media (max-width:760px){.trust-line{margin-top:36px}}
