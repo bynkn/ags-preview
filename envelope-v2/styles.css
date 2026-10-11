@@ -418,3 +418,13 @@ html[data-hero-done] .stage-in,.static .stage-in{opacity:1}
 .trust-line .tl-m,.trust-line .tl-t{opacity:.6}
 .trust-line .tl-t{font-weight:700}
 @media (max-width:760px){.trust-line{margin-top:36px}}
+
+/* ===== the reality in three beats (under the hero question): line 1 (unchanged) · the hinge · the punchline (biggest, white) + "Until it’s too late." (the hinge size, dim) ===== */
+.env-hinge,.env-late{font-size:18px;line-height:1.4;font-weight:400;letter-spacing:-.005em;text-wrap:balance;transition:opacity 1.1s ease,transform 1.1s var(--ease)}
+.env-hinge{margin:14px 0 0;color:var(--mu)}
+.env-never{margin-top:34px;font-weight:700}
+.env-late{margin:8px 0 0;color:var(--mu2)}
+.js .env-hinge,.js .env-late{opacity:0;transform:translateY(10px)}
+.js .env-hinge.show,.js .env-late.show,.static .env-hinge,.static .env-late{opacity:1!important;transform:none!important}
+.static .env-hinge,.static .env-late{transition:none!important}
+@media (max-width:760px){.env-hinge,.env-late{font-size:16px}.env-hinge{margin-top:12px}.env-never{margin-top:26px}.env-late{margin-top:6px}}
