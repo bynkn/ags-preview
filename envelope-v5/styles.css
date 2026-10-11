@@ -1005,14 +1005,6 @@ html.ptab-anim .ptab tbody tr.in td.c-a{transition-delay:.22s}
   #watches .h2 .w-l1,#watches .h2 .w-l2{font-size:calc(var(--ts1) * .72);line-height:1.08}
 }
 
-/* ===== v5 · reality, three beats / three sizes (approved mock v2) =====
-   A (--s1) = line 1 · B (--sB) = the hinge + "Until it’s too late." · punchline = A × 1.4, the biggest, whitest line. */
-.reality{--sB:22px}
-@media (max-width:1023px){.reality{--sB:20px}}
-@media (max-width:760px){.reality{--sB:18px}}
-#reality .r-hinge,#reality .r-never,#reality .r-late{font-family:var(--disp);max-width:none;text-wrap:balance;white-space:normal}
-#reality .r-hinge{margin:52px 0 0;font-size:var(--sB);line-height:1.35;font-weight:500;letter-spacing:-.005em;color:var(--mu)}
-#reality .r-never{margin:88px 0 0;font-size:calc(var(--s1) * 1.4);line-height:1.12;font-weight:700;letter-spacing:-.025em;color:#fff}
-#reality .r-late{margin:14px 0 0;font-size:var(--sB);line-height:1.35;font-weight:500;letter-spacing:-.005em;color:var(--mu2)}
-@media (min-width:761px){#reality .r-hinge,#reality .r-never{white-space:nowrap}}
-@media (max-width:760px){#reality .r-hinge{margin-top:38px}#reality .r-never{margin-top:60px}#reality .r-late{margin-top:10px}}
+/* brand + label dots: always the logo green (#A8D5C2); red is reserved for blocked/danger */
+.wm-dot,.hdot,.lbl i{--dot:#A8D5C2;--dotc:168,213,194}
+.wm-dot,.hdot,.lbl i,html[data-world=light] .lbl i,.bands .lw .lbl i,.dw .lbl i,.rw .lbl i{background:#A8D5C2}
