@@ -110,9 +110,8 @@
     await wait(450); night.classList.add('show');
     await wait(650);
     await typeLine(L[0], 26); await wait(420);
-    await typeLine(L[1], 15); await wait(480);
-    await typeLine(L[2], 11); await wait(560);
-    await typeLine(L[3], 17); await wait(800);
+    for (var k = 1; k < L.length; k++) { await typeLine(L[k], 12); await wait(k === L.length - 2 ? 700 : 380); }
+    await wait(400);
     lead.classList.add('show');
     await wait(1300);
     q.classList.add('show');
@@ -124,106 +123,9 @@
     $('#s2').scrollIntoView({ behavior: NM ? 'auto' : 'smooth', block: 'start' });
   });
 
-  /* ---------------- S5 · callback console (from mock-callback) ----------------
-     The whole sequence is a pure function of time: render(t). Starts when the
-     terminal scrolls into view.  ?static=1 → final state   ?t=<ms> → frozen frame */
-  /* v7 pacing (from ag-v7-dev): ~8.15s total, a line every ~1350ms with a human typing
-     rhythm; ~700ms hold before the transfer line; red the moment it completes; certificate ~1000ms later */
-  var T = {
-    lines: [[250, 1350], [1800, 2500], [3300, 4000], [5000, 6600]],  // [type start, type end] per line
-    pass: [null, 2650, 4150],  // ok + "matches baseline"
-    flip: 6600,                // red: status band, panel, BLOCKED
-    prompt: 6900,              // $ ▌
-    cert: 7650,                // ~1050ms after the flip
-    end: 8150
-  };
-  var con = $('#console'), term = $('#term'), trav = $('#trav'), cert = $('#cert'), known = $('#known');
-  var TL = $$('.ln', term), band = $('#band-text'), curLab = $('#cur-label');
-  var toks = $$('#baseline .tok'), wls = $$('#cur-watch .wl[data-k]'), idle = $('#cur-idle');
-
-  $$('.seg', term).forEach(function (sg) {
-    var text = sg.getAttribute('data-t');
-    sg.innerHTML = '<span class="ty"></span><span class="gh"></span>';
-    sg.gh = sg.lastChild; sg.ty = sg.firstChild; sg.txt = text; sg.shown = -1;
-  });
-  // deterministic "human" rhythm: per-character weights (pauses after spaces, brackets, commas)
-  var seed = 7; function rnd() { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }
-  TL.forEach(function (ln) {
-    ln.segs = $$('.seg', ln);
-    ln.len = ln.segs.reduce(function (a, s) { return a + s.txt.length; }, 0);
-    var full = ln.segs.map(function (s) { return s.txt; }).join(''), acc = 0, cum = [];
-    for (var i = 0; i < full.length; i++) {
-      var ch = full[i], pv = full[i - 1] || '';
-      acc += 0.55 + rnd() * 0.9 + (ch === ' ' ? 0.5 : 0) + (/[(,"=]/.test(pv) ? 0.6 : 0); cum.push(acc);
-    }
-    ln.cum = cum.map(function (v) { return acc ? v / acc : 1; });
-  });
-  function chars(ln, p) { if (p >= 1) return ln.len; var n = 0; while (n < ln.cum.length && ln.cum[n] <= p) n++; return n; }
-  function tog(el, c, on) { if (el.classList.contains(c) !== on) el.classList.toggle(c, on); }
-  function setSeg(sg, n) {
-    if (sg.shown === n) return; sg.shown = n;
-    sg.ty.textContent = sg.txt.slice(0, n); sg.gh.textContent = sg.txt.slice(n);
-  }
-  var dotLine = -1;
-  function moveDot(i, instant) {
-    if (i === dotLine && !instant) return; dotLine = i;
-    var y = TL[i].offsetTop + (window.innerWidth <= 720 ? 8 : 9);
-    if (instant) trav.style.transition = 'none';
-    trav.style.transform = 'translateY(' + y + 'px)';
-    if (instant) { void trav.offsetWidth; trav.style.transition = ''; }
-  }
-  var phase = '';
-  function render(t, instant) {
-    var active = 0;
-    T.lines.forEach(function (w, i) {
-      var ln = TL[i], on = t >= w[0];
-      tog(ln, 'on', on);
-      if (on) active = i;
-      var p = on ? Math.min(1, (t - w[0]) / (w[1] - w[0])) : 0;
-      var n = chars(ln, p), typing = on && p < 1;
-      ln.segs.forEach(function (sg) {
-        var k = Math.max(0, Math.min(sg.txt.length, n)); n -= sg.txt.length;
-        setSeg(sg, k);
-        tog(sg, 'act', typing && k > 0 && k < sg.txt.length);
-      });
-    });
-    [1, 2].forEach(function (i) {
-      var ok = t >= T.pass[i];
-      tog(TL[i], 'pass', ok);
-      tog(toks[i - 1], 'hit', ok);
-      tog(wls[i - 1], 'on', ok);
-      tog(wls[i - 1], 'good', ok);
-    });
-    tog(idle, 'on', t < T.pass[1]);
-    tog(wls[2], 'on', t >= T.lines[3][0] && t < T.flip);
-    var dev = t >= T.flip;
-    tog(con, 'is-dev', dev);
-    tog(TL[3], 'flag', dev);
-    tog(toks[2], 'exp', dev);
-    tog(trav, 'c', dev);
-    var bt = dev ? 'SOMETHING LOOKS OFF<span class="sp"> · </span><span class="lo">Behaviour deviation detected</span>' : 'PROTECTED';
-    if (band.getAttribute('data-s') !== String(dev)) { band.innerHTML = bt; band.setAttribute('data-s', String(dev)); }
-    var cl = dev ? 'Deviation detected' : 'Current action';
-    if (curLab.textContent !== cl) curLab.textContent = cl;
-    tog(TL[4], 'on', t >= T.prompt);
-    tog(cert, 'in', t >= T.cert);
-    tog(trav, 'on', t >= 0);
-    moveDot(t >= T.lines[0][0] ? active : 0, instant);
-    var ph = t < 0 ? 'idle' : t < T.flip ? 'run' : t < T.cert ? 'dev' : t < T.end ? 'cert' : 'done';
-    if (ph !== phase) { phase = ph; d.setAttribute('data-cb', ph); }
-  }
-
-  var cbDone = false, knownWaiting = false, raf = 0, t0 = 0;
-  function finish() { if (cbDone) return; cbDone = true; if (knownWaiting) reveal(known); }
-  function loop(now) {
-    var t = now - t0; render(t);
-    if (t < T.end) raf = requestAnimationFrame(loop); else finish();
-  }
-  function play() {
-    cancelAnimationFrame(raf); render(-1, true); dotLine = -1;
-    requestAnimationFrame(function (now) { t0 = now; render(0, true); raf = requestAnimationFrame(loop); });
-  }
-  window.addEventListener('resize', function () { var l = dotLine; dotLine = -1; if (l >= 0) moveDot(l, true); });
+  /* ---------------- S5 · callback: the v5 proof is played by ag5.js; the closing lines reveal when reached */
+  var known = $('#known'), cbDone = true, knownWaiting = false;
+  function finish() {}
 
   /* ---------------- reveals ---------------- */
   function reveal(group) {
@@ -237,11 +139,6 @@
   if (fixed !== null || !('IntersectionObserver' in window)) {
     if (fixed === null) fixed = Infinity;
     if (NM) $$('.rv, .slow').forEach(function (el) { el.classList.add('in'); });
-    render(fixed, true);
-    ready.then(function () { dotLine = -1; render(fixed, true); });
-    if (fixed >= T.end) cbDone = true;
-  } else {
-    render(-1, true);
   }
   if (!NM && 'IntersectionObserver' in window) {
     $$('[data-rv]').forEach(function (el) {
@@ -259,14 +156,6 @@
       }, { threshold: 0.5, rootMargin: '0px 0px -10% 0px' });
       so.observe(el);
     });
-    if (fixed === null) {
-      ready.then(function () {
-        var tio = new IntersectionObserver(function (es) {
-          es.forEach(function (e) { if (e.isIntersecting) { tio.disconnect(); play(); } });
-        }, { threshold: 0.6 });
-        tio.observe(term);
-      });
-    }
     var kio = new IntersectionObserver(function (es) {
       es.forEach(function (e) {
         if (e.isIntersecting) { kio.disconnect(); if (cbDone) reveal(known); else knownWaiting = true; }
