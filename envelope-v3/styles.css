@@ -579,3 +579,15 @@ html[data-hero-done] .cue,.instant .cue,.fixed .cue{transform:none}
 .trust-line{margin:56px auto 0;max-width:var(--cw,860px);font-family:var(--disp,var(--sans));font-size:clamp(1.625rem,1.05rem + 2.1vw,2.5rem);line-height:1.15;font-weight:600;letter-spacing:-.03em;color:var(--mu);text-align:center;text-wrap:balance}
 .trust-line .tl-t{font-weight:700}
 @media (max-width:760px){.trust-line{margin-top:40px}}
+
+/* ===== the reality in three beats: line 1 + "Then it acts." (unchanged) · the hinge (B) · the punchline + "Until it’s too late." (B, dim).
+   "Then it acts." is already a big line here, so the punchline sits one step above it to stay the biggest, whitest line. ===== */
+#reality{--sB:22px}
+@media (max-width:1023px){#reality{--sB:20px}}
+@media (max-width:760px){#reality{--sB:18px}}
+#reality .r-hinge{margin:52px 0 0;font-family:var(--disp);font-size:var(--sB);line-height:1.35;font-weight:500;letter-spacing:-.005em;color:var(--mu);text-wrap:balance}
+#reality .r-never{margin:88px 0 0;font-size:calc(var(--ts1) * 1.25);line-height:1.04;font-weight:700;letter-spacing:-.04em;color:#fff;white-space:normal}
+#reality .r-quiet{margin:14px 0 0;font-family:var(--disp);font-size:var(--sB);line-height:1.35;font-weight:500;letter-spacing:-.005em;color:var(--mu2)}
+@media (min-width:761px){#reality .r-hinge{white-space:nowrap}}
+@media (min-width:1024px){#reality .r-never{white-space:nowrap;font-size:min(calc(var(--ts1) * 1.25),5.6vw,76px)}}
+@media (max-width:760px){#reality .r-hinge{margin-top:38px}#reality .r-never{margin-top:60px;font-size:46px}#reality .r-quiet{margin-top:10px}}
