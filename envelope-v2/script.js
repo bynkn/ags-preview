@@ -37,11 +37,7 @@
         for(var i=1;i<=text.length;i++){tx.textContent=text.slice(0,i);await wait(34+Math.random()*26)}
         tx.innerHTML=html; first.removeChild(cur);
         await wait(650);
-        lines[1].classList.add('on'); await wait(950);   // read_file
-        lines[2].classList.add('on'); await wait(1250);  // the $4,800 transfer: give it a beat
-        lines[3].classList.add('on'); await wait(900);   // rm -rf logs/
-        lines[4].classList.add('on'); await wait(400);   // ✔ transfer complete · $4,800 sent: let the loss land
-        lines[5].classList.add('on');
+        for(var k=1;k<lines.length;k++){lines[k].classList.add('on');await wait(k===lines.length-1?400:720)}
         await wait(1200);
         opened=true; stack.style.setProperty('--shift','0px');
         await wait(250);
@@ -81,15 +77,14 @@
      ?t=<ms> → frozen frame: step = 1 + floor(t / 2200), t ≥ 8800 shows the certificate. */
   var track=$('#track'), stage=$('#stage'), si=$('#stageIn'), cert=$('#cert'), proofEnd=$('#proofEnd'), env=$('#envelope');
   var STEP_MS=2200;
-  function setStep(el,n){
+  function setStep(el,n){   // v5 proof block (ag5): data-step 2..5, one caption per step, pips fill
     if(!el)return;
-    var s=String(n);
-    if(el.getAttribute('data-step')!==s)el.setAttribute('data-step',s);
-    $$('.caps .cap',el).forEach(function(c){c.classList.toggle('on',+c.getAttribute('data-c')===n)});
-    $$('.step-k .pips i',el).forEach(function(p,i){p.classList.toggle('on',i<n)});
-    var sn=$('.sn',el);if(sn)sn.textContent=s;
-    var stt=$('.st-t',el);if(stt)stt.textContent=n<3?'guarded':n===3?'checking':'blocked';
+    var st=String(n+1);
+    if(el.getAttribute('data-step')!==st)el.setAttribute('data-step',st);
+    $$('.a5-cap[data-c]',el).forEach(function(c){c.classList.toggle('on',+c.getAttribute('data-c')===n)});
+    $$('.a5-cap-row .a5-pips i',el).forEach(function(p,i){p.classList.toggle('on',i<n)});
   }
+
   function heroGap(){ // empty space at the bottom of the full-screen envelope
     if(!env||!stack)return 0;
     return Math.max(0,env.getBoundingClientRect().bottom-stack.getBoundingClientRect().bottom);
@@ -98,13 +93,9 @@
   if(track&&si){
     var FIXED=!INSTANT&&Q.has('t');
     if(INSTANT){
-      /* static + stacked: steps 1-4, each with its own caption */
+      /* static: v5's final (blocked) state */
       var box=document.createElement('div');box.className='static-steps';
-      for(var n=1;n<=4;n++){
-        var c=si.cloneNode(true);c.removeAttribute('id');c.classList.add('live');
-        if(n===2)c.classList.add('only-strip');
-        setStep(c,n);box.appendChild(c);
-      }
+      box.appendChild(si);si.classList.add('live');setStep(si,4);
       track.parentNode.replaceChild(box,track);
       if(cert)cert.classList.add('in');
       var fitS=function(){box.style.marginTop=Math.round((mobile()?56:88)-heroGap())+'px'};

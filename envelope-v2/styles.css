@@ -387,3 +387,7 @@ html[data-hero-done] .stage-in,.static .stage-in{opacity:1}
 .why-sub.why-sl+.why-one{margin-top:6px}
 @media (max-width:1100px){.why-sub.why-sl{font-size:19px}}
 @media (max-width:760px){.why-sub.why-sl{font-size:17px}}
+
+/* envelope-v5 sync: the v5 proof block is this page's pinned stage */
+.a5-js #stageIn.a5p.live{opacity:1;transform:none}
+.stage>#stageIn.a5p{width:100%}
