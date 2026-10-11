@@ -1004,3 +1004,11 @@ body{font-family:var(--sans);font-feature-settings:"cv11","ss01"}
 
 /* 'trust' in the grey half: the same white as 'And only that?', one weight step up (no accent, no underline) */
 .question p .q-t{color:var(--tx);font-weight:600}
+
+/* closing statement: 'Agentic Guardians is what trust looks like in the agentic era.'
+   'trust' is highlighted as in the question: the line's full-strength ink, one weight up (the close is light, so that ink is dark, not white) */
+.trust-line{margin:56px auto 0;max-width:var(--cw,860px);font-family:var(--disp,var(--sans));font-size:clamp(1.625rem,1.05rem + 2.1vw,2.5rem);line-height:1.15;font-weight:600;letter-spacing:-.03em;color:var(--mu);text-align:center;text-wrap:balance}
+.trust-line .tl-t{color:var(--tx);font-weight:700}
+@media (max-width:760px){.trust-line{margin-top:40px}}
+.known:has(.trust-line){padding-bottom:88px}
+@media (max-width:760px){.known:has(.trust-line){padding-bottom:56px}}
