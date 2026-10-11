@@ -117,9 +117,9 @@ html[data-world=light] .lbl,.bands .lw .lbl{color:var(--mu)}
 .instant .rv,.instant .grp .g,.fixed .rv,.fixed .grp .g{opacity:1!important;transform:none!important;transition:none!important}
 
 /* ---------- terminal (dark object in both worlds) ---------- */
-.term,.code-card{--pnl:#181818;--bar:#151515;--ln:#232323;--ln2:#2a2a2a;--tx:#ededed;--tx2:#d4d4d4;--mu:#a1a1a1;--mu2:#7a7a7a;
+.term{--pnl:#181818;--bar:#151515;--ln:#232323;--ln2:#2a2a2a;--tx:#ededed;--tx2:#d4d4d4;--mu:#a1a1a1;--mu2:#7a7a7a;
   --green:#6dd49a;--amber:#f4b860;--stop:#FF4A3D;color:#d6d6d6}
-.term,.form-card,.code-card{background:var(--pnl);border:1px solid var(--ln2);border-radius:12px;overflow:hidden;text-align:left;box-shadow:0 30px 80px -30px rgba(0,0,0,.8),0 0 0 1px rgba(0,0,0,.4)}
+.term,.form-card{background:var(--pnl);border:1px solid var(--ln2);border-radius:12px;overflow:hidden;text-align:left;box-shadow:0 30px 80px -30px rgba(0,0,0,.8),0 0 0 1px rgba(0,0,0,.4)}
 .term-bar{display:flex;align-items:center;gap:14px;height:44px;padding:0 16px;border-bottom:1px solid var(--ln);background:var(--bar);font-family:var(--mono);font-size:14px;color:var(--mu2)}
 .lights{display:flex;gap:7px}
 .lights i{width:10px;height:10px;border-radius:50%;background:#333}
@@ -165,24 +165,14 @@ html[data-hero-done] .cue,.instant .cue,.fixed .cue{transform:none}
 .r-quiet{margin:26px 0 0;font-size:clamp(17px,.95rem + .35vw,20px);line-height:1.5;color:var(--mu)}
 
 
-/* ---------- 4 · why it works: v7 paradigm split ---------- */
+/* ---------- 4 · why it works: the paradigm + comparison table; 4b · watches ---------- */
+/* (styles live at the end of this file: "paradigm section + comparison table") */
 .para-split{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);padding:0;text-align:left}
 .para-split::after{display:none}
 .split-l{padding:112px 28px 104px var(--pad);border-right:1px solid var(--ln2);display:flex;flex-direction:column;justify-content:center}
 .split-r{padding:112px 48px 104px 40px;display:flex;align-items:center}
-.para-r{width:100%}
 .para-split .h2{margin:0 0 24px;white-space:nowrap}
 .para-split .body{color:var(--mu);text-wrap:pretty}
-.body.body-sub{margin-top:18px;font-size:var(--ts3);line-height:1.55;letter-spacing:0}
-.para-note{margin-top:22px!important}
-@media (min-width:981px){.ph{display:inline-block}.phb{display:block}.cc-line>span:last-child{white-space:nowrap}}
-.code-card{width:100%}
-.cc-bar{display:flex;justify-content:space-between;height:44px;align-items:center;padding:0 16px;border-bottom:1px solid var(--ln);font-size:14px;color:var(--mu);background:var(--bar)}
-.cc-line{margin:0;padding:26px 20px 0 0;font-family:var(--disp);font-size:var(--ts2);line-height:1.25;font-weight:500;letter-spacing:-.01em;color:var(--tx);display:flex;gap:12px}
-.cc-2{padding-top:4px;padding-bottom:28px}
-.ln-no{width:32px;flex:none;text-align:right;color:#4a4a4a;font-size:14px;font-weight:400;line-height:2.4}
-.cmt{color:#6a6a6a;margin-right:4px;font-weight:400}
-.ck{color:var(--mu)}
 
 .safe{padding:112px var(--pad) 96px}
 .safe .h2{font-weight:700;letter-spacing:-.04em;line-height:1.0;max-width:none}
@@ -258,7 +248,6 @@ html[data-hero-done] .cue,.instant .cue,.fixed .cue{transform:none}
   .split-l{border-right:0;border-bottom:1px solid var(--ln);padding:96px var(--pad) 56px}
   .split-r{padding:56px var(--pad) 80px}
   .para-split .h2{white-space:normal}
-  .phb{display:inline}
 }
 @media (max-width:760px){
   :root{--pad:22px;--fw:100%;--spine:52px;--nav:56px}
@@ -277,9 +266,6 @@ html[data-hero-done] .cue,.instant .cue,.fixed .cue{transform:none}
   .r-acts{font-size:44px}
   .split-l{padding:84px var(--pad) 48px}
   .split-r{padding:44px 16px 72px}
-  .cc-line{padding:20px 14px 0 0}
-  .cc-2{padding-top:2px;padding-bottom:22px}
-  .ln-no{width:26px}
   .safe{padding:84px var(--pad) 72px}
   .wm-inline{letter-spacing:-1px}
   .steps{grid-template-columns:1fr}
@@ -931,3 +917,90 @@ html[data-hero-done] .cue,.instant .cue,.fixed .cue{transform:none}
 .trust-line{margin:56px auto 0;max-width:var(--cw,860px);font-family:var(--disp,var(--sans));font-size:clamp(1.625rem,1.05rem + 2.1vw,2.5rem);line-height:1.15;font-weight:600;letter-spacing:-.03em;color:var(--mu);text-align:center;text-wrap:balance}
 .trust-line .tl-t{font-weight:700}
 @media (max-width:760px){.trust-line{margin-top:40px}}
+
+/* ---------- paradigm section + comparison table (#why), and the watches statement (#watches) ---------- */
+/* left: label, headline at the certificate-title size, two grey lines (one line each on desktop), the closing line */
+.para-split .para-h{font-family:var(--disp);font-size:clamp(25px,1rem + 2.1vw,44px);line-height:1.1;font-weight:600;letter-spacing:-.034em;white-space:nowrap}
+.para-fit{container-type:inline-size}
+.para-split .para-line{margin:0;color:var(--mu)}
+.para-split .para-line+.para-line{margin-top:.2em}
+.para-line .pp{display:inline-block;white-space:nowrap}
+.para-split .para-close{margin:30px 0 0;font-size:var(--ts3);line-height:1.55;letter-spacing:0;color:#45443F}
+.para-close .pc{display:inline-block}
+@media (min-width:761px){.para-split .para-close{white-space:nowrap}.para-close .pc{display:inline}}
+@media (min-width:981px){
+  .para-split{grid-template-columns:minmax(0,1fr) auto}
+  .para-split .split-l{padding:96px 40px 88px var(--pad)}
+  .para-split .split-r{padding:96px 8px 88px 40px;justify-content:center}
+  .para-split .para-line{white-space:nowrap;font-size:min(var(--ts2),calc(100cqw / 26.6))}
+  .para-split .para-close{font-size:15px}
+}
+@media (max-width:760px){
+  .para-split .para-h{line-height:1.16;letter-spacing:-.03em}
+  .para-split .para-line{font-size:min(20px,calc(100cqw / 15.3));line-height:1.35}
+}
+/* right: the table sits on the page; our column is a raised white panel; quiet grey column with a small x, ours with a green check */
+.ptab-wrap{--w1:130px;--w2:188px;--w3:236px;--ext:12px;position:relative;width:calc(var(--w1) + var(--w2) + var(--w3));max-width:100%;margin:var(--ext) 0}
+.ptab-panel{position:absolute;top:calc(var(--ext) * -1);bottom:calc(var(--ext) * -1);left:calc(var(--w1) + var(--w2));width:var(--w3);background:#fff;border-radius:14px;
+  box-shadow:0 1px 2px rgba(10,10,10,.05),0 10px 30px -12px rgba(10,10,10,.16),0 0 0 1px rgba(10,10,10,.04)}
+.pt-vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.ptab{position:relative;width:100%;border-collapse:collapse;table-layout:fixed;font-family:var(--disp);text-align:left}
+.ptab col.w1{width:var(--w1)}.ptab col.w2{width:var(--w2)}.ptab col.w3{width:var(--w3)}
+.ptab th,.ptab td{padding:0;vertical-align:middle;font-weight:400}
+.ptab td{position:relative}
+.ptab thead th{height:56px;line-height:1.3}
+.ptab thead .c-m{padding-left:18px;font-size:15px;color:#6f6e69}
+.ptab thead .c-a{padding-left:24px;font-size:16px;font-weight:700;letter-spacing:-.01em;color:#0a0a0a}
+.ptab tbody tr{border-top:1px solid rgba(10,10,10,.08)}
+.ptab tbody th{height:64px;padding-right:12px;font-family:var(--sans);font-size:15px;line-height:1.35;color:#5c5b57;white-space:nowrap}
+.ptab tbody td{height:64px;font-size:15px;line-height:1.4;letter-spacing:-.005em;white-space:nowrap}
+.ptab tbody td.c-m{padding-left:18px;color:#6f6e69}
+.ptab tbody td.c-a{padding:0 16px 0 24px;color:#0a0a0a;font-weight:600}
+.ptab .pt-v{display:inline-block}
+.ptab .pt-a,.ptab .pt-b{display:block}
+.ptab tbody tr:last-child th,.ptab tbody tr:last-child td{padding-top:12px;padding-bottom:12px}
+.pt-mk{position:absolute}
+.pt-x{margin-left:-15px;font-size:15px;line-height:1.4;font-weight:400;color:#a09f9a}
+.pt-ok{top:50%;width:6px;height:10px;margin:-7px 0 0 -17px;border-right:2px solid #0B7A43;border-bottom:2px solid #0B7A43;border-radius:0 0 1px 0;transform:rotate(45deg)}
+.ptab tbody tr:last-child .pt-x{top:12px}
+.ptab tbody tr:last-child .pt-ok{top:calc(12px + .7em)}
+@media (max-width:980px){.para-split .split-r{justify-content:flex-start}}
+@media (max-width:600px){
+  /* phones: label on its own line, the two answers side by side, our panel the right-hand column */
+  .ptab-wrap{width:100%}
+  .ptab-panel{left:48%;width:52%}
+  .ptab,.ptab thead,.ptab tbody{display:block}
+  .ptab colgroup,.ptab thead td{display:none}
+  .ptab tr{display:grid;grid-template-columns:48% 52%}
+  .ptab thead th{padding:14px 0 12px 16px}
+  .ptab thead .c-m{padding-left:16px}
+  .ptab thead .c-a{padding-left:16px;font-size:14.5px;white-space:nowrap}
+  .ptab tbody th{grid-column:1;grid-row:1;height:auto;padding:14px 0 2px 16px;font-size:14.5px}
+  .ptab tbody td{grid-row:2;height:auto;min-width:0;padding:0 0 14px 16px;white-space:normal}
+  .ptab tbody td.c-m{grid-column:1;padding:0 10px 14px 16px}
+  .ptab tbody td.c-a{grid-column:2;padding:0 10px 14px 26px}
+  .ptab .pt-v{display:block}
+  .ptab tbody tr:last-child th{padding:14px 0 2px 16px}
+  .ptab tbody tr:last-child td{padding-top:0;padding-bottom:14px}
+  .pt-ok,.ptab tbody tr:last-child .pt-ok{top:.7em;margin-left:-16px}
+  .ptab tbody tr:last-child .pt-x{top:0}
+}
+/* the one motion here: rows reveal one at a time, grey value first, then ours (script adds .ptab-anim only when motion is allowed) */
+html.ptab-anim .ptab tbody th,html.ptab-anim .ptab tbody td{opacity:0;transform:translateY(6px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+html.ptab-anim .ptab tbody tr.in th,html.ptab-anim .ptab tbody tr.in td{opacity:1;transform:none}
+html.ptab-anim .ptab tbody tr.in td.c-a{transition-delay:.22s}
+@media (prefers-reduced-motion:reduce){html.ptab-anim .ptab tbody th,html.ptab-anim .ptab tbody td{opacity:1!important;transform:none!important}}
+
+/* watches: the name bigger than the line under it; three equal grey lines */
+#watches{padding-top:56px}
+#watches::after{display:none}
+#watches .h2{container-type:inline-size}
+#watches .h2 .wm-inline{white-space:nowrap;font-size:min(calc(var(--ts1) * 1.38),calc(100cqw / 9.7));line-height:1.02;margin-bottom:.2em}
+#watches .h2 .w-l1,#watches .h2 .w-l2{display:block;font-size:min(var(--ts1),calc(100cqw / 13.7))}
+#watches .h2 .wh-p{display:inline-block;white-space:nowrap}
+#watches .lines3 p{font-weight:400;color:var(--mu)}
+@media (max-width:760px){
+  #watches{padding-top:52px}
+  #watches .h2{font-size:1rem}
+  #watches .h2 .w-l1,#watches .h2 .w-l2{font-size:calc(var(--ts1) * .72);line-height:1.08}
+}
