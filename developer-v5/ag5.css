@@ -30,6 +30,14 @@
 .a5c .a5-cap-6{display:block}
 .a5p+.a5c{margin-top:88px}
 @media (max-width:760px){.a5p+.a5c{margin-top:56px}}
+/* dark hosts: keep v5's dark-world look for the boxes at every step */
+:is(.a5-dark.a5,.a5-dark .a5) .a5-cb-side > :is(.a5-pnl-ok,.a5-pnl-dev) .a5-pip{background:transparent!important}
+:is(.a5-dark.a5,.a5-dark .a5) .a5-pnl-dev{background:linear-gradient(180deg,rgba(255,74,61,.10),transparent 70%),var(--a5-pnl)!important;border-color:rgba(255,74,61,.45)!important}
+:is(.a5-dark.a5,.a5-dark .a5) .a5-pnl-dev .a5-pip{color:#FF6B5E!important;border-color:rgba(255,74,61,.4)!important}
+:is(.a5-dark.a5,.a5-dark .a5) .a5-pnl-dev .a5-pip i{background:#FF6B5E!important}
+:is(.a5-dark.a5,.a5-dark .a5) .a5-pnl-dev :is(.a5-eo dd,.a5-eo dd *){color:var(--a5-tx)!important}
+:is(.a5-dark.a5,.a5-dark .a5) .a5-pnl-dev :is(.a5-verdict,.a5-muted,.a5-eo dt){color:#FF6B5E!important}
+:is(.a5-dark.a5,.a5-dark .a5) .a5-pnl-dev .a5-verdict{border-color:rgba(255,74,61,.25)!important}
 
 @media (min-width: 981px){.a5 .a5-ph{display: inline-block;}}
 @media (max-width: 760px){.a5c{padding-bottom: 72px;}}
@@ -277,14 +285,14 @@
 .a5 .a5-cb-side > .a5-rc{display: none;}
 .a5p[data-step="3"] .a5-cb-side > .a5-pnl-ok, .a5p[data-step="4"] .a5-cb-side > .a5-pnl-ok, .a5p[data-step="5"] .a5-cb-side > .a5-pnl-ok, .a5p[data-step="5"] .a5-cb-side > .a5-pnl-dev{display: block;}
 .a5-js:not(.a5-instant):not(.a5-fixed) .a5p[data-step="3"] .a5-cb-side > .a5-pnl-ok, .a5-js:not(.a5-instant):not(.a5-fixed) .a5p[data-step="5"] .a5-cb-side > .a5-pnl-dev{animation: a5-rcIn .5s var(--a5-ease) both;}
-.a5p:is([data-step="3"], [data-step="4"]) .a5-cb-side > .a5-pnl-ok{background: linear-gradient(180deg,rgba(109,212,154,.07),transparent 70%),var(--a5-pnl) !important; border-color: rgba(109, 212, 154, 0.38) !important;}
-.a5p:is([data-step="3"], [data-step="4"]) .a5-pnl-ok .a5-pip{color: rgb(109, 212, 154); background: transparent; border-color: rgba(109, 212, 154, 0.35) !important;}
-.a5p:is([data-step="3"], [data-step="4"]) .a5-pnl-ok .a5-pip i{background: rgb(109, 212, 154);}
-.a5p:is([data-step="3"], [data-step="4"]) .a5-pnl-ok .a5-pnl-p{color: var(--a5-mu);}
-.a5p:is([data-step="3"], [data-step="4"]) .a5-pnl-ok .a5-seq .a5-tok{color: rgb(236, 236, 236);}
-.a5p:is([data-step="3"], [data-step="4"]) .a5-pnl-ok .a5-seq .a5-ar{color: rgba(109, 212, 154, 0.6);}
-.a5p:is([data-step="3"], [data-step="4"]) .a5-pnl-ok .a5-seq .a5-tok.a5-exp::after{background: repeating-linear-gradient(90deg, rgba(236, 236, 236, 0.6) 0px, rgba(236, 236, 236, 0.6) 3px, transparent 3px, transparent 6px);}
-.a5p:is([data-step="3"], [data-step="4"]) .a5-pnl-ok .a5-pnl-top .a5-muted{color: var(--a5-mu2);}
+:is(.a5-dark.a5p, .a5-dark .a5p) .a5-cb-side > .a5-pnl-ok{background: linear-gradient(180deg,rgba(109,212,154,.07),transparent 70%),var(--a5-pnl) !important; border-color: rgba(109, 212, 154, 0.38) !important;}
+:is(.a5-dark.a5p, .a5-dark .a5p) .a5-pnl-ok .a5-pip{color: rgb(109, 212, 154); background: transparent; border-color: rgba(109, 212, 154, 0.35) !important;}
+:is(.a5-dark.a5p, .a5-dark .a5p) .a5-pnl-ok .a5-pip i{background: rgb(109, 212, 154);}
+:is(.a5-dark.a5p, .a5-dark .a5p) .a5-pnl-ok .a5-pnl-p{color: var(--a5-mu);}
+:is(.a5-dark.a5p, .a5-dark .a5p) .a5-pnl-ok .a5-seq .a5-tok{color: rgb(236, 236, 236);}
+:is(.a5-dark.a5p, .a5-dark .a5p) .a5-pnl-ok .a5-seq .a5-ar{color: rgba(109, 212, 154, 0.6);}
+:is(.a5-dark.a5p, .a5-dark .a5p) .a5-pnl-ok .a5-seq .a5-tok.a5-exp::after{background: repeating-linear-gradient(90deg, rgba(236, 236, 236, 0.6) 0px, rgba(236, 236, 236, 0.6) 3px, transparent 3px, transparent 6px);}
+:is(.a5-dark.a5p, .a5-dark .a5p) .a5-pnl-ok .a5-pnl-top .a5-muted{color: var(--a5-mu2);}
 .a5p[data-step="5"] .a5-cb-side > .a5-pnl-ok .a5-pip, .a5p[data-step="5"] .a5-cb-side > .a5-pnl-dev .a5-pip{background: rgb(255, 255, 255);}
 .a5p[data-step="5"] .a5-cb-side > .a5-pnl-ok .a5-pnl-top .a5-muted{color: rgb(143, 142, 137);}
 .a5p[data-step="5"] .a5-agp{border-color: var(--a5-ln2); background: var(--a5-pnl); flex: 0 0 auto !important;}
@@ -352,28 +360,28 @@
 @media (max-width: 1023px){.a5 .a5-dc-g4 > div:nth-child(11){order: 11;}}
 @media (max-width: 1023px){.a5 .a5-dc-g4 dt{white-space: normal;}}
 .a5 .a5-cert-w{padding-bottom: 16px;}
-@keyframes a5-a5-alert2 { 
-  0% { box-shadow: rgba(227, 6, 19, 0.5) 0px 0px 0px 0px; }
-  100% { box-shadow: rgba(227, 6, 19, 0) 0px 0px 0px 5px; }
+@keyframes a5-a5-watchV { 
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb,var(--a5-dot) 45%,transparent); }
+  60% { box-shadow: 0 0 0 12px color-mix(in srgb,var(--a5-dot) 0%,transparent); }
 }
 @keyframes a5-a5-rcIn { 
   0% { opacity: 0; transform: translateY(10px); }
   100% { opacity: 1; transform: none; }
 }
-@keyframes a5-a5-watchV { 
-  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb,var(--a5-dot) 45%,transparent); }
-  60% { box-shadow: 0 0 0 12px color-mix(in srgb,var(--a5-dot) 0%,transparent); }
-}
 @keyframes a5-a5-blink { 
   50% { opacity: 0; }
-}
-@keyframes a5-a5-breathe { 
-  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb,var(--a5-dot) 45%,transparent); }
-  60% { box-shadow: 0 0 0 5px color-mix(in srgb,var(--a5-dot) 0%,transparent); }
 }
 @keyframes a5-a5-watchBad { 
   0% { box-shadow: rgba(255, 74, 61, 0.7) 0px 0px 0px 0px; }
   100% { box-shadow: rgba(255, 74, 61, 0) 0px 0px 0px 11px; }
+}
+@keyframes a5-a5-alert2 { 
+  0% { box-shadow: rgba(227, 6, 19, 0.5) 0px 0px 0px 0px; }
+  100% { box-shadow: rgba(227, 6, 19, 0) 0px 0px 0px 5px; }
+}
+@keyframes a5-a5-breathe { 
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb,var(--a5-dot) 45%,transparent); }
+  60% { box-shadow: 0 0 0 5px color-mix(in srgb,var(--a5-dot) 0%,transparent); }
 }
 @keyframes a5-a5-phIn { 
   0% { opacity: 0; transform: translateY(6px); filter: blur(2px); }
