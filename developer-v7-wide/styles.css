@@ -1012,3 +1012,14 @@ body{font-family:var(--sans);font-feature-settings:"cv11","ss01"}
 @media (max-width:760px){.trust-line{margin-top:40px}}
 .known:has(.trust-line){padding-bottom:88px}
 @media (max-width:760px){.known:has(.trust-line){padding-bottom:56px}}
+
+/* ===== the reality in three beats: the A line (unchanged) · the hinge (B) · the punchline (A × 1.4) + "Until it’s too late." (B, dim) ===== */
+.problem{--sB:22px}
+@media (max-width:1023px){.problem{--sB:20px}}
+@media (max-width:760px){.problem{--sB:18px}}
+.problem .pl-hinge,.problem .pl-never,.problem .pl-late{font-family:var(--disp);max-width:var(--cw);margin-left:auto;margin-right:auto;text-wrap:balance}
+.problem .pl-hinge{margin-top:48px;margin-bottom:0;font-size:var(--sB);line-height:1.35;font-weight:500;letter-spacing:-.005em;color:var(--mu)}
+.problem .pl-never{margin-top:80px;margin-bottom:0;font-size:calc(var(--ts2) * 1.4);line-height:1.08;font-weight:700;letter-spacing:-.03em;color:var(--tx)}
+.problem .pl-late{margin-top:14px;margin-bottom:0;font-size:var(--sB);line-height:1.35;font-weight:500;letter-spacing:-.005em;color:var(--mu2)}
+@media (min-width:761px){.problem .pl-hinge{white-space:nowrap;max-width:none}}
+@media (max-width:760px){.problem .pl-hinge{margin-top:34px}.problem .pl-never{margin-top:56px}.problem .pl-late{margin-top:10px}}
