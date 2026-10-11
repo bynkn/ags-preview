@@ -12,6 +12,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%230a0a0a%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%276%27 fill=%27%23A8D5C2%27/%3E%3C/svg%3E">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="ag5.css">
+<link rel="stylesheet" href="paradigm.css">
 <script>(function(){var r=document.documentElement,q=location.search,rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;r.classList.add('a5-js');if(/[?&]static=1/.test(q)||rm)r.classList.add('a5-instant');else if(/[?&]t=\d/.test(q))r.classList.add('a5-fixed');})();</script>
 <script>document.documentElement.classList.add('js');if(/[?&]static=1/.test(location.search))document.documentElement.classList.add('static');</script>
 </head>
@@ -73,21 +74,31 @@
   </section>
 
   <!-- 3 AI CAN'T WATCH AI -->
-  <section class="sec split dw" id="paradigm">
+  <section class="sec split para-split dw" id="paradigm">
     <div class="split-l">
       <p class="eyebrow rv">The paradigm</p>
-      <h2 class="h2 rv">AI can&rsquo;t watch AI.</h2>
-      <p class="body rv"><span class="ph">AI guarding AI</span> <span class="ph">puts the lock and the thief</span> <span class="ph">in the same paradigm.</span></p>
-      <p class="body body-sub rv"><span class="phb">A prompt that reaches the agent</span> <span class="phb">can reach the guard.</span></p>
+      <h2 class="h2 para-h rv">AI can&rsquo;t watch&nbsp;AI.</h2>
+      <div class="para-fit rv">
+        <p class="body para-line"><span class="pp">Yet the industry&rsquo;s answer</span> <span class="pp">is AI guarding&nbsp;AI.</span></p>
+        <p class="body para-line"><span class="pp">A prompt that misleads the agent</span> <span class="pp">can mislead the&nbsp;guard.</span></p>
+      </div>
+      <p class="body para-close rv"><span class="pc">That puts the lock and the thief</span> <span class="pc">in the same&nbsp;paradigm.</span></p>
     </div>
     <div class="split-r">
-      <div class="para-r">
-      <div class="code-card rv">
-        <div class="cc-bar mono"><span>guard.md</span><span class="muted">2 lines</span></div>
-        <p class="cc-line mono"><span class="ln-no">1</span><span><span class="cmt">#</span> <span class="ck">Reads:</span> actions</span></p>
-        <p class="cc-line mono cc-2"><span class="ln-no">2</span><span><span class="cmt">#</span> <span class="ck">Never reads:</span> prompts</span></p>
-      </div>
-        <p class="body body-sub para-note rv"><span class="phb">You cannot ask a corrupted process</span> <span class="phb">to report its own corruption.</span></p>
+      <div class="ptab-wrap">
+        <div class="ptab-panel" aria-hidden="true"></div>
+        <table class="ptab">
+          <caption class="pt-vh">AI guarding AI compared with Agentic Guardians</caption>
+          <colgroup><col class="w1"><col class="w2"><col class="w3"></colgroup>
+          <thead><tr><td></td><th scope="col" class="c-m">AI guarding AI</th><th scope="col" class="c-a">Agentic Guardians</th></tr></thead>
+          <tbody>
+          <tr><th scope="row">reads</th><td class="c-m"><span class="pt-mk pt-x" aria-hidden="true">&times;</span><span class="pt-v">Prompts and text</span></td><td class="c-a"><i class="pt-mk pt-ok" aria-hidden="true"></i><span class="pt-v">Actions</span></td></tr>
+          <tr><th scope="row">can be talked to</th><td class="c-m"><span class="pt-mk pt-x" aria-hidden="true">&times;</span><span class="pt-v">Yes</span></td><td class="c-a"><i class="pt-mk pt-ok" aria-hidden="true"></i><span class="pt-v">No</span></td></tr>
+          <tr><th scope="row">attack surface</th><td class="c-m"><span class="pt-mk pt-x" aria-hidden="true">&times;</span><span class="pt-v"><span class="nw">Shared with</span> <span class="nw">the agent</span></span></td><td class="c-a"><i class="pt-mk pt-ok" aria-hidden="true"></i><span class="pt-v"><span class="nw">Separate from</span> <span class="nw">the agent</span></span></td></tr>
+          <tr><th scope="row">runs on</th><td class="c-m"><span class="pt-mk pt-x" aria-hidden="true">&times;</span><span class="pt-v">Costly GPUs</span></td><td class="c-a"><i class="pt-mk pt-ok" aria-hidden="true"></i><span class="pt-v">Any CPU</span></td></tr>
+          <tr><th scope="row">how it decides</th><td class="c-m"><span class="pt-mk pt-x" aria-hidden="true">&times;</span><span class="pt-v"><span class="pt-a"><span class="nw">Varies.</span> <span class="nw">Same input,</span></span> <span class="pt-b"><span class="nw">different answers.</span></span></span></td><td class="c-a"><i class="pt-mk pt-ok" aria-hidden="true"></i><span class="pt-v"><span class="pt-a">Same sequence,</span> <span class="pt-b">same score.</span></span></td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
@@ -98,11 +109,11 @@
   <!-- 5 SAFE -->
   <section class="sec safe rw" id="safe">
     <div class="safe-head">
-      <h2 class="h2 rv"><span class="wm-inline"><span class="wm-a">Agentic</span> <span class="wm-g">GUARDIANS</span></span> watches what your agent does.</h2>
-      <div class="lines3 rv">
+      <h2 class="h2 w-wrap rv"><span class="wm-inline"><span class="wm-a">Agentic</span> <span class="wm-g">GUARDIANS</span><i class="wm-dot w-dot" aria-hidden="true"></i></span> <span class="w-l1"><span class="wh-p">watches what</span> <span class="wh-p">your agent does.</span></span> <span class="w-l2"><span class="wh-p">Not what</span> <span class="wh-p">it&rsquo;s allowed to&nbsp;do.</span></span></h2>
+      <div class="lines3 w-lines rv">
         <p>It works outside the paradigm.</p>
-        <p>It doesn&rsquo;t read prompts, so it can&rsquo;t be injected.</p>
-        <p>No language model. No GPU.</p>
+        <p><span class="nw">It doesn&rsquo;t read prompts,</span> <span class="nw">so it can&rsquo;t be&nbsp;injected.</span></p>
+        <p>No language model.</p>
       </div>
     </div>
     <ol class="steps">
@@ -263,5 +274,6 @@
 
 <script src="script.js"></script>
 <script src="ag5.js"></script>
+<script src="paradigm.js"></script>
 </body>
 </html>
