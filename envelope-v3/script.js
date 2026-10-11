@@ -32,11 +32,7 @@
         for(var i=1;i<=text.length;i++){tx.textContent=text.slice(0,i);await wait(32+Math.random()*24)}
         tx.innerHTML=html;first.removeChild(cur);
         await wait(650);
-        lines[1].classList.add('on');await wait(950);   // read_file
-        lines[2].classList.add('on');await wait(1250);  // the $4,800 transfer
-        lines[3].classList.add('on');await wait(900);   // rm -rf logs/
-        lines[4].classList.add('on');await wait(400);   // ✔ transfer complete · $4,800 sent
-        lines[5].classList.add('on');
+        for(var k=1;k<lines.length;k++){lines[k].classList.add('on');await wait(k===lines.length-1?400:720)}
         await wait(1100);                               // a short beat
         open();await wait(250);
         if(hLead)hLead.classList.add('show');
@@ -65,7 +61,7 @@
      ?static=1 / reduced motion: stacked steps with captions, each band in its own world.
      ?t=<ms>: frozen frame, step = 1 + floor(t / 2200); t >= 11000 shows step 6. */
   var track=$('#track'), stage=$('#stage'), si=$('#stageIn'), cert=$('#cert'), proofEnd=$('#proofEnd'), proof=$('#proof'), realityEnd=$('#realityEnd'), why=$('#why');
-  var STEP_MS=2200, N=5;
+  var STEP_MS=2200, N=4;   // v5's 4 steps: WATCHING → BEHAVIOUR LOCKED → PROTECTED → SOMETHING LOOKS OFF
   function placeWatcher(el){
     var w=$('.watcher',el); if(!w)return;
     var on=$$('.term-body .ln',el).filter(function(l){return l.offsetParent!==null&&!l.classList.contains('ln-cur')});
@@ -73,38 +69,30 @@
     var lh=parseFloat(getComputedStyle(l).lineHeight)||24;
     w.style.top=(l.offsetTop+lh/2-4)+'px';
   }
-  function setStep(el,n){
-    var s=String(n);
-    if(el.getAttribute('data-step')!==s)el.setAttribute('data-step',s);
-    $$('.caps .cap',el).forEach(function(c){c.classList.toggle('on',+c.getAttribute('data-c')===n)});
-    $$('.step-k .pips i',el).forEach(function(p,i){p.classList.toggle('on',i<n)});
-    var st=$('.term-state',el); if(st){st.classList.toggle('guarded',n<5);st.classList.toggle('dev',n>=5)}
-    var stt=$('.st-t',el);if(stt)stt.textContent=n<5?'guarded':'deviation';
-    placeWatcher(el);
+  function setStep(el,n){   // v5 proof block (ag5): data-step 2..5, one caption per step, pips fill
+    var st=String(n+1);
+    if(el.getAttribute('data-step')!==st)el.setAttribute('data-step',st);
+    $$('.a5-cap[data-c]',el).forEach(function(c){c.classList.toggle('on',+c.getAttribute('data-c')===n)});
+    $$('.a5-cap-row .a5-pips i',el).forEach(function(p,i){p.classList.toggle('on',i<n)});
   }
+  function a5w(el,light){if(!el)return;$$('.a5',el).concat(el.classList.contains('a5')?[el]:[]).forEach(function(a){a.classList.toggle('a5-dark',!light)})}
+
   var meta=$('meta[name="theme-color"]');
   function world(light){
     var w=light?'light':'dark';
+    a5w(proof,light);
     if(root.getAttribute('data-world')!==w){root.setAttribute('data-world',w);if(meta)meta.setAttribute('content',light?'#F5F5F3':'#0a0a0a')}
   }
-  function band(el,light){el.classList.toggle('lw',light);el.classList.toggle('dw',!light)}
+  function band(el,light){el.classList.toggle('lw',light);el.classList.toggle('dw',!light);a5w(el,light)}
 
   if(track&&si){
     if(INSTANT){
-      var box=document.createElement('div'), clones=[];box.className='static-steps';
-      for(var n=1;n<=N;n++){
-        if(n===N&&FLIP==='blocked'){var dz=document.createElement('div');dz.className='sdawn';dz.setAttribute('aria-hidden','true');box.appendChild(dz)}
-        var b=document.createElement('div');b.className='sband';
-        band(b,n===N&&FLIP==='blocked');
-        var c=si.cloneNode(true);c.removeAttribute('id');c.classList.add('live');
-        b.appendChild(c);box.appendChild(b);clones.push([c,n]);
-      }
+      var box=document.createElement('div');box.className='static-steps';
+      if(FLIP==='blocked'){var dz=document.createElement('div');dz.className='sdawn';dz.setAttribute('aria-hidden','true');box.appendChild(dz)}
+      var b=document.createElement('div');b.className='sband';
       track.parentNode.replaceChild(box,track);
-      var redo=function(){clones.forEach(function(x){setStep(x[0],x[1])})};
-      redo();window.addEventListener('load',redo);window.addEventListener('resize',redo);
-      if(document.fonts&&document.fonts.ready)document.fonts.ready.then(redo);
-      band(proofEnd,FLIP==='blocked');
-      if(cert)cert.classList.add('in');
+      b.appendChild(si);box.appendChild(b);
+      setStep(si,N);band(b,FLIP==='blocked');band(proofEnd,FLIP==='blocked');
     }else if(FIXED){
       var t=+Q.get('t')||0, k=Math.max(1,Math.min(N+1,1+Math.floor(t/STEP_MS)));
       si.classList.add('live');
@@ -119,7 +107,7 @@
         var nh=navH();
         proofEnd.style.marginTop='0px';
         // measure with the tallest (final) step laid out, then restore
-        var was=si.getAttribute('data-step');si.setAttribute('data-step',String(N));
+        var was=si.getAttribute('data-step');si.setAttribute('data-step',String(N+1));
         var sr=stage.getBoundingClientRect(), ir=si.getBoundingClientRect();
         si.setAttribute('data-step',was);
         // step 6 sits ~56px under the stage content as the stage unpins (no dead scroll)
@@ -141,7 +129,7 @@
         var k=Math.max(1,Math.min(N,1+Math.floor(p*N)));
         // the stage appears only once the reality screen is fully gone (above the nav)
         var gone=!realityEnd||realityEnd.getBoundingClientRect().bottom<nh+2;
-        si.classList.toggle('live',gone);
+        si.classList.toggle('live',gone);si.classList.toggle('a5-live',gone);
         if(!gone)k=1;
         if(k!==cur){cur=k;setStep(si,k);req()}
         var er=proofEnd.getBoundingClientRect();

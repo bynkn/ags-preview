@@ -548,3 +548,7 @@ html[data-hero-done] .cue,.instant .cue,.fixed .cue{transform:none}
   .stage-in[data-step="4"] .term-cb .l1,.stage-in[data-step="5"] .term-cb :is(.l1,.l2,.l3){display:none!important}
 }
 @media (max-width:760px){.dc-g dd{white-space:normal;overflow-wrap:anywhere;text-overflow:clip}}
+
+/* envelope-v5 sync: the pinned track holds v5's 4 steps */
+.track{height:calc(100vh - var(--nav) + 4 * var(--seg,24vh))}
+.stage-in.a5p{width:100%}
