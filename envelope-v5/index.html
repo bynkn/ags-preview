@@ -135,19 +135,23 @@
     </div>
     <div class="proof-end" id="proofEnd">
       <p class="cap cap-6" id="cap5"><span class="step-k" aria-hidden="true"><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></span>And it leaves proof.</p>
-      <article class="cert" id="cert" aria-label="Detection Certificate, example">
+      <p class="cert-sub" id="certSub">Signed. Chained. Audit ready.</p>
+      <article class="cert cert-w" id="cert" aria-label="Agentic Guardians Detection Certificate, example">
         <div class="dc">
-          <div class="dc-h"><div><p class="dc-k">Agentic Guardians &middot; Example</p><h3 class="dc-t">Detection Certificate</h3></div><span class="dc-pill"><i></i>Signed</span></div>
-          <dl class="dc-g">
-            <div class="c2"><dt>Decision</dt><dd class="dc-dec">Blocked<span>DENY</span></dd></div>
-            <div class="c2"><dt>Agent</dt><dd>payments-01</dd></div>
-            <div class="c2"><dt>Anomaly score</dt><dd>91 / 100</dd></div>
-            <div class="c3"><dt>Certificate ID</dt><dd>AG-2026-000417</dd></div>
-            <div class="c3 sat"><dt>Signed at</dt><dd>2026-10-09T09:41:03Z</dd></div>
-            <div class="c6"><dt>Signature (Ed25519)</dt><dd>3f9a7c21e8440bd2c49e&hellip;5ac60e7f12b3a4</dd></div>
-            <div class="c6"><dt>Threat summary</dt><dd class="dc-sum">http.post to an account never seen for this agent. Blocked before it ran.</dd></div>
+          <div class="dc-h"><div><h3 class="dc-t">Agentic Guardians Detection Certificate</h3></div><span class="dc-pill"><i></i>Signed</span></div>
+          <dl class="dc-g dc-g4">
+            <div><dt>Decision</dt><dd class="dc-dec">Blocked<span>DENY</span></dd></div>
+            <div><dt>Agent</dt><dd>payments-01</dd></div>
+            <div class="s2"><dt>Tool</dt><dd>http.post <span class="dc-mu">&middot; payments-api/transfer</span></dd></div>
+            <div><dt>Signed at (UTC)</dt><dd>2026-10-09 09:41:03</dd></div>
+            <div><dt>Certificate ID</dt><dd>AG-2026-000417</dd></div>
+            <div><dt>Anomaly score</dt><dd>91 / 100</dd></div>
+            <div class="m2"><dt>Chain</dt><dd>seq 17 <span class="dc-mu">&middot; prev 9c1e&hellip;a04f</span></dd></div>
+            <div><dt>Proof hash <span class="nw">(SHA-256)</span></dt><dd>c1cda263&hellip;73c7</dd></div>
+            <div class="s2"><dt>Signature (Ed25519)</dt><dd>a543997d84f12798&hellip;4bbd5a59</dd></div>
+            <div><dt>Public key</dt><dd>eb3102a6&hellip;22cc</dd></div>
+            <div class="s4"><dt>Threat summary</dt><dd class="dc-sum">http.post to an account never seen for this agent. Blocked before it ran.</dd></div>
           </dl>
-          <p class="dc-f">Cryptographically signed&nbsp;&middot; Independently verifiable</p>
         </div>
       </article>
     </div>

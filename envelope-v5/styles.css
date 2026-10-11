@@ -886,3 +886,39 @@ html[data-hero-done] .cue,.instant .cue,.fixed .cue{transform:none}
 @media (max-width:1023px){.ask .ask-line .ask-b{display:block}}
 .ask .ask-line.ask-2l{width:auto;max-width:var(--cw)}
 .ask .ask-line.ask-2l .ask-b{display:block}
+
+/* ===== v5 · certificate v2 (approved mock): wide short card, 4-column field grid, quiet sub-line under the caption ===== */
+.cert-sub{margin:12px 0 0;font-family:var(--sans);font-size:clamp(16px,.9rem + .3vw,19px);line-height:1.45;color:var(--mu,#62615D);letter-spacing:-.005em}
+.cert.cert-w{max-width:960px;width:100%;margin-top:26px;padding:16px 18px 12px}
+.cert-w .dc-h{align-items:center;margin-bottom:12px}
+.cert-w .dc-k{margin-bottom:2px}
+.dc-g.dc-g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.dc-g4>div{grid-column:auto}
+.dc-g4 .s2{grid-column:span 2}.dc-g4 .s4{grid-column:span 4}
+.dc-g4 .dc-mu{color:var(--dc-mu)}
+.dc-g4 .s4{display:flex;align-items:baseline;gap:14px}.dc-g4 .s4 dt{margin:0;flex:none}
+.cert-w .dc-schema{margin-top:10px;color:var(--dc-mu);letter-spacing:.04em}
+@media (max-width:1023px){
+  .cert.cert-w{padding:14px 12px 10px}
+  .dc-g4 .s2,.dc-g4 .s4{grid-column:auto}
+  .dc-g4 .s4{display:block}.dc-g4 .s4 dt{margin:0 0 3px}
+  .cert-w .dc-t{font-size:18px}
+}
+.cert-sub{text-wrap:balance}
+@media (max-width:1023px){
+  .dc-g.dc-g4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .dc-g4 .s2,.dc-g4 .s4,.dc-g4 .m2{grid-column:span 2}
+  .dc-g4>div{padding:7px 10px 8px}
+  .cert-w .dc-h{flex-wrap:nowrap;align-items:flex-start;margin-bottom:10px}
+  .cert-w .dc-t{font-size:17px}
+}
+@media (max-width:1023px){
+  .dc-g4>div:nth-child(1){order:1}.dc-g4>div:nth-child(2){order:2}.dc-g4>div:nth-child(3){order:3}
+  .dc-g4>div:nth-child(4){order:4;grid-column:span 2}
+  .dc-g4>div:nth-child(5){order:5}.dc-g4>div:nth-child(6){order:6}
+  .dc-g4>div:nth-child(7){order:7}
+  .dc-g4>div:nth-child(8){order:8}.dc-g4>div:nth-child(10){order:9}
+  .dc-g4>div:nth-child(9){order:10}.dc-g4>div:nth-child(11){order:11}
+  .dc-g4 dt{white-space:normal}
+}
+.cert-w{padding-bottom:16px}
