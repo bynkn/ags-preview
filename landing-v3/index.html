@@ -3,88 +3,134 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
 <title>Agentic Guardians</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-/* Layout: Twins hero, then the white flip with sign-up. */
-:root {
-  color-scheme: dark;
-  --ink: #0b0d0c;
-  --ink-2: #141816;
-  --grid: rgba(232, 240, 235, 0.06);
-  --on-ink: #eef2ef;
-  --mute: #8d9792;
-  --paper: #f8f9f7;
-  --on-paper: #0e1210;
-  --rule: #d8ddd9;
-  --mute-paper: #5a645f;
-  --green: #34d27b;
-  --red: #ff4a3d;
-  --f-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
-  --f-mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
-  --s-display: clamp(2.5rem, 9vw, 6.5rem);
-  --s-lead: clamp(1.15rem, 2.4vw, 1.5rem);
-  --s-body: 1rem;
-  --s-mono: 0.78rem;
+:root{
+  color-scheme:dark;
+  --ink:#0b0d0c;--ink-2:#121614;--grid:rgba(232,240,235,.06);--on-ink:#eef2ef;--mute:#8d9792;--line:rgba(232,240,235,.14);
+  --paper:#f8f9f7;--on-paper:#0e1210;--rule:#d8ddd9;--mute-paper:#5a645f;
+  --green:#34d27b;--green-dk:#0b7a43;--red:#ff4a3d;
+  --f-display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"Geist Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  /* four sizes, reused in every section */
+  --s-display:clamp(2.4rem,8.4vw,6rem);
+  --s-lead:clamp(1.15rem,2.4vw,1.5rem);
+  --s-body:1rem;
+  --s-mono:.8rem;
 }
-* { box-sizing: border-box; }
-body { background: var(--ink); color: var(--on-ink); font-family: var(--f-display); font-size: var(--s-body); line-height: 1.5; padding-inline: 0; }
-button, input { font: inherit; color: inherit; }
-:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+*{box-sizing:border-box}
+html,body{margin:0;overflow-x:hidden}
+body{background:var(--ink);color:var(--on-ink);font-family:var(--f-display);font-size:var(--s-body);line-height:1.5}
+button,input{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;display:grid;gap:36px}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--green);flex:none;display:inline-block}
+.mono{font-family:var(--f-mono);font-size:var(--s-mono)}
+.mute{color:var(--mute)}
+.sr{position:absolute;left:-9999px}
 
-/* hero shell */
-.hero { background-color: var(--ink); background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 56px 56px; padding: 28px 16px 56px; }
-.wrap { max-width: 1120px; margin: 0 auto; display: grid; gap: 36px; }
-.mark { display: flex; align-items: center; gap: 10px; font-weight: 600; letter-spacing: .01em; }
-.dot { width: 10px; height: 10px; border-radius: 50%; background: var(--green); flex: none; }
-.copy { display: grid; gap: 10px; max-width: 34rem; }
-.copy p { margin: 0; font-size: var(--s-lead); line-height: 1.3; font-weight: 300; text-wrap: balance; }
-.copy .l3 { font-weight: 600; display: flex; gap: 12px; align-items: center; margin-top: 8px; }
-.trust { font-weight: 800; }
-.q { margin: 0; font-size: var(--s-display); line-height: .98; font-weight: 700; letter-spacing: -.025em; text-wrap: balance; font-variation-settings: "wdth" 100; }
-.mono { font-family: var(--f-mono); font-size: var(--s-mono); }
-.mute { color: var(--mute); }
+/* ---------- hero ---------- */
+.hero{background-color:var(--ink);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:56px 56px;padding:28px 16px 64px}
+.mark{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:.01em}
+.q{margin:0;font-size:var(--s-display);line-height:.98;font-weight:700;letter-spacing:-.025em;text-wrap:balance}
+.copy{display:grid;gap:10px;max-width:36rem}
+.copy p{margin:0;font-size:var(--s-lead);line-height:1.3;font-weight:300;text-wrap:balance}
+.copy .l3{font-weight:600;display:flex;gap:12px;align-items:center;margin-top:8px}
+.trust{font-weight:800}
 
-.twins { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 640px; }
-.twin { all: unset; box-sizing: border-box; cursor: pointer; background: var(--ink-2); border: 1px solid rgba(232,240,235,.16); padding: 14px; display: grid; gap: 10px; align-content: start; min-width: 0; }
-.twin:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
-.twin .tag { font-family: var(--f-mono); font-size: var(--s-mono); color: var(--mute); letter-spacing: .08em; text-transform: uppercase; }
-.twin .st { display: flex; gap: 8px; align-items: center; font-weight: 600; }
-.twin dl { margin: 0; display: grid; gap: 6px; }
-.twin dl div { display: grid; gap: 0; }
-.twin dt { font-family: var(--f-mono); font-size: var(--s-mono); color: var(--mute); }
-.twin dd { margin: 0; overflow-wrap: anywhere; }
-.twin .verdict { min-height: 1.4em; font-family: var(--f-mono); font-size: var(--s-mono); color: var(--red); text-transform: uppercase; letter-spacing: .08em; }
-.twin.picked { border-color: var(--on-ink); }
-.twin.bad { border-color: var(--red); box-shadow: 0 0 0 1px var(--red); }
-.twin.bad .dot { background: var(--green); }
-.result { min-height: 3em; max-width: 34rem; }
-.again { background: none; border: 0; border-bottom: 1px solid var(--mute); color: var(--mute); cursor: pointer; padding: 0; margin-left: 8px; }
-.result .again { font-size: inherit; font-family: inherit; }
-/* flip */
-.flip { background: var(--paper); color: var(--on-paper); padding: 72px 16px 80px; }
-.flip .wrap { gap: 48px; }
-.flip .lede { margin: 0; font-size: var(--s-display); line-height: 1.02; font-weight: 700; letter-spacing: -.025em; max-width: 16ch; text-wrap: balance; font-size: clamp(2rem, 6.4vw, 4.4rem); }
-.three { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 24px; }
-.three div { border-top: 2px solid var(--on-paper); padding-top: 12px; display: grid; gap: 6px; }
-.three h3 { margin: 0; font-size: var(--s-lead); font-weight: 800; }
-.three p { margin: 0; color: var(--mute-paper); }
-.signup { display: grid; gap: 14px; max-width: 34rem; padding-top: 40px; border-top: 1px solid var(--rule); }
-.signup h2 { margin: 0; font-size: clamp(1.6rem, 4vw, 2.4rem); line-height: 1.05; font-weight: 800; letter-spacing: -.02em; }
-.signup p { margin: 0; font-size: var(--s-lead); font-weight: 300; line-height: 1.3; }
-.signup form { display: flex; gap: 8px; flex-wrap: wrap; }
-.signup input { flex: 1 1 200px; min-width: 0; padding: 14px; border: 1px solid var(--on-paper); background: #fff; color: var(--on-paper); border-radius: 0; }
-.signup button { padding: 14px 20px; background: var(--on-paper); color: var(--paper); border: 0; font-weight: 600; cursor: pointer; border-radius: 0; }
-.signup .note { font-family: var(--f-mono); font-size: var(--s-body); color: var(--mute-paper); min-height: 1.4em; }
-body { margin: 0; }
-@media (max-width: 480px) {
-  .twins { gap: 8px; }
-  .twin { padding: 12px; }
+/* terminal window (shared by twins and the protected run) */
+.term{background:var(--ink-2);border:1px solid var(--line);border-radius:10px;overflow:hidden;font-family:var(--f-mono);font-size:var(--s-mono);line-height:1.7;min-width:0;text-align:left}
+.term-bar{display:flex;align-items:center;gap:12px;padding:9px 12px;border-bottom:1px solid var(--line);color:var(--mute)}
+.lights{display:flex;gap:6px;flex:none}.lights i{width:10px;height:10px;border-radius:50%;background:#3a403d}
+.term-title{flex:1;text-align:center;margin-right:48px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.term-body{padding:12px 14px 14px}
+.ln{display:flex;gap:10px;white-space:pre-wrap;overflow-wrap:anywhere;visibility:hidden}
+.ln.on{visibility:visible;animation:fade .45s ease-out}
+.ln .ts{color:var(--mute);flex:none}
+.ln .k{color:var(--mute);display:inline-block;min-width:9.5ch}
+.ok{color:var(--green)}
+.pr{color:var(--green)}
+.cur{display:inline-block;width:.6em;height:1.1em;vertical-align:-.2em;background:var(--on-ink);opacity:.7;animation:blink 1.1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.barp{color:var(--mute)}.barp b{font-weight:400;color:var(--green)}
+
+/* twins */
+.twins{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:980px}
+.twin{all:unset;box-sizing:border-box;cursor:pointer;display:grid;gap:8px;min-width:0;border-radius:11px}
+.twin .term{transition:border-color .3s,box-shadow .3s}
+.twin:hover .term{border-color:rgba(232,240,235,.3)}
+.twin:focus-visible{outline:2px solid var(--green);outline-offset:4px}
+.twin.picked .term{border-color:var(--on-ink)}
+.twin.bad .term{border-color:var(--red);box-shadow:0 0 0 1px var(--red)}
+.verdict{min-height:1.7em;font-family:var(--f-mono);font-size:var(--s-mono);color:var(--red);text-transform:uppercase;letter-spacing:.08em}
+.why{display:none;color:var(--red);border-top:1px dashed rgba(255,74,61,.5);margin:8px 14px 12px;padding-top:8px;line-height:1.6}
+.why div::before{content:"✖ "}
+.twin.bad .why{display:block;animation:fade .6s ease-out}
+.intent{margin:6px 0 0;font-size:var(--s-lead);font-weight:600;min-height:1.3em}
+.intent[hidden]{display:block;visibility:hidden}
+.result{min-height:3.4em;max-width:40rem;margin:4px 0 0}
+.again{background:none;border:0;border-bottom:1px solid var(--mute);color:var(--on-ink);cursor:pointer;padding:0;margin-left:8px;font-size:inherit;font-family:inherit}
+
+/* ---------- green-dot line ---------- */
+.learns{background:var(--ink);padding:24px 16px 96px}
+.learns p{margin:0 auto;max-width:1120px;font-size:var(--s-lead);font-weight:300;line-height:1.3;display:flex;gap:12px;align-items:baseline}
+.learns .dot{transform:translateY(-.1em)}
+
+/* ---------- white flip ---------- */
+.flip{background:var(--paper);color:var(--on-paper);padding:80px 16px 64px}
+.flip .wrap{gap:80px}
+.proof{display:grid;gap:22px;max-width:860px}
+.pips{display:flex;gap:6px}
+.pips i{width:36px;height:4px;background:var(--rule);transition:background .5s}
+.pips i.on{background:var(--on-paper)}
+.pips.blocked i.on{background:var(--red)}
+.caps{position:relative;min-height:2.3em;font-size:clamp(1.6rem,4vw,2.4rem);line-height:1.1;font-weight:700;letter-spacing:-.02em}
+.cap{margin:0;position:absolute;inset:0 auto auto 0;opacity:0;transition:opacity .6s}
+.cap.on{opacity:1}
+.proof .term{background:var(--ink);color:var(--on-ink);transition:border-color .5s,box-shadow .5s}
+.proof .term.blocked{border-color:var(--red);box-shadow:0 0 0 1px var(--red)}
+.x{color:var(--red)}
+.proof-foot{display:flex;gap:16px;align-items:center;color:var(--mute-paper)}
+.replay{background:none;border:0;border-bottom:1px solid var(--mute-paper);padding:0;cursor:pointer;color:var(--on-paper);font-size:inherit;font-family:inherit}
+
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.step{border-top:2px solid var(--on-paper);padding-top:14px;display:grid;gap:8px;align-content:start}
+.step .n{color:var(--mute-paper)}
+.step h3{margin:0;font-size:var(--s-lead);font-weight:700}
+.step p{margin:0;color:var(--mute-paper)}
+.vis{background:#eef1ee;border:1px solid var(--rule);padding:12px 14px;line-height:1.9;color:var(--mute-paper);margin-top:6px}
+.vis .g{color:var(--green-dk)}
+.bars span{display:inline-block;width:14px;margin-right:5px;background:#b9c2bd;vertical-align:bottom}
+.note{margin:-48px 0 0;color:var(--mute-paper)}
+
+.signup{display:grid;gap:14px;max-width:36rem;padding-top:48px;border-top:1px solid var(--rule)}
+.signup h2{margin:0;font-size:clamp(1.6rem,4vw,2.4rem);line-height:1.05;font-weight:700;letter-spacing:-.02em}
+.signup h2 b{font-weight:800}
+.signup p{margin:0;font-size:var(--s-lead);font-weight:300;line-height:1.3}
+.signup form{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.signup input{flex:1 1 220px;min-width:0;padding:14px;border:1px solid var(--on-paper);background:#fff;color:var(--on-paper);border-radius:0;font-size:var(--s-body)}
+.signup button{padding:14px 20px;background:var(--on-paper);color:var(--paper);border:0;font-weight:600;cursor:pointer;border-radius:0;font-size:var(--s-body)}
+.signup .spam{font-size:var(--s-body);color:var(--mute-paper)}
+.story{margin:0}.story a{color:var(--on-paper);text-decoration:none;border-bottom:1px solid var(--mute-paper);padding-bottom:2px}
+
+@media (max-width:760px){
+  .twins{grid-template-columns:1fr;gap:12px}
+  .steps{grid-template-columns:1fr;gap:28px}
+  .term-title{margin-right:0}
+  .term-body{padding:10px 12px 12px}
+  .ln{gap:8px}
+  .flip .wrap{gap:64px}
+  .note{margin-top:-36px}
+  .caps{min-height:2.3em}
 }
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+@media (max-width:420px){.ln .k{min-width:9ch}.proof .ts{display:none}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
 }
 </style>
 </head>
@@ -95,29 +141,9 @@ body { margin: 0; }
     <div class="mark"><span class="dot"></span>Agentic Guardians</div>
     <h1 class="q">Do you know what your agent is doing right now?</h1>
     <div>
-      <div class="twins">
-        <button class="twin" type="button" data-i="0" aria-label="Agent A">
-          <span class="tag">Agent A</span>
-          <span class="st"><span class="dot"></span>Running</span>
-          <dl>
-            <div><dt>Task</dt><dd>Pay supplier invoices</dd></div>
-            <div><dt>Last action</dt><dd>2 s ago</dd></div>
-            <div><dt>Credentials</dt><dd>Valid</dd></div>
-          </dl>
-          <span class="verdict"></span>
-        </button>
-        <button class="twin" type="button" data-i="1" aria-label="Agent B">
-          <span class="tag">Agent B</span>
-          <span class="st"><span class="dot"></span>Running</span>
-          <dl>
-            <div><dt>Task</dt><dd>Pay supplier invoices</dd></div>
-            <div><dt>Last action</dt><dd>2 s ago</dd></div>
-            <div><dt>Credentials</dt><dd>Valid</dd></div>
-          </dl>
-          <span class="verdict"></span>
-        </button>
-      </div>
+      <div class="twins" id="twins"></div>
       <p class="result mono mute" id="twinResult" aria-live="polite">One of these is compromised. Tap the one you think it is.</p>
+      <p class="intent" id="intent" hidden>Same keys. Same access. Different intent.</p>
     </div>
     <div class="copy">
       <p>A compromised agent doesn't look compromised.</p>
@@ -126,59 +152,155 @@ body { margin: 0; }
     </div>
   </div>
 </section>
-<!-- SHARED FLIP -->
+
+<section class="learns"><p><span class="dot"></span><span>It learns how each agent behaves and blocks what doesn't fit, before it acts.</span></p></section>
+
 <section class="flip">
   <div class="wrap">
-    <p class="lede">It learns how each agent behaves and blocks what doesn't fit, before it acts.</p>
-    <div class="three">
-      <div><h3>Learns</h3><p>How each agent normally behaves.</p></div>
-      <div><h3>Checks</h3><p>Every action against that.</p></div>
-      <div><h3>Blocks</h3><p>What doesn't fit, before it runs.</p></div>
+    <div class="proof" id="proof">
+      <div class="pips" id="pips" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <div class="caps" aria-live="polite">
+        <p class="cap" data-c="1">This time, Agentic Guardians is watching.</p>
+        <p class="cap" data-c="2">It's learned this agent's normal behaviour.</p>
+        <p class="cap" data-c="3">Then the agent deviates.</p>
+        <p class="cap" data-c="4">Blocked before it ran. No transfer.</p>
+      </div>
+      <div class="term" id="pterm">
+        <div class="term-bar"><span class="lights"><i></i><i></i><i></i></span><span class="term-title">ops@payments-01 — agent</span></div>
+        <div class="term-body">
+          <div class="ln" data-s="1"><span class="ts">14:02:07</span><span><span class="pr">%</span> agent run --task "Pay supplier invoices"</span></div>
+          <div class="ln" data-s="1"><span class="ts">14:02:07</span><span><span class="k">guard</span><span class="ok">●</span> Agentic Guardians watching</span></div>
+          <div class="ln" data-s="2"><span class="ts">14:02:08</span><span><span class="k">open</span>invoice_0419.pdf <span class="ok">✓ fits</span></span></div>
+          <div class="ln" data-s="2"><span class="ts">14:02:10</span><span><span class="k">verify</span>supplier Bluefield Ltd <span class="ok">✓ fits</span></span></div>
+          <div class="ln" data-s="2"><span class="ts">14:02:11</span><span><span class="k">match</span>ledger october <span class="ok">✓ fits</span></span></div>
+          <div class="ln" data-s="3"><span class="ts">14:02:13</span><span><span class="k">transfer</span>$4,800 → acct ••7731</span></div>
+          <div class="ln" data-s="3"><span class="ts">14:02:13</span><span><span class="k">guard</span><span class="mute">checking…</span></span></div>
+          <div class="ln" data-s="4"><span class="ts">14:02:13</span><span class="x"><span class="k x">guard</span>✖ Blocked · not executed</span></div>
+          <div class="ln" data-s="4"><span class="ts">14:02:13</span><span><span class="k">balance</span>$52,300 · unchanged</span></div>
+        </div>
+      </div>
+      <div class="proof-foot mono"><span>task: Pay supplier invoices</span><button class="replay" id="replay" type="button" hidden>Replay</button></div>
     </div>
-    <div class="signup">
-      <h2>The trust layer for AI agents.</h2>
+
+    <div class="steps">
+      <div class="step"><span class="n mono">01</span><h3>Learn</h3><p>Watches how each agent normally works: which tools, in what order, how often.</p>
+        <div class="vis mono"><div class="bars"><span style="height:22px"></span><span style="height:34px"></span><span style="height:18px"></span><span style="height:40px"></span><span style="height:28px"></span><span style="height:32px"></span><span style="height:20px"></span></div>normal pattern for ops@payments-01</div></div>
+      <div class="step"><span class="n mono">02</span><h3>Check</h3><p>Before every action, asks: does this fit how this agent behaves?</p>
+        <div class="vis mono">open invoice_0419.pdf <span class="g">fits</span><br>transfer → ••7731 <span class="x">doesn't fit</span></div></div>
+      <div class="step"><span class="n mono">03</span><h3>Block</h3><p>If it doesn't fit, it stops before it runs, and leaves a record you can check.</p>
+        <div class="vis mono"><span class="x">✖ Blocked</span> · transfer<br>ops@payments-01 · 14:02:13<br>record saved</div></div>
+    </div>
+    <p class="note">No AI model makes the decision. Runs locally.</p>
+
+    <div class="signup" id="access">
+      <h2>The <b>trust</b> layer for AI agents.</h2>
       <p>We stop compromised agents before they act.</p>
       <form id="form">
-        <label for="email" style="position:absolute;left:-9999px">Email</label>
-        <input id="email" type="email" placeholder="you@company.com" required="" autocomplete="email" style="">
+        <label for="email" class="sr">Work email</label>
+        <input id="email" type="email" placeholder="you@company.com" required autocomplete="email">
         <button type="submit">Get early access</button>
       </form>
-      <span class="note" id="note" aria-live="polite"></span>
+      <span class="spam">No spam. We'll reach out when it's ready.</span>
+      <p class="story"><a href="../story/">Read the full story →</a></p>
     </div>
   </div>
 </section>
 </main>
 <script>
-(function () {
-  var $ = function (s, r) { return (r || document).querySelector(s); };
-  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
-  /* 1 twins */
-  var twins = $$('.twin'), bad = Math.random() < 0.5 ? 0 : 1, locked = false;
-  var res = $('#twinResult');
-  var base = 'One of these is compromised. Tap the one you think it is.';
-  function resetTwins() {
-    locked = false; bad = Math.random() < 0.5 ? 0 : 1;
-    twins.forEach(function (t) { t.classList.remove('bad', 'picked'); $('.verdict', t).textContent = ''; });
-    res.textContent = base;
-  }
-  twins.forEach(function (t, i) {
-    t.addEventListener('click', function () {
-      if (locked) return; locked = true;
-      t.classList.add('picked');
-      twins[bad].classList.add('bad');
-      $('.verdict', twins[bad]).textContent = 'Compromised';
-      res.textContent = (i === bad ? 'Right, by luck. ' : 'Wrong. ') + 'Both said Running. Neither screen gave it away.';
-      var b = document.createElement('button'); b.className = 'again'; b.type = 'button'; b.textContent = 'Again';
-      b.addEventListener('click', function (e) { e.stopPropagation(); resetTwins(); });
-      res.appendChild(b);
-    });
-  });
+(function(){
+  var $=function(s,r){return (r||document).querySelector(s)}, $$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
+  var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var wait=function(ms){return new Promise(function(r){setTimeout(r,ms)})};
 
-  /* signup: same behaviour as landing-v2 (client-side confirmation, no backend) */
-  $('#form').addEventListener('submit', function (e) {
-    e.preventDefault();
-    this.querySelector('button').textContent = 'Thanks';
+  /* ---- twins: two identical terminals ---- */
+  var CMD='agent run --task "Pay supplier invoices"';
+  var BODY=[
+    '<span class="ts">14:02:07</span><span><span class="pr">%</span> <span class="cmd"></span></span>',
+    '<span class="ts">14:02:07</span><span><span class="k">status</span><span class="ok">●</span> Running</span>',
+    '<span class="ts">14:02:08</span><span><span class="k">auth</span>credentials valid <span class="ok">✓</span></span>',
+    '<span class="ts">14:02:09</span><span><span class="k">open</span>invoice_0412.pdf <span class="ok">✓</span></span>',
+    '<span class="ts">14:02:11</span><span><span class="k">verify</span>supplier on file <span class="ok">✓</span></span>',
+    '<span class="ts">14:02:12</span><span><span class="k">match</span>ledger october <span class="ok">✓</span></span>',
+    '<span class="ts">14:02:14</span><span><span class="k">transfer</span>$4,800 to acct ••7731 <span class="ok">✓</span></span>',
+    '<span class="ts">14:02:14</span><span><span class="k">sending</span><span class="barp">[<b class="fill"></b><span class="rest">··········</span>]</span> <span class="snt"></span></span>',
+    '<span class="ts">14:02:16</span><span><span class="k">balance</span><span class="bal">$52,300</span></span>',
+    '<span class="ts">14:02:16</span><span><span class="pr">%</span> <span class="cur" aria-hidden="true"></span></span>'
+  ];
+  var host=$('#twins');
+  ['a','b'].forEach(function(n,i){
+    var b=document.createElement('button');b.className='twin';b.type='button';b.setAttribute('aria-label','Agent '+n.toUpperCase()+' terminal');
+    b.innerHTML='<div class="term"><div class="term-bar"><span class="lights"><i></i><i></i><i></i></span><span class="term-title">agent-'+n+' — zsh</span></div><div class="term-body">'+
+      BODY.map(function(h){return '<div class="ln">'+h+'</div>'}).join('')+'<div class="why"><div>invoice_0412.pdf contained a hidden instruction: update payment details</div><div>acct ••7731 is not the supplier (supplier: ••2290)</div><div>first payment ever to this account</div></div></div></div><span class="verdict"></span>';
+    host.appendChild(b);
   });
+  var twins=$$('.twin'), run=0;
+  var all=function(sel){return twins.map(function(t){return $(sel,t)})};
+  var setAll=function(sel,v){all(sel).forEach(function(e){e.textContent=v})};
+  var showLine=function(n){twins.forEach(function(t){$$('.ln',t)[n].classList.add('on')})};
+  var money=function(v){return '$'+v.toLocaleString('en-US')};
+  function finalState(){
+    twins.forEach(function(t){$$('.ln',t).forEach(function(l){l.classList.add('on')})});
+    setAll('.cmd',CMD);setAll('.fill','██████████');setAll('.rest','');setAll('.snt','✓ sent');setAll('.bal','$52,300 → $47,500');
+  }
+  async function play(){
+    var me=++run;
+    twins.forEach(function(t){$$('.ln',t).forEach(function(l){l.classList.remove('on')})});
+    setAll('.cmd','');setAll('.fill','');setAll('.rest','··········');setAll('.snt','');setAll('.bal','$52,300');
+    if(RM){finalState();return}
+    var alive=function(){return me===run};
+    await wait(500);showLine(0);
+    for(var c=1;c<=CMD.length;c++){if(!alive())return;setAll('.cmd',CMD.slice(0,c));await wait(55)}
+    await wait(700);
+    for(var n=1;n<=6;n++){if(!alive())return;showLine(n);await wait(n===6?1100:1000)}
+    showLine(7);
+    for(var p=1;p<=10;p++){if(!alive())return;setAll('.fill','█'.repeat(p));setAll('.rest','·'.repeat(10-p));setAll('.snt','sending…');await wait(260)}
+    setAll('.snt','✓ sent');await wait(800);if(!alive())return;
+    showLine(8);await wait(500);
+    var from=52300,to=47500,steps=24;
+    for(var s=1;s<=steps;s++){if(!alive())return;setAll('.bal','$52,300 → '+money(Math.round((from-(from-to)*s/steps)/10)*10));await wait(70)}
+    setAll('.bal','$52,300 → $47,500');await wait(700);if(!alive())return;
+    showLine(9);
+  }
+  var res=$('#twinResult'), base=res.textContent, bad=Math.random()<.5?0:1, locked=false;
+  function reset(){locked=false;bad=Math.random()<.5?0:1;twins.forEach(function(t){t.classList.remove('bad','picked');$('.verdict',t).textContent=''});res.textContent=base;$('#intent').hidden=true;play()}
+  twins.forEach(function(t,i){t.addEventListener('click',function(){
+    if(locked)return;locked=true;
+    t.classList.add('picked');twins[bad].classList.add('bad');$('.verdict',twins[bad]).textContent='Compromised';
+    res.textContent=(i===bad?'Right, by luck. ':'Wrong. ')+'Both said Running. Neither screen gave it away.';
+    var a=document.createElement('button');a.className='again';a.type='button';a.textContent='Again';
+    a.addEventListener('click',function(e){e.stopPropagation();reset()});res.appendChild(a);$('#intent').hidden=false;
+  })});
+  play();
+
+  /* ---- protected run: four steps, played once when in view ---- */
+  var proof=$('#proof'), pterm=$('#pterm'), pips=$$('#pips i'), caps=$$('.cap',proof), plines=$$('.ln',pterm), replay=$('#replay'), prun=0;
+  function step(k){
+    caps.forEach(function(c){c.classList.toggle('on',+c.dataset.c===k)});
+    pips.forEach(function(p,i){p.classList.toggle('on',i<k)});
+    $('#pips').classList.toggle('blocked',k===4);pterm.classList.toggle('blocked',k===4);
+    plines.forEach(function(l){var s=+l.dataset.s;if(s<=k)l.classList.add('on');else l.classList.remove('on')});
+  }
+  async function playProof(){
+    var me=++prun;replay.hidden=true;
+    if(RM){step(4);replay.hidden=true;return}
+    plines.forEach(function(l){l.classList.remove('on')});
+    for(var k=1;k<=4;k++){
+      if(me!==prun)return;
+      caps.forEach(function(c){c.classList.toggle('on',+c.dataset.c===k)});
+      pips.forEach(function(p,i){p.classList.toggle('on',i<k)});
+      $('#pips').classList.toggle('blocked',k===4);pterm.classList.toggle('blocked',k===4);
+      var ls=plines.filter(function(l){return +l.dataset.s===k});
+      for(var j=0;j<ls.length;j++){await wait(j===0?500:900);if(me!==prun)return;ls[j].classList.add('on')}
+      await wait(k===3?2600:2200);
+    }
+    replay.hidden=false;
+  }
+  replay.addEventListener('click',playProof);
+  step(1);plines.forEach(function(l){l.classList.remove('on')});
+  if(RM||!('IntersectionObserver' in window))RM?step(4):playProof();
+  else{var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){io.disconnect();playProof()}},{threshold:.4});io.observe(proof)}
+
+  $('#form').addEventListener('submit',function(e){e.preventDefault();this.querySelector('button').textContent='Thanks';});
 })();
 </script>
 </body>
