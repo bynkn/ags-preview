@@ -46,16 +46,9 @@ form{display:flex;justify-content:center;gap:8px;margin:22px 0 80px}input{backgr
 <div class="end x">✖ Blocked before it ran</div></div></div><p class="cap">Didn’t fit how this agent behaves.</p></div>
 </div>
 <p class="trust">The <b>trust</b> layer for the agentic era.</p>
-<p class="what">Agentic Guardians learns how each agent behaves and blocks what doesn’t fit, before it acts.</p>
-<form><input placeholder="you@company.com"><button>Get early access</button></form>
-<section class="how"><h2>What Agentic Guardians does</h2><div class="steps">
-<div class="st"><div class="n">01</div><h3>Learns</h3><p>Watches how each agent normally works: which tools, in what order, how often.</p>
-<div class="vis bars"><span style="height:22px"></span><span style="height:34px"></span><span style="height:18px"></span><span style="height:40px"></span><span style="height:28px"></span><span style="height:32px"></span><span style="height:20px"></span><br>normal pattern for ops@payments-01</div></div>
-<div class="st"><div class="n">02</div><h3>Checks</h3><p>Before every action, asks: does this fit how this agent behaves?</p>
-<div class="vis">read_file(inv_0419.pdf) <span style="color:#3ddc84">fits</span><br>http.post(transfer, ••7731) <span style="color:#ff5a52">doesn’t fit</span></div></div>
-<div class="st"><div class="n">03</div><h3>Blocks</h3><p>If it doesn’t fit, it stops before it runs, and leaves a record you can check.</p>
-<div class="vis"><span style="color:#ff5a52">✖ Blocked</span> · http.post<br>agent ops@payments-01 · 17:14:09<br>record saved</div></div>
-</div><p class="note">No AI model makes the decision. Runs locally.</p><p style="text-align:center;margin-top:48px;font-size:18px"><a href="../story/" style="color:#f2f2f2;text-decoration:none;border-bottom:1px solid #444;padding-bottom:3px">Read the full story &rarr;</a></p></section>
+<p class="what">We stop compromised agents before they act.</p>
+<form><input placeholder="you@company.com"><button>Get early access</button></form><p style="text-align:center;color:#6f6f74;font-size:14px;margin:-64px 0 70px">No spam. We’ll reach out when it’s ready.</p><p style="text-align:center;margin:0 0 90px;font-size:18px"><a href="../how/" style="color:#f2f2f2;text-decoration:none;border-bottom:1px solid #444;padding-bottom:3px">See how it works &rarr;</a></p>
+
 <script>
 const T=[...document.querySelectorAll('.term')];T.forEach(t=>t.querySelectorAll('.body>div').forEach(d=>d.classList.add('ln')));
 const caps=document.querySelectorAll('.cap');caps.forEach(c=>c.style.opacity=0);
