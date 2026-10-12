@@ -806,16 +806,16 @@ html[data-hero-done] .cue,.instant .cue,.fixed .cue{transform:none}
 @keyframes rcIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 .js:not(.instant):not(.fixed) .stage-in[data-step="3"] .cb-side>.pnl-ok,.js:not(.instant):not(.fixed) .stage-in[data-step="5"] .cb-side>.pnl-dev{animation:rcIn .5s var(--ease) both}
 /* baseline box in the dark world (steps 3–4): v7 green on a dark panel */
-.stage-in:is([data-step="3"],[data-step="4"],[data-step="5"]) .cb-side>.pnl-ok{background:linear-gradient(180deg,rgba(109,212,154,.07),transparent 70%),var(--pnl)!important;border-color:rgba(109,212,154,.38)!important}
-.stage-in:is([data-step="3"],[data-step="4"],[data-step="5"]) .pnl-ok .pip{color:#6dd49a;border-color:rgba(109,212,154,.35)!important;background:transparent}
-.stage-in:is([data-step="3"],[data-step="4"],[data-step="5"]) .pnl-ok .pip i{background:#6dd49a}
-.stage-in:is([data-step="3"],[data-step="4"],[data-step="5"]) .pnl-ok .pnl-p{color:var(--mu)}
-.stage-in:is([data-step="3"],[data-step="4"],[data-step="5"]) .pnl-ok .seq .tok{color:#ececec}
-.stage-in:is([data-step="3"],[data-step="4"],[data-step="5"]) .pnl-ok .seq .ar{color:rgba(109,212,154,.6)}
-.stage-in:is([data-step="3"],[data-step="4"],[data-step="5"]) .pnl-ok .seq .tok.exp::after{background:repeating-linear-gradient(90deg,rgba(236,236,236,.6) 0 3px,transparent 3px 6px)}
-.stage-in:is([data-step="3"],[data-step="4"],[data-step="5"]) .pnl-ok .pnl-top .muted{color:var(--mu2)}
+.stage-in:is([data-step="3"],[data-step="4"]) .cb-side>.pnl-ok{background:linear-gradient(180deg,rgba(109,212,154,.07),transparent 70%),var(--pnl)!important;border-color:rgba(109,212,154,.38)!important}
+.stage-in:is([data-step="3"],[data-step="4"]) .pnl-ok .pip{color:#6dd49a;border-color:rgba(109,212,154,.35)!important;background:transparent}
+.stage-in:is([data-step="3"],[data-step="4"]) .pnl-ok .pip i{background:#6dd49a}
+.stage-in:is([data-step="3"],[data-step="4"]) .pnl-ok .pnl-p{color:var(--mu)}
+.stage-in:is([data-step="3"],[data-step="4"]) .pnl-ok .seq .tok{color:#ececec}
+.stage-in:is([data-step="3"],[data-step="4"]) .pnl-ok .seq .ar{color:rgba(109,212,154,.6)}
+.stage-in:is([data-step="3"],[data-step="4"]) .pnl-ok .seq .tok.exp::after{background:repeating-linear-gradient(90deg,rgba(236,236,236,.6) 0 3px,transparent 3px 6px)}
+.stage-in:is([data-step="3"],[data-step="4"]) .pnl-ok .pnl-top .muted{color:var(--mu2)}
 /* light world (blocked): v7 light panels */
-
+.stage-in[data-step="5"] .cb-side>.pnl-ok .pip,.stage-in[data-step="5"] .cb-side>.pnl-dev .pip{background:#fff}
 .stage-in[data-step="5"] .cb-side>.pnl-ok .pnl-top .muted{color:#8F8E89}
 /* blocked: the current action box shrinks to a compact header, normal border (red lives in the label + deviation box) */
 .stage-in[data-step="5"] .agp{flex:0 0 auto!important;border-color:var(--ln2);background:var(--pnl)}

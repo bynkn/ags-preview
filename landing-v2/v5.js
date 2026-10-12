@@ -132,7 +132,7 @@
     placeWatcher(el);
   }
   var meta=$('meta[name="theme-color"]');
-  function world(light){light=false;   // how page: stays dark to match landing-v2
+  function world(light){return;   // landing-v2: the page flips on its own trigger (after "We fix trust.")
    
     var w=light?'light':'dark';
     if(root.getAttribute('data-world')!==w){root.setAttribute('data-world',w);if(meta)meta.setAttribute('content',light?'#F5F5F3':'#0a0a0a')}
