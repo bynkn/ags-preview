@@ -1,0 +1,19 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Keynote · hero direction</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>html,body{margin:0;background:#0a0a0a;color:#ededed;font-family:"Inter Tight",sans-serif;-webkit-font-smoothing:antialiased}
+.grid{position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(90deg,#1e1e1e 1px,transparent 1px);background-size:calc(100% / 8) 100%;-webkit-mask-image:radial-gradient(ellipse 75% 85% at 50% 40%,#000 0%,transparent 85%);mask-image:radial-gradient(ellipse 75% 85% at 50% 40%,#000 0%,transparent 85%)}
+.nav{position:relative;z-index:2;display:flex;align-items:center;gap:16px;max-width:1200px;box-sizing:border-box;margin:0 auto;padding:18px 32px;font-size:14px;color:#a1a1a1}.nav b{color:#ededed;font-weight:500}.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#3ddc84;margin-left:6px}.btn{margin-left:auto;background:#f2f2f2;color:#111;padding:8px 14px;border-radius:6px;font-weight:500}
+.r{color:#ff5a52}p{margin:0;text-wrap:balance}
+@media(max-width:760px){.nav{padding:16px 20px}.nav .tg{display:none}}
+.ky{position:relative;z-index:1}.ky section{height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 32px;box-sizing:border-box;scroll-snap-align:start}
+html{scroll-snap-type:y mandatory}.ky p{max-width:1000px;opacity:0;transform:translateY(18px);transition:opacity 1s ease,transform 1.1s cubic-bezier(.2,.7,.2,1)}.ky p.in{opacity:1;transform:none}
+.k1{font-size:clamp(40px,5.6vw,80px);font-weight:700;letter-spacing:-.045em;line-height:1.02}
+.k2{font-size:clamp(28px,3.4vw,48px);font-weight:300;letter-spacing:-.02em;line-height:1.25;color:#a8a8ad}.k2 .r{font-weight:400}
+.k3{font-size:clamp(28px,3.4vw,48px);font-weight:400;letter-spacing:-.025em;line-height:1.2}.k3 b{font-weight:800}
+.k4{font-size:clamp(44px,6.4vw,92px);font-weight:800;letter-spacing:-.05em;line-height:1}
+.ky .hint{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);font:500 11px "JetBrains Mono",monospace;letter-spacing:.14em;color:#55555a;text-transform:uppercase}
+.nav{position:fixed;left:0;right:0;top:0}
+@media(prefers-reduced-motion:reduce){.ky p{opacity:1;transform:none;transition:none}}</style></head><body><div class="grid" aria-hidden="true"></div>
+<div class="nav"><span>Agentic <b>GUARDIANS</b><i class="dot"></i></span><span class="tg">The trust layer for AI agents.</span><span class="btn">Get early access</span></div>
+<main class="ky"><section><p class="k1">Do you know what your agent is doing right now?</p></section><section><p class="k2">A compromised agent doesn’t look compromised.<br>Same keys, same access, <span class="r">but someone else’s intent.</span></p></section><section><p class="k3">Can you <b>trust</b> your agent?<br>Will it do what it’s told, and only that?</p></section><section><p class="k4">With Agentic Guardians, it will.</p></section><p class="hint">scroll</p></main>
+<script>var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)x.target.classList.add('in')})},{threshold:.5});document.querySelectorAll('.ky p:not(.hint)').forEach(function(p){io.observe(p)});</script></body></html>
