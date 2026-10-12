@@ -1,0 +1,30 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Torch · Agentic Guardians</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Inter+Tight:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}html,body{margin:0;height:100%}
+body{background:#0a0a0b;color:#ededee;font-family:Inter,sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden;
+background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px}
+nav{display:flex;align-items:center;gap:8px;width:100%;max-width:1200px;margin:0 auto;padding:22px 28px;font-size:15px;color:#9a9aa0}
+nav b{color:#fff;font-weight:600;letter-spacing:.04em}.dot{width:7px;height:7px;border-radius:50%;background:#3ddc84;display:inline-block}
+nav a{margin-left:auto;background:#f2f2f2;color:#111;padding:9px 15px;border-radius:6px;font-weight:500;font-size:14px;text-decoration:none}
+main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 24px 48px;text-align:center;width:100%;max-width:1200px;margin:0 auto}
+.mono{font-family:"JetBrains Mono",monospace}
+.g{color:#3ddc84}.r{color:#ff5a52}.mute{color:#6b6b72}
+h1{font-size:44px;font-weight:600;letter-spacing:-.035em;line-height:1.08;margin:0 0 18px;max-width:900px;text-wrap:balance}
+.copy p{margin:4px 0;font-size:17px;color:#a8a8ae;font-weight:400;line-height:1.5}.copy strong{font-weight:800;color:#fff}.copy .you{font-weight:700;color:#fff}
+.cur{display:inline-block;width:.6em;height:1.1em;background:#ededee;vertical-align:-.2em;animation:b 1s steps(1) infinite}@keyframes b{50%{opacity:0}}
+.visual{margin:0 0 40px;width:100%}
+@media(max-width:700px){h1{font-size:30px}.copy p{font-size:15px}nav{padding:16px 18px}}
+.box{position:relative;max-width:620px;margin:0 auto;height:270px;border:1px solid #1f1f22;border-radius:10px;background:#0c0c0d;overflow:hidden;cursor:none;touch-action:none}
+.dim,.lit{position:absolute;inset:0;padding:18px 22px;text-align:left;font-size:14px;line-height:1.95}.dim{color:#161618}
+.lit{color:#d4d4d8;-webkit-mask:radial-gradient(circle 70px at var(--x,50%) var(--y,50%),#000 55%,transparent 100%);mask:radial-gradient(circle 70px at var(--x,50%) var(--y,50%),#000 55%,transparent 100%)}
+.lit .ts{color:#6b6b72;margin-right:16px}.dim .ts{margin-right:16px}.hint{font-size:12px;color:#55555c;margin-top:10px}
+</style></head><body>
+<nav><b>Agentic GUARDIANS</b><span class="dot"></span><a href="#">Get early access</a></nav>
+<main>
+<div class="visual"><div class="box mono" id="bx"><div class="dim"><div><span class="ts">11:40:02</span>read contracts/q4.pdf</div><div><span class="ts">11:40:09</span>summarised 6 pages</div><div><span class="ts">11:41:30</span>opened browser</div><div><span class="ts">11:41:33</span>visited a page</div><div><span class="ts">11:41:52</span>uploaded contracts/q4.pdf</div><div><span class="ts">11:42:10</span>deleted upload log</div><div><span class="ts">11:42:11</span>reported: task complete</div></div><div class="lit"><div><span class="ts">11:40:02</span>read contracts/q4.pdf</div><div><span class="ts">11:40:09</span>summarised 6 pages</div><div><span class="ts">11:41:30</span>opened browser</div><div><span class="ts">11:41:33</span>visited a page</div><div><span class="ts">11:41:52</span><span class=r>uploaded contracts/q4.pdf</span></div><div><span class="ts">11:42:10</span>deleted upload log</div><div><span class="ts">11:42:11</span>reported: task complete</div></div></div><p class="hint mono">move to look</p></div><div class="copy"><h1>Do you know what your agent is doing right now?</h1><p>A compromised agent doesn't look compromised.</p>
+<p>Can you <strong>trust</strong> it to do what it's supposed to, and only that?</p>
+<p class="you">With Agentic Guardians, you can.</p></div></main><script>function m(x,y){var r=bx.getBoundingClientRect();bx.style.setProperty('--x',(x-r.left)+'px');bx.style.setProperty('--y',(y-r.top)+'px')}
+bx.addEventListener('pointermove',function(e){m(e.clientX,e.clientY)});bx.addEventListener('touchmove',function(e){m(e.touches[0].clientX,e.touches[0].clientY)},{passive:true});
+var q=location.search.match(/[?&]x=(\d+)&y=(\d+)/);if(q){bx.style.setProperty('--x',q[1]+'px');bx.style.setProperty('--y',q[2]+'px')}</script></body></html>
