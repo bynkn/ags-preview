@@ -1,0 +1,38 @@
+<!DOCTYPE html><html class="js"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Editorial · hijack · hero direction</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>html,body{margin:0;background:#0a0a0a;color:#ededed;font-family:"Inter Tight",sans-serif;-webkit-font-smoothing:antialiased}
+.grid{position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(90deg,#1e1e1e 1px,transparent 1px);background-size:calc(100% / 8) 100%;-webkit-mask-image:radial-gradient(ellipse 75% 85% at 50% 40%,#000 0%,transparent 85%);mask-image:radial-gradient(ellipse 75% 85% at 50% 40%,#000 0%,transparent 85%)}
+.nav{position:relative;z-index:2;display:flex;align-items:center;gap:16px;max-width:1200px;box-sizing:border-box;margin:0 auto;padding:18px 32px;font-size:14px;color:#a1a1a1}.nav b{color:#ededed;font-weight:500}.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#3ddc84;margin-left:6px}.btn{margin-left:auto;background:#f2f2f2;color:#111;padding:8px 14px;border-radius:6px;font-weight:500}
+.r{color:#ff5a52}p{margin:0;text-wrap:balance}
+@media(max-width:760px){.nav{padding:16px 20px}.nav .tg{display:none}}
+.ed{position:relative;z-index:1;max-width:1200px;box-sizing:border-box;margin:0 auto;padding:7vh 32px 0;min-height:calc(100vh - 66px);display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:auto auto 1fr auto;padding-top:9vh!important;column-gap:24px}
+
+.ed h1{grid-row:1;grid-column:1/-1;margin:0;text-wrap:balance;font-size:64px;line-height:1.02;letter-spacing:-.04em;font-weight:700}
+.ed .col{grid-row:2;grid-column:1/6;margin-top:48px;padding-top:20px;border-top:1px solid #2a2a2a;font-size:19px;font-weight:300;line-height:1.55;color:#9a9aa0}
+.ed .col .q{margin-top:22px;font-size:22px;font-weight:400;color:#ededed;line-height:1.35}.ed .col b{font-weight:800}
+.ed .w{grid-row:4;grid-column:6/-1;align-self:end;justify-self:end;text-align:right;font-size:40px;font-weight:800;letter-spacing:-.03em;line-height:1;padding:0 0 9vh}
+@media(max-width:760px){.ed{grid-template-columns:1fr;padding:32px 20px 0}.ed h1,.ed .col,.ed .w{grid-column:1}.ed{padding-top:32px!important}.ed h1{font-size:40px}.ed .col{margin-top:32px}.ed .w{justify-self:start;text-align:left;font-size:30px;padding:40px 0 48px}}.js .col p,.js .ed .w{opacity:0;transform:translateY(10px);transition:opacity .8s ease,transform .9s cubic-bezier(.2,.7,.2,1)}.js .col p.in,.js .ed .w.in{opacity:1;transform:none}
+.js .col{border-top-color:transparent;transition:border-color .8s}.js .col.in{border-top-color:#2a2a2a}
+.caret{display:inline-block;width:.06em;height:.82em;background:#ededed;margin-left:.04em;vertical-align:-.04em;animation:blink 1s steps(1) infinite}@keyframes blink{50%{opacity:0}}
+.ya.g{color:#e5484d;animation:jit .09s steps(2) infinite;text-shadow:2px 0 rgba(229,72,77,.35),-2px 0 rgba(120,200,255,.18)}
+@keyframes jit{0%{transform:translateX(0);opacity:1}25%{transform:translateX(-3px);opacity:.75}50%{transform:translateX(2px);opacity:1}75%{transform:translateX(-1px);opacity:.85}}
+.ya{display:inline-block}
+@media(prefers-reduced-motion:reduce){.js .col p,.js .ed .w{opacity:1;transform:none;transition:none}.js .col{border-top-color:#2a2a2a}}
+</style></head><body><div class="grid" aria-hidden="true"></div>
+<div class="nav"><span>Agentic <b>GUARDIANS</b><i class="dot"></i></span><span class="tg">The trust layer for AI agents.</span><span class="btn">Get early access</span></div>
+<main class="ed"><h1 id="hh" aria-label="Do you know what your agent is doing right now?">Do you know what <span class="ya">your agent</span> is doing right now?</h1><div class="col"><!--c--><p>A compromised agent doesn’t look compromised. Same keys, same access, <span class="r">but someone else’s intent.</span></p><p class="q">Can you <b>trust</b> your agent? Will it do what it’s told, and only that?</p></div><p class="w">With Agentic Guardians, it will.</p></main><script>(function(){var h=document.getElementById('hh'),col=document.querySelector('.col'),P=[].slice.call(col.querySelectorAll('p')),w=document.querySelector('.ed .w');
+var full=h.innerHTML,txt=h.textContent;
+var fin=function(){col.classList.add('in');P.concat([w]).forEach(function(e){e.classList.add('in')})};
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){fin();return}
+var W=function(ms){return new Promise(function(r){setTimeout(r,ms)})};
+(async function(){
+ h.textContent='';var t=document.createTextNode(''),c=document.createElement('span');c.className='caret';h.appendChild(t);h.appendChild(c);
+ await W(300);for(var i=1;i<=txt.length;i++){t.nodeValue=txt.slice(0,i);await W(45)}
+ h.innerHTML=full;h.appendChild(c);var ya=h.querySelector('.ya');
+ await W(1000);
+ var fl=['someone’s agent','your agent','someone’s agent','someone’s agent','your agent','someone’s agent'];ya.classList.add('g');
+ for(var k=0;k<fl.length;k++){ya.textContent=fl[k];await W(k==fl.length-1?240:52)}
+ ya.textContent='your agent';ya.classList.remove('g');
+ await W(250);col.classList.add('in');P[0].classList.add('in');await W(400);P[1].classList.add('in');await W(500);w.classList.add('in');
+ await W(1200);c.remove();
+})();})();</script></body></html>
