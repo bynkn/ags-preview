@@ -188,10 +188,7 @@
         if(stage.style.top!==stick+'px')stage.style.top=stick+'px';
         var r=track.getBoundingClientRect(), total=track.offsetHeight-sh;
         var p=total>0?(stick-r.top)/total:0;
-        // how page: time-driven, appear-once. Steps advance every STEP_MS once the stage is in view, then hold.
-        if(!window.__t0&&r.top<vh*.75)window.__t0=Date.now();
-        var k=window.__t0?Math.max(1,Math.min(N,1+Math.floor((Date.now()-window.__t0)/STEP_MS))):1;
-        if(window.__t0&&k<N)setTimeout(tick,250);
+        var k=Math.max(1,Math.min(N,1+Math.floor(p*N)));
         // the stage appears only once the setup line (after the reality screen) is fully gone (above the nav)
         var gone=!realityEnd||realityEnd.getBoundingClientRect().bottom<nh+2;
         si.classList.toggle('live',gone);
