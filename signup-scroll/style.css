@@ -349,7 +349,7 @@ section .in{opacity:0;transform:translateY(12px);transition:opacity .6s,transfor
 .no-scrolly .scrolly{height:auto}.no-scrolly .scrolly .sticky{position:static;min-height:0}
 .sh{font:13px var(--e-mono);color:#7a7a7a;text-align:center;margin:16px 0 0}
 .ev[data-s="4"]~.sh{visibility:hidden}
-@media(max-width:760px){.scrolly .ag-acts,.scrolly .pnl-ok .pnl-p,.scrolly .pnl-ok .seq{display:none}
+@media(max-width:760px){
 .scrolly .ev .caps{font-size:20px!important;min-height:2.4em}.scrolly .cap-row{margin-bottom:8px}.scrolly .cb-grid{gap:8px}
 .scrolly .pnl{padding:10px 12px}.scrolly .ev .mt-body{font-size:11px;line-height:1.5}.scrolly .pnl-ok .eo{margin-top:6px;border-top:0;padding-top:0}
 .scrolly .pnl-ok .pnl-top{margin-bottom:0}}
@@ -357,3 +357,21 @@ section .in{opacity:0;transform:translateY(12px);transition:opacity .6s,transfor
 .after{margin-top:36px;text-align:center}.after .hs{margin:0 auto 16px;max-width:720px}
 .scrolly+.after{margin-top:0;padding-bottom:24px}
 .hero2{overflow:visible}html,body{overflow-x:clip}
+
+/* review fixes */
+.hp{font-size:16px;color:var(--mu2);margin:20px 0 22px}
+.signup.hf.mini{max-width:400px;padding:4px}.signup.hf.mini input{font-size:14px;padding:7px 14px}.signup.hf.mini .btn{font-size:13px;padding:8px 14px}
+.scrolly{height:300vh}
+@media(max-width:760px){.hp{font-size:15px;margin:16px 0 18px}
+.scrolly .sticky{justify-content:flex-start;padding-top:10px}
+.scrolly .ev .caps{font-size:18px!important;min-height:2.3em}.scrolly .step-k{margin-bottom:6px}
+.scrolly .ev .mt-bar{height:22px}.scrolly .ev .mt-l i{width:9px;height:9px}
+.scrolly .ev .mt-body{font-size:10.5px;line-height:1.42;padding:8px 10px}
+.scrolly .ev .mt-body .st{padding-top:4px;margin-top:4px}
+.scrolly .pnl{padding:8px 10px;border-radius:10px}.scrolly .pnl-top{font-size:11px}.scrolly .pip{padding:1px 8px}
+.scrolly .ev .ph{margin:6px 0 0;height:20px}.scrolly .ev .phk{font-size:13px}.scrolly .ph-sub{font-size:11px;margin-bottom:4px}
+.scrolly .ag-acts{font-size:11px}.scrolly .ag-acts li{padding:2px 0}
+.scrolly .pnl-ok .pnl-p{display:inline;margin:0 .6ch 0 0;font-size:11px}.scrolly .pnl-ok .seq{display:inline;font-size:11px;margin:0}
+.scrolly .pnl-ok .pnl-top{margin-bottom:4px}.scrolly .eo>div{font-size:11px;padding:1px 0;grid-template-columns:80px 1fr}.scrolly .eo dt{font-size:10px}
+.scrolly .sh{margin-top:6px}}
+.signup.hf{width:100%;box-sizing:border-box}
