@@ -7,10 +7,10 @@ body{background:#0b0b0c;color:#f2f2f2;font-family:"Inter Tight",sans-serif;font-
 
 body{margin:0;background:#0b0b0c;color:#f2f2f2;font-family:"Inter Tight",sans-serif}
 .l-nav{display:flex;align-items:center;gap:16px;max-width:1120px;margin:0 auto;padding:18px 24px;font-size:14px;color:#aaa}.l-nav b{color:#fff;font-weight:500}.l-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#3ddc84;margin-left:6px}.l-nav .l-btn{margin-left:auto;background:#f2f2f2;color:#111;padding:8px 14px;border-radius:6px;font-weight:500}
-.l-open{text-align:center;margin:90px auto 70px;max-width:900px;padding:0 24px}
-.l-open p{margin:0}.l-h{font-size:40px;font-weight:400;letter-spacing:-.02em;margin-bottom:22px!important}
-.l-m{font-size:22px;color:#a8a8ad;line-height:1.5}.l-r{color:#ff5a52}
-.l-t{font-size:40px;font-weight:400;letter-spacing:-.02em;margin-top:22px!important}.l-t b{font-weight:800}
+.l-open{text-align:center;margin:0 auto 70px;max-width:1240px;padding:0 24px;min-height:calc(58vh - 60px);display:flex;flex-direction:column;justify-content:flex-end}
+.l-open p{margin:0}.l-h{font-size:62px;font-weight:700;letter-spacing:-.045em;line-height:1.05;margin-bottom:14px!important;white-space:nowrap}
+.l-m{font-size:24px;color:#8a8a90;line-height:1.4;letter-spacing:-.01em}.l-r{color:#ff5a52}
+.l-t{font-size:30px;font-weight:500;letter-spacing:-.02em;margin-top:26px!important;color:#fff}.l-t b{font-weight:800}
 .l-two{max-width:1120px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:28px}
 .l-lab{font-size:15px;color:#a8a8ad;margin:0 0 10px}.l-lab.l-g::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#3ddc84;margin-right:8px;vertical-align:1px}
 .l-term{background:#121214;border:1px solid #26262a;border-radius:10px;font-family:"JetBrains Mono",monospace;font-size:13.5px;line-height:1.85;overflow:hidden}
@@ -46,7 +46,7 @@ form{display:flex;justify-content:center;gap:8px;margin:22px 0 80px}input{backgr
 .ap{opacity:0;transform:translateY(12px);transition:opacity .7s ease,transform .7s ease}.ap.in{opacity:1;transform:none}
 .proof-end{min-height:0}
 .proof .track{height:auto}.proof .stage{position:relative;top:0!important;min-height:0;padding:40px 0 24px}
-@media(max-width:760px){.top{font-size:28px;margin-top:56px}.lsteps{grid-template-columns:1fr;gap:16px}.lhow{padding-top:56px}.lform{flex-direction:column;align-items:stretch;max-width:340px;margin-left:auto;margin-right:auto}.lform input{width:auto}.lform button{padding:12px 16px}.l-two{grid-template-columns:1fr}.l-h,.l-t{font-size:30px!important}.l-m{font-size:18px}.l-trust{font-size:32px}.l-term{font-size:12px}.l-nav>span:nth-child(2){display:none}}
+@media(max-width:760px){.top{font-size:28px;margin-top:56px}.lsteps{grid-template-columns:1fr;gap:16px}.lhow{padding-top:56px}.lform{flex-direction:column;align-items:stretch;max-width:340px;margin-left:auto;margin-right:auto}.lform input{width:auto}.lform button{padding:12px 16px}.l-two{grid-template-columns:1fr}.l-h{font-size:34px!important;white-space:normal}.l-t{font-size:22px!important}.l-m{font-size:18px}.l-trust{font-size:32px}.l-term{font-size:12px}.l-nav>span:nth-child(2){display:none}}
 @media(prefers-reduced-motion:reduce){.ap{opacity:1;transform:none;transition:none}}
 .conn{position:relative;height:84px;margin:0 0 0}
 .conn::before{content:"";position:absolute;left:50%;top:0;height:84px;width:1px;margin-left:-.5px;background:linear-gradient(transparent,var(--ln2) 30%,var(--mu2))}
@@ -58,8 +58,8 @@ form{display:flex;justify-content:center;gap:8px;margin:22px 0 80px}input{backgr
 <div class="l-nav"><span>Agentic <b>GUARDIANS</b><i class="l-dot"></i></span><span>The trust layer for AI agents</span><span class="l-btn">Get early access</span></div>
 <div class="l-open">
 <p class="l-h">Do you know what your agent is doing right now?</p>
-<p class="l-m">A compromised agent doesn’t look compromised.<br>Same keys, same access, <span class="l-r">someone else’s intent.</span></p>
-<p class="l-t">So how can you <b>trust</b> it?</p>
+<p class="l-m">A compromised agent doesn’t look compromised. Same keys, same access, <span class="l-r">someone else’s intent.</span></p>
+<p class="l-t">So how can you <b>trust</b> your agent?</p>
 </div>
 <div class="l-two">
 <div><p class="l-lab">Your agent today</p><div class="l-term"><div class="l-bar">ops@payments-01 — agent</div><div class="l-body">
