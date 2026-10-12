@@ -190,7 +190,6 @@ button,input{font:inherit;color:inherit}
       <div class="step"><span class="n mono">03</span><h3>Block</h3><p>If it doesn't fit, it stops before it runs, and leaves a record you can check.</p>
         <div class="vis mono"><span class="x">✖ Blocked</span> · transfer<br>ops@payments-01 · 14:02:13<br>record saved</div></div>
     </div>
-    <p class="note">No AI model makes the decision. Runs locally.</p>
 
     <div class="signup" id="access">
       <h2>The <b>trust</b> layer for AI agents.</h2>
@@ -213,10 +212,11 @@ button,input{font:inherit;color:inherit}
   var wait=function(ms){return new Promise(function(r){setTimeout(r,ms)})};
 
   /* ---- twins: two identical terminals ---- */
-  var CMD='agent run --task "Pay supplier invoices"';
+  var CMD='agent run pay-invoices';
   var BODY=[
     '<span class="ts">14:02:07</span><span><span class="pr">%</span> <span class="cmd"></span></span>',
     '<span class="ts">14:02:07</span><span><span class="k">status</span><span class="ok">●</span> Running</span>',
+    '<span class="ts">14:02:07</span><span><span class="k">task</span>Pay supplier invoices</span>',
     '<span class="ts">14:02:08</span><span><span class="k">auth</span>credentials valid <span class="ok">✓</span></span>',
     '<span class="ts">14:02:09</span><span><span class="k">open</span>invoice_0412.pdf <span class="ok">✓</span></span>',
     '<span class="ts">14:02:11</span><span><span class="k">verify</span>supplier on file <span class="ok">✓</span></span>',
@@ -248,18 +248,16 @@ button,input{font:inherit;color:inherit}
     setAll('.cmd','');setAll('.fill','');setAll('.rest','··········');setAll('.snt','');setAll('.bal','$52,300');
     if(RM){finalState();return}
     var alive=function(){return me===run};
-    await wait(500);showLine(0);
-    for(var c=1;c<=CMD.length;c++){if(!alive())return;setAll('.cmd',CMD.slice(0,c));await wait(55)}
-    await wait(700);
-    for(var n=1;n<=6;n++){if(!alive())return;showLine(n);await wait(n===6?1100:1000)}
-    showLine(7);
-    for(var p=1;p<=10;p++){if(!alive())return;setAll('.fill','█'.repeat(p));setAll('.rest','·'.repeat(10-p));setAll('.snt','sending…');await wait(260)}
-    setAll('.snt','✓ sent');await wait(800);if(!alive())return;
-    showLine(8);await wait(500);
-    var from=52300,to=47500,steps=24;
-    for(var s=1;s<=steps;s++){if(!alive())return;setAll('.bal','$52,300 → '+money(Math.round((from-(from-to)*s/steps)/10)*10));await wait(70)}
-    setAll('.bal','$52,300 → $47,500');await wait(700);if(!alive())return;
+    setAll('.cmd',CMD);for(var n=0;n<=6;n++)showLine(n);
+    await wait(900);if(!alive())return;showLine(7);
+    await wait(500);if(!alive())return;showLine(8);
+    for(var p=1;p<=10;p++){if(!alive())return;setAll('.fill','█'.repeat(p));setAll('.rest','·'.repeat(10-p));setAll('.snt','sending…');await wait(140)}
+    setAll('.snt','✓ sent');await wait(400);if(!alive())return;
     showLine(9);
+    var from=52300,to=47500,steps=16;
+    for(var s=1;s<=steps;s++){if(!alive())return;setAll('.bal','$52,300 → '+money(Math.round((from-(from-to)*s/steps)/10)*10));await wait(55)}
+    setAll('.bal','$52,300 → $47,500');await wait(300);if(!alive())return;
+    showLine(10);
   }
   var res=$('#twinResult'), base=res.textContent, bad=Math.random()<.5?0:1, locked=false;
   function reset(){locked=false;bad=Math.random()<.5?0:1;twins.forEach(function(t){t.classList.remove('bad','picked');$('.verdict',t).textContent=''});res.textContent=base;$('#intent').hidden=true;play()}
