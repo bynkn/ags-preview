@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
 <style>
 :root{
   color-scheme:dark;
@@ -24,6 +25,7 @@
 }
 *{box-sizing:border-box}
 html,body{margin:0;overflow-x:hidden}
+html{scroll-padding-top:80px}
 body{background:var(--ink);color:var(--on-ink);font-family:var(--f-display);font-size:var(--s-body);line-height:1.5}
 button,input{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--green);outline-offset:3px}
@@ -34,7 +36,22 @@ button,input{font:inherit;color:inherit}
 .sr{position:absolute;left:-9999px}
 
 /* ---------- hero ---------- */
-.hero{background-color:var(--ink);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:56px 56px;padding:28px 16px 64px}
+.hero{position:relative;overflow:hidden;background:var(--ink);padding:112px 16px 64px}
+.hero>.wrap{position:relative}
+/* background grid: exact copy of envelope-v5 .hero-grid */
+.hero-grid{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(90deg,#232323 1px,transparent 1px);background-size:calc(100% / 8) 100%;opacity:.9;
+  -webkit-mask-image:radial-gradient(ellipse 62% 70% at 50% 45%,#000 0%,transparent 78%);mask-image:radial-gradient(ellipse 62% 70% at 50% 45%,#000 0%,transparent 78%)}
+/* header: ported from envelope-v5 (.nav/.nav-in/.brand/.tag/.btn-sm), v3 logo kept */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:color-mix(in srgb,#0a0a0a 84%,transparent);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid #232323;transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.js .nav{opacity:0;transform:translateY(-8px);pointer-events:none}
+.js.nav-on .nav{opacity:1;transform:none;pointer-events:auto}
+.nav-in{max-width:1136px;margin:0 auto;height:64px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+.brand{display:flex;align-items:center;gap:16px;text-decoration:none;min-width:0;color:var(--on-ink)}
+.brand .tag{font-size:14px;color:#7a7a7a;padding-left:16px;border-left:1px solid #2a2a2a;white-space:nowrap}
+.btn-sm{font-weight:500;font-size:14px;border-radius:8px;text-decoration:none;display:inline-flex;align-items:center;padding:8px 14px;height:36px;background:#ededed;color:#0a0a0a;transition:background .15s,transform .15s;white-space:nowrap}
+.btn-sm:hover{background:#fff}.btn-sm:active{transform:translateY(1px)}
+@media (max-width:1200px){.nav-in{max-width:calc(100% - 48px)}}
+@media (max-width:760px){.nav-in{max-width:none;padding:0 16px;gap:12px;height:56px}.brand{gap:10px}.brand .tag{display:none}.btn-sm{padding:7px 12px;height:34px}.hero{padding-top:88px}}
 .mark{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:.01em}
 .q{margin:0;font-size:var(--s-display);line-height:.98;font-weight:700;letter-spacing:-.025em;text-wrap:balance}
 .copy{display:grid;gap:10px;max-width:36rem}
@@ -76,8 +93,9 @@ button,input{font:inherit;color:inherit}
 .why div::before{content:"✖ "}
 .twin.bad .why{display:block;animation:fade .6s ease-out}
 .intent{margin:6px 0 0;font-size:var(--s-lead);font-weight:600;min-height:1.3em}
-.intent[hidden]{display:block;visibility:hidden}
-.result{min-height:3.4em;max-width:40rem;margin:4px 0 0}
+
+.result:empty{display:none}
+.result{max-width:40rem;margin:4px 0 0}
 .again{background:none;border:0;border-bottom:1px solid var(--mute);color:var(--on-ink);cursor:pointer;padding:0;margin-left:8px;font-size:inherit;font-family:inherit}
 
 /* ---------- green-dot line ---------- */
@@ -138,11 +156,17 @@ button,input{font:inherit;color:inherit}
 }
 </style>
 </head>
-<body>
+<body id="top">
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top" aria-label="Agentic Guardians, back to top"><span class="mark"><span class="dot"></span>Agentic Guardians</span><span class="tag">The trust layer for AI agents</span></a>
+    <a class="btn-sm" href="#access">Request access</a>
+  </div>
+</header>
 <main>
 <section class="hero">
+  <div class="hero-grid" aria-hidden="true"></div>
   <div class="wrap">
-    <div class="mark"><span class="dot"></span>Agentic Guardians</div>
     <h1 class="q">Do you know what your agent is doing right now?</h1>
     <div>
       <p class="ask"><span class="nw">Two agents. Same task.</span> <span class="nw">One is compromised. Which one?</span></p>
@@ -274,6 +298,7 @@ button,input{font:inherit;color:inherit}
     a.addEventListener('click',function(e){e.stopPropagation();reset()});res.appendChild(a);$('#intent').hidden=false;
   })});
   play();
+  setTimeout(function(){document.documentElement.classList.add('nav-on')},RM?0:400);
 
   /* ---- protected run: four steps, played once when in view ---- */
   var proof=$('#proof'), pterm=$('#pterm'), pips=$$('#pips i'), caps=$$('.cap',proof), plines=$$('.ln',pterm), replay=$('#replay'), prun=0;
