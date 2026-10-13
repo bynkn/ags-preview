@@ -60,12 +60,15 @@ button,input{font:inherit;color:inherit}
 .mark{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:.01em}
 .q,.ask,.copy,.learns,.caps,.step h3,.signup h2,.signup>p,.intent,.mark{font-family:var(--f-display)}
 .q{margin:0;font-size:var(--s-display);line-height:.98;font-weight:700;letter-spacing:-.04em;text-wrap:balance}
-.copy{display:grid;gap:10px;max-width:none}
-@media (min-width:761px){.copy p{white-space:nowrap}}
-@media (max-width:760px){.copy .b1,.copy .b2{display:block}}
+/* hero type: three sizes only: --s-display (headline), --s-l5 (line 5), --s-lead (everything else).
+   Terminal contents stay at the mono UI size (see report). */
+.copy{display:grid;gap:14px;max-width:none}
 .copy p{margin:0;font-size:var(--s-lead);line-height:1.3;font-weight:300;text-wrap:balance}
-.copy .l3{font-weight:600;margin-top:8px}
-.copy .l3 .wm{display:inline;gap:0;letter-spacing:-.01em}
+.copy .l5{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:400;letter-spacing:-.02em;line-height:1.1;margin-top:10px}
+.copy .l5 .trust{font-weight:800}
+.copy .l6{display:flex;gap:12px;align-items:center;font-weight:300}
+.js .seq{opacity:0}
+.js .seq.on{opacity:1;transition:opacity .9s ease}
 .trust{font-weight:800}
 
 /* terminal window (shared by twins and the protected run) */
@@ -92,21 +95,21 @@ button,input{font:inherit;color:inherit}
 .twin:hover .term{border-color:rgba(232,240,235,.3)}
 .nw{white-space:nowrap}
 .intent .late{display:block;color:var(--mute)}
-.tap{margin:-10px 0 16px}.tap[hidden]{display:none}
+.tap{margin:-10px 0 16px;font-size:var(--s-lead);line-height:1.3}.tap[hidden]{display:none}
 .ask{margin:0 0 16px;font-size:var(--s-lead);font-weight:600;line-height:1.3;text-wrap:balance}
 .twin:active .term{border-color:rgba(232,240,235,.45);transform:scale(.995)}
 .twin .term{transition:border-color .3s,box-shadow .3s,transform .15s}
 .twin:focus-visible{outline:2px solid var(--green);outline-offset:4px}
 .twin.picked .term{border-color:var(--on-ink)}
 .twin.bad .term{border-color:var(--red);box-shadow:0 0 0 1px var(--red)}
-.verdict{min-height:1.7em;font-family:var(--f-mono);font-size:var(--s-mono);color:var(--red);text-transform:uppercase;letter-spacing:.08em}
+.verdict{min-height:1.4em;font-family:var(--f-mono);font-size:var(--s-lead);color:var(--red);text-transform:uppercase;letter-spacing:.08em}
 .why{display:none;color:var(--red);border-top:1px dashed rgba(255,74,61,.5);margin:8px 14px 12px;padding-top:8px;line-height:1.6}
 .why div::before{content:"✖ "}
 .twin.bad .why{display:block;animation:fade .6s ease-out}
 .intent{margin:6px 0 0;font-size:var(--s-lead);font-weight:600;min-height:1.3em}
 
 .result:empty{display:none}
-.result{max-width:40rem;margin:4px 0 0}
+.result{max-width:40rem;margin:4px 0 0;font-size:var(--s-lead);line-height:1.3;font-family:var(--f-display)}
 .again{background:none;border:0;border-bottom:1px solid var(--mute);color:var(--on-ink);cursor:pointer;padding:0;margin-left:8px;font-size:inherit;font-family:inherit}
 
 /* ---------- green-dot line ---------- */
@@ -183,15 +186,15 @@ button,input{font:inherit;color:inherit}
     <h1 class="q">Do you know what your agent is doing right now?</h1>
     <div>
       <p class="ask"><span class="nw">Two agents. Same task.</span> <span class="nw">One is compromised. Which one?</span></p>
-      <p class="tap mono mute" id="tap">Tap the one you think it is.</p>
+      <p class="tap mute" id="tap">Tap the one you think it is.</p>
       <div class="twins" id="twins"></div>
-      <p class="result mono mute" id="twinResult" aria-live="polite"></p>
-      <p class="intent" id="intent" hidden>Same keys. Same access. Different intent.<span class="late">And you won't know until it's too late.</span></p>
+      <p class="result" id="twinResult" aria-live="polite"></p>
     </div>
     <div class="copy">
-      <p>A compromised agent doesn't look compromised.</p>
-      <p><span class="b1">Can you <span class="trust">trust</span> it to do what it's told?</span> <span class="b2">And only that?</span></p>
-      <p class="l3">With&nbsp;<span class="wm"><span class="wm-a">Agentic</span> <span class="wm-g">GUARDIANS</span></span>, you can.</p>
+      <p class="seq">A compromised agent doesn't look compromised.</p>
+      <p class="seq">Will your agent do what it's told, and only that?</p>
+      <p class="seq l5">Can you <span class="trust">trust</span> it?</p>
+      <p class="seq l6"><span class="dot"></span>With Agentic Guardians, you can.</p>
     </div>
   </div>
 </section>
@@ -308,15 +311,28 @@ button,input{font:inherit;color:inherit}
     showLine(10);
   }
   var res=$('#twinResult'), base=res.textContent, bad=Math.random()<.5?0:1, locked=false;
-  function reset(){locked=false;bad=Math.random()<.5?0:1;twins.forEach(function(t){t.classList.remove('bad','picked');$('.verdict',t).textContent=''});res.textContent=base;$('#intent').hidden=true;$('#tap').hidden=false;play()}
+  function reset(){locked=false;bad=Math.random()<.5?0:1;twins.forEach(function(t){t.classList.remove('bad','picked');$('.verdict',t).textContent=''});res.textContent=base;$('#tap').hidden=false;play()}
   twins.forEach(function(t,i){t.addEventListener('click',function(){
     if(locked)return;locked=true;
     t.classList.add('picked');twins[bad].classList.add('bad');$('.verdict',twins[bad]).textContent='Compromised';
     res.textContent='It was '+(bad===0?'A':'B')+'. No one could tell.';
     var a=document.createElement('button');a.className='again';a.type='button';a.textContent='Again';
-    a.addEventListener('click',function(e){e.stopPropagation();reset()});res.appendChild(a);$('#intent').hidden=false;$('#tap').hidden=true;
+    a.addEventListener('click',function(e){e.stopPropagation();reset()});res.appendChild(a);$('#tap').hidden=true;runSeq();
   })});
   play();
+  /* lines 3-6: one at a time after the tap, or when the cards are scrolled past; shown once, never reset */
+  var seq=$$('.seq'), seqStarted=false;
+  function runSeq(){
+    if(seqStarted)return;seqStarted=true;
+    if(RM){seq.forEach(function(l){l.classList.add('on')});return}
+    var gaps=[1500,1500,2500,2500], t=0;
+    seq.forEach(function(l,i){t+=gaps[i];setTimeout(function(){l.classList.add('on')},t)});
+  }
+  if(RM)runSeq();
+  else if('IntersectionObserver' in window){
+    var sio=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting&&e.boundingClientRect.bottom<0){sio.disconnect();runSeq()}})});
+    sio.observe(host);
+  }else runSeq();
   setTimeout(function(){document.documentElement.classList.add('nav-on')},RM?0:400);
 
   /* ---- protected run: four steps, played once when in view ---- */
