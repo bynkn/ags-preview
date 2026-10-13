@@ -8,7 +8,7 @@
   function $(s,c){return (c||document).querySelector(s)}
   function $$(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))}
   function wait(ms){return new Promise(function(r){setTimeout(r,ms)})}
-  function navH(){return window.innerWidth<=760?56:64}
+  function navH(){var g=document.getElementById('gproof'),v=g&&parseFloat(getComputedStyle(g).getPropertyValue('--nav'));return v||(window.innerWidth<=760?56:64)}   // landing-v3: --nav includes the pinned heading
 
   /* ---------- 1a · the envelope: the terminal types, then holds still ---------- */
   var hero=$('#heroTerm'), hLead=$('#heroLead'), hQ=$('#heroQ');

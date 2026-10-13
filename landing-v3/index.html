@@ -89,10 +89,7 @@ html[data-world=light] .btn-sm{background:#0a0a0a;color:#fff}
 .q{margin:0;font-size:var(--s-display);line-height:.98;font-weight:700;letter-spacing:-.04em;text-wrap:balance}
 /* hero type: three sizes only: --s-display (headline), --s-l5 (line 5), --s-lead (everything else).
    Terminal contents stay at the mono UI size (see report). */
-.copy{display:grid;gap:14px;max-width:none;align-content:end}
-/* after the sequence, lines 3-6 + crosshair fill the screen, so the next heading can't peek in with the hero text */
-.js .copy{min-height:calc(100vh - 64px - 64px - 40px);min-height:calc(100svh - 64px - 64px - 40px)}
-@media (max-width:760px){.js .copy{min-height:calc(100vh - 56px - 64px - 40px);min-height:calc(100svh - 56px - 64px - 40px)}}
+.copy{display:grid;gap:14px;max-width:none}
 /* nothing after the hero shows (and the page can't flip) until line 6 has faded in */
 .js .seam,.js #after{opacity:0;transition:opacity .9s ease}
 .js .hero .cue{opacity:0;transition:opacity .9s ease,transform 1.4s cubic-bezier(.2,.7,.2,1)}
@@ -151,6 +148,14 @@ html.hero-done .seam,html.hero-done #after,html.hero-done .hero .cue{opacity:1}
 .learns{background:transparent;color:var(--on-paper);padding:0 16px}
 /* v5 demo on white: light world always (terminal window stays dark); amber/dot recoloured so only red=blocked, green=dot */
 #gproof .proof::before,#gproof .proof::after{display:none}
+/* certificate without the anomaly-score cell: close the gaps it leaves */
+@media (min-width:1024px){#gproof#gproof .dc-g4>div:nth-last-child(2){grid-column:span 2}}
+@media (max-width:1023px){#gproof#gproof .dc-g4>div{grid-column:span 2;order:0}}
+/* 'solves trust' + 'It learns' stay pinned under the header while the demo steps (desktop only); the demo's stage sits below it via --nav */
+@media (min-width:761px){
+  .learns{position:sticky;top:64px;z-index:20;background:#f8f9f7}
+  #gproof .stage{padding-top:16px!important}
+}
 #gproof#gproof,#gproof#gproof .dw,#gproof#gproof .lw{
   --bg:#f8f9f7; --bg2:#EDEDEA; --pnl:#FFFFFF; --bar:#F1F1EF; --ln:#DCDCD8; --ln2:#CBCBC6;
   --tx:#0A0A0A; --tx2:#2B2B29; --mu:#62615D; --mu2:#74736E; --ph:#A3A29D;
@@ -158,7 +163,7 @@ html.hero-done .seam,html.hero-done #after,html.hero-done .hero .cue{opacity:1}
 .learns>.wrap{gap:24px}
 .learns h2{margin:16px 0 0;font-size:clamp(2rem,5.4vw,3.6rem);line-height:1.04;font-weight:400;letter-spacing:-.035em;text-wrap:balance}
 .learns h2 b{font-weight:800}
-.learns .sub{margin:0 0 12px;font-size:var(--s-lead);font-weight:300;line-height:1.35;color:var(--mute-paper);max-width:none;text-wrap:pretty}
+.learns .sub{margin:0;padding-bottom:16px;font-size:var(--s-lead);font-weight:300;line-height:1.35;color:var(--mute-paper);max-width:none;text-wrap:pretty}
 @media (min-width:1100px){.learns .sub{font-size:1.3rem;white-space:nowrap}}
 
 /* ---------- white flip ---------- */
@@ -186,7 +191,7 @@ html.hero-done .seam,html.hero-done #after,html.hero-done .hero .cue{opacity:1}
 .story{margin:0}.story a{color:var(--on-paper);text-decoration:none;border-bottom:1px solid var(--mute-paper);padding-bottom:2px}
 
 @media (max-width:760px){
-  .learns .sub{margin-bottom:40px}
+  .learns .sub{margin-bottom:0}
   .twins{grid-template-columns:1fr;gap:12px}
   .steps{grid-template-columns:1fr;gap:28px}
   .term-title{margin-right:0}
@@ -230,7 +235,8 @@ html.hero-done .seam,html.hero-done #after,html.hero-done .hero .cue{opacity:1}
 </section>
 <div class="seam"><div class="seam-in"><span class="node" aria-hidden="true"></span></div></div>
 <div id="after">
-<section class="learns">
+<div class="pinzone">
+<section class="learns" id="pinHead">
   <div class="wrap">
     <h2>Agentic Guardians solves <b>trust</b>.</h2>
     <p class="sub">It learns how each agent behaves and blocks what doesn't fit, before it acts. No AI model makes the decision.</p>
@@ -244,7 +250,7 @@ html.hero-done .seam,html.hero-done #after,html.hero-done .hero .cue{opacity:1}
       <div class="stage" id="stage">
         <div class="stage-in" id="stageIn" data-step="1">
           <div class="cap-row">
-            <p class="step-k" aria-hidden="true"><span class="pips"><i></i><i></i><i></i><i></i></span></p>
+            <p class="step-k" aria-hidden="true"><span class="pips"><i></i><i></i><i></i><i></i><i></i></span></p>
             <div class="caps">
               <p class="cap cap-2l" data-c="1"><span class="c1">Same agent. Same task.</span><span class="c2">This time, <span class="wm-cap"><span class="wm-a">Agentic</span> <span class="wm-g">GUARDIANS</span></span> is&nbsp;watching.</span></p>
               <p class="cap" data-c="2">It&rsquo;s learned this agent&rsquo;s normal behaviour.</p>
@@ -301,9 +307,30 @@ html.hero-done .seam,html.hero-done #after,html.hero-done .hero .cue{opacity:1}
         </div>
       </div>
     </div>
-    <div class="proof-end" id="proofEnd"></div>
+    <div class="proof-end" id="proofEnd">
+      <p class="cap cap-6" id="cap5"><span class="step-k" aria-hidden="true"><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></span>And it leaves proof.</p>
+      <p class="cert-sub" id="certSub">Signed. Chained. Audit ready.</p>
+      <article class="cert cert-w" id="cert" aria-label="Agentic Guardians Detection Certificate, example">
+        <div class="dc">
+          <div class="dc-h"><div><h3 class="dc-t">Agentic Guardians Detection Certificate</h3></div><span class="dc-pill"><i></i>Signed</span></div>
+          <dl class="dc-g dc-g4">
+            <div><dt>Decision</dt><dd class="dc-dec">Blocked<span>DENY</span></dd></div>
+            <div><dt>Agent</dt><dd>payments-01</dd></div>
+            <div class="s2"><dt>Tool</dt><dd>http.post <span class="dc-mu">&middot; payments-api/transfer</span></dd></div>
+            <div><dt>Signed at (UTC)</dt><dd>2026-10-09 09:41:03</dd></div>
+            <div><dt>Certificate ID</dt><dd>AG-2026-000417</dd></div>
+            <div class="m2"><dt>Chain</dt><dd>seq 17 <span class="dc-mu">&middot; prev 9c1e&hellip;a04f</span></dd></div>
+            <div><dt>Proof hash <span class="nw">(SHA-256)</span></dt><dd>c1cda263&hellip;73c7</dd></div>
+            <div class="s2"><dt>Signature (Ed25519)</dt><dd>a543997d84f12798&hellip;4bbd5a59</dd></div>
+            <div><dt>Public key</dt><dd>eb3102a6&hellip;22cc</dd></div>
+            <div class="s4"><dt>Threat summary</dt><dd class="dc-sum">http.post to an account never seen for this agent. Blocked before it ran.</dd></div>
+          </dl>
+        </div>
+      </article>
+    </div>
   </section>
 </div></div>
+</div>
 
 <section class="flip">
   <div class="wrap">
@@ -422,6 +449,10 @@ html.hero-done .seam,html.hero-done #after,html.hero-done .hero .cue{opacity:1}
     if(up){if(t>innerHeight*.6)w='dark'}else if(t<innerHeight*.75)w='light';else if(!cur)w='dark';
     if(cur==='light'&&t>innerHeight*.75)w='dark';if(document.documentElement.getAttribute('data-world')!==w)document.documentElement.setAttribute('data-world',w)}
   addEventListener('scroll',function(){if(!wq){wq=true;requestAnimationFrame(wtick)}},{passive:true});addEventListener('resize',wtick);wtick();
+  /* the demo's sticky offset includes the pinned heading */
+  var pinHead=$('#pinHead'), gp=$('#gproof');
+  function pinFit(){var pinned=getComputedStyle(pinHead).position==='sticky';gp.style.setProperty('--nav',((innerWidth<=760?56:64)+(pinned?pinHead.offsetHeight:0))+'px')}
+  pinFit();addEventListener('resize',pinFit);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(pinFit);
   $('#form').addEventListener('submit',function(e){e.preventDefault();this.querySelector('button').textContent='Thanks';});
 })();
 </script>
