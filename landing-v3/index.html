@@ -64,7 +64,8 @@ button,input{font:inherit;color:inherit}
 @media (min-width:761px){.copy p{white-space:nowrap}}
 @media (max-width:760px){.copy .b1,.copy .b2{display:block}}
 .copy p{margin:0;font-size:var(--s-lead);line-height:1.3;font-weight:300;text-wrap:balance}
-.copy .l3{font-weight:600;display:flex;gap:12px;align-items:center;margin-top:8px}
+.copy .l3{font-weight:600;margin-top:8px}
+.copy .l3 .wm{display:inline;gap:0;letter-spacing:-.01em}
 .trust{font-weight:800}
 
 /* terminal window (shared by twins and the protected run) */
@@ -109,26 +110,28 @@ button,input{font:inherit;color:inherit}
 .again{background:none;border:0;border-bottom:1px solid var(--mute);color:var(--on-ink);cursor:pointer;padding:0;margin-left:8px;font-size:inherit;font-family:inherit}
 
 /* ---------- green-dot line ---------- */
-.learns{background:var(--ink);padding:24px 16px 96px}
-.learns p{margin:0 auto;max-width:1120px;font-size:var(--s-lead);font-weight:300;line-height:1.3;display:flex;gap:12px;align-items:baseline}
-.learns .dot{transform:translateY(-.1em)}
+.learns{background:var(--ink);padding:24px 16px 112px;border-top:1px solid #232323}
+.learns>.wrap{gap:24px}
+.learns h2{margin:56px 0 0;font-size:clamp(2rem,5.4vw,3.6rem);line-height:1.04;font-weight:700;letter-spacing:-.035em;text-wrap:balance}
+.learns h2 b{font-weight:800}
+.learns .sub{margin:0 0 48px;font-size:var(--s-lead);font-weight:300;line-height:1.35;color:#c8cdca;max-width:40rem;text-wrap:pretty}
 
 /* ---------- white flip ---------- */
 .flip{background:var(--paper);color:var(--on-paper);padding:80px 16px 64px}
 .flip .wrap{gap:80px}
 .proof{display:grid;gap:22px;max-width:860px}
 .pips{display:flex;gap:6px}
-.pips i{width:36px;height:4px;background:var(--rule);transition:background .5s}
-.pips i.on{background:var(--on-paper)}
+.pips i{width:36px;height:4px;background:#2a2f2c;transition:background .5s}
+.pips i.on{background:var(--on-ink)}
 .pips.blocked i.on{background:var(--red)}
 .caps{position:relative;min-height:2.3em;font-size:clamp(1.6rem,4vw,2.4rem);line-height:1.1;font-weight:700;letter-spacing:-.02em}
 .cap{margin:0;position:absolute;inset:0 auto auto 0;opacity:0;transition:opacity .6s}
 .cap.on{opacity:1}
-.proof .term{background:var(--ink);color:var(--on-ink);transition:border-color .5s,box-shadow .5s}
+.proof .term{background:var(--ink-2);color:var(--on-ink);transition:border-color .5s,box-shadow .5s}
 .proof .term.blocked{border-color:var(--red);box-shadow:0 0 0 1px var(--red)}
 .x{color:var(--red)}
-.proof-foot{display:flex;gap:16px;align-items:center;color:var(--mute-paper)}
-.replay{background:none;border:0;border-bottom:1px solid var(--mute-paper);padding:0;cursor:pointer;color:var(--on-paper);font-size:inherit;font-family:inherit}
+.proof-foot{display:flex;gap:16px;align-items:center;color:var(--mute)}
+.replay{background:none;border:0;border-bottom:1px solid var(--mute);padding:0;cursor:pointer;color:var(--on-ink);font-size:inherit;font-family:inherit}
 
 .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
 .step{border-top:2px solid var(--on-paper);padding-top:14px;display:grid;gap:8px;align-content:start}
@@ -187,16 +190,16 @@ button,input{font:inherit;color:inherit}
     </div>
     <div class="copy">
       <p>A compromised agent doesn't look compromised.</p>
-      <p><span class="b1">Can you <span class="trust">trust</span> it</span> <span class="b2">to do what it's supposed to, and only that?</span></p>
-      <p class="l3"><span class="dot"></span>With Agentic Guardians, you can.</p>
+      <p><span class="b1">Can you <span class="trust">trust</span> it to do what it's told?</span> <span class="b2">And only that?</span></p>
+      <p class="l3">With&nbsp;<span class="wm"><span class="wm-a">Agentic</span> <span class="wm-g">GUARDIANS</span></span>, you can.</p>
     </div>
   </div>
 </section>
 
-<section class="learns"><p><span class="dot"></span><span>It learns how each agent behaves and blocks what doesn't fit, before it acts.</span></p></section>
-
-<section class="flip">
+<section class="learns">
   <div class="wrap">
+    <h2>Agentic Guardians solves <b>trust</b>.</h2>
+    <p class="sub">It learns how each agent behaves and blocks what doesn't fit, before it acts. No AI model makes the decision.</p>
     <div class="proof" id="proof">
       <div class="pips" id="pips" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
       <div class="caps" aria-live="polite">
@@ -222,6 +225,11 @@ button,input{font:inherit;color:inherit}
       <div class="proof-foot mono"><span>task: Pay supplier invoices</span><button class="replay" id="replay" type="button" hidden>Replay</button></div>
     </div>
 
+  </div>
+</section>
+
+<section class="flip">
+  <div class="wrap">
     <div class="steps">
       <div class="step"><span class="n mono">01</span><h3>Learn</h3><p>Watches how each agent normally works: which tools, in what order, how often.</p>
         <div class="vis mono"><div class="bars"><span style="height:22px"></span><span style="height:34px"></span><span style="height:18px"></span><span style="height:40px"></span><span style="height:28px"></span><span style="height:32px"></span><span style="height:20px"></span></div>normal pattern for ops@payments-01</div></div>
