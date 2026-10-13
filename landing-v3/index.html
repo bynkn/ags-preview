@@ -89,7 +89,14 @@ html[data-world=light] .btn-sm{background:#0a0a0a;color:#fff}
 .q{margin:0;font-size:var(--s-display);line-height:.98;font-weight:700;letter-spacing:-.04em;text-wrap:balance}
 /* hero type: three sizes only: --s-display (headline), --s-l5 (line 5), --s-lead (everything else).
    Terminal contents stay at the mono UI size (see report). */
-.copy{display:grid;gap:14px;max-width:none}
+.copy{display:grid;gap:14px;max-width:none;align-content:end}
+/* after the sequence, lines 3-6 + crosshair fill the screen, so the next heading can't peek in with the hero text */
+.js .copy{min-height:calc(100vh - 64px - 64px - 40px);min-height:calc(100svh - 64px - 64px - 40px)}
+@media (max-width:760px){.js .copy{min-height:calc(100vh - 56px - 64px - 40px);min-height:calc(100svh - 56px - 64px - 40px)}}
+/* nothing after the hero shows (and the page can't flip) until line 6 has faded in */
+.js .seam,.js #after{opacity:0;transition:opacity .9s ease}
+.js .hero .cue{opacity:0;transition:opacity .9s ease,transform 1.4s cubic-bezier(.2,.7,.2,1)}
+html.hero-done .seam,html.hero-done #after,html.hero-done .hero .cue{opacity:1}
 .copy p{margin:0;font-size:var(--s-lead);line-height:1.3;font-weight:300;text-wrap:balance}
 .copy .l5{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:400;letter-spacing:-.02em;line-height:1.1;margin-top:10px}
 .copy .l5 .trust{font-weight:800}
@@ -390,11 +397,13 @@ html[data-world=light] .btn-sm{background:#0a0a0a;color:#fff}
   play();
   /* lines 3-6: one at a time after the tap, or when the cards are scrolled past; shown once, never reset */
   var seq=$$('.hseq'), seqStarted=false;
+  function heroDone(ms){setTimeout(function(){document.documentElement.classList.add('hero-done');setTimeout(function(){var c=document.querySelector('.hero .cue'),r=c&&c.getBoundingClientRect();if(r&&r.bottom<=innerHeight&&r.top>=0)c.classList.add('on');if(typeof wtick==='function'&&h2El)wtick()},0)},ms)}
   function runSeq(){
     if(seqStarted)return;seqStarted=true;
-    if(RM){seq.forEach(function(l){l.classList.add('on')});return}
+    if(RM){seq.forEach(function(l){l.classList.add('on')});heroDone(0);return}
     var gaps=[1500,1500,2500,2500], t=0;
     seq.forEach(function(l,i){t+=gaps[i];setTimeout(function(){l.classList.add('on')},t)});
+    heroDone(t+900);
   }
   if(RM)runSeq();
   else if('IntersectionObserver' in window){
@@ -406,8 +415,8 @@ html[data-world=light] .btn-sm{background:#0a0a0a;color:#fff}
   /* the page (and header) turn light where the hero ends */
   var lastY=scrollY, h2El=$('.learns h2'), nodeEl=$('.seam .node'), cue=$('.hero .cue'), wq=false;
   if(RM||!('IntersectionObserver' in window))cue.classList.add('on');
-  else{var cio=new IntersectionObserver(function(es){if(es[0].isIntersecting){cue.classList.add('on');cio.disconnect()}},{threshold:1});cio.observe(cue)}
-  function wtick(){wq=false;var t=h2El.getBoundingClientRect().top, cur=document.documentElement.getAttribute('data-world'), w;
+  else{var cio=new IntersectionObserver(function(es){if(es[0].isIntersecting&&document.documentElement.classList.contains('hero-done')){cue.classList.add('on');cio.disconnect()}},{threshold:1});cio.observe(cue)}
+  function wtick(){wq=false;if(!document.documentElement.classList.contains('hero-done')){document.documentElement.setAttribute('data-world','dark');return}var t=h2El.getBoundingClientRect().top, cur=document.documentElement.getAttribute('data-world'), w;
     /* scrolling down: white once the heading passes 75% of the viewport; scrolling up: back to dark early, once it drops below 60% */
     var y=scrollY, up=y<lastY; lastY=y; w=cur||'dark';
     if(up){if(t>innerHeight*.6)w='dark'}else if(t<innerHeight*.75)w='light';else if(!cur)w='dark';
