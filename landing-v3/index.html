@@ -37,7 +37,7 @@ button,input{font:inherit;color:inherit}
 .sr{position:absolute;left:-9999px}
 
 /* ---------- hero ---------- */
-.hero{position:relative;overflow:hidden;background:var(--ink);padding:112px 16px 64px}
+.hero{position:relative;overflow:hidden;background:var(--ink);padding:112px 16px clamp(140px,26vh,240px)}
 .hero>.wrap{position:relative}
 /* background grid: exact copy of envelope-v5 .hero-grid */
 .hero-grid{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(90deg,#232323 1px,transparent 1px);background-size:calc(100% / 8) 100%;opacity:.9;
@@ -67,6 +67,7 @@ button,input{font:inherit;color:inherit}
 .copy .l5{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:400;letter-spacing:-.02em;line-height:1.1;margin-top:10px}
 .copy .l5 .trust{font-weight:800}
 .copy .l6{display:flex;gap:12px;align-items:center;font-weight:300}
+.copy .l6 .wm{display:inline;letter-spacing:-.01em}
 .js .seq{opacity:0}
 .js .seq.on{opacity:1;transition:opacity .9s ease}
 .trust{font-weight:800}
@@ -194,7 +195,7 @@ button,input{font:inherit;color:inherit}
       <p class="seq">A compromised agent doesn't look compromised.</p>
       <p class="seq">Will your agent do what it's told, and only that?</p>
       <p class="seq l5">Can you <span class="trust">trust</span> it?</p>
-      <p class="seq l6"><span class="dot"></span>With Agentic Guardians, you can.</p>
+      <p class="seq l6"><span class="dot"></span><span>With <span class="wm"><span class="wm-a">Agentic</span> <span class="wm-g">GUARDIANS</span></span>, you can.</span></p>
     </div>
   </div>
 </section>
