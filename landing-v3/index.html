@@ -7,7 +7,7 @@
 <title>Agentic Guardians</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add('js')</script>
 <style>
 :root{
@@ -15,8 +15,9 @@
   --ink:#0b0d0c;--ink-2:#121614;--grid:rgba(232,240,235,.06);--on-ink:#eef2ef;--mute:#8d9792;--line:rgba(232,240,235,.14);
   --paper:#f8f9f7;--on-paper:#0e1210;--rule:#d8ddd9;--mute-paper:#5a645f;
   --green:#34d27b;--green-dk:#0b7a43;--red:#ff4a3d;
-  --f-display:"Archivo","Helvetica Neue",Arial,sans-serif;
-  --f-mono:"Geist Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --f-display:'Inter Tight','Inter',ui-sans-serif,system-ui,sans-serif;
+  --f-body:'Inter',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+  --f-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
   /* four sizes, reused in every section */
   --s-display:clamp(2.4rem,8.4vw,6rem);
   --s-lead:clamp(1.15rem,2.4vw,1.5rem);
@@ -26,7 +27,7 @@
 *{box-sizing:border-box}
 html,body{margin:0;overflow-x:hidden}
 html{scroll-padding-top:80px}
-body{background:var(--ink);color:var(--on-ink);font-family:var(--f-display);font-size:var(--s-body);line-height:1.5}
+body{background:var(--ink);color:var(--on-ink);font-family:var(--f-body);font-size:var(--s-body);line-height:1.5}
 button,input{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--green);outline-offset:3px}
 .wrap{max-width:1120px;margin:0 auto;display:grid;gap:36px}
@@ -53,7 +54,8 @@ button,input{font:inherit;color:inherit}
 @media (max-width:1200px){.nav-in{max-width:calc(100% - 48px)}}
 @media (max-width:760px){.nav-in{max-width:none;padding:0 16px;gap:12px;height:56px}.brand{gap:10px}.brand .tag{display:none}.btn-sm{padding:7px 12px;height:34px}.hero{padding-top:88px}}
 .mark{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:.01em}
-.q{margin:0;font-size:var(--s-display);line-height:.98;font-weight:700;letter-spacing:-.025em;text-wrap:balance}
+.q,.ask,.copy,.learns,.caps,.step h3,.signup h2,.signup>p,.intent,.mark{font-family:var(--f-display)}
+.q{margin:0;font-size:var(--s-display);line-height:.98;font-weight:700;letter-spacing:-.04em;text-wrap:balance}
 .copy{display:grid;gap:10px;max-width:none}
 @media (min-width:761px){.copy p{white-space:nowrap}}
 @media (max-width:760px){.copy .b1,.copy .b2{display:block}}
@@ -84,6 +86,7 @@ button,input{font:inherit;color:inherit}
 .twin .term{transition:border-color .3s,box-shadow .3s}
 .twin:hover .term{border-color:rgba(232,240,235,.3)}
 .nw{white-space:nowrap}
+.intent .late{display:block;color:var(--mute)}
 .tap{margin:-10px 0 16px}.tap[hidden]{display:none}
 .ask{margin:0 0 16px;font-size:var(--s-lead);font-weight:600;line-height:1.3;text-wrap:balance}
 .twin:active .term{border-color:rgba(232,240,235,.45);transform:scale(.995)}
@@ -176,7 +179,7 @@ button,input{font:inherit;color:inherit}
       <p class="tap mono mute" id="tap">Tap the one you think it is.</p>
       <div class="twins" id="twins"></div>
       <p class="result mono mute" id="twinResult" aria-live="polite"></p>
-      <p class="intent" id="intent" hidden>Same keys. Same access. Different intent.</p>
+      <p class="intent" id="intent" hidden>Same keys. Same access. Different intent.<span class="late">And you won't know until it's too late.</span></p>
     </div>
     <div class="copy">
       <p>A compromised agent doesn't look compromised.</p>
