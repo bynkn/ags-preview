@@ -312,7 +312,7 @@ button,input{font:inherit;color:inherit}
   twins.forEach(function(t,i){t.addEventListener('click',function(){
     if(locked)return;locked=true;
     t.classList.add('picked');twins[bad].classList.add('bad');$('.verdict',twins[bad]).textContent='Compromised';
-    res.textContent=(i===bad?'Right, by luck. ':'Wrong. ')+'Both said Running. Neither screen gave it away.';
+    res.textContent='It was '+(bad===0?'A':'B')+'. No one could tell.';
     var a=document.createElement('button');a.className='again';a.type='button';a.textContent='Again';
     a.addEventListener('click',function(e){e.stopPropagation();reset()});res.appendChild(a);$('#intent').hidden=false;$('#tap').hidden=true;
   })});
