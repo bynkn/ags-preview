@@ -217,6 +217,8 @@ html[data-world=light] .learns .sub{transition-duration:1.1s}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
 }
+/* phone: the three flags live in the deviation panel; keeping them out of the terminal keeps the pinned stage within the screen */
+@media (max-width:760px){#gproof .mt-body .flag{display:none!important}}
 </style>
 </head>
 <body id="top">
@@ -265,7 +267,7 @@ html[data-world=light] .learns .sub{transition-duration:1.1s}
           <div class="cap-row">
             <p class="step-k" aria-hidden="true"><span class="pips"><i></i><i></i><i></i><i></i><i></i></span></p>
             <div class="caps">
-              <p class="cap cap-2l" data-c="1"><span class="c1">Same agent. Same task.</span><span class="c2">This time, <span class="wm-cap"><span class="wm-a">Agentic</span> <span class="wm-g">GUARDIANS</span></span> is&nbsp;watching.</span></p>
+              <p class="cap cap-2l" data-c="1"><span class="c1">Same agent. Same attack.</span><span class="c2">This time, <span class="wm-cap"><span class="wm-a">Agentic</span> <span class="wm-g">GUARDIANS</span></span> is&nbsp;watching.</span></p>
               <p class="cap" data-c="2">It&rsquo;s learned this agent&rsquo;s normal behaviour.</p>
               <p class="cap" data-c="3">Then the agent deviates.</p>
               <p class="cap" data-c="4">Blocked before it ran. <span class="nw">No transfer.</span></p>
@@ -276,15 +278,19 @@ html[data-world=light] .learns .sub{transition-duration:1.1s}
               <div class="mt-bar"><span class="mt-l"><i></i><i></i><i></i></span><span class="mt-title">ops@payments-01 — agent — 120×12</span></div>
               <div class="mt-body">
                 <i class="watcher" aria-hidden="true" hidden></i>
-                <div class="l"><span class="d">~/ops/payments-01 %</span> agent run --task "reconcile October invoices"</div>
-                <div class="l f2"><span class="m">●</span> <b>read_file</b>(invoices.csv) <span class="d">· 12 rows · 31ms</span></div>
-                <div class="l f2"><span class="m">●</span> <b>match_ledger</b>(october) <span class="d">· 12 matched · 44ms</span></div>
-                <div class="l f3"><span class="m">●</span> <b>read_file</b>(inv_0419.pdf) <span class="d">· 1 page · 112ms</span></div>
-                <div class="l f4 ml2"><span class="m">●</span> <b>match_ledger</b>(inv_0419) <span class="d">· 1 unmatched</span></div>
-                <div class="l f4"><span class="m">●</span> <b>http.post</b>(payments-api/transfer)<span class="args">  <span class="d">amount=4800 to="acct ••7731"</span></span></div>
+                <div class="l"><span class="d">~/ops/payments-01 %</span> agent run pay-invoices</div>
+                <div class="l f2"><span class="m">●</span> <b>task</b> <span class="d">· Pay supplier invoices</span></div>
+                <div class="l f2"><span class="m">●</span> <b>open</b>(invoice_0412.pdf)</div>
+                <div class="l f3"><span class="m">●</span> <b>verify</b>(supplier) <span class="d">· on file ••2290</span></div>
+                <div class="l f4 ml2"><span class="m">●</span> <b>match</b>(ledger) <span class="d">· october</span></div>
+                <div class="l f4"><span class="m">●</span> <b>transfer</b>(payments-api)<span class="args">  <span class="d">amount=$4,800 to="acct ••7731"</span></span></div>
                 <div class="l in f4 u4"><span class="d">⎿</span>  <span class="d">checking…</span></div>
                 <div class="l in f5 blk-l"><span class="x">⎿</span>  <span class="x">✖ Blocked by Agentic Guardians · not executed</span></div>
-                <div class="l st-l"><span class="d">agentic-guardians · watching</span><span class="d f5r"> · 1 blocked · 0 executed</span></div>
+                <div class="l in f5 blk-l flag"><span class="x">⎿</span>  <span class="x">hidden instruction in invoice_0412.pdf</span></div>
+                <div class="l in f5 blk-l flag"><span class="x">⎿</span>  <span class="x">acct ••7731 is not the supplier (••2290)</span></div>
+                <div class="l in f5 blk-l flag"><span class="x">⎿</span>  <span class="x">first payment ever to this account</span></div>
+                <div class="l in f5 blk-l"><span class="d">⎿</span>  <span class="d">balance $52,300 · unchanged</span></div>
+                <div class="l st-l"><span class="d">agentic-guardians · watching</span><span class="d f5r"> · transfer blocked</span></div>
               </div>
             </div>
             <div class="cb-side">
@@ -294,26 +300,26 @@ html[data-world=light] .learns .sub{transition-duration:1.1s}
                     <span class="phk s2"><i></i>WATCHING</span><span class="phk s3"><i></i>BEHAVIOUR LOCKED</span><span class="phk s4"><i></i>PROTECTED</span><span class="phk s5"><i></i>SOMETHING LOOKS OFF</span></span></div>
                   <div class="ph-sub"><span class="s2">Learning in progress.</span><span class="s3">Fingerprint locked.</span><span class="s4">Always learning · confidence growing.</span><span class="s5">1 action blocked · enforcement active.</span></div>
                   <ul class="ag-acts mono">
-                    <li class="f2 r1"><span class="an">read_file <span class="aa">invoices.csv</span></span><span class="tg">Learning</span></li>
-                    <li class="f2 r2"><span class="an">match_ledger <span class="aa">october</span></span><span class="tg">Learning</span></li>
-                    <li class="f3 r3"><span class="an">read_file <span class="aa">inv_0419.pdf</span></span><span class="tg">Allowed</span></li>
-                    <li class="f4 r35"><span class="an">match_ledger <span class="aa">inv_0419</span></span><span class="tg">Allowed</span></li>
-                    <li class="f4 r4"><span class="an">http.post <span class="aa">payments-api/transfer</span></span><span class="tg tg4">…</span><span class="tg tg5">Blocked</span></li>
+                    <li class="f2 r1"><span class="an">task <span class="aa">pay-invoices</span></span><span class="tg">Learning</span></li>
+                    <li class="f2 r2"><span class="an">open <span class="aa">invoice_0412.pdf</span></span><span class="tg">Learning</span></li>
+                    <li class="f3 r3"><span class="an">verify <span class="aa">supplier ••2290</span></span><span class="tg">Allowed</span></li>
+                    <li class="f4 r35"><span class="an">match <span class="aa">ledger</span></span><span class="tg">Allowed</span></li>
+                    <li class="f4 r4"><span class="an">transfer <span class="aa">$4,800 → ••7731</span></span><span class="tg tg4">…</span><span class="tg tg5">Blocked</span></li>
                   </ul>
                 </div>
               </div>
                 <div class="pnl pnl-ok rc">
                   <div class="pnl-top mono"><span class="pip"><i></i>baseline behaviour</span><span class="muted">payments-01</span></div>
                   <p class="pnl-p">Normal sequence:</p>
-                  <p class="seq mono"><span class="tok">read_file</span><span class="ar">→</span><span class="tok">match_ledger</span><span class="ar">→</span><span class="tok exp">write_report</span></p>
+                  <p class="seq mono"><span class="tok">open</span><span class="ar">→</span><span class="tok">verify</span><span class="ar">→</span><span class="tok">match</span><span class="ar">→</span><span class="tok exp">pay ••2290</span></p>
                 </div>
                 <div class="pnl pnl-dev rc">
                   <div class="pnl-top mono"><span class="pip pip-dev"><i></i>deviation detected</span><span class="muted">blocked</span></div>
                   <dl class="eo">
-                    <div><dt class="mono">Expected</dt><dd class="mono">write_report</dd></div>
-                    <div><dt class="mono">Observed</dt><dd><span class="mono">http.post</span> to an account never seen for this agent.</dd></div>
+                    <div><dt class="mono">Expected</dt><dd class="mono">pay supplier ••2290</dd></div>
+                    <div><dt class="mono">Observed</dt><dd><span class="mono">transfer $4,800 → ••7731</span>, an account it has never paid, prompted by a hidden instruction in invoice_0412.pdf.</dd></div>
                   </dl>
-                  <p class="verdict">Sequence not in baseline. Action blocked before it ran.</p>
+                  <p class="verdict">Not the supplier. Blocked before it ran. Balance unchanged at $52,300.</p>
                 </div>
             </div>
           </div>
@@ -329,14 +335,14 @@ html[data-world=light] .learns .sub{transition-duration:1.1s}
           <dl class="dc-g dc-g4">
             <div><dt>Decision</dt><dd class="dc-dec">Blocked<span>DENY</span></dd></div>
             <div><dt>Agent</dt><dd>payments-01</dd></div>
-            <div class="s2"><dt>Tool</dt><dd>http.post <span class="dc-mu">&middot; payments-api/transfer</span></dd></div>
-            <div><dt>Signed at (UTC)</dt><dd>2026-10-09 09:41:03</dd></div>
+            <div class="s2"><dt>Tool</dt><dd>transfer <span class="dc-mu">&middot; $4,800 to acct ••7731</span></dd></div>
+            <div><dt>Signed at (UTC)</dt><dd>2026-10-09 14:02:14</dd></div>
             <div><dt>Certificate ID</dt><dd>AG-2026-000417</dd></div>
             <div class="m2"><dt>Chain</dt><dd>seq 17 <span class="dc-mu">&middot; prev 9c1e&hellip;a04f</span></dd></div>
             <div><dt>Proof hash <span class="nw">(SHA-256)</span></dt><dd>c1cda263&hellip;73c7</dd></div>
             <div class="s2"><dt>Signature (Ed25519)</dt><dd>a543997d84f12798&hellip;4bbd5a59</dd></div>
             <div><dt>Public key</dt><dd>eb3102a6&hellip;22cc</dd></div>
-            <div class="s4"><dt>Threat summary</dt><dd class="dc-sum">http.post to an account never seen for this agent. Blocked before it ran.</dd></div>
+            <div class="s4"><dt>Threat summary</dt><dd class="dc-sum">Hidden instruction in invoice_0412.pdf redirected payment to acct ••7731, not the supplier (••2290), a first payment ever to this account. Blocked before it ran. Balance unchanged at $52,300.</dd></div>
           </dl>
         </div>
       </article>
