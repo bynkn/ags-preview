@@ -84,6 +84,7 @@ button,input{font:inherit;color:inherit}
 .twin .term{transition:border-color .3s,box-shadow .3s}
 .twin:hover .term{border-color:rgba(232,240,235,.3)}
 .nw{white-space:nowrap}
+.tap{margin:-10px 0 16px}.tap[hidden]{display:none}
 .ask{margin:0 0 16px;font-size:var(--s-lead);font-weight:600;line-height:1.3;text-wrap:balance}
 .twin:active .term{border-color:rgba(232,240,235,.45);transform:scale(.995)}
 .twin .term{transition:border-color .3s,box-shadow .3s,transform .15s}
@@ -172,6 +173,7 @@ button,input{font:inherit;color:inherit}
     <h1 class="q">Do you know what your agent is doing right now?</h1>
     <div>
       <p class="ask"><span class="nw">Two agents. Same task.</span> <span class="nw">One is compromised. Which one?</span></p>
+      <p class="tap mono mute" id="tap">Tap the one you think it is.</p>
       <div class="twins" id="twins"></div>
       <p class="result mono mute" id="twinResult" aria-live="polite"></p>
       <p class="intent" id="intent" hidden>Same keys. Same access. Different intent.</p>
@@ -291,13 +293,13 @@ button,input{font:inherit;color:inherit}
     showLine(10);
   }
   var res=$('#twinResult'), base=res.textContent, bad=Math.random()<.5?0:1, locked=false;
-  function reset(){locked=false;bad=Math.random()<.5?0:1;twins.forEach(function(t){t.classList.remove('bad','picked');$('.verdict',t).textContent=''});res.textContent=base;$('#intent').hidden=true;play()}
+  function reset(){locked=false;bad=Math.random()<.5?0:1;twins.forEach(function(t){t.classList.remove('bad','picked');$('.verdict',t).textContent=''});res.textContent=base;$('#intent').hidden=true;$('#tap').hidden=false;play()}
   twins.forEach(function(t,i){t.addEventListener('click',function(){
     if(locked)return;locked=true;
     t.classList.add('picked');twins[bad].classList.add('bad');$('.verdict',twins[bad]).textContent='Compromised';
     res.textContent=(i===bad?'Right, by luck. ':'Wrong. ')+'Both said Running. Neither screen gave it away.';
     var a=document.createElement('button');a.className='again';a.type='button';a.textContent='Again';
-    a.addEventListener('click',function(e){e.stopPropagation();reset()});res.appendChild(a);$('#intent').hidden=false;
+    a.addEventListener('click',function(e){e.stopPropagation();reset()});res.appendChild(a);$('#intent').hidden=false;$('#tap').hidden=true;
   })});
   play();
   setTimeout(function(){document.documentElement.classList.add('nav-on')},RM?0:400);
