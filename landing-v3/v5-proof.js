@@ -132,7 +132,7 @@
     placeWatcher(el);
   }
   var meta=$('meta[name="theme-color"]');
-  function world(light){
+  function world(light){return;   // landing-v3: the page flips at the end of the hero (see index.html)
     var w=light?'light':'dark';
     if(root.getAttribute('data-world')!==w){root.setAttribute('data-world',w);if(meta)meta.setAttribute('content',light?'#F5F5F3':'#0a0a0a')}
   }

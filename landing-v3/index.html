@@ -120,15 +120,20 @@ html[data-world=light] .btn-sm{background:#0a0a0a;color:#fff}
 .again{background:none;border:0;border-bottom:1px solid var(--mute);color:var(--on-ink);cursor:pointer;padding:0;margin-left:8px;font-size:inherit;font-family:inherit}
 
 /* ---------- green-dot line ---------- */
-.learns{background:var(--ink);padding:24px 16px 24px;border-top:1px solid #232323}
+.learns{background:var(--paper);color:var(--on-paper);padding:24px 16px 24px}
+/* v5 demo on white: light world always (terminal window stays dark); amber/dot recoloured so only red=blocked, green=dot */
+#gproof#gproof,#gproof#gproof .dw,#gproof#gproof .lw{
+  --bg:#f8f9f7; --bg2:#EDEDEA; --pnl:#FFFFFF; --bar:#F1F1EF; --ln:#DCDCD8; --ln2:#CBCBC6;
+  --tx:#0A0A0A; --tx2:#2B2B29; --mu:#62615D; --mu2:#74736E; --ph:#A3A29D;
+  --dot:#0B7A43; --green:#0B7A43; --amber:#0B7A43; --stop:#E30613; --bh:#0A0A0A; --bht:#ffffff;background:var(--paper);color:var(--tx)}
 .learns>.wrap{gap:24px}
 .learns h2{margin:56px 0 0;font-size:clamp(2rem,5.4vw,3.6rem);line-height:1.04;font-weight:400;letter-spacing:-.035em;text-wrap:balance}
 .learns h2 b{font-weight:800}
-.learns .sub{margin:0 0 48px;font-size:var(--s-lead);font-weight:300;line-height:1.35;color:#c8cdca;max-width:none;text-wrap:pretty}
+.learns .sub{margin:0 0 48px;font-size:var(--s-lead);font-weight:300;line-height:1.35;color:var(--mute-paper);max-width:none;text-wrap:pretty}
 @media (min-width:1100px){.learns .sub{font-size:1.3rem;white-space:nowrap}}
 
 /* ---------- white flip ---------- */
-.flip{background:var(--paper);color:var(--on-paper);padding:80px 16px 64px}
+.flip{background:var(--paper);color:var(--on-paper);padding:24px 16px 64px}
 .flip .wrap{gap:80px}
 .x{color:var(--red)}
 .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
@@ -207,7 +212,7 @@ html[data-world=light] .btn-sm{background:#0a0a0a;color:#fff}
       <div class="stage" id="stage">
         <div class="stage-in" id="stageIn" data-step="1">
           <div class="cap-row">
-            <p class="step-k" aria-hidden="true"><span class="pips"><i></i><i></i><i></i><i></i><i></i></span></p>
+            <p class="step-k" aria-hidden="true"><span class="pips"><i></i><i></i><i></i><i></i></span></p>
             <div class="caps">
               <p class="cap cap-2l" data-c="1"><span class="c1">Same agent. Same task.</span><span class="c2">This time, <span class="wm-cap"><span class="wm-a">Agentic</span> <span class="wm-g">GUARDIANS</span></span> is&nbsp;watching.</span></p>
               <p class="cap" data-c="2">It&rsquo;s learned this agent&rsquo;s normal behaviour.</p>
@@ -372,6 +377,10 @@ html[data-world=light] .btn-sm{background:#0a0a0a;color:#fff}
   }else runSeq();
   setTimeout(function(){document.documentElement.classList.add('nav-on')},RM?0:400);
 
+  /* the page (and header) turn light where the hero ends */
+  var heroEl=$('.hero'), wq=false;
+  function wtick(){wq=false;var L=heroEl.getBoundingClientRect().bottom<=(innerWidth<=760?56:64);var w=L?'light':'dark';if(document.documentElement.getAttribute('data-world')!==w)document.documentElement.setAttribute('data-world',w)}
+  addEventListener('scroll',function(){if(!wq){wq=true;requestAnimationFrame(wtick)}},{passive:true});addEventListener('resize',wtick);wtick();
   $('#form').addEventListener('submit',function(e){e.preventDefault();this.querySelector('button').textContent='Thanks';});
 })();
 </script>
