@@ -48,11 +48,15 @@ button,input{font:inherit;color:inherit}
 .js.nav-on .nav{opacity:1;transform:none;pointer-events:auto}
 .nav-in{max-width:1136px;margin:0 auto;height:64px;display:flex;align-items:center;justify-content:space-between;gap:28px}
 .brand{display:flex;align-items:center;gap:16px;text-decoration:none;min-width:0;color:var(--on-ink)}
+.brand{font-size:15px;color:#ededed}
+.wm{display:inline-flex;align-items:baseline;gap:.28em;white-space:nowrap;letter-spacing:-.01em;font-family:var(--f-display)}
+.wm-a{font-weight:300}.wm-g{font-weight:700;letter-spacing:.035em}
+.wm-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--green);margin-left:2px;transform:translateY(-1px)}
 .brand .tag{font-size:14px;color:#7a7a7a;padding-left:16px;border-left:1px solid #2a2a2a;white-space:nowrap}
 .btn-sm{font-weight:500;font-size:14px;border-radius:8px;text-decoration:none;display:inline-flex;align-items:center;padding:8px 14px;height:36px;background:#ededed;color:#0a0a0a;transition:background .15s,transform .15s;white-space:nowrap}
 .btn-sm:hover{background:#fff}.btn-sm:active{transform:translateY(1px)}
 @media (max-width:1200px){.nav-in{max-width:calc(100% - 48px)}}
-@media (max-width:760px){.nav-in{max-width:none;padding:0 16px;gap:12px;height:56px}.brand{gap:10px}.brand .tag{display:none}.btn-sm{padding:7px 12px;height:34px}.hero{padding-top:88px}}
+@media (max-width:760px){.nav-in{max-width:none;padding:0 16px;gap:12px;height:56px}.brand{gap:10px;font-size:14px}.brand .tag{display:none}.btn-sm{padding:7px 12px;height:34px}.hero{padding-top:88px}}
 .mark{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:.01em}
 .q,.ask,.copy,.learns,.caps,.step h3,.signup h2,.signup>p,.intent,.mark{font-family:var(--f-display)}
 .q{margin:0;font-size:var(--s-display);line-height:.98;font-weight:700;letter-spacing:-.04em;text-wrap:balance}
@@ -165,7 +169,7 @@ button,input{font:inherit;color:inherit}
 <body id="top">
 <header class="nav" id="nav">
   <div class="nav-in">
-    <a class="brand" href="#top" aria-label="Agentic Guardians, back to top"><span class="mark"><span class="dot"></span>Agentic Guardians</span><span class="tag">The trust layer for AI agents</span></a>
+    <a class="brand" href="#top" aria-label="Agentic Guardians, back to top"><span class="wm"><span class="wm-a">Agentic</span> <span class="wm-g">GUARDIANS</span><i class="wm-dot" aria-hidden="true"></i></span><span class="tag">The trust layer for AI agents</span></a>
     <a class="btn-sm" href="#access">Request access</a>
   </div>
 </header>
