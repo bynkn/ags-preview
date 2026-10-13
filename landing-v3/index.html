@@ -54,7 +54,9 @@ button,input{font:inherit;color:inherit}
 @media (max-width:760px){.nav-in{max-width:none;padding:0 16px;gap:12px;height:56px}.brand{gap:10px}.brand .tag{display:none}.btn-sm{padding:7px 12px;height:34px}.hero{padding-top:88px}}
 .mark{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:.01em}
 .q{margin:0;font-size:var(--s-display);line-height:.98;font-weight:700;letter-spacing:-.025em;text-wrap:balance}
-.copy{display:grid;gap:10px;max-width:36rem}
+.copy{display:grid;gap:10px;max-width:none}
+@media (min-width:761px){.copy p{white-space:nowrap}}
+@media (max-width:760px){.copy .b1,.copy .b2{display:block}}
 .copy p{margin:0;font-size:var(--s-lead);line-height:1.3;font-weight:300;text-wrap:balance}
 .copy .l3{font-weight:600;display:flex;gap:12px;align-items:center;margin-top:8px}
 .trust{font-weight:800}
@@ -176,7 +178,7 @@ button,input{font:inherit;color:inherit}
     </div>
     <div class="copy">
       <p>A compromised agent doesn't look compromised.</p>
-      <p>Can you <span class="trust">trust</span> it to do what it's supposed to, and only that?</p>
+      <p><span class="b1">Can you <span class="trust">trust</span> it</span> <span class="b2">to do what it's supposed to, and only that?</span></p>
       <p class="l3"><span class="dot"></span>With Agentic Guardians, you can.</p>
     </div>
   </div>
